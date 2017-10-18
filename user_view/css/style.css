@@ -294,7 +294,7 @@ span.hiddened{text-transform:lowercase}
 
 .dop_parametr{display:inline-block;position:relative;width:auto;max-width:224px;text-align:center;margin:10px 1.8em;cursor:pointer}
 .del_this_option,.change_this_option{visibility:hidden;position:absolute;top:10px;color:#b5212e;right:0px;cursor:pointer;z-index:99999}
-.change_this_option{left:0;text-align:left;font-size:0.75em;text-transform:uppercase}
+.change_this_option{font-size:0.75em;text-transform:uppercase}
 .change_this_option:hover{text-decoration:underline}
 .del_this_option>i{font-size:1.2em}
 .del_this_option>i:hover{font-size:1.3em}

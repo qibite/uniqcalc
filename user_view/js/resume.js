@@ -378,7 +378,7 @@ jQuery(document).ready(($)=>{
 		$(this).css('display', 'none');
 		$('#option_2 .dop_parametr:last-child').before(()=>{
 			if (that.attr('id') == 'b3') {
-			var new_html = 	'<div class="dop_parametr"><span class="change_this_option"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" style="width:200px"> \
+			var new_html = 	'<div class="dop_parametr"><span class="change_this_option pult">Изменить <i class="fa fa-pencil-square" aria-hidden="true"></i></span><img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" style="width:200px"> \
 								<h4>Подвесной пульт</h4> \
 								<p><span class="opisanie_parametra">Входит в стоимость крана</span><br> \
 								<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i></p>';
@@ -402,10 +402,32 @@ jQuery(document).ready(($)=>{
 		
 	});
 
+/*******************************************************************************************************************************************************************************************************************************************************************
+*
+*
+*
+*
+*																																	Функции для изменения пульта / джойстика управления
+*																																	
+*																																						ДОП ОПЦИИ
+*
+*
+*
+*
+*
+*
+*******************************************************************************************************************************************************************************************************************************************************************/
+
+$('.dop_menu_open').on('click', '.pult', function(event) {
+	
+	var pult_upravleniya = document.createElement('div');
+	pult_upravleniya.className = 'pultslider';
+
+})
 
 
 
-
+/*****************************************************************************************************************************************************************************************************************************************************************/
 //Удалить опцию
 	$('.dop_menu_open').on('click', '.del_this_option',function(event) {
 		$(this).parent().detach();
@@ -443,7 +465,7 @@ $('#revers').on('click', function() {
 *
 *
 *
-*					ФУНКЦИЯ УДАЛЕНИЯ ЭЛЕМЕНТОВ ИЗ БЛОКА ВЫБОРА ОПЦИЙ, ТОКОПРОВОДА И Т.П.
+*					ФУНКЦИЯ СКРЫТИЯ ЭЛЕМЕНТОВ ИЗ БЛОКА ВЫБОРА ОПЦИЙ, ТОКОПРОВОДА И Т.П.
 *
 *
 *
@@ -462,7 +484,7 @@ function delete_doble (context /* string: #option_1, #option_2 */, container /* 
 		container.children().children('.cat').children('#'+hidden_elements).css('display', 'none');
 	});
 }
-
+/**************************************************************************************************************************************/
 function showChange (showMenu) {
 	$('.modal_view').removeClass('mmm modal_view_hide').addClass('modal_view_show');
 	showMenu.removeClass('modal_change_hide').addClass('modal_change_show');
