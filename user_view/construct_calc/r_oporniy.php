@@ -39,10 +39,6 @@ echo <<<EOT
 				<td><i class="hover" id="type_uprO">изменить</i></td>
 				<td class="">Тип управления краном - <span id="Otc"></span></td>
 			</tr>
-		<!--<tr>
-				<td><i class="hover"  id="sposob_uprO">изменить</i></td>
-				<td class="">Способ управления краном - <span id="Ouc"></span></td>
-			</tr>-->
 			<tr>
 				<td><i class="hover" id="CrazrezO">изменить</i></td>
 				<td class="">Разрезной тип конструкции - <span id="Otk"></span>

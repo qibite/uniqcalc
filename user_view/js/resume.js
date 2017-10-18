@@ -80,24 +80,14 @@ jQuery(document).ready(($)=>{
 		$('#Помещение').click(()=>{cran.climat = 'Расположение в помещении';setTimeout(()=>{hideChange()},300);$('#Ocu').text(cran.climat)});
 
 	$('#type_uprO').click(()=>{showChange($('#тип_управления'))})
-		$('#Ручное').click(()=>{cran._3 = 'Ручное';cran._3Type = 'Отсутствует при ручном управлении';setTimeout(()=>{hideChange()},300);$('#Otc').text(cran._3);$('#Ouc').text(cran._3Type);
+		$('#Ручное').click(()=>{cran._3 = 'Ручное';cran._3Type = 'Отсутствует при ручном управлении';setTimeout(()=>{hideChange()},300);$('#Otc').text(cran._3);
 			$('#gpO > ul li:nth-child(9)').css('display','none');$('#gpO > ul li:nth-child(10)').css('display','none');
 			if (cran.gp > 10000) {cran.gp = 10000; alert('Грузоподъемность была уменьшена до 10000 кг для крана с ручным управлением!')}
 			$('#Ogp').text(cran.gp);
 			calculate_oporniy_crane();
 		});
-		$('#Электро').click(()=>{cran._3 = 'Электро';setTimeout(()=>{showChange($('#способ_управления'))},100);$('#Otc').text(cran._3);
-			$('#gpO > ul li:nth-child(9)').css('display','inline-block');$('#gpO > ul li:nth-child(10)').css('display','inline-block')});
+		$('#Электро').click(()=>{cran._3 = 'Электро';$('#Otc').text(cran._3);setTimeout(()=>{hideChange()},300)});
 
-	$('#sposob_uprO').click(()=>{showChange($('#способ_управления'))})
-		$('#Пульт_подвесной').click(()=>{cran._3 = 'Электро';cran._3Type = 'Подвесной пульт';setTimeout(()=>{hideChange()},300);$('#Ouc').text(cran._3Type);$('#Otc').text(cran._3);calculate_oporniy_crane()});
-		$('#Радио_управление').click(()=>{setTimeout(()=>{showChange($('#тип_радио'))}, 300)});
-		$('sposob_uprO').click(()=>{showChange($('#тип_радио'))});
-			$('#Пульт').click(()=>{cran._3Type = 'Управление с пульта';setTimeout(()=>{showChange($('#производитель_пульта'))}, 300)});
-			$('#Джойстик').click(()=>{cran._3Type = 'Джойстик';setTimeout(()=>{showChange($('#производитель_пульта'))}, 300)});
-				$('#telecrane').click(()=>{cran._3 = 'Электро';cran._3Type = cran._3Type + ' Telecrane (Тайвань)';setTimeout(()=>{hideChange()},300);$('#Ouc').text(cran._3Type);$('#Otc').text(cran._3);calculate_oporniy_crane()});
-				$('#ikusi').click(()=>{cran._3 = 'Электро';cran._3Type = cran._3Type + ' Ikusi (Испания)';setTimeout(()=>{hideChange()},300);$('#Ouc').text(cran._3Type);$('#Otc').text(cran._3);calculate_oporniy_crane()});
-				$('#HBC').click(()=>{cran._3 = 'Электро';cran._3Type = cran._3Type + ' HBC-Radiomatic (Германия)';setTimeout(()=>{hideChange()},300);$('#Ouc').text(cran._3Type);$('#Otc').text(cran._3);calculate_oporniy_crane()});
 	$('#CrazrezO').click(()=>{showChange($('#razrezO'))})
 		$('#Разрезной').click(()=>{cran.razrez = 'Разрезной';setTimeout(()=>{hideChange()},300);$('#Otk').text('Да')});
 		$('#Неразрезной').click(()=>{cran.razrez = 'Неразрезной';setTimeout(()=>{hideChange()},300);$('#Otk').text('Нет')});
@@ -239,24 +229,13 @@ jQuery(document).ready(($)=>{
 		$('#ПомещениеP').click(()=>{cran.climat = 'Расположение в помещении';setTimeout(()=>{hideChange()},300);$('#Pcu').text(cran.climat)});
 
 	$('#type_uprP').click(()=>{showChange($('#тип_управленияP'))})
-		$('#РучноеP').click(()=>{cran._3 = 'Ручное';cran._3Type = 'Отсутствует при ручном управлении';setTimeout(()=>{hideChange()},300);$('#Ptc').text(cran._3);$('#Puc').text(cran._3Type);
+		$('#РучноеP').click(()=>{cran._3 = 'Ручное';cran._3Type = 'Отсутствует при ручном управлении';setTimeout(()=>{hideChange()},300);$('#Ptc').text(cran._3);
 			$('#gpP > ul li:nth-child(9)').css('display','none');$('#gpP > ul li:nth-child(10)').css('display','none');
 			if (cran.gp > 10000) {cran.gp = 10000; alert('Грузоподъемность была уменьшена до 10000 кг для крана с ручным управлением!')}
 			$('#Pgp').text(cran.gp);
 	});
-		$('#ЭлектроP').click(()=>{cran._3 = 'Электро';setTimeout(()=>{showChange($('#способ_управленияP'))},100);$('#Ptc').text(cran._3);
-			$('#gpP > ul li:nth-child(9)').css('display','inline-block');$('#gpP > ul li:nth-child(10)').css('display','inline-block')
-	});
+		$('#ЭлектроP').click(()=>{cran._3 = 'Электро';$('#Ptc').text(cran._3);setTimeout(()=>{hideChange()},300);});
 
-	$('#sposob_uprP').click(()=>{showChange($('#способ_управленияP'))})
-		$('#Пульт_подвеснойP').click(()=>{cran._3 = 'Электро';cran._3Type = 'Подвесной пульт';setTimeout(()=>{hideChange()},300);$('#Puc').text(cran._3Type);$('#Ptc').text(cran._3)});
-		$('#Радио_управлениеP').click(()=>{setTimeout(()=>{showChange($('#тип_радиоP'))}, 300)});
-		$('sposob_uprP').click(()=>{showChange($('#тип_радиоP'))});
-			$('#ПультP').click(()=>{cran._3Type = 'Управление с пульта';setTimeout(()=>{showChange($('#производитель_пультаP'))}, 300)});
-			$('#ДжойстикP').click(()=>{cran._3Type = 'Джойстик';setTimeout(()=>{showChange($('#производитель_пультаP'))}, 300)});
-				$('#telecraneP').click(()=>{cran._3 = 'Электро';cran._3Type = cran._3Type + ' Telecrane (Тайвань)';setTimeout(()=>{hideChange()},300);$('#Puc').text(cran._3Type);$('#Ptc').text(cran._3)});
-				$('#ikusiP').click(()=>{cran._3 = 'Электро';cran._3Type = cran._3Type + ' Ikusi (Испания)';setTimeout(()=>{hideChange()},300);$('#Puc').text(cran._3Type);$('#Ptc').text(cran._3)});
-				$('#HBCP').click(()=>{cran._3 = 'Электро';cran._3Type = cran._3Type + ' HBC-Radiomatic (Германия)';setTimeout(()=>{hideChange()},300);$('#Puc').text(cran._3Type);$('#Ptc').text(cran._3)});
 	$('#CrazrezP').click(()=>{showChange($('#razrezP'))})
 		$('#РазрезнойP').click(()=>{cran.razrez = 'Разрезной';setTimeout(()=>{hideChange()},300);$('#Ptk').text('Да')});
 		$('#НеразрезнойP').click(()=>{cran.razrez = 'Неразрезной';setTimeout(()=>{hideChange()},300);$('#Ptk').text('Нет')});
@@ -419,7 +398,7 @@ jQuery(document).ready(($)=>{
 *******************************************************************************************************************************************************************************************************************************************************************/
 
 $('.dop_menu_open').on('click', '.pult', function(event) {
-	
+
 	var pult_upravleniya = document.createElement('div');
 	pult_upravleniya.className = 'pultslider';
 

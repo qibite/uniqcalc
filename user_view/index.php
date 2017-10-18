@@ -157,28 +157,6 @@ $wpdb->show_errors();
 	</div>
 <!-- ТИП УПРАВЛЕНИЯ КРАНОМ -->
 
-<!-- ТИП СПОСОБ КРАНОМ -->
-	<div id="способ_управления" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="Пульт_подвесной" class="change_li"><span>Подвесной пульт</span></li>
-			<li id="Радио_управление" class="change_li"><span>Радиоуправление</span></li>
-		</ul>
-	</div>
-	<div id="тип_радио" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="Пульт" class="change_li"><span>Пульт</span></li>
-			<li id="Джойстик" class="change_li"><span>Джойстик</span></li>
-		</ul>
-	</div>
-	<div id="производитель_пульта" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="telecrane" class="change_li"><span>Telecrane</span></li>
-			<li id="ikusi" class="change_li"><span>Ikusi</span></li>
-			<li id="HBC" class="change_li"><span>HBC-Radiomatic</span></li>
-		</ul>
-	</div>
-<!-- ТИП СПОСОБ КРАНОМ -->
-
 <!-- РАЗРЕЗНОЙ -->
 	<div id="razrezO" class="modal_change modal_change_hide">
 		<ul class="ul_change">
@@ -379,28 +357,6 @@ $wpdb->show_errors();
 		</ul>
 	</div>
 <!-- ТИП УПРАВЛЕНИЯ КРАНОМ -->
-
-<!-- ТИП СПОСОБ КРАНОМ -->
-	<div id="способ_управленияP" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="Пульт_подвеснойP" class="change_li"><span>Подвесной пульт</span></li>
-			<li id="Радио_управлениеP" class="change_li"><span>Радиоуправление</span></li>
-		</ul>
-	</div>
-	<div id="тип_радиоP" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="ПультP" class="change_li"><span>Пульт</span></li>
-			<li id="ДжойстикP" class="change_li"><span>Джойстик</span></li>
-		</ul>
-	</div>
-	<div id="производитель_пультаP" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="telecraneP" class="change_li"><span>Telecrane</span></li>
-			<li id="ikusiP" class="change_li"><span>Ikusi</span></li>
-			<li id="HBCP" class="change_li"><span>HBC-Radiomatic</span></li>
-		</ul>
-	</div>
-<!-- ТИП СПОСОБ КРАНОМ -->
 
 <!-- РАЗРЕЗНОЙ -->
 	<div id="razrezP" class="modal_change modal_change_hide">

@@ -79,10 +79,17 @@ jQuery(document).ready(($)=>{
 		hide($('#_3'));
 		cran._3Type = 'Подвесной пульт';
 		$('#option_2 .dop_parametr:last-child').before(()=>{
-			let new_html = '<div class="dop_parametr"><span class="change_this_option pult">Изменить <i class="fa fa-pencil-square" aria-hidden="true"></i></span><img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" style="width:200px"> \
+			let new_html = '<div class="dop_parametr"> \
+								<span class="change_this_option pult">Изменить \
+									<i class="fa fa-pencil-square" aria-hidden="true"></i> \
+								</span> \
+								<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" style="width:200px"> \
 								<h4>Подвесной пульт</h4> \
-								<p><span class="opisanie_parametra">Входит в стоимость крана</span><br> \
-								<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i></p>';
+								<p> \
+									<span class="opisanie_parametra">Входит в стоимость крана</span> \
+										<br> \
+									<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i> \
+								</p>';
 			return new_html;
 		});
 		next_group( $('#razmeshenie'), 0 );
