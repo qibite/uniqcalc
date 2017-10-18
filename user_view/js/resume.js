@@ -393,22 +393,30 @@ jQuery(document).ready(($)=>{
 $('.dop_menu_open').on('click', '.pult', function(event) {
 
 	var pult_upravleniya = document.createElement('div');
-	pult_upravleniya.className = 'pultslider';
-	
+	pult_upravleniya.className = 'pultslider';	
 
 	var pult_upravleniya_close = document.createElement('span');
 	pult_upravleniya_close.id = 'closePult';
 	pult_upravleniya_close.innerHTML = '<i class="fa fa-times-circle-o" aria-hidden="true"></i>';
-	pult_upravleniya.append(pult_upravleniya_close)
+	pult_upravleniya.append(pult_upravleniya_close);
+
+	var pult_upravleniya_h2 = document.createElement('H2');
+	pult_upravleniya_h2.innerText = 'Выберите пульт управления краном';
+	pult_upravleniya.append(pult_upravleniya_h2);
+
+	var pult_upravleniya_telo = document.createElement('div');
+	pult_upravleniya_telo.innerHTML = 'Выберите пульт управления краном';
+	pult_upravleniya.append(pult_upravleniya_telo);
 
 	
-	$('html, body').animate({ 'scrollTop': '0px' }, 400)
+	$('html, body').animate({ 'scrollTop':'0px' }, 400)
 	$('.zzz').after(pult_upravleniya);
 })
 
 $('body').on('click', '#closePult', function(event) {
 	console.log('click')
 	$(this).parent('.pultslider').detach();
+	$('html, body').animate({ 'scrollTop':'260px' }, 400)
 })
 
 
