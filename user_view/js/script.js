@@ -775,7 +775,6 @@ function resultatiO () {
 	$('#Otr').html(cran.temper[0]+'&deg; до '+cran.temper[1]+'&deg;');
 	$('#Ocu').text(cran.climat);
 	$('#Otc').text(cran._3);
-	$('#Ouc').text(cran._3Type);
 	$('#Otpr').text(cran.relsO?cran.relsO:'Не определён');
 	$('#Otk').text(cran.razrez);
 	$('#Ois').text(cran.speed);
@@ -784,8 +783,7 @@ function resultatiO () {
 	$('#Oep').text(cran.getep);
 	$('#Ovolt').text(cran.ncuprav);
 	$('#Ospeed').text(cran.speedmetr);
-	$('#Ottk').text(cran.ttk);	
-	$('#Omotor').text(cran.motor);
+	$('#Ottk').text(cran.ttk);
 }
 
 function resultatiP () {
@@ -798,7 +796,6 @@ function resultatiP () {
 	$('#Ptr').html(cran.temper[0]+'&#176; до '+cran.temper[1]+'&#176;');
 	$('#Pcu').text(cran.climat);
 	$('#Ptc').text(cran._3);
-	$('#Puc').text(cran._3Type);
 	$('#Ptpr').text(cran.relsP?cran.relsP:'Не определён');
 	$('#Ptk').text(cran.razrez);
 	$('#Pis').text(cran.speed);
@@ -808,7 +805,6 @@ function resultatiP () {
 	$('#Pvolt').text(cran.ncuprav);
 	$('#Pspeed').text(cran.speedmetr);
 	$('#Pttk').text(cran.ttk);
-	$('#Pmotor').text(cran.motor);
 }
 
 function price_crane_electro_upravleniya (_8punkt) {

@@ -237,8 +237,8 @@ td>span,img+br+p>span,img+br+p+p>span{color:#b5212e}
 }
 .res>tbody tr:nth-child(even){color:inherit}
 
-#close,#close2{position:absolute;right:30px;top:64px;font-size:2.5em;color:#ddd;cursor:pointer;font-weight:bold}
-#close:hover,#close2:hover{color:#b5212e;transform:scale(1.1)}
+#close,#close2,#closePult{position:absolute;right:30px;top:64px;font-size:2.5em;color:#ddd;cursor:pointer;font-weight:bold}
+#close:hover,#close2:hover,#closePult:hover{color:#b5212e;transform:scale(1.1)}
 .mmm,.zzz{transform:translateY(5000px)}
 .modal_view,.hidden_options{position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(255, 255, 255, 0.9);z-index:99999}
 .modal_view_hide,.hidden_options_hide{animation: hidem 0.7s ease;animation-fill-mode:forwards}
@@ -339,37 +339,14 @@ p>b.hz4
 {
 	color: #333;
 }
-/*
-#vibor_tali {
+.pultslider
+{
 	position: absolute;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-    top: 50px;
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 100%;
-    height: 480px;
-    font-family:'Rubik Regular';
-    visibility: hidden;
+	top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	background-color: #FFFFFF;
+	border: 25px solid #EFEFEF;
+	z-index: 9999;
 }
-#vibor_tali div{
-	display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-#vibor_tali > span, #vibor_tali div > span {
-	background-color: #b5212e;
-    padding: 30px 70px;
-    color: #FFF;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-#vibor_tali > span:hover, #vibor_tali div > span:hover {
-	text-decoration: underline;
-	background-color: #e60216;
-	cursor: pointer;
-}
-
-#ruchnaya_t, #electro_t {
-	display: none;
-}*/

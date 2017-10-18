@@ -283,20 +283,6 @@ jQuery(document).ready(($)=>{
 		$('#зтP').click(()=>{cran.setttk = 'Закрытые троллеи';setTimeout(()=>{hideChange()},300);$('#Pttk').text(cran.ttk)});
 		$('#нетребуетсяP').click(()=>{cran.setttk = 'Не требуется';setTimeout(()=>{hideChange()},300);$('#Pttk').text(cran.ttk)});
 
-
-	$('#cOmotor').click(()=>{showChange($('#motorO'))});
-		$('#м1O').click(()=>{cran.setmotor = 'Червячная передача  ABLE (Италия)';setTimeout(()=>{hideChange()},300);$('#Omotor').text(cran.motor)});
-		$('#м2O').click(()=>{cran.setmotor = 'Червячная передача  NORD (Германия)';setTimeout(()=>{hideChange()},300);$('#Omotor').text(cran.motor)});
-		$('#м3O').click(()=>{cran.setmotor = 'Циллиндрическая передача  Балкан Эхо (Болгария)';setTimeout(()=>{hideChange()},300);$('#Omotor').text(cran.motor)});
-		$('#м4O').click(()=>{cran.setmotor = 'Циллиндрическая передача  NORD (Германия)';setTimeout(()=>{hideChange()},300);$('#Omotor').text(cran.motor)});
-		$('#м5O').click(()=>{cran.setmotor = 'Циллиндрическая передача  Европривод (Россия)';setTimeout(()=>{hideChange()},300);$('#Omotor').text(cran.motor)});
-	$('#cPmotor').click(()=>{showChange($('#motorP'))});
-		$('#м1P').click(()=>{cran.setmotor = 'Червячная передача  ABLE (Италия)';setTimeout(()=>{hideChange()},300);$('#Pmotor').text(cran.motor)});
-		$('#м2P').click(()=>{cran.setmotor = 'Червячная передача  NORD (Германия)';setTimeout(()=>{hideChange()},300);$('#Pmotor').text(cran.motor)});
-		$('#м3P').click(()=>{cran.setmotor = 'Циллиндрическая передача  Балкан Эхо (Болгария)';setTimeout(()=>{hideChange()},300);$('#Pmotor').text(cran.motor)});
-		$('#м4P').click(()=>{cran.setmotor = 'Циллиндрическая передача  NORD (Германия)';setTimeout(()=>{hideChange()},300);$('#Pmotor').text(cran.motor)});
-		$('#м5P').click(()=>{cran.setmotor = 'Циллиндрическая передача  Европривод (Россия)';setTimeout(()=>{hideChange()},300);$('#Pmotor').text(cran.motor)});
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -339,8 +325,15 @@ jQuery(document).ready(($)=>{
 			calculate_tormoz(); // Тормоз на передвижение крана
 			calculate_shit();  // Установить цену для щита
 			calculate_stop(); // Установить цену для Аварийный стоп на передвижение
+			document.getElementById('b3').style.display = 'inline-block';
+			document.getElementById('b10').style.display = 'inline-block';
+			document.getElementById('b11').style.display = 'inline-block';
+			document.getElementById('b12').style.display = 'inline-block';
+			document.getElementById('b13').style.display = 'inline-block';
+			document.getElementById('b14').style.display = 'inline-block';
 			
 		} else {
+			document.getElementById('b3').style.display = 'none';
 			document.getElementById('b10').style.display = 'none';
 			document.getElementById('b11').style.display = 'none';
 			document.getElementById('b12').style.display = 'none';
@@ -381,7 +374,7 @@ jQuery(document).ready(($)=>{
 		
 	});
 
-/*******************************************************************************************************************************************************************************************************************************************************************
+/************************************************************************************************************************************************************************************************************************************
 *
 *
 *
@@ -395,18 +388,31 @@ jQuery(document).ready(($)=>{
 *
 *
 *
-*******************************************************************************************************************************************************************************************************************************************************************/
+***********************************************************************************************************************************************************************************************************************************/
 
 $('.dop_menu_open').on('click', '.pult', function(event) {
 
 	var pult_upravleniya = document.createElement('div');
 	pult_upravleniya.className = 'pultslider';
+	
 
+	var pult_upravleniya_close = document.createElement('span');
+	pult_upravleniya_close.id = 'closePult';
+	pult_upravleniya_close.innerHTML = '<i class="fa fa-times-circle-o" aria-hidden="true"></i>';
+	pult_upravleniya.append(pult_upravleniya_close)
+
+	
+	$('html, body').animate({ 'scrollTop': '0px' }, 400)
+	$('.zzz').after(pult_upravleniya);
+})
+
+$('body').on('click', '#closePult', function(event) {
+	console.log('click')
+	$(this).parent('.pultslider').detach();
 })
 
 
-
-/*****************************************************************************************************************************************************************************************************************************************************************/
+/************************************************************************************************************************************************************************************************************************************/
 //Удалить опцию
 	$('.dop_menu_open').on('click', '.del_this_option',function(event) {
 		$(this).parent().detach();
@@ -431,6 +437,7 @@ $('#revers').on('click', function() {
 	if (cran._3 == 'Ручное')
 		{
 			document.getElementById('a3').style.display = 'none';
+			document.getElementById('b3').style.display = 'none';
 			document.getElementById('b10').style.display = 'none';
 			document.getElementById('b11').style.display = 'none';
 			document.getElementById('b12').style.display = 'none';
@@ -503,6 +510,7 @@ function hideThisChange (this_Change) {
 		$('.cat').children('div').css('display', 'none');
 		if (cran._3 == 'Ручное')
 		{
+			document.getElementById('b3').style.display = 'none';
 			document.getElementById('b10').style.display = 'none';
 			document.getElementById('b11').style.display = 'none';
 			document.getElementById('b12').style.display = 'none';
@@ -649,10 +657,10 @@ function hideThisChange (this_Change) {
 function postavka_rels () {
 	if (cran._1 == 'Опорный')
 	{
-		var rels =	{ gp:cran.gp, shirinamp:cran.paramsO.shpO, upravlenie:cran._3 }
+		var rels =	{ gp:cran.gp, shirinamp:cran.paramsO.dpO, upravlenie:cran._3 }
 	}
 	/////////////
-	var data_rels = { action: 'postavka_rels', _rels_gp:rels.gp, _rels_shirinamp:rels.shirinamp, _rels_upravlenie:rels.upravlenie, rels_url_img:location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/' }
+	var data_rels = { action: 'postavka_rels', _rels_gp:rels.gp, _rels_dlinna:rels.shirinamp, _rels_upravlenie:rels.upravlenie, rels_url_img:location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/' }
 	$.post( calc_ajaxurl.url, data_rels, function(response)
 	{
 		$('#a2').html(response);

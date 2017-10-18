@@ -535,7 +535,7 @@ add_action('wp_ajax_nopriv_postavka_rels', 'postavka_rels');
 function postavka_rels () {
 	$rels_gp = $_POST['_rels_gp'];
 	$rels_upravlenie = '\''.$_POST['_rels_upravlenie'].'\'';
-	$rels_shirinamp = $_POST['_rels_shirinamp'];
+	$rels_shirinamp = $_POST['_rels_dlinna'];
 	$url_img = $_POST['rels_url_img'];
 
 	global $wpdb;$wpdb->show_errors();

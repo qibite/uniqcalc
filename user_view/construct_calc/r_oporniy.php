@@ -75,10 +75,6 @@ echo <<<EOT
 		<!--<tr>
 				<td><i class="hover" id="cOttk">изменить</i></td>
 				<td class="">Токопровод к крану - <span id="Ottk"></span></td>
-			</tr>
-			<tr>
-				<td><i class="hover" id="cOmotor">изменить</i></td>
-				<td class="">Мотор редуктора - <span id="Omotor"></span></td>
 			</tr>-->
 		</tbody>
 	</table>

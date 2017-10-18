@@ -485,9 +485,9 @@ $wpdb->show_errors();
 		</div>
 	</div>
 </aside>
-<!-- ТОКОПРОВОД -->
+<!-- Опции для блоков ТОКОПРОВОД, ДОП. ОПЦИИ И УСЛУГИ -->
 <?php require_once("construct_calc/menu_dop.php"); ?>
-<!-- ТОКОПРОВОД -->
+<!-- Опции для блоков ТОКОПРОВОД, ДОП. ОПЦИИ И УСЛУГИ -->
 <div style="clear:both"></div>
 <script src="<?=$url_this;?>js/script.js" type="text/javascript" charset="utf-8"></script>
 <script src="<?=$url_this;?>js/resume.js" type="text/javascript" charset="utf-8"></script>
