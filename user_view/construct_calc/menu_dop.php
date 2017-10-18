@@ -26,7 +26,8 @@
 	</div>
 
 	<div id="second_opt" class="modal_change modal_change_hide">
-		<ul class="ul_change">		
+		<ul class="ul_change">
+		<li id="b3" class="change_li"><span><img src="<?=$url;?>images/3.3.jpg" alt="" style="width:140px"><p><b class="hz4">Пульт подвесной</b><br><span class="opisanie_parametra">Входит в стоимость крана</span></p></span><span class='hiddened'>Бесплатно</span></li>
 		<li id="b10" class="change_li  cat"><span><img src="<?=$url;?>images/10.jpg" alt="" style="width:140px"><p><b class="hz4">Концевые выключатели</b></p></span><span class='hiddened'></span>
 		<?php
 			$variants = $wpdb->prefix . 'variants';

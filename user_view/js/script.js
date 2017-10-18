@@ -78,6 +78,13 @@ jQuery(document).ready(($)=>{
 	$('._33_next').click(function () {
 		hide($('#_3'));
 		cran._3Type = 'Подвесной пульт';
+		$('#option_2 .dop_parametr:last-child').before(()=>{
+			let new_html = '<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.3.jpg" alt="" style="width:200px"> \
+								<h4>Подвесной пульт</h4> \
+								<p><span class="opisanie_parametra">Входит в стоимость крана</span><br> \
+								<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i></p>';
+			return new_html;
+		});
 		next_group( $('#razmeshenie'), 0 );
 	});
 	$('._34').click(function () {
@@ -486,7 +493,7 @@ jQuery(document).ready(($)=>{
 						resultatiP();
 						next_group($('#результат_подвесного'), 0);
 					}
-					$('#aftrfirst').css('height', '530px');
+					$('#aftrfirst').css('height', '390px');
 					$('#dop_block').css('display', 'block');
 					calculate_tal();
 			})
@@ -519,7 +526,7 @@ jQuery(document).ready(($)=>{
 							resultatiP();
 							next_group($('#результат_подвесного'), 0);
 						}
-						$('#aftrfirst').css('height', '530px');
+						$('#aftrfirst').css('height', '390px');
 						$('#dop_block').css('display', 'block');
 						calculate_tal();
 				})
@@ -536,7 +543,7 @@ jQuery(document).ready(($)=>{
 							resultatiP();
 							next_group($('#результат_подвесного'), 0);
 						}
-						$('#aftrfirst').css('height', '530px');
+						$('#aftrfirst').css('height', '390px');
 						$('#dop_block').css('display', 'block');
 						calculate_tal();
 				})
@@ -554,7 +561,7 @@ jQuery(document).ready(($)=>{
 						resultatiP();
 						next_group($('#результат_подвесного'), 0);
 					}
-					$('#aftrfirst').css('height', '530px');
+					$('#aftrfirst').css('height', '390px');
 					$('#dop_block').css('display', 'block');
 					calculate_tal();
 			})
@@ -572,7 +579,7 @@ jQuery(document).ready(($)=>{
 						resultatiP();
 						next_group($('#результат_подвесного'), 0);
 					}
-					$('#aftrfirst').css('height', '530px');
+					$('#aftrfirst').css('height', '390px');
 					$('#dop_block').css('display', 'block');
 					calculate_tal();
 			})
@@ -590,7 +597,7 @@ jQuery(document).ready(($)=>{
 						resultatiP();
 						next_group($('#результат_подвесного'), 0);
 					}
-					$('#aftrfirst').css('height', '530px');
+					$('#aftrfirst').css('height', '390px');
 					$('#dop_block').css('display', 'block');
 					calculate_tal();	
 			})
@@ -613,7 +620,7 @@ jQuery(document).ready(($)=>{
 						resultatiP();
 						next_group($('#результат_подвесного'), 0);
 					}
-					$('#aftrfirst').css('height', '530px');
+					$('#aftrfirst').css('height', '390px');
 					$('#dop_block').css('display', 'block');
 					calculate_tal();
 				  }
@@ -638,7 +645,7 @@ jQuery(document).ready(($)=>{
 								resultatiP();
 								next_group($('#результат_подвесного'), 0);
 							}
-							$('#aftrfirst').css('height', '530px');
+							$('#aftrfirst').css('height', '390px');
 							$('#dop_block').css('display', 'block');
 							calculate_tal();
 					}
@@ -656,7 +663,7 @@ jQuery(document).ready(($)=>{
 							resultatiP();
 							next_group($('#результат_подвесного'), 0);
 						}
-						$('#aftrfirst').css('height', '530px');
+						$('#aftrfirst').css('height', '390px');
 						$('#dop_block').css('display', 'block');
 						calculate_tal();
 				})
@@ -673,7 +680,7 @@ jQuery(document).ready(($)=>{
 			resultatiP();
 			next_group($('#результат_подвесного'), 0);
 		}
-		$('#aftrfirst').css('height', '530px');
+		$('#aftrfirst').css('height', '390px');
 		$('#dop_block').css('display', 'block');
 	})
 // Слайдер талей

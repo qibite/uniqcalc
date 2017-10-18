@@ -72,7 +72,7 @@ jQuery(document).ready(($)=>{
 		$('#m20_2').click(()=>{cran.temper[0] = '-20'});
 		$('#p40_2').click(()=>{cran.temper[1] = '+40'});
 		$('#p60_2').click(()=>{cran.temper[1] = '+60'});
-		$('.savetemper').click(()=>{$('#Otr').text('От '+cran.temper[0]+' до '+cran.temper[1]);setTimeout(()=>{hideChange()},300)})
+		$('.savetemper').click(()=>{$('#Otr').text(cran.temper[0]+' до '+cran.temper[1]);setTimeout(()=>{hideChange()},300)})
 
 	$('#razmeshO').click(()=>{showChange($('#размещение'))})
 		$('#Улица').click(()=>{cran.climat = 'Расположение на открытой местности';setTimeout(()=>{hideChange()},300);$('#Ocu').text(cran.climat)});
@@ -231,7 +231,7 @@ jQuery(document).ready(($)=>{
 		$('#m20_2P').click(()=>{cran.temper[0] = '-20'});
 		$('#p40_2P').click(()=>{cran.temper[1] = '+40'});
 		$('#p60_2P').click(()=>{cran.temper[1] = '+60'});
-		$('.savetemperP').click(()=>{$('#Ptr').text('От '+cran.temper[0]+' до '+cran.temper[1]);setTimeout(()=>{hideChange()},300)})
+		$('.savetemperP').click(()=>{$('#Ptr').text(cran.temper[0]+' до '+cran.temper[1]);setTimeout(()=>{hideChange()},300)})
 
 	$('#razmeshP').click(()=>{showChange($('#размещениеP'))})
 		$('#УлицаP').click(()=>{cran.climat = 'Расположение на открытой местности';setTimeout(()=>{hideChange()},300);$('#Pcu').text(cran.climat)});
