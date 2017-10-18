@@ -79,7 +79,7 @@ jQuery(document).ready(($)=>{
 		hide($('#_3'));
 		cran._3Type = 'Подвесной пульт';
 		$('#option_2 .dop_parametr:last-child').before(()=>{
-			let new_html = '<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.3.jpg" alt="" style="width:200px"> \
+			let new_html = '<div class="dop_parametr"><span class="change_this_option"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" style="width:200px"> \
 								<h4>Подвесной пульт</h4> \
 								<p><span class="opisanie_parametra">Входит в стоимость крана</span><br> \
 								<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i></p>';
@@ -726,12 +726,19 @@ jQuery(document).ready(($)=>{
 
 	$('.dop_menu_open').on('mouseenter', '.dop_parametr',function(event) {
 		$(this).children('.del_this_option').css('visibility','visible')
-	});	$('#option_1').on('mouseleave', '.dop_parametr',function(event) {
+		$(this).children('.change_this_option').css('visibility','visible')
+	});
+	$('#option_1').on('mouseleave', '.dop_parametr',function(event) {
 		$(this).children('.del_this_option').css('visibility','hidden')
-	}); $('#option_2').on('mouseleave', '.dop_parametr',function(event) {
+		$(this).children('.change_this_option').css('visibility','hidden')
+	});
+	$('#option_2').on('mouseleave', '.dop_parametr',function(event) {
 		$(this).children('.del_this_option').css('visibility','hidden')
-	}); $('#option_3').on('mouseleave', '.dop_parametr',function(event) {
+		$(this).children('.change_this_option').css('visibility','hidden')
+	});
+	$('#option_3').on('mouseleave', '.dop_parametr',function(event) {
 		$(this).children('.del_this_option').css('visibility','hidden')
+		$(this).children('.change_this_option').css('visibility','hidden')
 	});
 
 	

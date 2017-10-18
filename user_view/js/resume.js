@@ -377,11 +377,18 @@ jQuery(document).ready(($)=>{
 		var that = $(this);		
 		$(this).css('display', 'none');
 		$('#option_2 .dop_parametr:last-child').before(()=>{
-			let new_html = '<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" style="width:200px"> \
+			if (that.attr('id') == 'b3') {
+			var new_html = 	'<div class="dop_parametr"><span class="change_this_option"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" style="width:200px"> \
+								<h4>Подвесной пульт</h4> \
+								<p><span class="opisanie_parametra">Входит в стоимость крана</span><br> \
+								<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i></p>';
+			} else {
+			var new_html = '<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" style="width:200px"> \
 								<h4>'+ that.children().children().children('b.hz4').text() +'</h4> \
 								<p><span class="opisanie_parametra">'+ that.children().children().children('.opisanie_parametra').text() +'</span><br> \
 								<span class="stoimost_parametra">'+ that.children('.hiddened').text() +'</span><i class="id_bro">'+that.attr('id')+'</i></p>';
 								console.log(that.attr('id'));
+			}
 			return new_html;
 		});
 		setTimeout(()=>{
