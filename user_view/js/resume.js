@@ -85,8 +85,43 @@ jQuery(document).ready(($)=>{
 			if (cran.gp > 10000) {cran.gp = 10000; alert('Грузоподъемность была уменьшена до 10000 кг для крана с ручным управлением!')}
 			$('#Ogp').text(cran.gp);
 			calculate_oporniy_crane();
+			$('.dop_parametr:has("span.pult")').remove();
+			$('.dop_parametr:has("span.motor-reductor")').remove();
 		});
-		$('#Электро').click(()=>{cran._3 = 'Электро';$('#Otc').text(cran._3);setTimeout(()=>{hideChange()},300)});
+		$('#Электро').click(()=>{
+			cran._3 = 'Электро';
+			$('#Otc').text(cran._3);
+			$('#option_2 .dop_parametr:last-child').before(()=>{
+			let new_html = '<div class="dop_parametr"> \
+								<span class="change_this_option pult">Изменить \
+									<i class="fa fa-pencil-square" aria-hidden="true"></i> \
+								</span> \
+								<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" style="width:200px"> \
+								<h4>Подвесной пульт</h4> \
+								<p> \
+									<span class="opisanie_parametra">Входит в стоимость крана</span> \
+										<br> \
+									<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i> \
+								</p>';
+			return new_html;
+			});
+			$('#option_2 .dop_parametr:last-child').before(()=>{
+				let new_html = '<div class="dop_parametr"> \
+						<span class="change_this_option motor-reductor">Изменить \
+						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
+						</span> \
+						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.jpg" alt="" style="width:200px"> \
+						<h4>Червячная передача ABLE (Италия)</h4> \
+						<p> \
+						<span class="opisanie_parametra">Входит в стоимость крана</span> \
+						<br> \
+						<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b9</i> \
+						</p>';
+				return new_html;
+			});
+			calculate_oporniy_crane();
+			setTimeout(()=>{hideChange()},300);
+	});
 
 	$('#CrazrezO').click(()=>{showChange($('#razrezO'))})
 		$('#Разрезной').click(()=>{cran.razrez = 'Разрезной';setTimeout(()=>{hideChange()},300);$('#Otk').text('Да')});
@@ -416,7 +451,7 @@ $('.dop_menu_open').on('click', '.pult', function(event) {
 $('body').on('click', '#closePult', function(event) {
 	console.log('click')
 	$(this).parent('.pultslider').detach();
-	$('html, body').animate({ 'scrollTop':'260px' }, 400)
+	$('html, body').animate({ 'scrollTop':'900px' }, 400)
 })
 
 
@@ -552,8 +587,10 @@ function hideThisChange (this_Change) {
 				$.post( calc_ajaxurl.url, data_sroki_cran, function(response) {
 					$('#sroki').text(response);
 				});
-				if (tal.summa > 0) {
+				if (tal.summa > 0 && ($('#option_2').children('.dop_parametr').hasClass('tal_for_search'))) {
+					tal.gp = cran.gp;
 					calculate_tal();
+					$('.tal_for_search').remove();
 				}
 			//////////////
 	}
@@ -562,14 +599,12 @@ function hideThisChange (this_Change) {
 				var data_tal = { action: 'calc_tal', _upravlenie:tal.upravlenie, _type:tal.type, _country:tal.country, _visota:tal.visota, _ispolnenie:tal.ispolnnie, _gp:tal.gp }
 				$.post( calc_ajaxurl.url, data_tal, function(response) {
 					tal.summa = response;
-					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="# \
-			'+ 'ssasa' +'" alt="" style="width:230px"><h4>Таль '
-			+ tal.country +'</h4> \
-			<p> \
-				<span class="stoimost_parametra">'+ String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span> \
-			</p>');
-					//$('#summa').text(String(Number(tal.summa).toFixed(2)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '));
-					//alert(String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '));
+					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr tal_for_search"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
+					'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ tal.img +'" alt="" style="width:230px"><h4>Таль '
+					+ tal.country +'</h4> \
+					<p> \
+						<span class="stoimost_parametra">'+ String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span> \
+					</p>');
 				});
 			//////////////
 	}

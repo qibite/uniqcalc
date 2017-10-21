@@ -970,14 +970,29 @@ function motor_price (model) {
 						false;
 	var data_motor = { action: 'calc_motor', _motor_id:price.id }
 				$.post( calc_ajaxurl.url, data_motor, function (response) {
-					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
+					if (model == 9.1) {
+						$('#option_2 .dop_parametr:last-child').before(()=>{
+							let new_html = '<div class="dop_parametr"> \
+												<span class="change_this_option pult">Изменить \
+													<i class="fa fa-pencil-square" aria-hidden="true"></i> \
+												</span> \
+												<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" style="width:200px"> \
+												<h4>Червячная передача ABLE (Италия)</h4> \
+												<p> \
+													<span class="opisanie_parametra">Входит в стоимость крана</span> \
+														<br> \
+													<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i> \
+												</p>';
+							return new_html;
+						})
+					} else {
+						$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
 						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" style="width:200px"><h4>Мотор-редуктор</h4> \
 						<p><span class="opisanie_parametra">'+String(cran.motor)+'</span><br> \
 						<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span></p>');
-					//$('#summa').text(String(Number(tal.summa).toFixed(2)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '));
-					//alert(String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '));
-					$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
-					$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
+						$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
+						$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
+					}					
 				});
 }
 //Рассчет стоимости мотор-редуктора
@@ -1003,7 +1018,7 @@ function calculate_tal (argument) {
 				var data_tal = { action: 'calc_tal', _upravlenie:tal.upravlenie, _type:tal.type, _country:tal.country, _visota:tal.visota, _ispolnenie:tal.ispolnnie, _gp:tal.gp }
 				$.post( calc_ajaxurl.url, data_tal, function(response) {
 					tal.summa = response;
-					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
+					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr  tal_for_search"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
 			'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ tal.img +'" alt="" style="width:200px"><h4>Таль '+ tal.country +'</h4> \
 				<p><span class="opisanie_parametra">'+String(tal.upravlenie)+'<br>'+String(tal.type)+'</span><br> \
 				<span class="stoimost_parametra">'+ String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span> \
