@@ -489,7 +489,7 @@ jQuery(document).ready(($)=>{
 
 			$('.sheciya_tR').click(()=>{
 				tal.country = 'Швеция';
-				tal.img = '17.8.jpeg';
+				tal.img = '17.10.jpg';
 					hide($('#vibor_tali'));
 					if (cran._1 == 'Опорный') {
 						resultatiO();
@@ -557,7 +557,7 @@ jQuery(document).ready(($)=>{
 
 			$('.russia_tR').click(()=>{
 				tal.country = 'Россия';
-				tal.img = '17.9.jpg';
+				tal.img = '17.8.jpeg';
 					hide($('#vibor_tali'));
 					if (cran._1 == 'Опорный') {
 						resultatiO();
@@ -593,7 +593,7 @@ jQuery(document).ready(($)=>{
 
 			$('.china_tR').click(()=>{
 				tal.country = 'Китай';
-				tal.img = '17.10.jpg';
+				tal.img = '17.9.jpg';
 					hide($('#vibor_tali'));
 					if (cran._1 == 'Опорный') {
 						resultatiO();
@@ -1019,12 +1019,10 @@ function calculate_tal (argument) {
 				$.post( calc_ajaxurl.url, data_tal, function(response) {
 					tal.summa = response;
 					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr  tal_for_search"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
-			'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ tal.img +'" alt="" style="width:200px"><h4>Таль '+ tal.country +'</h4> \
-				<p><span class="opisanie_parametra">'+String(tal.upravlenie)+'<br>'+String(tal.type)+'</span><br> \
-				<span class="stoimost_parametra">'+ String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span> \
-			</p>');
-					//$('#summa').text(String(Number(tal.summa).toFixed(2)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '));
-					//alert(String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '));
+					'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ tal.img +'" alt="" style="width:200px"><h4>Таль '+ tal.country +'</h4> \
+					<p><span class="opisanie_parametra">'+String(tal.upravlenie)+'<br>'+String(tal.type)+'</span><br> \
+					<span class="stoimost_parametra">'+ String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span> \
+					</p>');
 					easyscroll(700)
 					$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
 					$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
