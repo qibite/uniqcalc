@@ -87,6 +87,8 @@ jQuery(document).ready(($)=>{
 			calculate_oporniy_crane();
 			$('.dop_parametr:has("span.pult")').remove();
 			$('.dop_parametr:has("span.motor-reductor")').remove();
+			$('#gpO > ul li:nth-child(9)').css('display','none');$('#gpO > ul li:nth-child(10)').css('display','none');
+			if (cran.gp > 10000) {cran.gp = 10000; alert('Грузоподъемность была уменьшена до 10000 кг для крана с ручным управлением!')}
 		});
 		$('#Электро').click(()=>{
 			cran._3 = 'Электро';
@@ -120,6 +122,7 @@ jQuery(document).ready(($)=>{
 				return new_html;
 			});
 			calculate_oporniy_crane();
+			$('#gpO > ul li:nth-child(9)').css('display','inline-block');$('#gpO > ul li:nth-child(10)').css('display','inline-block')
 			setTimeout(()=>{hideChange()},300);
 	});
 
