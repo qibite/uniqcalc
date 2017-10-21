@@ -26,15 +26,15 @@ echo <<<EOT
 
 			<div class="hide_country_r" style="width:100%;padding:1em">
 				<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
-					<img class="allimg russia_tR" src="{$url}images/17.9.jpg" style="height:240px" alt="">
+					<img class="allimg russia_tR" src="{$url}images/17.8.jpeg" style="height:240px" alt="">
 					<h4 class=" talbtn russia_tR">Россия</h4>
 				</div>
 				<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
-					<img class="allimg china_tR" src="{$url}images/17.10.jpg" style="height:240px" alt="">
+					<img class="allimg china_tR" src="{$url}images/17.9.jpg" style="height:240px" alt="">
 					<h4 class=" talbtn china_tR">Китай</h4>
 				</div>
 				<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
-					<img class="allimg sheciya_tR" src="{$url}images/17.8.jpeg" style="height:240px" alt="">
+					<img class="allimg sheciya_tR" src="{$url}images/17.10.jpg" style="height:240px" alt="">
 					<h4 class=" talbtn sheciya_tR">Швеция</h4>
 				</div>				
 			</div>
