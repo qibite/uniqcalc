@@ -64,9 +64,8 @@
 		<li id="b13" class="change_li"><span><img src="<?=$url;?>images/13.jpg" alt="" style="width:140px"><p><b class="hz4">Аварийный стоп</b><br><span class="opisanie_parametra">с линейным выключателем</span></p></span><span class='hiddened'></span></li>
 		<li id="b14" class="change_li"><span><img src="<?=$url;?>images/14.jpeg" alt="" style="width:140px"><p><b class="hz4">Тормоз на передвижение</b></p></span><span class='hiddened'></span></li>
 		<li id="b17" class="change_li cat" style="position:relative"><span><img src="<?=$url;?>images/17.8.jpeg" alt="" style="width:140px"><p>Таль</p></span><span class='hiddened'></span>
-			<div>Болгария</div>
-			<div>Russia</div>
-			<div>China</div>
+			<!--<div id='b17_1' class='change_li pod_cat'><span><img src="<?=$url?>images/17.1.jpg" style='width:140px'><p><b class='hz4'>Ручная</b></p></span><span class='hiddened'>0 руб</span></div>
+			<div id='b17_2' class='change_li pod_cat'><span><img src="<?=$url?>images/17.2.jpg" style='width:140px'><p><b class='hz4'>Электрическая</b></p></span><span class='hiddened'>0 руб</span></div>-->
 		</li>
 		<li id="b18" class="change_li"><span><img src="<?=$url;?>images/18.jpg" alt="" style="width:140px"><p><b class="hz4">Индивидуальная покраска</b><br><span class="opisanie_parametra">требуется согласование цвета</span></p></span><span class='hiddened'></span></li>
 			<!--<li id="a" class="change_li"><span><img src="<?=$url;?>images/nophotos.jpg" alt="" style="width:140px"><p>Первая опция</p></span></li>

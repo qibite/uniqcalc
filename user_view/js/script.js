@@ -80,7 +80,7 @@ jQuery(document).ready(($)=>{
 		cran._3Type = 'Подвесной пульт';
 		$('#option_2 .dop_parametr:last-child').before(()=>{
 			let new_html = '<div class="dop_parametr"> \
-								<span class="change_this_option pult">Изменить \
+								<span class="change_this_option pult_change">Изменить \
 									<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 								</span> \
 								<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" style="width:200px"> \
@@ -734,18 +734,22 @@ jQuery(document).ready(($)=>{
 	$('.dop_menu_open').on('mouseenter', '.dop_parametr',function(event) {
 		$(this).children('.del_this_option').css('visibility','visible')
 		$(this).children('.change_this_option').css('visibility','visible')
+		$(this).children('.change_this_option_with_del').css('visibility','visible')
 	});
 	$('#option_1').on('mouseleave', '.dop_parametr',function(event) {
 		$(this).children('.del_this_option').css('visibility','hidden')
 		$(this).children('.change_this_option').css('visibility','hidden')
+		$(this).children('.change_this_option_with_del').css('visibility','hidden')
 	});
 	$('#option_2').on('mouseleave', '.dop_parametr',function(event) {
 		$(this).children('.del_this_option').css('visibility','hidden')
 		$(this).children('.change_this_option').css('visibility','hidden')
+		$(this).children('.change_this_option_with_del').css('visibility','hidden')
 	});
 	$('#option_3').on('mouseleave', '.dop_parametr',function(event) {
 		$(this).children('.del_this_option').css('visibility','hidden')
 		$(this).children('.change_this_option').css('visibility','hidden')
+		$(this).children('.change_this_option_with_del').css('visibility','hidden')
 	});
 
 	
@@ -973,7 +977,7 @@ function motor_price (model) {
 					if (model == 9.1) {
 						$('#option_2 .dop_parametr:last-child').before(()=>{
 							let new_html = '<div class="dop_parametr"> \
-												<span class="change_this_option pult">Изменить \
+												<span class="change_this_option pult_change">Изменить \
 													<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 												</span> \
 												<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" style="width:200px"> \
@@ -1018,7 +1022,8 @@ function calculate_tal (argument) {
 				var data_tal = { action: 'calc_tal', _upravlenie:tal.upravlenie, _type:tal.type, _country:tal.country, _visota:tal.visota, _ispolnenie:tal.ispolnnie, _gp:tal.gp }
 				$.post( calc_ajaxurl.url, data_tal, function(response) {
 					tal.summa = response;
-					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr  tal_for_search"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
+					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr  tal_for_search"><span class="change_this_option_with_del tal_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span> \
+						<span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
 					'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ tal.img +'" alt="" style="width:200px"><h4>Таль '+ tal.country +'</h4> \
 					<p><span class="opisanie_parametra">'+String(tal.upravlenie)+'<br>'+String(tal.type)+'</span><br> \
 					<span class="stoimost_parametra">'+ String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span> \

@@ -85,7 +85,7 @@ jQuery(document).ready(($)=>{
 			if (cran.gp > 10000) {cran.gp = 10000; alert('Грузоподъемность была уменьшена до 10000 кг для крана с ручным управлением!')}
 			$('#Ogp').text(cran.gp);
 			calculate_oporniy_crane();
-			$('.dop_parametr:has("span.pult")').remove();
+			$('.dop_parametr:has("span.pult_change")').remove();
 			$('.dop_parametr:has("span.motor-reductor")').remove();
 			$('#gpO > ul li:nth-child(9)').css('display','none');$('#gpO > ul li:nth-child(10)').css('display','none');
 			if (cran.gp > 10000) {cran.gp = 10000; alert('Грузоподъемность была уменьшена до 10000 кг для крана с ручным управлением!')}
@@ -95,7 +95,7 @@ jQuery(document).ready(($)=>{
 			$('#Otc').text(cran._3);
 			$('#option_2 .dop_parametr:last-child').before(()=>{
 			let new_html = '<div class="dop_parametr"> \
-								<span class="change_this_option pult">Изменить \
+								<span class="change_this_option pult_change">Изменить \
 									<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 								</span> \
 								<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" style="width:200px"> \
@@ -388,7 +388,7 @@ jQuery(document).ready(($)=>{
 		$(this).css('display', 'none');
 		$('#option_2 .dop_parametr:last-child').before(()=>{
 			if (that.attr('id') == 'b3') {
-			var new_html = 	'<div class="dop_parametr"><span class="change_this_option pult">Изменить <i class="fa fa-pencil-square" aria-hidden="true"></i></span><img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" style="width:200px"> \
+			var new_html = 	'<div class="dop_parametr"><span class="change_this_option pult_change">Изменить <i class="fa fa-pencil-square" aria-hidden="true"></i></span><img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" style="width:200px"> \
 								<h4>Подвесной пульт</h4> \
 								<p><span class="opisanie_parametra">Входит в стоимость крана</span><br> \
 								<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i></p>';
@@ -428,27 +428,121 @@ jQuery(document).ready(($)=>{
 *
 ***********************************************************************************************************************************************************************************************************************************/
 
-$('.dop_menu_open').on('click', '.pult', function(event) {
+$('.dop_menu_open').on('click', '.pult_change', function(event) {
 
-	var pult_upravleniya = document.createElement('div');
+	let pult_upravleniya = document.createElement('div'); // Главное окно выбора пульта
 	pult_upravleniya.className = 'pultslider';	
 
-	var pult_upravleniya_close = document.createElement('span');
+	let pult_upravleniya_close = document.createElement('span'); // Закрыть окно выбора пульта
 	pult_upravleniya_close.id = 'closePult';
 	pult_upravleniya_close.innerHTML = '<i class="fa fa-times-circle-o" aria-hidden="true"></i>';
 	pult_upravleniya.append(pult_upravleniya_close);
 
-	var pult_upravleniya_h2 = document.createElement('H2');
-	pult_upravleniya_h2.innerText = 'Выберите пульт управления краном';
+	let pult_upravleniya_h2 = document.createElement('H2'); // Заголовок окна выбора пульта
+	pult_upravleniya_h2.innerText = 'Выберите пульт радиоуправления краном';
+	pult_upravleniya_h2.style.marginBottom = '50px';
 	pult_upravleniya.append(pult_upravleniya_h2);
 
-	var pult_upravleniya_telo = document.createElement('div');
-	pult_upravleniya_telo.innerHTML = 'Выберите пульт управления краном';
-	pult_upravleniya.append(pult_upravleniya_telo);
+	let pult_upravleniya_PULT = document.createElement('div'); // блок пульт
+	pult_upravleniya_PULT.className = 'col-md-4 col-md-offset-1 pult_upravleniya_PULT animated zoomInLeft'
+	pult_upravleniya_PULT.style.marginBottom = '50px';
+	pult_upravleniya.append(pult_upravleniya_PULT);
+		let pult_upravleniya_PULT_img = document.createElement('img'); //Картинка радио пульта
+			pult_upravleniya_PULT_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.5.jpg';
+			pult_upravleniya_PULT_img.className = 'allimg col-md-12 change_on_PULT';
+			pult_upravleniya_PULT.append(pult_upravleniya_PULT_img);
+				pult_upravleniya_PULT_img.addEventListener('click', function () {easyscroll(250);creat_pult_model();});
+		let pult_upravleniya_PULT_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
+			pult_upravleniya_PULT_h4.className = 'col-md-12 change_on_PULT';
+			pult_upravleniya_PULT_h4.innerText = 'Пульт';
+			pult_upravleniya_PULT.append(pult_upravleniya_PULT_h4);
+				pult_upravleniya_PULT_h4.addEventListener('click', function () {easyscroll(250);creat_pult_model();});
+			
+
+	let pult_upravleniya_JOY = document.createElement('div'); // блок джойстик
+	pult_upravleniya_JOY.className = 'col-md-4 col-md-offset-2 pult_upravleniya_JOY animated zoomInRight';
+	pult_upravleniya_JOY.style.marginBottom = '50px';
+	pult_upravleniya.append(pult_upravleniya_JOY);
+		let pult_upravleniya_JOY_img = document.createElement('img');
+			pult_upravleniya_JOY_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.6.jpg';
+			pult_upravleniya_JOY_img.className = 'allimg col-md-12 change_on_JOY';
+			pult_upravleniya_JOY.append(pult_upravleniya_JOY_img);
+				pult_upravleniya_JOY_img.addEventListener('click', function () {
+					alert('JOY!!!')
+				});
+		let pult_upravleniya_JOY_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
+			pult_upravleniya_JOY_h4.className = 'col-md-12 change_on_JOY';
+			pult_upravleniya_JOY_h4.innerText = 'Джойстик';
+			pult_upravleniya_JOY.append(pult_upravleniya_JOY_h4);
+				pult_upravleniya_JOY_h4.addEventListener('click', function () {
+					alert('JOY!!!')
+				});
+			
 
 	
 	$('html, body').animate({ 'scrollTop':'0px' }, 400)
 	$('.zzz').after(pult_upravleniya);
+
+	//////////////////////////////////////////////////////
+	function creat_pult_model () {
+		let pult_upravleniya_TELECRANE = document.createElement('div'); // блок пульт
+			pult_upravleniya_TELECRANE.className = 'col-md-3 col-md-offset-1 pult_upravleniya_TELECRANE animated fadeInLeftBig'
+			pult_upravleniya.append(pult_upravleniya_TELECRANE);
+		let pult_upravleniya_TELECRANE_img = document.createElement('img'); //Картинка радио пульта
+			pult_upravleniya_TELECRANE_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.7.jpg';
+			pult_upravleniya_TELECRANE.style.marginLeft = '3%';
+			pult_upravleniya_TELECRANE_img.className = 'allimg col-md-12 change_on_TELECRANE';
+			pult_upravleniya_TELECRANE.append(pult_upravleniya_TELECRANE_img);
+				pult_upravleniya_TELECRANE_img.addEventListener('click', function () {
+					alert('PULT!!!')
+				});
+		let pult_upravleniya_TELECRANE_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
+			pult_upravleniya_TELECRANE_h4.className = 'col-md-12 change_on_TELECRANE';
+			pult_upravleniya_TELECRANE_h4.innerText = 'Пульт';
+			pult_upravleniya_TELECRANE.append(pult_upravleniya_TELECRANE_h4);
+				pult_upravleniya_TELECRANE_h4.addEventListener('click', function () {
+					alert('PULT!!!')
+				});
+
+
+		let pult_upravleniya_IKUSI = document.createElement('div'); // блок пульт
+			pult_upravleniya_IKUSI.className = 'col-md-3 col-md-offset-1 pult_upravleniya_IKUSI animated zoomIn'
+			pult_upravleniya.append(pult_upravleniya_IKUSI);
+		let pult_upravleniya_IKUSI_img = document.createElement('img'); //Картинка радио пульта
+			pult_upravleniya_IKUSI_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.8.jpg';
+			pult_upravleniya_IKUSI_img.className = 'allimg col-md-12 change_on_IKUSI';
+			pult_upravleniya_IKUSI.append(pult_upravleniya_IKUSI_img);
+				pult_upravleniya_IKUSI_img.addEventListener('click', function () {
+					alert('PULT!!!')
+				});
+		let pult_upravleniya_IKUSI_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
+			pult_upravleniya_IKUSI_h4.className = 'col-md-12 change_on_IKUSI';
+			pult_upravleniya_IKUSI_h4.innerText = 'Пульт';
+			pult_upravleniya_IKUSI.append(pult_upravleniya_IKUSI_h4);
+				pult_upravleniya_IKUSI_h4.addEventListener('click', function () {
+					alert('PULT!!!')
+				});
+
+
+		let pult_upravleniya_HBRRadiomatic = document.createElement('div'); // блок пульт
+			pult_upravleniya_HBRRadiomatic.className = 'col-md-3 col-md-offset-1 pult_upravleniya_HBRRadiomatic animated fadeInRightBig'
+			pult_upravleniya.append(pult_upravleniya_HBRRadiomatic);
+		let pult_upravleniya_HBRRadiomatic_img = document.createElement('img'); //Картинка радио пульта
+			pult_upravleniya_HBRRadiomatic_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.9.jpg';
+			pult_upravleniya_HBRRadiomatic_img.className = 'allimg col-md-12 change_on_IKUSI';
+			pult_upravleniya_HBRRadiomatic.append(pult_upravleniya_HBRRadiomatic_img);
+				pult_upravleniya_HBRRadiomatic_img.addEventListener('click', function () {
+					alert('PULT!!!')
+				});
+		let pult_upravleniya_HBRRadiomatic_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
+			pult_upravleniya_HBRRadiomatic_h4.className = 'col-md-12 change_on_IKUSI';
+			pult_upravleniya_HBRRadiomatic_h4.innerText = 'Пульт';
+			pult_upravleniya_HBRRadiomatic.append(pult_upravleniya_HBRRadiomatic_h4);
+				pult_upravleniya_HBRRadiomatic_h4.addEventListener('click', function () {
+					alert('PULT!!!')
+				});
+	}
+
 })
 
 $('body').on('click', '#closePult', function(event) {
@@ -745,5 +839,5 @@ $('#a3').on('click', '.tokoprovod', function(event) {
 
 
 
-
+function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.body.scrollTop + scrollTo) + 'px' }, 700) }
 });

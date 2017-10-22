@@ -294,12 +294,13 @@ td>span,img+br+p>span,img+br+p+p>span{color:#b5212e}
 span.hiddened{text-transform:lowercase}
 
 .dop_parametr{display:inline-block;position:relative;width:auto;max-width:224px;text-align:center;margin:10px 1.8em;cursor:pointer}
-.del_this_option,.change_this_option{visibility:hidden;position:absolute;top:10px;color:#b5212e;right:0px;cursor:pointer;z-index:99999}
-.change_this_option{font-size:0.75em;text-transform:uppercase}
-.change_this_option:hover{text-decoration:underline}
+.del_this_option,.change_this_option,.change_this_option_with_del{visibility:hidden;position:absolute;top:10px;color:#b5212e;right:0px;cursor:pointer;z-index:99999}
+.change_this_option,.change_this_option_with_del{font-size:0.75em;text-transform:uppercase}
+.change_this_option:hover,.change_this_option_with_del:hover{text-decoration:underline}
 .del_this_option>i{font-size:1.2em}
 .del_this_option>i:hover{font-size:1.3em}
-.change_this_option>i{font-size:1.7em}
+.change_this_option>i,.change_this_option_with_del>i{font-size:1.7em}
+.change_this_option_with_del{left:0; right: auto}
 
 .dop_parametr h4 {margin:10px 0 0}
 /*.dop_parametr p{margin:7px 0}*/
@@ -349,10 +350,32 @@ p>b.hz4
     bottom: 0;
 	background-color: #FFFFFF;
 	border: 25px solid #EFEFEF;
+	overflow: hidden;
 	z-index: 9999;
 }
 .pultslider>h2
 {
 	text-align: center;
 	margin-top: 65px;
+}
+
+
+
+
+.pult_upravleniya_PULT, .pult_upravleniya_JOY
+{
+	text-align: center;
+}
+
+h4.col-md-12
+{
+	background-color: #e4ded5;
+    padding: 12px 0;
+    cursor: pointer;
+}
+
+h4.col-md-12:hover
+{
+	background-color: #b5212e;
+	color: #FFF;
 }

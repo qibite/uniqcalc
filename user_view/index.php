@@ -7,6 +7,7 @@ global $wpdb;
 $wpdb->show_errors();
 ?>
 <link rel="stylesheet" href="<?=$url_this;?>css/style.css">
+<link rel="stylesheet" href="<?=$url_this;?>css/animate.css">
 <section id="first">
 	<div id="aftrfirst" style="position: relative;width:100%;height:800px;margin:0 auto;/*min-width:1440px;*/text-align:center">
 		 
