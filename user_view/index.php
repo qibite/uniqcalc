@@ -23,33 +23,17 @@ $wpdb->show_errors();
 		<?php require_once("construct_calc/3.php"); ?>
 		<!-- Варианты управления краном -->
 
-		<!-- Местоположение крана и температурный режим -->
-		<?php require_once("construct_calc/4.php"); ?>
-		<!-- Местоположение крана и температурный режим -->
-
-		<!-- Крановые пути для ОПОРНЫХ -->
-		<?php require_once("construct_calc/5a.php"); ?>
-		<!-- Крановые пути для ОПОРНЫХ -->
+		<!-- ГРУЗОПОДЪЕМНОСТЬ -->
+		<?php require_once("construct_calc/7.php"); ?>
+		<!-- ГРУЗОПОДЪЕМНОСТЬ -->
 
 		<!-- Размеры помещения ОПОРНЫХ -->
 		<?php require_once("construct_calc/5a2.php"); ?>
-		<!-- Размеры помещения для ОПОРНЫХ -->		
-
-		<!-- Крановые пути для ПОДВЕСНЫХ -->
-		<?php require_once("construct_calc/5b.php"); ?>
-		<!-- Крановые пути для ПОДВЕСНЫХ -->
+		<!-- Размеры помещения для ОПОРНЫХ -->
 
 		<!-- Размеры помещения ПОДВЕСНЫХ -->
 		<?php require_once("construct_calc/5b2.php"); ?>
 		<!-- Размеры помещения для ПОДВЕСНЫХ -->
-
-		<!-- ТОКОПРОВОД -->
-		<?php require_once("construct_calc/6.php"); ?>
-		<!-- ТОКОПРОВОД -->
-
-		<!-- ГРУЗОПОДЪЕМНОСТЬ -->
-		<?php require_once("construct_calc/7.php"); ?>
-		<!-- ГРУЗОПОДЪЕМНОСТЬ -->
 
 		<!-- СИСТЕМА УПРАВЛЕНИЯ КРАНОМ -->
 		<?php require_once("construct_calc/8.php"); ?>
@@ -58,6 +42,22 @@ $wpdb->show_errors();
 		<!-- МОТОР РЕДУКТОРА -->
 		<?php require_once("construct_calc/9.php"); ?>
 		<!-- МОТОР РЕДУКТОРА -->
+
+		<!-- Местоположение крана и температурный режим -->
+		<?php require_once("construct_calc/4.php"); ?>
+		<!-- Местоположение крана и температурный режим -->
+
+		<!-- Крановые пути для ОПОРНЫХ -->
+		<?php require_once("construct_calc/5a.php"); ?>
+		<!-- Крановые пути для ОПОРНЫХ -->		
+
+		<!-- Крановые пути для ПОДВЕСНЫХ -->
+		<?php require_once("construct_calc/5b.php"); ?>
+		<!-- Крановые пути для ПОДВЕСНЫХ -->
+
+		<!-- ТОКОПРОВОД -->
+		<?php require_once("construct_calc/6.php"); ?>
+		<!-- ТОКОПРОВОД -->
 
 		<!-- Окно выбора талей -->
 		<?php require_once("construct_calc/tali.php"); ?>
