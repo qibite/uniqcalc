@@ -1,19 +1,27 @@
 var calc_ajaxurl = {url:location.origin+'/wp-admin/admin-ajax.php'}
 jQuery(document).ready(($)=>{
-	document.body.scrollTop = 0
-	//$('.container').css('width', '100%');
-	$('._11').click(function () {
+	$('html, body').animate({ scrollTop: '0px' }, 700)
+/************************************************************************************************************************
+*																														*
+*									ВЫБОР КРАНА ОПОРНЫЙ ИЛ Подвесной  ШАГ-1												*
+*																														*
+************************************************************************************************************************/
+	$('._11').on('click', function () {
 		hide($('#_1'));
 		next_group( $('#_2'), 10 );
 		cran._1 = 'Опорный';
-		//cran.steps._1 = ;
 	});
-	$('._12').click(function () {
+
+	$('._12').on('click', function () {
 		hide($('#_1'));
 		next_group( $('#_2'), 10 );
 		cran._1 = 'Подвесной';
 	});
-
+/************************************************************************************************************************
+*																														*
+*				ВЫБОР ИСПОЛНЕНИЯ КРАНА ОБЩЕПРОМЫШЛЕННЫЙ, ВЗЫВОБЕЗОПАСНОЕ И ПОЖАРОБЕЗОПАСНОЕ	 ШАГ-2						*
+*																														*
+************************************************************************************************************************/
 
 	$('.obsheprom').click(function () {
 		hide($('#_2'));
@@ -25,19 +33,19 @@ jQuery(document).ready(($)=>{
 		$('.hide_dop_animate_vzr').removeClass('hide_dop_animate_vzr').addClass('back_dop_animate_vzr');
 		$('.back_dop_animate_pozh').removeClass('back_dop_animate_pozh').addClass('hide_dop_animate_pozh');
 	});
-	$('.vzrivo_next').click(function () {
-		let chkvzr = document.getElementsByName('ispbezop');
-		for (var i = 0; i < chkvzr.length; i++) {
-			if(chkvzr[i].checked == true) {
-				cran._2 = 'Взрывобезопасное класса '+chkvzr[i].value;
+		$('.vzrivo_next').click(function () {
+			let chkvzr = document.getElementsByName('ispbezop');
+			for (var i = 0; i < chkvzr.length; i++) {
+				if(chkvzr[i].checked == true) {
+					cran._2 = 'Взрывобезопасное класса '+chkvzr[i].value;
+				}
+				continue
 			}
-			continue
-		}
-		$('.back_dop_animate_vzr').removeClass('back_dop_animate_vzr').addClass('hide_dop_animate_vzr');
-		hide($('#_2')); tal.ispolnnie = 'Взрывобезопасное';
-		next_group( $('#_3'), 7.5 );		
-		$('._36').css('display','none');$('#Джойстик').css('display','none');
-	});
+			$('.back_dop_animate_vzr').removeClass('back_dop_animate_vzr').addClass('hide_dop_animate_vzr');
+			hide($('#_2')); tal.ispolnnie = 'Взрывобезопасное';
+			next_group( $('#_3'), 7.5 );		
+			$('._36').css('display','none');$('#Джойстик').css('display','none');
+		});
 
 
 	$('.pozharo').click(function () {easyscroll(200)
@@ -45,22 +53,28 @@ jQuery(document).ready(($)=>{
 		$('.hide_dop_animate_pozh').removeClass('hide_dop_animate_pozh').addClass('back_dop_animate_pozh');
 		$('.back_dop_animate_vzr').removeClass('back_dop_animate_vzr').addClass('hide_dop_animate_vzr');
 	});
-	$('.pozharo_next').click(function () {
-		let chkpozh = document.getElementsByName('isppozh');
-		for (var i = 0; i < chkpozh.length; i++) {
-			if(chkpozh[i].checked == true) {
-				cran._2 = 'Пожаробезопасное класса '+chkpozh[i].value;
+		$('.pozharo_next').click(function () {
+			let chkpozh = document.getElementsByName('isppozh');
+			for (var i = 0; i < chkpozh.length; i++) {
+				if(chkpozh[i].checked == true) {
+					cran._2 = 'Пожаробезопасное класса '+chkpozh[i].value;
+				}
+				continue
 			}
-			continue
-		}
-		$('.back_dop_animate_pozh').removeClass('back_dop_animate_pozh').addClass('hide_dop_animate_pozh');
-		hide($('#_2'));  tal.ispolnnie = 'Пожаробезопасное';
-		next_group( $('#_3'), 7.5 );});
+			$('.back_dop_animate_pozh').removeClass('back_dop_animate_pozh').addClass('hide_dop_animate_pozh');
+			hide($('#_2'));  tal.ispolnnie = 'Пожаробезопасное';
+			next_group( $('#_3'), 7.5 );});
 
 
+/************************************************************************************************************************
+*																														*
+*		ВЫБОР СПОСОБА УПРАВЛЕНИЯ КРАНОМ - РУЧНОЕ ИЛИ ЭЛЕКТРО УПРАВЛЕНИЕ, ПОДВЕСНОЙ ПУЛЬТ ИЛИ РАДИОУПРАВЛЕНИЕ ШАГ-3 		*
+*																														*
+************************************************************************************************************************/
 	$('._31').click(function () {
 		hide($('#_3'));
-		next_group( $('#razmeshenie'), 0 );
+		next_group( $('#грузоподъемность'), 0 ); // НОВОЕ
+		//next_group( $('#razmeshenie'), 0 ); СТАРОЕ
 		cran._3 = 'Ручное';
 		cran._3Type = 'Отсутствует при ручном управлении';
 		$('#gpO > ul li:nth-child(9)').css('display','none');
@@ -92,7 +106,8 @@ jQuery(document).ready(($)=>{
 								</p>';
 			return new_html;
 		});
-		next_group( $('#razmeshenie'), 0 );
+		next_group( $('#грузоподъемность'), 0 ); // НОВОЕ
+		//next_group( $('#razmeshenie'), 0 ); СТАРОЕ
 	});
 	$('._34').click(function () {
 		$('#main_block_for_steps').css('height', '1120px');
@@ -109,23 +124,222 @@ jQuery(document).ready(($)=>{
 	$('._37').click(function () {$('#main_block_for_steps').css('height', '800px');
 		hide($('#_3'));
 		cran._3Type = cran._3Type + ' Telecrane (Тайвань)';
-		next_group( $('#razmeshenie'), 0 );
+		next_group( $('#грузоподъемность'), 0 ); // НОВОЕ
+		//next_group( $('#razmeshenie'), 0 ); СТАРОЕ
 	});
 	$('._38').click(function () {$('#main_block_for_steps').css('height', '800px');
 		hide($('#_3'));
 		cran._3Type = cran._3Type + ' Ikusi (Испания)';
-		next_group( $('#razmeshenie'), 0 );
+		next_group( $('#грузоподъемность'), 0 ); // НОВОЕ
+		//next_group( $('#razmeshenie'), 0 ); СТАРОЕ
 	});
 	$('._39').click(function () {$('#main_block_for_steps').css('height', '800px');
 		hide($('#_3'));
 		cran._3Type = cran._3Type + ' HBC-Radiomatic (Германия)';
-		next_group( $('#razmeshenie'), 0 );
+		next_group( $('#грузоподъемность'), 0 ); // НОВОЕ
+		//next_group( $('#razmeshenie'), 0 ); СТАРОЕ
 	});
+/************************************************************************************************************************
+*																														*
+*		ВЫБОР ГРУЗОПОДЪЕМНОСТИ КРАНА, ПРИ РУЧНОМ ОТ 500 КГ ДО 10 000 КГ	И ПРИ ЭЛЕКТРО УПРАВЛЕНИИ ДО 16 000 КГ ШАГ-4		*
+*																														*
+************************************************************************************************************************/
+	$('#грузоподъемность').on('click','div', function () {
+		let res = $(this).index() + 1;
+		switch (res) {
+	    			case 4: {
+	    				tal.gp=cran.gp = 500;
+	    				break
+	    			}
+	    			case 5: {
+	    				tal.gp=cran.gp = 1000;
+	    				break
+	    			}
+	    			case 6: {
+	    				tal.gp=cran.gp = 2000;
+	    				break
+	    			}
+	    			case 7: {
+	    				tal.gp=cran.gp = 3200;
+	    				break
+	    			}
+	    			case 8: {
+	    				tal.gp=cran.gp = 5000;
+	    				break
+	    			}
+	    			case 9: {
+	    				tal.gp=cran.gp = 6300;
+	    				break
+	    			}
+	    			case 10: {
+	    				tal.gp=cran.gp = 8000;
+	    				break
+	    			}
+	    			case 11: {
+	    				tal.gp=cran.gp = 10000;
+	    				break
+	    			}
+	    			case 12: {
+	    				tal.gp=cran.gp = 12500;
+	    				break
+	    			}
+	    			case 13: {
+	    				tal.gp=cran.gp = 16000;
+	    				break
+	    			}
+	    			default: 
+	    				tal.gp=cran.gp = 500;
+	    				break
+	    		}
+		if (cran._1 == 'Опорный') {
+			document.getElementById('vO').value = cran._3 == 'Электро'? '6000' : '3000'
+			hide($('#грузоподъемность'));
+			next_group( $('#размеры_помещения_опорный'), 0 );
+		}
+		if (cran._1 == 'Подвесной') {
+			document.getElementById('vP').value = cran._3 == 'Электро'? '6000' : '3000'
+			hide($('#грузоподъемность'));
+			next_group( $('#размеры_помещения_подвесной'), 0 );
+		}		
+		//cran._3 == 'Ручное' ? next_group($('#vibor_tali'), 0) : next_group( $('#система_управления_краном'), 8 );
+		
+	});
+/************************************************************************************************************************
+*																														*
+*									ВВОД РАЗМЕРОВ ПОМЕЩЕНИЯ ДЛЯ ОПОРНОГО КРАНА  ШАГ-5	 								*
+*																														*
+************************************************************************************************************************/
+	$('.параметры_помещения_для_опорный').click(function () {
+		cran.paramsO.dpO = document.getElementById('dpO').value;
+		cran.paramsO.shpO = document.getElementById('shpO').value;
+		document.getElementById('valdpO').value = cran.paramsO.shpO;
+		tal.visota = cran.paramsO.vO = document.getElementById('vO').value = cran._3 == 'Электро'? '6000' : '3000';
+		cran.paramsO.vpO = document.getElementById('vpO').value;
+		hide($('#размеры_помещения_опорный'));
+		cran._3 == 'Ручное' ? next_group( $('#razmeshenie'), 0 ) : next_group( $('#система_управления_краном'), 0 ); // СЛЕДУЮЩИМ БЫЛ ТОКОПОДВОД
+	});
+/************************************************************************************************************************
+*																														*
+*									ВВОД РАЗМЕРОВ ПОМЕЩЕНИЯ ДЛЯ ПОДВЕСНОГО КРАНА  ШАГ-5	 								*
+*																														*
+************************************************************************************************************************/
+	$('.параметры_помещения_для_подвесной').click(function () {
+		cran.paramsP.dpP = document.getElementById('dpP').value;
+		cran.paramsP.shpP = document.getElementById('shpP').value;
+		document.getElementById('valdpPk').value = cran.paramsP.shpP;
+		tal.visota = cran.paramsP.vP = document.getElementById('vP').value;
+		cran.paramsP.vpP = document.getElementById('vpP').value;
+		document.getElementById('valdpPk').value = cran.paramsP.vpP;
+		hide($('#размеры_помещения_подвесной'));
+		cran._3 == 'Ручное' ? next_group( $('#razmeshenie'), 0 ) : next_group( $('#система_управления_краном'), 0 ); // СЛЕДУЮЩИМ БЫЛ ТОКОПОДВОД
+		
+	});
+/************************************************************************************************************************
+*																														*
+*		ВЫБОР ВЫБОР СИСТЕМЫ УПРАВЛЕНИЯ КРАНОМ - РЕЛЕЙНО-КОНТАКТОРНАЯ ИЛИ ЧАСТОТНЫЙ ПРЕОБРАЗОВАТЕЛЬ ШАГ-6 				*
+*																														*
+************************************************************************************************************************/
+	$('.реле').click(function () {//8.1
+		$('.скрыть_варианты_ук').removeClass('скрыть_варианты_ук скрыть_варианты_animate_ук').addClass('показать_варианты_animate_ук');
+		$('.скрыть_варианты_animate_ук').removeClass('скрыть_варианты_animate_ук').addClass('показать_варианты_animate_ук');
+		$('.показать_варианты_animate_чп').removeClass('показать_варианты_animate_чп').addClass('скрыть_варианты_animate_чп');
+		$('#main_block_for_steps').css('height', '860px');easyscroll(230);
+	})
+	$('.преобразователь').click(function () {//8.2
+		$('.скрыть_варианты_чп').removeClass('скрыть_варианты_чп скрыть_варианты_animate_чп').addClass('показать_варианты_animate_чп');
+		$('.скрыть_варианты_animate_чп').removeClass('скрыть_варианты_animate_чп').addClass('показать_варианты_animate_чп');
+		$('.показать_варианты_animate_ук').removeClass('показать_варианты_animate_ук').addClass('скрыть_варианты_animate_ук');
+		$('#main_block_for_steps').css('height', '860px');easyscroll(230);
+	})
 
-
-
-
-
+	$('.одна_с').click(function () {//8.3
+		hide($('#система_управления_краном'));
+		cran.setspeed = 'Одна скорость движения';
+		next_group($('#мотор_редуктора'), 0);
+		$('#main_block_for_steps').css('height', '800px');
+		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? price_crane_electro_upravleniya('8.3') : false;
+	});
+	$('.несколько_с').click(function () {//8.4
+		hide($('#система_управления_краном'));
+		cran.setspeed = 'Несколько скоростей движения';
+		next_group($('#мотор_редуктора'), 0);		
+		$('#main_block_for_steps').css('height', '800px');
+		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? price_crane_electro_upravleniya('8.4') : false;
+	});
+	$('.esq').click(function () {
+		hide($('#система_управления_краном'));
+		cran.setspeed = 'Плавный пуск + 2 и более скорости ESQ (Китай)';
+		next_group($('#мотор_редуктора'), 0);
+		$('#main_block_for_steps').css('height', '800px');
+		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? price_crane_electro_upravleniya('8.2') : false;
+		chastotnik_price(8.5);
+	});
+	$('.hyundai').click(function () {
+		hide($('#система_управления_краном'));
+		cran.setspeed = 'Плавный пуск + 2 и более скорости Hyundai (Корея)';
+		next_group($('#мотор_редуктора'), 0);
+		$('#main_block_for_steps').css('height', '800px');
+		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? price_crane_electro_upravleniya('8.2') : false;
+		chastotnik_price(8.6);
+	});
+	$('.danfross').click(function () {
+		hide($('#система_управления_краном'));
+		cran.setspeed = 'Плавный пуск + 2 и более скорости Danfoss (Германия)';
+		next_group($('#мотор_редуктора'), 0);
+		$('#main_block_for_steps').css('height', '800px');
+		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? price_crane_electro_upravleniya('8.2') : false;
+		chastotnik_price(8.7);
+	});
+/************************************************************************************************************************
+*																														*
+*										ВЫБОР ВЫБОР МОТОР-РЕДУКТОРА КРАНА ШАГ-7 										*
+*																														*
+************************************************************************************************************************/
+	$('.чаи').click(function () {
+		cran.setmotor = 'Червячная передача ABLE (Италия) - стандартно';
+		motor_price(9.1);
+		hide($('#мотор_редуктора'));
+		next_group( $('#razmeshenie'), 0 );
+		//next_group($('#vibor_tali'), 0); старый шаг
+		$('#main_block_for_steps').css('height', '540px');
+	});
+	$('.чнг').click(function () {
+		cran.setmotor = 'Червячная передача NORD (Германия)';
+		motor_price(9.2);
+		hide($('#мотор_редуктора'));
+		next_group( $('#razmeshenie'), 0 );
+		//next_group($('#vibor_tali'), 0); старый шаг
+		$('#main_block_for_steps').css('height', '540px');
+	});
+	$('.цбб').click(function () {
+		cran.setmotor = 'Циллиндрическая передача Балкан Эхо (Болгария)';
+		motor_price(9.3);
+		hide($('#мотор_редуктора'));
+		next_group( $('#razmeshenie'), 0 );
+		//next_group($('#vibor_tali'), 0); старый шаг
+		$('#main_block_for_steps').css('height', '540px');
+	});
+	$('.цнг').click(function () {
+		cran.setmotor = 'Циллиндрическая передача NORD (Германия)';
+		motor_price(9.4);
+		hide($('#мотор_редуктора'));
+		next_group( $('#razmeshenie'), 0 );
+		//next_group($('#vibor_tali'), 0); старый шаг
+		$('#main_block_for_steps').css('height', '540px');
+	});
+	$('.цер').click(function () {
+		cran.setmotor = 'Циллиндрическая передача Европривод (Россия)';
+		motor_price(9.5);
+		hide($('#мотор_редуктора'));
+		next_group( $('#razmeshenie'), 0 );
+		//next_group($('#vibor_tali'), 0); старый шаг
+		$('#main_block_for_steps').css('height', '540px');
+	});
+/************************************************************************************************************************
+*																														*
+*	 ВЫБОР ТЕМПЕРАТУРНЫЙ РЕЖИМ В СРЕДЕ НАХОЖДЕНИЯ ОТ -50 ДО +60 И ПРЕДПОЛАГАЕМОЕМЕСТО РАСПОЛОЖЕНИЯ КРАНА	ШАГ-8 		*
+*																														*
+************************************************************************************************************************/
 	$('.celsM').click(function() {
 		if ($(this).hasClass('cels_selectedM')) {$(this).removeClass('cels_selectedM')}
 		else {$('.celsM').removeClass('cels_selectedM');$(this).addClass('cels_selectedM')}
@@ -182,13 +396,19 @@ jQuery(document).ready(($)=>{
 		}
 	})
 
-// Блок для крановых путей ОПОРНОГО
+/************************************************************************************************************************
+*																														*
+*	 								ВЫБОР КРАНОВЫХ ПУТЕЙ ДЛЯ ОПОРНОГО КРАНА	ШАГ-9 										*
+*																														*
+************************************************************************************************************************/
 	$('.есть_путь').click(function () {
 		$('#main_block_for_steps').css('height', '1100px');
-		$('#rels_oporniy').css('display', 'block');easyscroll(500)
+		$('#rels_oporniy').css('display', 'block');
+		easyscroll(500)
 	}); $('.есть_рельс').click(function () {
 			$('#main_block_for_steps').css('height', '1500px');
-			$('#список_моделей_рельс').animate({'top':'900px'}, 1000);easyscroll(950)
+			$('#список_моделей_рельс').animate({'top':'900px'}, 1000);
+			easyscroll(950)
 		})
 
 
@@ -196,36 +416,34 @@ jQuery(document).ready(($)=>{
 	$('.нужен_монтаж_пути').click(function () {
 			hide($('#пути_для_опорного'));
 			$('#main_block_for_steps').css('height', '620px');
-			document.getElementById('vO').value = cran._3 == 'Электро'? '6000' : '3000'
-			next_group( $('#размеры_помещения_опорный'), 0 );
+			cran._3 == 'Ручное' ? next_group( $('#vibor_tali'), 0 ) : next_group( $('#токоподвод'), 0 ); 
 	}); $('.нужен_монтаж_рельс').click(function () {
 			hide($('#пути_для_опорного'));
 			$('#main_block_for_steps').css('height', '620px');
 			$('#список_моделей_рельс').css('display', 'none');
-			document.getElementById('vO').value = cran._3 == 'Электро'? '6000' : '3000'
-			next_group( $('#размеры_помещения_опорный'), 0 );
+			cran._3 == 'Ручное' ? next_group( $('#vibor_tali'), 0 ) : next_group( $('#токоподвод'), 0 ); 
 		});
-	$('#p24').click(function () {cran.relsO = 'Р24'});
-	$('#p43').click(function () {cran.relsO = 'Р43'});
-	$('#p50').click(function () {cran.relsO = 'Р50'});
-	$('#kp65').click(function () {cran.relsO = 'КР65'});
-	$('#kp70').click(function () {cran.relsO = 'КР70'});
-	$('#kp80').click(function () {cran.relsO = 'КР80'});
-	$('#kubik40').click(function () {cran.relsO = 'Квадрат 40х40'});
-	$('#kubik50').click(function () {cran.relsO = 'Квадрат 50х50'});
-	$('#kubik60').click(function () {cran.relsO = 'Квадрат  60х60'});
-
-// Блок для крановых путей ОПОРНОГО
-
-// Блок для крановых путей ПОДВЕСНОГО
+			$('#p24').click(function () {cran.relsO = 'Р24'});
+			$('#p43').click(function () {cran.relsO = 'Р43'});
+			$('#p50').click(function () {cran.relsO = 'Р50'});
+			$('#kp65').click(function () {cran.relsO = 'КР65'});
+			$('#kp70').click(function () {cran.relsO = 'КР70'});
+			$('#kp80').click(function () {cran.relsO = 'КР80'});
+			$('#kubik40').click(function () {cran.relsO = 'Квадрат 40х40'});
+			$('#kubik50').click(function () {cran.relsO = 'Квадрат 50х50'});
+			$('#kubik60').click(function () {cran.relsO = 'Квадрат  60х60'});
+/************************************************************************************************************************
+*																														*
+*	 								ВЫБОР КРАНОВЫХ ПУТЕЙ ДЛЯ ПОДВЕСНОГО КРАНА	ШАГ-9 									*
+*																														*
+************************************************************************************************************************/
 	$('.есть_путь2').click(function () {
 		$('#main_block_for_steps').css('height', '1000px');
 		$('.скрыть_варианты_подврельс').removeClass('скрыть_варианты_подврельс скрыть_варианты_animate_подврельс').addClass('показать_варианты_animate_подврельс');
 		easyscroll(720);
 	}); $('.путь_подвесной').click(function () {
 			hide($('#пути_для_подвесного'));
-			next_group( $('#размеры_помещения_подвесной'), 0 );
-			document.getElementById('vP').value = cran._3 == 'Электро'? '6000' : '3000';
+			cran._3 == 'Ручное' ? next_group( $('#vibor_tali'), 0 ) : next_group( $('#токоподвод'), 0 ); 
 			$('#main_block_for_steps').css('height', '620px');
 		})
 
@@ -235,205 +453,34 @@ jQuery(document).ready(($)=>{
 			hide($('#пути_для_подвесного'));
 			$('#main_block_for_steps').css('height', '620px');
 			$('#пути_подвесной').css('display', 'none');
-			next_group( $('#размеры_помещения_подвесной'), 0 );
-			document.getElementById('vP').value = cran._3 == 'Электро'? '6000' : '3000';
+			cran._3 == 'Ручное' ? next_group( $('#vibor_tali'), 0 ) : next_group( $('#токоподвод'), 0 ); 
 	});
-// Блок для крановых путей ПОДВЕСНОГО
-
-// Размеры помещения и путей
-	$('.параметры_помещения_для_опорный').click(function () {
-		cran.paramsO.dpO = document.getElementById('dpO').value;
-		cran.paramsO.shpO = document.getElementById('shpO').value;
-		document.getElementById('valdpO').value = cran.paramsO.shpO;
-		tal.visota = cran.paramsO.vO = document.getElementById('vO').value = cran._3 == 'Электро'? '6000' : '3000';
-		cran.paramsO.vpO = document.getElementById('vpO').value;
-		hide($('#размеры_помещения_опорный'));
-		cran._3 == 'Ручное' ? next_group( $('#грузоподъемность'), 0 ) : next_group( $('#токопровод'), 0 );
-	});
-
-	$('.параметры_помещения_для_подвесной').click(function () {
-		cran.paramsP.dpP = document.getElementById('dpP').value;
-		cran.paramsP.shpP = document.getElementById('shpP').value;
-		document.getElementById('valdpPk').value = cran.paramsP.shpP;
-		tal.visota = cran.paramsP.vP = document.getElementById('vP').value;
-		cran.paramsP.vpP = document.getElementById('vpP').value;
-		document.getElementById('valdpPk').value = cran.paramsP.vpP;
-		hide($('#размеры_помещения_подвесной'));
-		cran._3 == 'Ручное' ? next_group( $('#грузоподъемность'), 0 ) : next_group( $('#токопровод'), 0 );
-		
-	});
-// Размеры помещения и путей
-
-
-// Токопровод
+/************************************************************************************************************************
+*																														*
+*	 											ВЫБОР ТОКОПОДВОДА	ШАГ-10 												*
+*																														*
+************************************************************************************************************************/
 	$('.ток_требуется').click(()=>{
 		$('#main_block_for_steps').css('height', '820px');easyscroll(180);
-		$('.скрыть_варианты_токопровод').removeClass('скрыть_варианты_токопровод скрыть_варианты_animate_токопровод').addClass('показать_варианты_animate_токопровод');
+		$('.скрыть_варианты_токоподвод').removeClass('скрыть_варианты_токоподвод скрыть_варианты_animate_токоподвод').addClass('показать_варианты_animate_токоподвод');
 	});
-		$('.каб_с_кол').click(()=>{cran.setttk = 'Кабельный с кольцами';hide($('#токопровод'));$('#main_block_for_steps').css('height', '620px');next_group( $('#грузоподъемность'), 0 );postavka_provoda('6.3.jpg')});
-		$('.каб_с_тел').click(()=>{cran.setttk = 'Кабельный с тележками';hide($('#токопровод'));$('#main_block_for_steps').css('height', '620px');next_group( $('#грузоподъемность'), 0 );postavka_provoda('6.4.jpg')});
-		$('.фесто').click(()=>{cran.setttk = 'Фестонный (С профиль)';hide($('#токопровод'));$('#main_block_for_steps').css('height', '620px');next_group( $('#грузоподъемность'), 0 );postavka_provoda('6.5.jpg')});
-		$('.откр_тролл').click(()=>{cran.setttk = 'Открытые троллеи';hide($('#токопровод'));$('#main_block_for_steps').css('height', '620px');next_group( $('#грузоподъемность'), 0 );postavka_provoda('6.6.jpg')});
-		$('.закр_тролл').click(()=>{cran.setttk = 'Закрытые троллеи';hide($('#токопровод'));$('#main_block_for_steps').css('height', '620px');next_group( $('#грузоподъемность'), 0 );postavka_provoda('6.7.jpg')});
+		$('.каб_с_кол').click(()=>{cran.setttk = 'Кабельный с кольцами';hide($('#токоподвод'));$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.3.jpg')});
+		$('.каб_с_тел').click(()=>{cran.setttk = 'Кабельный с тележками';hide($('#токоподвод'));$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.4.jpg')});
+		$('.фесто').click(()=>{cran.setttk = 'Фестонный (С профиль)';hide($('#токоподвод'));$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.5.jpg')});
+		$('.откр_тролл').click(()=>{cran.setttk = 'Открытые троллеи';hide($('#токоподвод'));$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.6.jpg')});
+		$('.закр_тролл').click(()=>{cran.setttk = 'Закрытые троллеи';hide($('#токоподвод'));$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.7.jpg')});
 
 	$('.ток_нетребуется').click(function () {
-		cran.setttk = 'Токопровод не требуется';
-		hide($('#токопровод'));
+		cran.setttk = 'Токоподвод не требуется';
+		hide($('#токоподвод'));
 		$('#main_block_for_steps').css('height', '620px');
-		next_group( $('#грузоподъемность'), 0 );
+		next_group( $('#vibor_tali'), 0 );
 	});
-// Токопровод
-
-
-// СИСТЕМА УПРАВЛЕНИЯ КРАНОМ
-	$('#грузоподъемность').on('click','div', function () {
-		let res = $(this).index() + 1;
-		switch (res) {
-	    			case 4: {
-	    				tal.gp=cran.gp = 500;
-	    				break
-	    			}
-	    			case 5: {
-	    				tal.gp=cran.gp = 1000;
-	    				break
-	    			}
-	    			case 6: {
-	    				tal.gp=cran.gp = 2000;
-	    				break
-	    			}
-	    			case 7: {
-	    				tal.gp=cran.gp = 3200;
-	    				break
-	    			}
-	    			case 8: {
-	    				tal.gp=cran.gp = 5000;
-	    				break
-	    			}
-	    			case 9: {
-	    				tal.gp=cran.gp = 6300;
-	    				break
-	    			}
-	    			case 10: {
-	    				tal.gp=cran.gp = 8000;
-	    				break
-	    			}
-	    			case 11: {
-	    				tal.gp=cran.gp = 10000;
-	    				break
-	    			}
-	    			case 12: {
-	    				tal.gp=cran.gp = 12500;
-	    				break
-	    			}
-	    			case 13: {
-	    				tal.gp=cran.gp = 16000;
-	    				break
-	    			}
-	    			default: 
-	    				tal.gp=cran.gp = 500;
-	    				break
-	    		}
-	    
-		hide($('#грузоподъемность'));
-		cran._3 == 'Ручное' ? next_group($('#vibor_tali'), 0) : next_group( $('#система_управления_краном'), 8 );
-		
-	});
-
-
-// СИСТЕМА УПРАВЛЕНИЯ КРАНОМ
-	$('.реле').click(function () {//8.1
-		$('.скрыть_варианты_ук').removeClass('скрыть_варианты_ук скрыть_варианты_animate_ук').addClass('показать_варианты_animate_ук');
-		$('.скрыть_варианты_animate_ук').removeClass('скрыть_варианты_animate_ук').addClass('показать_варианты_animate_ук');
-		$('.показать_варианты_animate_чп').removeClass('показать_варианты_animate_чп').addClass('скрыть_варианты_animate_чп');
-		$('#main_block_for_steps').css('height', '860px');easyscroll(230);
-	})
-	$('.преобразователь').click(function () {//8.2
-		$('.скрыть_варианты_чп').removeClass('скрыть_варианты_чп скрыть_варианты_animate_чп').addClass('показать_варианты_animate_чп');
-		$('.скрыть_варианты_animate_чп').removeClass('скрыть_варианты_animate_чп').addClass('показать_варианты_animate_чп');
-		$('.показать_варианты_animate_ук').removeClass('показать_варианты_animate_ук').addClass('скрыть_варианты_animate_ук');
-		$('#main_block_for_steps').css('height', '860px');easyscroll(230);
-	})
-
-	$('.одна_с').click(function () {//8.3
-		hide($('#система_управления_краном'));
-		cran.setspeed = 'Одна скорость движения';
-		next_group($('#мотор_редуктора'), 0);
-		$('#main_block_for_steps').css('height', '800px');
-		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? price_crane_electro_upravleniya('8.3') : false;
-	});
-	$('.несколько_с').click(function () {//8.4
-		hide($('#система_управления_краном'));
-		cran.setspeed = 'Несколько скоростей движения';
-		next_group($('#мотор_редуктора'), 0);		
-		$('#main_block_for_steps').css('height', '800px');
-		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? price_crane_electro_upravleniya('8.4') : false;
-	});
-	$('.esq').click(function () {
-		hide($('#система_управления_краном'));
-		cran.setspeed = 'Плавный пуск + 2 и более скорости ESQ (Китай)';
-		next_group($('#мотор_редуктора'), 0);
-		$('#main_block_for_steps').css('height', '800px');
-		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? price_crane_electro_upravleniya('8.2') : false;
-		chastotnik_price(8.5);
-	});
-	$('.hyundai').click(function () {
-		hide($('#система_управления_краном'));
-		cran.setspeed = 'Плавный пуск + 2 и более скорости Hyundai (Корея)';
-		next_group($('#мотор_редуктора'), 0);
-		$('#main_block_for_steps').css('height', '800px');
-		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? price_crane_electro_upravleniya('8.2') : false;
-		chastotnik_price(8.6);
-	});
-	$('.danfross').click(function () {
-		hide($('#система_управления_краном'));
-		cran.setspeed = 'Плавный пуск + 2 и более скорости Danfoss (Германия)';
-		next_group($('#мотор_редуктора'), 0);
-		$('#main_block_for_steps').css('height', '800px');
-		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? price_crane_electro_upravleniya('8.2') : false;
-		chastotnik_price(8.7);
-	});
-// СИСТЕМА УПРАВЛЕНИЯ КРАНОМ
-
-// МОТОР РЕДУКТОРА
-	$('.чаи').click(function () {
-		cran.setmotor = 'Червячная передача ABLE (Италия) - стандартно';
-		motor_price(9.1);
-		hide($('#мотор_редуктора'));
-		next_group($('#vibor_tali'), 0);
-		$('#main_block_for_steps').css('height', '540px');
-	});
-	$('.чнг').click(function () {
-		cran.setmotor = 'Червячная передача NORD (Германия)';
-		motor_price(9.2);
-		hide($('#мотор_редуктора'));
-		next_group($('#vibor_tali'), 0);
-		$('#main_block_for_steps').css('height', '540px');
-	});
-	$('.цбб').click(function () {
-		cran.setmotor = 'Циллиндрическая передача Балкан Эхо (Болгария)';
-		motor_price(9.3);
-		hide($('#мотор_редуктора'));
-		next_group($('#vibor_tali'), 0);
-		$('#main_block_for_steps').css('height', '540px');
-	});
-	$('.цнг').click(function () {
-		cran.setmotor = 'Циллиндрическая передача NORD (Германия)';
-		motor_price(9.4);
-		hide($('#мотор_редуктора'));
-		next_group($('#vibor_tali'), 0);
-		$('#main_block_for_steps').css('height', '540px');
-	});
-	$('.цер').click(function () {
-		cran.setmotor = 'Циллиндрическая передача Европривод (Россия)';
-		motor_price(9.5);
-		hide($('#мотор_редуктора'));
-		next_group($('#vibor_tali'), 0);
-		$('#main_block_for_steps').css('height', '540px');
-	});
-// МОТОР РЕДУКТОРА
-
-
-// Слайдер талей
+/************************************************************************************************************************
+*																														*
+*	 									БЛОК ВЫБОРА ТАЛЕЙ С ЖЕСТОКОЙ ЛОГИКОЙ =)	ШАГ-11									*
+*																														*
+************************************************************************************************************************/
 	$('.tal_yes').click(()=>{
 		if (tal.gp <=10000 && cran._2.search(/Взрывобезопасное/i) != 0) {
 			$('.hide_type_upravleniya').removeClass('hide_type_upravleniya').addClass('show_type_upravleniya');
@@ -690,12 +737,6 @@ jQuery(document).ready(($)=>{
 		$('#main_block_for_steps').css('height', '390px');
 		$('#dop_block').css('display', 'block');
 	})
-// Слайдер талей
-
-		//	$('#stdV_t').css('display', 'flex');
-		//			$('#umenV_t').css('display', 'flex');
-			
-
 //////////////////////////////////////////////////////////////
 
 	$('#option_click1').click(()=>{
@@ -769,7 +810,11 @@ function next_group(arg, left) {
 
 function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: scrollTo + 'px' }, 700) }
 
-
+/************************************************************************************************************************
+*																														*
+*	 					БЛОК ПРИМЕНЕНИЯ ЗАПОЛНЕННЫХ ДАННЫХ ЭЛЕМЕНТАМ НА КЛИЕНТСКОЙ ЧАСТИ ДЛЯ ОПОРНЫХ					*
+*																														*
+************************************************************************************************************************/
 function resultatiO () {
 	cran.resetparam();
 	$('#Ogp').text(cran.gp);
@@ -789,7 +834,11 @@ function resultatiO () {
 	$('#Ospeed').text(cran.speedmetr);
 	$('#Ottk').text(cran.ttk);
 }
-
+/************************************************************************************************************************
+*																														*
+*	 					БЛОК ПРИМЕНЕНИЯ ЗАПОЛНЕННЫХ ДАННЫХ ЭЛЕМЕНТАМ НА КЛИЕНТСКОЙ ЧАСТИ ДЛЯ ПОДВЕСНЫХ					*
+*																														*
+************************************************************************************************************************/
 function resultatiP () {
 	cran.resetparam();
 	$('#Pgp').text(cran.gp);

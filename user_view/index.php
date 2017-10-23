@@ -55,9 +55,9 @@ $wpdb->show_errors();
 		<?php require_once("construct_calc/5b.php"); ?>
 		<!-- Крановые пути для ПОДВЕСНЫХ -->
 
-		<!-- ТОКОПРОВОД -->
+		<!-- ТОКОПОДВОД -->
 		<?php require_once("construct_calc/6.php"); ?>
-		<!-- ТОКОПРОВОД -->
+		<!-- ТОКОПОДВОД -->
 
 		<!-- Окно выбора талей -->
 		<?php require_once("construct_calc/tali.php"); ?>
@@ -235,8 +235,8 @@ $wpdb->show_errors();
 	</div>
 <!-- Скорость -->
 
-<!-- тип токопровода -->
-	<div id="тип_токопровода" class="modal_change modal_change_hide">
+<!-- тип токоподвода -->
+	<div id="тип_токоподвода" class="modal_change modal_change_hide">
 		<ul class="ul_change">
 			<li id="кск" class="change_li"><span>Кабельный с кольцами</span></li>
 			<li id="кст" class="change_li"><span>Кабельный с тележками</span></li>
@@ -246,7 +246,7 @@ $wpdb->show_errors();
 			<li id="нетребуется" class="change_li"><span>Не требуется</span></li>
 		</ul>
 	</div>
-<!-- тип токопровода -->
+<!-- тип токоподвода -->
 
 
 <!-- Мотор -->
@@ -436,8 +436,8 @@ $wpdb->show_errors();
 	</div>
 <!-- Скорость -->
 
-<!-- тип токопровода -->
-	<div id="тип_токопроводаP" class="modal_change modal_change_hide">
+<!-- тип токоподвода -->
+	<div id="тип_токоподводаP" class="modal_change modal_change_hide">
 		<ul class="ul_change">
 			<li id="кскP" class="change_li"><span>Кабельный с кольцами</span></li>
 			<li id="кстP" class="change_li"><span>Кабельный с тележками</span></li>
@@ -447,7 +447,7 @@ $wpdb->show_errors();
 			<li id="нетребуетсяP" class="change_li"><span>Не требуется</span></li>
 		</ul>
 	</div>
-<!-- тип токопровода -->
+<!-- тип токоподвода -->
 
 <!-- Мотор -->
 	<div id="motorP" class="modal_change modal_change_hide">
@@ -464,7 +464,7 @@ $wpdb->show_errors();
 
 <aside id="dop_block">
 	<h2 style="text-align:center;margin-bottom:20px">ДОПОЛНИТЕЛЬНО ВКЛЮЧЕНО В СТОИМОСТЬ КОММЕРЧЕСКОГО ПРЕДЛОЖЕНИЯ</h2>
-	<span id="option_click1" class="head_dop_menu_open">Пути и токопровод</span>
+	<span id="option_click1" class="head_dop_menu_open">Пути и токоподвод</span>
 	<div id="option_1" class="dop_menu_open">
 		<div class="dop_parametr"><i></i>
 			<span class="add_dop_1"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
@@ -486,13 +486,12 @@ $wpdb->show_errors();
 		</div>
 	</div>
 </aside>
-<!-- Опции для блоков ТОКОПРОВОД, ДОП. ОПЦИИ И УСЛУГИ -->
+<!-- Опции для блоков ТОКОПОДВОД, ДОП. ОПЦИИ И УСЛУГИ -->
 <?php require_once("construct_calc/menu_dop.php"); ?>
-<!-- Опции для блоков ТОКОПРОВОД, ДОП. ОПЦИИ И УСЛУГИ -->
+<!-- Опции для блоков ТОКОПОДВОД, ДОП. ОПЦИИ И УСЛУГИ -->
 <div style="clear:both"></div>
 <script src="<?=$url_this;?>js/script.js" type="text/javascript" charset="utf-8"></script>
 <script src="<?=$url_this;?>js/resume.js" type="text/javascript" charset="utf-8"></script>
-<script src="<?=$url_this;?>js/сalculate.ls.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" href="<?=$url_this;?>css/font-awesome.min.css">
 <?php
 //require_once("construct_calc/podscheti.php");

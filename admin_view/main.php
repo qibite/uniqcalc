@@ -265,11 +265,11 @@ $wpdb->show_errors();
 </table>
 
 <table class="tabla" style="width:49.5%;float:left">
-<caption class="close_table"><span class="close">Открыть</span>Монтаж токопровода</caption>
+<caption class="close_table"><span class="close">Открыть</span>Монтаж токоподвода</caption>
 	<thead>
 		<tr>
 			<th>ID</th>
-			<th>Токопровод</th>
+			<th>Токоподвод</th>
 			<th>Цена за 1м</th>
 			<th class="ch_price">Редактировать цену</th>
 		</tr>
@@ -301,7 +301,7 @@ $wpdb->show_errors();
 						<td><i class='edit_price'>Изменить</i></td>
 					</tr>";
 			}
-		} else echo "<span style='font-size:1.3em;color:red'>База данных 'Монтаж токопровода' не существует </span><a href='https://kwork.ru/user/qibite' target='blank'>Сообщить разработчику</a>";
+		} else echo "<span style='font-size:1.3em;color:red'>База данных 'Монтаж токоподвода' не существует </span><a href='https://kwork.ru/user/qibite' target='blank'>Сообщить разработчику</a>";
 	?>
 	</tbody>
 </table>
@@ -349,12 +349,12 @@ $wpdb->show_errors();
 </table>
 
 <table class="tabla" style="width:49.5%;float:left">
-<caption class="close_table"><span class="close">Открыть</span>Поставка токопровода</caption>
+<caption class="close_table"><span class="close">Открыть</span>Поставка токоподвода</caption>
 	<thead>
 		<tr>
 			<th>ID</th>
 			<th>Грузоподъемность</th>
-			<th>Токопровод</th>
+			<th>Токоподвод</th>
 			<th>Цена за 1м</th>
 			<th class="ch_price">Редактировать цену</th>
 		</tr>
@@ -388,7 +388,7 @@ $wpdb->show_errors();
 						<td><i class='edit_price'>Изменить</i></td>
 					</tr>";
 			}
-		} else echo "<span style='font-size:1.3em;color:red'>База данных 'Поставка токопровода' не существует </span><a href='https://kwork.ru/user/qibite' target='blank'>Сообщить разработчику</a>";
+		} else echo "<span style='font-size:1.3em;color:red'>База данных 'Поставка токоподвода' не существует </span><a href='https://kwork.ru/user/qibite' target='blank'>Сообщить разработчику</a>";
 	?>
 	</tbody>
 </table>

@@ -74,7 +74,7 @@ echo <<<EOT
 			</tr>
 		<!--<tr>
 				<td><i class="hover" id="cOttk">изменить</i></td>
-				<td class="">Токопровод к крану - <span id="Ottk"></span></td>
+				<td class="">Токоподвод к крану - <span id="Ottk"></span></td>
 			</tr>-->
 		</tbody>
 	</table>

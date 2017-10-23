@@ -165,7 +165,7 @@ jQuery(document).ready(($)=>{
 		$('#metr8').click(()=>{cran.setspeedmetr = '8 м/мин';setTimeout(()=>{hideChange()},300);$('#Ospeed').text(cran.speedmetr)});
 
 
-	$('#cOttk').click(()=>{showChange($('#тип_токопровода'))});
+	$('#cOttk').click(()=>{showChange($('#тип_токоподвода'))});
 		$('#кск').click(()=>{cran.setttk = 'Кабельный с кольцами';setTimeout(()=>{hideChange()},300);$('#Ottk').text(cran.ttk)});
 		$('#кст').click(()=>{cran.setttk = 'Кабельный с тележками';setTimeout(()=>{hideChange()},300);$('#Ottk').text(cran.ttk)});
 		$('#ф').click(()=>{cran.setttk = 'Фестонный (с-профиль)';setTimeout(()=>{hideChange()},300);$('#Ottk').text(cran.ttk)});
@@ -313,7 +313,7 @@ jQuery(document).ready(($)=>{
 		$('#metr8P').click(()=>{cran.setspeedmetr = '8 м/мин';setTimeout(()=>{hideChange()},300);$('#Pspeed').text(cran.speedmetr)});
 
 
-	$('#cPttk').click(()=>{showChange($('#тип_токопроводаP'))});
+	$('#cPttk').click(()=>{showChange($('#тип_токоподводаP'))});
 		$('#кскP').click(()=>{cran.setttk = 'Кабельный с кольцами';setTimeout(()=>{hideChange()},300);$('#Pttk').text(cran.ttk)});
 		$('#кстP').click(()=>{cran.setttk = 'Кабельный с тележками';setTimeout(()=>{hideChange()},300);$('#Pttk').text(cran.ttk)});
 		$('#фP').click(()=>{cran.setttk = 'Фестонный (с-профиль)';setTimeout(()=>{hideChange()},300);$('#Pttk').text(cran.ttk)});
@@ -591,7 +591,7 @@ $('#revers').on('click', function() {
 *
 *
 *
-*					ФУНКЦИЯ СКРЫТИЯ ЭЛЕМЕНТОВ ИЗ БЛОКА ВЫБОРА ОПЦИЙ, ТОКОПРОВОДА И Т.П.
+*					ФУНКЦИЯ СКРЫТИЯ ЭЛЕМЕНТОВ ИЗ БЛОКА ВЫБОРА ОПЦИЙ, ТОКОПОДВОДА И Т.П.
 *
 *
 *
@@ -784,7 +784,7 @@ function hideThisChange (this_Change) {
 *
 *																																	Функции для раздела
 *																																	
-*																																	ПУТИ И ТОКОПРОВОД
+*																																	ПУТИ И ТОКОПОДВОД
 *
 *
 *

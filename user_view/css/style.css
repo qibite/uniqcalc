@@ -151,7 +151,7 @@ h4{font-size:0.889em;margin:10px ;font-family:'Rubik Regular';text-align:center}
 .скрыть_варианты_ук,
 .скрыть_варианты_чп,
 .скрыть_варианты_подврельс,
-.скрыть_варианты_токопровод,
+.скрыть_варианты_токоподвод,
 .hide_type_upravleniya,
 .hide_country_r,
 .hide_country_e,
@@ -164,7 +164,7 @@ h4{font-size:0.889em;margin:10px ;font-family:'Rubik Regular';text-align:center}
 .скрыть_варианты_animate_ук,
 .скрыть_варианты_animate_чп,
 .скрыть_варианты_animate_подврельс,
-.скрыть_варианты_animate_токопровод
+.скрыть_варианты_animate_токоподвод
 {animation: hide_dop 0.7s ease;animation-fill-mode: forwards;}
 .back_dop_animate_vzr,
 .back_dop_animate_pozh,
@@ -172,7 +172,7 @@ h4{font-size:0.889em;margin:10px ;font-family:'Rubik Regular';text-align:center}
 .показать_варианты_animate_ук,
 .показать_варианты_animate_чп,
 .показать_варианты_animate_подврельс,
-.показать_варианты_animate_токопровод,
+.показать_варианты_animate_токоподвод,
 .show_type_upravleniya,
 .show_country_r,
 .show_country_e,
@@ -194,7 +194,7 @@ h4{font-size:0.889em;margin:10px ;font-family:'Rubik Regular';text-align:center}
 .show_s_visota_tal
 {position: relative;}
 
-#список_моделей_рельс li, #список_моделей_путей li, #список_токопроводов li{display:inline-block}
+#список_моделей_рельс li, #список_моделей_путей li, #список_токоподводов li{display:inline-block}
 .block h3.вес{width:190px;font-size:2.3em;letter-spacing:0.007em;padding:0em 0.5em;border:1px solid #888;border-radius:4px;line-height:2em;color:#333;cursor:pointer}
 .block h3.вес:hover{border-color:#b5212e}
 #first li{margin-left: 0}

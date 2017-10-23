@@ -6,7 +6,7 @@
 		<ul class="ul_change">	
 			<li id="a1" class="change_li"><span><img src="<?=$url;?>images/puti1.jpg" alt="" style="width:140px"><p><b class="hz4">Разработка проектной документации</b><br><span class="opisanie_parametra">10 рабочих дней</span></p></span><span class='hiddened'>65 000 руб</span></li>
 			<li id="a2" class="change_li"></li>
-			<li id="a3" class="change_li  cat"><span><img src="<?=$url;?>images/6.1.jpg" alt="" style="width:140px"><p><b class="hz4">Токопровод</b></p></span><span class='hiddened'></span>
+			<li id="a3" class="change_li  cat"><span><img src="<?=$url;?>images/6.1.jpg" alt="" style="width:140px"><p><b class="hz4">Токоподвод</b></p></span><span class='hiddened'></span>
 			<?php
 			$stoimost_provod = $wpdb->prefix . 'stoimost_provod';
 			$stoimost_provod_result = $wpdb->get_results("SELECT id, type, price FROM $stoimost_provod");
