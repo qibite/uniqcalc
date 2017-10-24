@@ -5,11 +5,11 @@ echo <<<EOT
 	<h2>Таль</h2>
 	<p>Тут типа какой нибудь продающий текст или что-то в этом роде.</p><p>Можно краткое приветствие и описание типов крана поверхностное.</p>
 	<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
-		<img class="allimg tal_yes" src="{$url}images/t_yes.jpg" style="height:320px" alt="">
+		<img class="allimg tal_yes" src="{$url}images/t_yes.png" style="height:320px" alt="">
 		<h4 class="btns talbtn tal_yes">Нам требуется таль</h4>
 	</div>
 	<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
-		<img class="allimg tal_no" src="{$url}images/t_no.jpg" style="height:320px" alt="">
+		<img class="allimg tal_no" src="{$url}images/t_no.png" style="height:320px" alt="">
 		<h4 class="btns talbtn tal_no">Нам не требуется таль</h4>
 	</div>
 
