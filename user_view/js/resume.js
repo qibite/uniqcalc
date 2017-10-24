@@ -89,6 +89,7 @@ jQuery(document).ready(($)=>{
 			$('.dop_parametr:has("span.motor-reductor")').remove();
 			$('#gpO > ul li:nth-child(9)').css('display','none');$('#gpO > ul li:nth-child(10)').css('display','none');
 			if (cran.gp > 10000) {cran.gp = 10000; alert('Грузоподъемность была уменьшена до 10000 кг для крана с ручным управлением!')}
+			cran.resetparam();
 		});
 		$('#Электро').click(()=>{
 			cran._3 = 'Электро';
@@ -107,6 +108,8 @@ jQuery(document).ready(($)=>{
 								</p>';
 			return new_html;
 			});
+			cran._3Type = 'Подвесной пульт';
+
 			$('#option_2 .dop_parametr:last-child').before(()=>{
 				let new_html = '<div class="dop_parametr"> \
 						<span class="change_this_option motor-reductor">Изменить \
@@ -124,6 +127,9 @@ jQuery(document).ready(($)=>{
 			calculate_oporniy_crane();
 			$('#gpO > ul li:nth-child(9)').css('display','inline-block');$('#gpO > ul li:nth-child(10)').css('display','inline-block')
 			setTimeout(()=>{hideChange()},300);
+			cran.setmotor = 'Червячная передача ABLE (Италия) - стандартно';
+
+			cran.resetparam();
 	});
 
 	$('#CrazrezO').click(()=>{showChange($('#razrezO'))})
@@ -451,12 +457,20 @@ $('.dop_menu_open').on('click', '.pult_change', function(event) {
 			pult_upravleniya_PULT_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.5.jpg';
 			pult_upravleniya_PULT_img.className = 'allimg col-md-12 change_on_PULT';
 			pult_upravleniya_PULT.append(pult_upravleniya_PULT_img);
-				pult_upravleniya_PULT_img.addEventListener('click', function () {easyscroll(250);creat_pult_model();});
+				pult_upravleniya_PULT_img.addEventListener('click', function () {
+					creat_pult_model('Пульт');
+					$('h4.change_on_PULT').css({'background-color':'#b5212e','color':'#FFFFFF'});					
+					$('h4.change_on_JOY').css({'background-color':'#e4ded5','color':'##242526'});
+				});
 		let pult_upravleniya_PULT_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
 			pult_upravleniya_PULT_h4.className = 'col-md-12 change_on_PULT';
 			pult_upravleniya_PULT_h4.innerText = 'Пульт';
 			pult_upravleniya_PULT.append(pult_upravleniya_PULT_h4);
-				pult_upravleniya_PULT_h4.addEventListener('click', function () {easyscroll(250);creat_pult_model();});
+				pult_upravleniya_PULT_h4.addEventListener('click', function () {
+					creat_pult_model('Пульт');
+					$('h4.change_on_PULT').css({'background-color':'#b5212e','color':'#FFFFFF'});					
+					$('h4.change_on_JOY').css({'background-color':'#e4ded5','color':'##242526'});
+				});
 			
 
 	let pult_upravleniya_JOY = document.createElement('div'); // блок джойстик
@@ -468,14 +482,18 @@ $('.dop_menu_open').on('click', '.pult_change', function(event) {
 			pult_upravleniya_JOY_img.className = 'allimg col-md-12 change_on_JOY';
 			pult_upravleniya_JOY.append(pult_upravleniya_JOY_img);
 				pult_upravleniya_JOY_img.addEventListener('click', function () {
-					alert('JOY!!!')
+					creat_pult_model();
+					$('h4.change_on_JOY').css({'background-color':'#b5212e','color':'#FFFFFF'});
+					$('h4.change_on_PULT').css({'background-color':'#e4ded5','color':'##242526'});
 				});
 		let pult_upravleniya_JOY_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
 			pult_upravleniya_JOY_h4.className = 'col-md-12 change_on_JOY';
 			pult_upravleniya_JOY_h4.innerText = 'Джойстик';
 			pult_upravleniya_JOY.append(pult_upravleniya_JOY_h4);
 				pult_upravleniya_JOY_h4.addEventListener('click', function () {
-					alert('JOY!!!')
+					creat_pult_model();
+					$('h4.change_on_JOY').css({'background-color':'#b5212e','color':'#FFFFFF'});
+					$('h4.change_on_PULT').css({'background-color':'#e4ded5','color':'##242526'});
 				});
 			
 
@@ -484,7 +502,9 @@ $('.dop_menu_open').on('click', '.pult_change', function(event) {
 	$('.zzz').after(pult_upravleniya);
 
 	//////////////////////////////////////////////////////
-	function creat_pult_model () {
+	function creat_pult_model (pult_or_joy) {
+		if ($('div').is('.pult_upravleniya_TELECRANE')) {return}
+			easyscroll(250);
 		let pult_upravleniya_TELECRANE = document.createElement('div'); // блок пульт
 			pult_upravleniya_TELECRANE.className = 'col-md-3 col-md-offset-1 pult_upravleniya_TELECRANE animated fadeInLeftBig'
 			pult_upravleniya.append(pult_upravleniya_TELECRANE);
@@ -494,14 +514,16 @@ $('.dop_menu_open').on('click', '.pult_change', function(event) {
 			pult_upravleniya_TELECRANE_img.className = 'allimg col-md-12 change_on_TELECRANE';
 			pult_upravleniya_TELECRANE.append(pult_upravleniya_TELECRANE_img);
 				pult_upravleniya_TELECRANE_img.addEventListener('click', function () {
-					alert('PULT!!!')
+					pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
+					cran._3Type = cran._3Type + ' Telecrane (Тайвань)';
 				});
 		let pult_upravleniya_TELECRANE_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
 			pult_upravleniya_TELECRANE_h4.className = 'col-md-12 change_on_TELECRANE';
-			pult_upravleniya_TELECRANE_h4.innerText = 'Пульт';
+			pult_upravleniya_TELECRANE_h4.innerText = 'Telecrane (Тайвань)';
 			pult_upravleniya_TELECRANE.append(pult_upravleniya_TELECRANE_h4);
 				pult_upravleniya_TELECRANE_h4.addEventListener('click', function () {
-					alert('PULT!!!')
+					pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
+					cran._3Type = cran._3Type + ' Telecrane (Тайвань)';
 				});
 
 
@@ -513,14 +535,16 @@ $('.dop_menu_open').on('click', '.pult_change', function(event) {
 			pult_upravleniya_IKUSI_img.className = 'allimg col-md-12 change_on_IKUSI';
 			pult_upravleniya_IKUSI.append(pult_upravleniya_IKUSI_img);
 				pult_upravleniya_IKUSI_img.addEventListener('click', function () {
-					alert('PULT!!!')
+					pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
+					cran._3Type = cran._3Type + ' Ikusi (Испания)';
 				});
 		let pult_upravleniya_IKUSI_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
 			pult_upravleniya_IKUSI_h4.className = 'col-md-12 change_on_IKUSI';
-			pult_upravleniya_IKUSI_h4.innerText = 'Пульт';
+			pult_upravleniya_IKUSI_h4.innerText = 'Ikusi (Испания)';
 			pult_upravleniya_IKUSI.append(pult_upravleniya_IKUSI_h4);
 				pult_upravleniya_IKUSI_h4.addEventListener('click', function () {
-					alert('PULT!!!')
+					pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
+					cran._3Type = cran._3Type + ' Ikusi (Испания)';
 				});
 
 
@@ -529,36 +553,59 @@ $('.dop_menu_open').on('click', '.pult_change', function(event) {
 			pult_upravleniya.append(pult_upravleniya_HBRRadiomatic);
 		let pult_upravleniya_HBRRadiomatic_img = document.createElement('img'); //Картинка радио пульта
 			pult_upravleniya_HBRRadiomatic_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.9.jpg';
-			pult_upravleniya_HBRRadiomatic_img.className = 'allimg col-md-12 change_on_IKUSI';
+			pult_upravleniya_HBRRadiomatic_img.className = 'allimg col-md-12 change_on_HBRRadiomatic';
 			pult_upravleniya_HBRRadiomatic.append(pult_upravleniya_HBRRadiomatic_img);
 				pult_upravleniya_HBRRadiomatic_img.addEventListener('click', function () {
-					alert('PULT!!!')
+					pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
+					cran._3Type = cran._3Type + ' HBC-Radiomatic (Германия)';
 				});
 		let pult_upravleniya_HBRRadiomatic_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
-			pult_upravleniya_HBRRadiomatic_h4.className = 'col-md-12 change_on_IKUSI';
-			pult_upravleniya_HBRRadiomatic_h4.innerText = 'Пульт';
+			pult_upravleniya_HBRRadiomatic_h4.className = 'col-md-12 change_on_HBRRadiomatic';
+			pult_upravleniya_HBRRadiomatic_h4.innerText = 'HBC - Radiomatic (Германия)';
 			pult_upravleniya_HBRRadiomatic.append(pult_upravleniya_HBRRadiomatic_h4);
 				pult_upravleniya_HBRRadiomatic_h4.addEventListener('click', function () {
-					alert('PULT!!!')
+					pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
+					cran._3Type = cran._3Type + ' HBC-Radiomatic (Германия)';
 				});
 	}
 
 })
 
-$('body').on('click', '#closePult', function(event) {
+$('body').on('click', '#closePult, .change_on_TELECRANE', function(event) {
 	console.log('click')
 	$(this).parent('.pultslider').detach();
 	$('html, body').animate({ 'scrollTop':'900px' }, 400)
+})
+$('body').on('click', '.change_on_TELECRANE, .change_on_IKUSI, .change_on_HBRRadiomatic', function(event) {
+	console.log('click')
+	$(this).parent().parent('.pultslider').detach();
+	$('.pult_change').parent('.dop_parametr').detach();
+	cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? price_crane_electro_upravleniya() : false;
+	$('html, body').animate({ 'scrollTop':'900px' }, 400);
 })
 
 
 /************************************************************************************************************************************************************************************************************************************/
 //Удалить опцию
 	$('.dop_menu_open').on('click', '.del_this_option',function(event) {
+		if ($(this).hasClass('return_pult_default')) {
+			$('#option_2 .dop_parametr:last-child').before(()=>{
+			let new_html = '<div class="dop_parametr"> \
+								<span class="change_this_option pult_change">Изменить \
+									<i class="fa fa-pencil-square" aria-hidden="true"></i> \
+								</span> \
+								<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" style="width:200px"> \
+								<h4>Подвесной пульт</h4> \
+								<p> \
+									<span class="opisanie_parametra">Входит в стоимость крана</span> \
+										<br> \
+									<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i> \
+								</p>';
+			return new_html;
+		});
+		}
 		$(this).parent().detach();
 	});
-
-
 
 $('#first_opt, #second_opt').on('click', '.cat', function(event) {
 	$(this).siblings('li').css('display', 'none');
@@ -775,6 +822,77 @@ function hideThisChange (this_Change) {
 			/////////////
 	}
 
+
+	function price_crane_electro_upravleniya () {
+			//////////////
+			let price = 
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Telecrane/i) != -1) && (
+					cran.code_of_motor == '8.3') ? {id:1, img:'3.7'}:false)
+				||
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Telecrane/i) != -1) && (
+					cran.code_of_motor == '8.2' || '8.4') ? {id:2, img:'3.7'}:false)
+				||
+				(( cran._2 != 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) == -1 && cran._2.search(/Взрывобезопасное/i) != -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Telecrane/i) != -1) && (
+					cran.code_of_motor == '8.3') ? {id:3, img:'3.7'}:false)
+				||
+				(( cran._2 != 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) == -1 && cran._2.search(/Взрывобезопасное/i) != -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Telecrane/i) != -1) && (
+					cran.code_of_motor == '8.2' || '8.4') ? {id:4, img:'3.7'}:false)
+				||
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/джойстиком/i) != -1 && cran._3Type.search(/Telecrane/i) != -1) && (
+					cran.code_of_motor == '8.3' || '8.2' || '8.4') ? {id:5, img:'3.7'}:false)
+				||
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Ikusi/i) != -1) && (
+					cran.code_of_motor == '8.3') ? {id:6, img:'3.8'}:false)
+				||
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Ikusi/i) != -1) && (
+					cran.code_of_motor == '8.2' || '8.4') ? {id:7, img:'3.8'}:false)
+				||
+				(( cran._2 != 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) == -1 && cran._2.search(/Взрывобезопасное/i) != -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Ikusi/i) != -1) && (
+					cran.code_of_motor == '8.3') ? {id:8, img:'3.8'}:false)
+				||
+				(( cran._2 != 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) == -1 && cran._2.search(/Взрывобезопасное/i) != -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Ikusi/i) != -1) && (
+					cran.code_of_motor == '8.2' || '8.4') ? {id:9, img:'3.8'}:false)
+				||
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/джойстиком/i) != -1 && cran._3Type.search(/Ikusi/i) != -1) && (
+					cran.code_of_motor == '8.3' || '8.2' || '8.4') ? {id:10, img:'3.8'}:false)
+				||
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/HBC/i) != -1) && (
+					cran.code_of_motor == '8.3') ? {id:11, img:'3.9'}:false)
+				||
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/HBC/i) != -1) && (
+					cran.code_of_motor == '8.2' || '8.4') ? {id:12, img:'3.9'}:false)
+				||
+				(( cran._2 != 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) == -1 && cran._2.search(/Взрывобезопасное/i) != -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/HBC/i) != -1) && (
+					cran.code_of_motor == '8.3') ? {id:13, img:'3.9'}:false)
+				||
+				(( cran._2 != 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) == -1 && cran._2.search(/Взрывобезопасное/i) != -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/HBC/i) != -1) && (
+					cran.code_of_motor == '8.2' || '8.4') ? {id:14, img:'3.9'}:false)
+				||
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/джойстиком/i) != -1 && cran._3Type.search(/HBC/i) != -1) && (
+					cran.code_of_motor == '8.3' || '8.2' || '8.4') ? {id:15, img:'3.9'}:false)
+				||
+				0;
+			if (price.id == 0) return false;
+				var data_crane_electro_upravleniya = { action: 'calc_crane_electro_upravleniya', _variant_id:price.id }
+				$.post( calc_ajaxurl.url, data_crane_electro_upravleniya, function (response) {				
+					$('#option_2 .dop_parametr:last-child').before(()=>{
+						let new_html = '<div class="dop_parametr"> \
+											<span class="del_this_option return_pult_default"> \
+												<i class="fa fa-trash-o" aria-hidden="true"></i> \
+											</span> \
+											<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" style="width:200px"> \
+											<h4>Управление каном</h4> \
+											<p> \
+												<span class="opisanie_parametra">'+String(cran._3Type)+'</span> \
+													<br> \
+												<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span><i class="id_bro">b3</i> \
+											</p>';
+						return new_html;
+					});
+					$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
+					$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
+				});
+	}
 
 
 /*******************************************************************************************************************************************************************************************************************************************************************
