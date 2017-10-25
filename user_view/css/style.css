@@ -237,9 +237,9 @@ td>span,img+br+p>span,img+br+p+p>span{color:#b5212e}
 }
 .res>tbody tr:nth-child(even){color:inherit}
 
-#close,#close2,#closePult{position:absolute;right:30px;top:64px;font-size:2.5em;color:#ddd;cursor:pointer;font-weight:bold}
-#closePult{top:30px}
-#close:hover,#close2:hover,#closePult:hover{color:#b5212e;transform:scale(1.1)}
+#close,#close2,#closePult,#closeMotorReductor{position:absolute;right:30px;top:64px;font-size:2.5em;color:#ddd;cursor:pointer;font-weight:bold}
+#closePult,#closeMotorReductor{top:30px}
+#close:hover,#close2:hover,#closePult:hover,#closeMotorReductor:hover{color:#b5212e;transform:scale(1.1)}
 .mmm,.zzz{transform:translateY(5000px)}
 .modal_view,.hidden_options{position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(255, 255, 255, 0.9);z-index:99999}
 .modal_view_hide,.hidden_options_hide{animation: hidem 0.7s ease;animation-fill-mode:forwards}
@@ -341,7 +341,7 @@ p>b.hz4
 {
 	color: #333;
 }
-.pultslider
+.pultslider, .motor_reductor_slider
 {
 	position: absolute;
 	top: 0;
@@ -353,7 +353,7 @@ p>b.hz4
 	overflow: hidden;
 	z-index: 9999;
 }
-.pultslider>h2
+.pultslider>h2, .motor_reductor_slider>h2
 {
 	text-align: center;
 	margin-top: 65px;
@@ -367,15 +367,36 @@ p>b.hz4
 	text-align: center;
 }
 
-h4.col-md-12
+div.pultslider>div>h4, div.motor_reductor_slider>div>h4
 {
 	background-color: #e4ded5;
     padding: 12px 0;
     cursor: pointer;
 }
-
-h4.col-md-12:hover
+div.pultslider>div>img, div.motor_reductor_slider>div>img
+{
+	width: 100%;
+}
+div.pultslider>div>h4:hover, div.motor_reductor_slider>div>h4:hover
 {
 	background-color: #b5212e;
 	color: #FFF;
 }
+
+
+.pultslider>.pult_upravleniya_JOY, .pultslider>.pult_upravleniya_PULT
+{
+	width: 33%;
+	float: left;
+}
+.pultslider>.pult_upravleniya_PULT{margin-left: 8.6%}
+.pultslider>.pult_upravleniya_JOY{margin-left: 14%}
+
+.pult_upravleniya_TELECRANE, .pult_upravleniya_IKUSI, .pult_upravleniya_HBRRadiomatic
+{
+	float: left;
+	margin-left: 8.3%;
+	width:25%;
+	padding: 15px 0;
+}
+

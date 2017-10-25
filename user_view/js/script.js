@@ -1029,7 +1029,7 @@ function motor_price (model) {
 					if (model == 9.1) {
 						$('#option_2 .dop_parametr:last-child').before(()=>{
 							let new_html = '<div class="dop_parametr"> \
-												<span class="change_this_option motor-reductor">Изменить \
+												<span class="change_this_option motor_reductor_change">Изменить \
 													<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 												</span> \
 												<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" style="width:200px"> \
