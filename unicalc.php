@@ -442,7 +442,40 @@ function price_motor () {
 
 	wp_die();
 }
-//Стоимость мотора 
+//Стоимость мотора
+
+//Стоимость моторов
+add_action('wp_ajax_calc_motors', 'price_motors');
+add_action('wp_ajax_nopriv_calc_motors', 'price_motors');
+function price_motors () {
+	$motor_id_9_2 = $_POST['_motor_id_9_2'];
+	$motor_id_9_3 = $_POST['_motor_id_9_3'];
+	$motor_id_9_4 = $_POST['_motor_id_9_4'];
+	$motor_id_9_5 = $_POST['_motor_id_9_5'];
+
+	global $wpdb;$wpdb->show_errors();
+	$variants = $wpdb->prefix . 'variants';
+	$variants_result = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $motor_id_9_2");
+		if ($variants_result) {
+			$m9_2 = $variants_result[0]->price;
+		}
+	$variants_result = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $motor_id_9_3");
+		if ($variants_result) {
+			$m9_3 = $variants_result[0]->price;
+		}
+	$variants_result = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $motor_id_9_4");
+		if ($variants_result) {
+			$m9_4 = $variants_result[0]->price;
+		}
+	$variants_result = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $motor_id_9_5");
+		if ($variants_result) {
+			$m9_5 = $variants_result[0]->price;
+		}
+	$moto_result = array('p9_2' => $m9_2, 'p9_3' => $m9_3, 'p9_4' => $m9_4, 'p9_5' => $m9_5);
+	echo json_encode($moto_result);
+	wp_die();
+}
+//Стоимость моторов
 
 //Стоимость электрощита
 add_action('wp_ajax_calc_shit', 'price_shit');

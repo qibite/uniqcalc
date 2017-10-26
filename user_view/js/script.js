@@ -255,44 +255,44 @@ jQuery(document).ready(($)=>{
 	$('.одна_с').click(function () {//8.3
 		hide($('#система_управления_краном'));
 		cran.setspeed = 'Одна скорость движения';
-		cran.code_of_motor = '8.3';
+		cran.code_of_chastotnik = '8.3';
 		next_group($('#мотор_редуктора'), 0);
 		$('#main_block_for_steps').css('height', '800px');
-		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? price_crane_electro_upravleniya('8.3') : false;
+		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.3') : false;
 	});
 	$('.несколько_с').click(function () {//8.4
 		hide($('#система_управления_краном'));
 		cran.setspeed = 'Несколько скоростей движения';
-		cran.code_of_motor = '8.4';
+		cran.code_of_chastotnik = '8.4';
 		next_group($('#мотор_редуктора'), 0);		
 		$('#main_block_for_steps').css('height', '800px');
-		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? price_crane_electro_upravleniya('8.4') : false;
+		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.4') : false;
 	});
 	$('.esq').click(function () {
 		hide($('#система_управления_краном'));
 		cran.setspeed = 'Плавный пуск + 2 и более скорости ESQ (Китай)';		
-		cran.code_of_motor = '8.2';
+		cran.code_of_chastotnik = '8.2';
 		next_group($('#мотор_редуктора'), 0);
 		$('#main_block_for_steps').css('height', '800px');
-		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? price_crane_electro_upravleniya('8.2') : false;
+		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;
 		chastotnik_price(8.5);
 	});
 	$('.hyundai').click(function () {
 		hide($('#система_управления_краном'));
 		cran.setspeed = 'Плавный пуск + 2 и более скорости Hyundai (Корея)';		
-		cran.code_of_motor = '8.2';
+		cran.code_of_chastotnik = '8.2';
 		next_group($('#мотор_редуктора'), 0);
 		$('#main_block_for_steps').css('height', '800px');
-		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? price_crane_electro_upravleniya('8.2') : false;
+		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;
 		chastotnik_price(8.6);
 	});
 	$('.danfross').click(function () {
 		hide($('#система_управления_краном'));
 		cran.setspeed = 'Плавный пуск + 2 и более скорости Danfoss (Германия)';				
-		cran.code_of_motor = '8.2';
+		cran.code_of_chastotnik = '8.2';
 		next_group($('#мотор_редуктора'), 0);
 		$('#main_block_for_steps').css('height', '800px');
-		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? price_crane_electro_upravleniya('8.2') : false;
+		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;
 		chastotnik_price(8.7);
 	});
 /************************************************************************************************************************
@@ -302,7 +302,8 @@ jQuery(document).ready(($)=>{
 ************************************************************************************************************************/
 	$('.чаи').click(function () {
 		cran.setmotor = 'Червячная передача ABLE (Италия) - стандартно';
-		motor_price(9.1);
+		cran.motor_price(9.1);
+		cran.code_of_motor = 9.1;
 		hide($('#мотор_редуктора'));
 		next_group( $('#razmeshenie'), 0 );
 		//next_group($('#vibor_tali'), 0); старый шаг
@@ -310,7 +311,8 @@ jQuery(document).ready(($)=>{
 	});
 	$('.чнг').click(function () {
 		cran.setmotor = 'Червячная передача NORD (Германия)';
-		motor_price(9.2);
+		cran.motor_price(9.2);
+		cran.code_of_motor = 9.2;
 		hide($('#мотор_редуктора'));
 		next_group( $('#razmeshenie'), 0 );
 		//next_group($('#vibor_tali'), 0); старый шаг
@@ -318,7 +320,8 @@ jQuery(document).ready(($)=>{
 	});
 	$('.цбб').click(function () {
 		cran.setmotor = 'Циллиндрическая передача Балкан Эхо (Болгария)';
-		motor_price(9.3);
+		cran.motor_price(9.3);
+		cran.code_of_motor = 9.3;
 		hide($('#мотор_редуктора'));
 		next_group( $('#razmeshenie'), 0 );
 		//next_group($('#vibor_tali'), 0); старый шаг
@@ -326,7 +329,8 @@ jQuery(document).ready(($)=>{
 	});
 	$('.цнг').click(function () {
 		cran.setmotor = 'Циллиндрическая передача NORD (Германия)';
-		motor_price(9.4);
+		cran.motor_price(9.4);
+		cran.code_of_motor = 9.4;
 		hide($('#мотор_редуктора'));
 		next_group( $('#razmeshenie'), 0 );
 		//next_group($('#vibor_tali'), 0); старый шаг
@@ -334,7 +338,8 @@ jQuery(document).ready(($)=>{
 	});
 	$('.цер').click(function () {
 		cran.setmotor = 'Циллиндрическая передача Европривод (Россия)';
-		motor_price(9.5);
+		cran.motor_price(9.5);
+		cran.code_of_motor = 9.5;
 		hide($('#мотор_редуктора'));
 		next_group( $('#razmeshenie'), 0 );
 		//next_group($('#vibor_tali'), 0); старый шаг
@@ -865,7 +870,7 @@ function resultatiP () {
 	$('#Pttk').text(cran.ttk);
 }
 
-function price_crane_electro_upravleniya (_8punkt) {
+cran.price_crane_electro_upravleniya = function (_8punkt) {
 			//////////////
 			let price = 
 				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Telecrane/i) != -1) && (
@@ -976,7 +981,7 @@ function chastotnik_price (model) {
 
 
 //Рассчет стоимости мотор-редуктора
-function motor_price (model) {
+cran.motor_price = function (model) {
 	let price =	
 ///////////////////////////////////////////////// 9.1
 			model == 9.1 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO < 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP < 16500 : false) ? {id:45, img:'9.1'} :
@@ -1048,7 +1053,7 @@ function motor_price (model) {
 						<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span></p>');
 						$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
 						$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
-					}					
+					}			
 				});
 }
 //Рассчет стоимости мотор-редуктора
@@ -1128,7 +1133,8 @@ var cran = {
 	ttk:'',
 	set setttk (s) {this._3 == 'Ручное' ? this.ttk =  'Не доступно при ручном управлении' : s ? this.ttk = s : this.ttk = this.ttk },
 	motor:'Червячная передача ABLE (Италия) - стандартно',
-	code_of_motor:'',
+	code_of_chastotnik:'',
+	code_of_motor:9.1,
 	set setmotor (s) {this._3 == 'Ручное' ? this.motor =  'Не доступно при ручном управлении' : s ? this.motor = s : this.motor = this.motor },
 	resetparam:function(){this.setspeed = this.setspeedmetr = this.setszo = this.setncuprav = this.setmotor = cran.setttk = false; },
 	get getep () {return this._3 == 'Ручное' ? 'Не доступно при ручном управлении' : '3-х фазная (380 В)'},

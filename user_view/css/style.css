@@ -400,3 +400,18 @@ div.pultslider>div>h4:hover, div.motor_reductor_slider>div>h4:hover
 	padding: 15px 0;
 }
 
+.motor_reductor_slider>div.animated
+{
+	float: left;
+	width: 25%;
+    margin-left: 6.25%;
+}
+
+.price_in_change
+{
+	text-align: center;
+    display: block;
+    font-weight: bold;
+    color: #b5212e;
+
+}
