@@ -410,6 +410,37 @@ function price_pulta () {
 }
 // Стоимость пульта электро управления
 
+// Стоимость пульта электро управления МНОЖЕСТВЕННЫЙ ВЫБОР
+add_action('wp_ajax_calc_pults', 'price_pultov');
+add_action('wp_ajax_nopriv_calc_pults', 'price_pulov');
+function price_pulov () {
+	$pult_id_82_84 = $_POST['_pult_id_82_84'];
+	$pult_id_83 = $_POST['_pult_id_83'];
+	$pult_id_joy = $_POST['_pult_id_joy'];
+
+	global $wpdb;$wpdb->show_errors();
+	$variants = $wpdb->prefix . 'variants';
+	$variants_result_82 = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $pult_id_82_84");
+		if ($variants_result_82) {
+			$p82_84 = $variants_result[0]->price;
+		}
+	$variants = $wpdb->prefix . 'variants';
+	$variants_result_83 = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $pult_id_83");
+		if ($variants_result_83) {
+			$p83 = $variants_result[0]->price;
+		}
+	$variants = $wpdb->prefix . 'variants';
+	$variants_result_joy = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $pult_id_joy");
+		if ($variants_result_joy) {
+			$joy = $variants_result[0]->price;
+		}
+	$pult_rsult = array('8_2' => $p82_84, '8_3' => $p83, 'joy' => $joy);
+	echo json_encode($pult_rsult);
+
+	wp_die();
+}
+// Стоимость пульта электро управления МНОЖЕСТВЕННЫЙ ВЫБОР
+
 // Стоимость преобразователя
 add_action('wp_ajax_calc_chastotnik', 'price_chastotnika');
 add_action('wp_ajax_nopriv_calc_chastotnik', 'price_chastotnika');

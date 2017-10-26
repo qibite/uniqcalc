@@ -498,77 +498,88 @@ $('.dop_menu_open').on('click', '.pult_change', function(event) {
 			
 
 	
-	$('html, body').animate({ 'scrollTop':'0px' }, 350)
+	$('html, body').animate({ 'scrollTop':'170px' }, 350)
 	$('.zzz').after(pult_upravleniya);
 
 	//////////////////////////////////////////////////////
 	function creat_pult_model (pult_or_joy) {
-		if ($('div').is('.pult_upravleniya_TELECRANE')) {return}
-			easyscroll(380);
-		let pult_upravleniya_TELECRANE = document.createElement('div'); // блок пульт
-			pult_upravleniya_TELECRANE.className = 'pult_upravleniya_TELECRANE animated fadeInLeftBig'
-			pult_upravleniya.append(pult_upravleniya_TELECRANE);
-		let pult_upravleniya_TELECRANE_img = document.createElement('img'); //Картинка радио пульта
-			pult_upravleniya_TELECRANE_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.7.jpg';
-			pult_upravleniya_TELECRANE.style.marginLeft = '4%';
-			pult_upravleniya_TELECRANE_img.className = 'allimg change_on_TELECRANE';
-			pult_upravleniya_TELECRANE.append(pult_upravleniya_TELECRANE_img);
-				pult_upravleniya_TELECRANE_img.addEventListener('click', function () {
-					pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
-					cran._3Type = cran._3Type + ' Telecrane (Тайвань)';
-				});
-		let pult_upravleniya_TELECRANE_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
-			pult_upravleniya_TELECRANE_h4.className = 'change_on_TELECRANE';
-			pult_upravleniya_TELECRANE_h4.innerText = 'Telecrane (Тайвань)';
-			pult_upravleniya_TELECRANE.append(pult_upravleniya_TELECRANE_h4);
-				pult_upravleniya_TELECRANE_h4.addEventListener('click', function () {
-					pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
-					cran._3Type = cran._3Type + ' Telecrane (Тайвань)';
-				});
+		console.log(get_pult_id(8.2, 'id'))
+		console.log(get_pult_id(8.3, 'id'))
+		console.log(get_pult_id('joy', 'id'))
+		var data_pult = { action: 'calc_pults', _pult_id_82_84:get_pult_id(8.2, 'id'), _pult_id_83:get_pult_id(8.3, 'id'), _pult_id_joy:get_pult_id('joy', 'id') }
+		$.post( calc_ajaxurl.url, data_pult, function (response) {
+			let results = JSON.parse(response);
+
+			/*if ($('div').is('.pult_upravleniya_TELECRANE')) {return}
+				easyscroll(380);
+			let pult_upravleniya_TELECRANE = document.createElement('div'); // блок пульт
+				pult_upravleniya_TELECRANE.className = 'pult_upravleniya_TELECRANE animated fadeInLeftBig'
+				pult_upravleniya.append(pult_upravleniya_TELECRANE);
+			let pult_upravleniya_TELECRANE_img = document.createElement('img'); //Картинка радио пульта
+				pult_upravleniya_TELECRANE_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.7.jpg';
+				pult_upravleniya_TELECRANE.style.marginLeft = '4%';
+				pult_upravleniya_TELECRANE_img.className = 'allimg change_on_TELECRANE';
+				pult_upravleniya_TELECRANE.append(pult_upravleniya_TELECRANE_img);
+					pult_upravleniya_TELECRANE_img.addEventListener('click', function () {
+						pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
+						cran._3Type = cran._3Type + ' Telecrane (Тайвань)';
+					});
+			let pult_upravleniya_TELECRANE_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
+				pult_upravleniya_TELECRANE_h4.className = 'change_on_TELECRANE';
+				pult_upravleniya_TELECRANE_h4.innerText = 'Telecrane (Тайвань)';
+				pult_upravleniya_TELECRANE.append(pult_upravleniya_TELECRANE_h4);
+					pult_upravleniya_TELECRANE_h4.addEventListener('click', function () {
+						pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
+						cran._3Type = cran._3Type + ' Telecrane (Тайвань)';
+					});
 
 
-		let pult_upravleniya_IKUSI = document.createElement('div'); // блок пульт
-			pult_upravleniya_IKUSI.className = 'pult_upravleniya_IKUSI animated zoomIn'
-			pult_upravleniya.append(pult_upravleniya_IKUSI);
-		let pult_upravleniya_IKUSI_img = document.createElement('img'); //Картинка радио пульта
-			pult_upravleniya_IKUSI_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.8.jpg';
-			pult_upravleniya_IKUSI_img.className = 'allimg change_on_IKUSI';
-			pult_upravleniya_IKUSI.append(pult_upravleniya_IKUSI_img);
-				pult_upravleniya_IKUSI_img.addEventListener('click', function () {
-					pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
-					cran._3Type = cran._3Type + ' Ikusi (Испания)';
-				});
-		let pult_upravleniya_IKUSI_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
-			pult_upravleniya_IKUSI_h4.className = 'change_on_IKUSI';
-			pult_upravleniya_IKUSI_h4.innerText = 'Ikusi (Испания)';
-			pult_upravleniya_IKUSI.append(pult_upravleniya_IKUSI_h4);
-				pult_upravleniya_IKUSI_h4.addEventListener('click', function () {
-					pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
-					cran._3Type = cran._3Type + ' Ikusi (Испания)';
-				});
+			let pult_upravleniya_IKUSI = document.createElement('div'); // блок пульт
+				pult_upravleniya_IKUSI.className = 'pult_upravleniya_IKUSI animated zoomIn'
+				pult_upravleniya.append(pult_upravleniya_IKUSI);
+			let pult_upravleniya_IKUSI_img = document.createElement('img'); //Картинка радио пульта
+				pult_upravleniya_IKUSI_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.8.jpg';
+				pult_upravleniya_IKUSI_img.className = 'allimg change_on_IKUSI';
+				pult_upravleniya_IKUSI.append(pult_upravleniya_IKUSI_img);
+					pult_upravleniya_IKUSI_img.addEventListener('click', function () {
+						pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
+						cran._3Type = cran._3Type + ' Ikusi (Испания)';
+					});
+			let pult_upravleniya_IKUSI_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
+				pult_upravleniya_IKUSI_h4.className = 'change_on_IKUSI';
+				pult_upravleniya_IKUSI_h4.innerText = 'Ikusi (Испания)';
+				pult_upravleniya_IKUSI.append(pult_upravleniya_IKUSI_h4);
+					pult_upravleniya_IKUSI_h4.addEventListener('click', function () {
+						pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
+						cran._3Type = cran._3Type + ' Ikusi (Испания)';
+					});
 
 
-		let pult_upravleniya_HBRRadiomatic = document.createElement('div'); // блок пульт
-			pult_upravleniya_HBRRadiomatic.className = 'pult_upravleniya_HBRRadiomatic animated fadeInRightBig'
-			pult_upravleniya.append(pult_upravleniya_HBRRadiomatic);
-		let pult_upravleniya_HBRRadiomatic_img = document.createElement('img'); //Картинка радио пульта
-			pult_upravleniya_HBRRadiomatic_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.9.jpg';
-			pult_upravleniya_HBRRadiomatic_img.className = 'allimg change_on_HBRRadiomatic';
-			pult_upravleniya_HBRRadiomatic.append(pult_upravleniya_HBRRadiomatic_img);
-				pult_upravleniya_HBRRadiomatic_img.addEventListener('click', function () {
-					pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
-					cran._3Type = cran._3Type + ' HBC-Radiomatic (Германия)';
-				});
-		let pult_upravleniya_HBRRadiomatic_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
-			pult_upravleniya_HBRRadiomatic_h4.className = 'change_on_HBRRadiomatic';
-			pult_upravleniya_HBRRadiomatic_h4.innerText = 'HBC - Radiomatic (Германия)';
-			pult_upravleniya_HBRRadiomatic.append(pult_upravleniya_HBRRadiomatic_h4);
-				pult_upravleniya_HBRRadiomatic_h4.addEventListener('click', function () {
-					pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
-					cran._3Type = cran._3Type + ' HBC-Radiomatic (Германия)';
-				});
+			let pult_upravleniya_HBRRadiomatic = document.createElement('div'); // блок пульт
+				pult_upravleniya_HBRRadiomatic.className = 'pult_upravleniya_HBRRadiomatic animated fadeInRightBig'
+				pult_upravleniya.append(pult_upravleniya_HBRRadiomatic);
+			let pult_upravleniya_HBRRadiomatic_img = document.createElement('img'); //Картинка радио пульта
+				pult_upravleniya_HBRRadiomatic_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.9.jpg';
+				pult_upravleniya_HBRRadiomatic_img.className = 'allimg change_on_HBRRadiomatic';
+				pult_upravleniya_HBRRadiomatic.append(pult_upravleniya_HBRRadiomatic_img);
+					pult_upravleniya_HBRRadiomatic_img.addEventListener('click', function () {
+						pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
+						cran._3Type = cran._3Type + ' HBC-Radiomatic (Германия)';
+					});
+			let pult_upravleniya_HBRRadiomatic_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
+				pult_upravleniya_HBRRadiomatic_h4.className = 'change_on_HBRRadiomatic';
+				pult_upravleniya_HBRRadiomatic_h4.innerText = 'HBC - Radiomatic (Германия)';
+				pult_upravleniya_HBRRadiomatic.append(pult_upravleniya_HBRRadiomatic_h4);
+					pult_upravleniya_HBRRadiomatic_h4.addEventListener('click', function () {
+						pult_or_joy == 'Пульт' ? cran._3Type = 'Радиоуправление с пультом':cran._3Type = 'Радиоуправление с джойстиком';
+						cran._3Type = cran._3Type + ' HBC-Radiomatic (Германия)';
+					});
+			}*/
+			console.log(results);
+		})
+
 	}
-
+		
 })
 
 $('body').on('click', '#closePult', function(event) {
@@ -643,7 +654,7 @@ $('.dop_menu_open').on('click', '.motor_reductor_change', function(event) {
 				});
 		/*********************************************************************************************************************************/
 		let motor_reductor_9_3 = document.createElement('div'); // блок пульт
-		motor_reductor_9_3.className = 'motor_reductor_9_3 animated zoomInLeft'
+		motor_reductor_9_3.className = 'motor_reductor_9_3 animated zoomIn'
 		motor_reductor_9_3.style.marginBottom = '50px';
 		motor_reductor.append(motor_reductor_9_3);
 			let motor_reductor_9_3_img = document.createElement('img'); //Картинка радио пульта
@@ -670,7 +681,7 @@ $('.dop_menu_open').on('click', '.motor_reductor_change', function(event) {
 					});
 	/*********************************************************************************************************************************/
 		let motor_reductor_9_4 = document.createElement('div'); // блок пульт
-		motor_reductor_9_4.className = 'motor_reductor_9_4 animated zoomInLeft'
+		motor_reductor_9_4.className = 'motor_reductor_9_4 animated zoomInRight'
 		motor_reductor_9_4.style.marginBottom = '50px';
 		motor_reductor.append(motor_reductor_9_4);
 			let motor_reductor_9_4_img = document.createElement('img'); //Картинка радио пульта
@@ -697,7 +708,7 @@ $('.dop_menu_open').on('click', '.motor_reductor_change', function(event) {
 				});
 	/*********************************************************************************************************************************/
 		let motor_reductor_9_5 = document.createElement('div'); // блок пульт
-		motor_reductor_9_5.className = 'motor_reductor_9_5 animated zoomInLeft'
+		motor_reductor_9_5.className = 'motor_reductor_9_5 animated zoomIn'
 		motor_reductor_9_5.style.marginLeft = '37.5%'
 		motor_reductor_9_5.style.marginBottom = '50px';
 		motor_reductor.append(motor_reductor_9_5);
@@ -725,7 +736,7 @@ $('.dop_menu_open').on('click', '.motor_reductor_change', function(event) {
 				});
 	
 		
-			$('html, body').animate({ 'scrollTop':'0px' }, 350)
+			$('html, body').animate({ 'scrollTop':'170px' }, 350)
 			$('.zzz').after(motor_reductor);
 	});
 })
@@ -1047,9 +1058,88 @@ $('#a3').on('click', '.tokoprovod', function(event) {
 
 
 
+// ВЫЧИСЛЕНИЕ ПУЛЬТА
+function get_pult_id (chastotnik, img /*option*/) {
+	switch (chastotnik) {
+		case 8.2 || 8.4:
+			let pult_price_82_84 =
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Telecrane/i) != -1) ? {id:2, img:'3.7'}:false)
+				||
+				
+				(( cran._2 != 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) == -1 && cran._2.search(/Взрывобезопасное/i) != -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Telecrane/i) != -1) ? {id:4, img:'3.7'}:false)
+				||
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Ikusi/i) != -1) ? {id:7, img:'3.8'}:false)
+				||
+				
+				(( cran._2 != 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) == -1 && cran._2.search(/Взрывобезопасное/i) != -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Ikusi/i) != -1) ? {id:9, img:'3.8'}:false)
+				||
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/HBC/i) != -1) ? {id:12, img:'3.9'}:false)
+				||
+				
+				(( cran._2 != 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) == -1 && cran._2.search(/Взрывобезопасное/i) != -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/HBC/i) != -1) ? {id:14, img:'3.9'}:false)
+				||
+				0;
+				switch (img) {
+					case 'img':
+						return pult_price_82_84.img;
+						break;
+					default:
+					console.log(pult_price_82_84.id)
+						return pult_price_82_84.id;
+						break;
+				}	
+			break;			
 
+		case 8.3:
+			let pult_price_83 =
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Telecrane/i) != -1) ? {id:1, img:'3.7'}:false)
+				||
+				(( cran._2 != 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) == -1 && cran._2.search(/Взрывобезопасное/i) != -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Telecrane/i) != -1) ? {id:3, img:'3.7'}:false)
+				||
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Ikusi/i) != -1) ? {id:6, img:'3.8'}:false)
+				||
+				(( cran._2 != 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) == -1 && cran._2.search(/Взрывобезопасное/i) != -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Ikusi/i) != -1) ? {id:8, img:'3.8'}:false)
+				||
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/HBC/i) != -1) ? {id:11, img:'3.9'}:false)
+				||
+				(( cran._2 != 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) == -1 && cran._2.search(/Взрывобезопасное/i) != -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/HBC/i) != -1) ? {id:13, img:'3.9'}:false)
+				||
+				0;
+				switch (img) {
+					case 'img':
+						return pult_price_83.img;
+						break;
+					default:
+						return pult_price_83.id;
+						break;
+				}	
+			break;
+		default:
+			let r_pultik = 
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/джойстиком/i) != -1 && cran._3Type.search(/Telecrane/i) != -1) ? {id:5, img:'3.7'}:false)
+				||
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/джойстиком/i) != -1 && cran._3Type.search(/Ikusi/i) != -1) ? {id:10, img:'3.8'}:false)
+				||
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/джойстиком/i) != -1 && cran._3Type.search(/HBC/i) != -1) ? {id:15, img:'3.9'}:false)
+				||
+				0;
+				switch (img) {
+					case 'img':
+						return r_pultik.img;
+						break;
+					default:
+						return r_pultik.id;
+						break;
+				}	
+			break;
+	}
+	 
+				
+				
+				
+}
 
-
+// ВЫЧИСЛЕНИЕ МОТОРА
 function get_motor_id (model, type) {
 	switch (model) {
 		case 9.2:
