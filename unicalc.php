@@ -410,31 +410,50 @@ function price_pulta () {
 }
 // Стоимость пульта электро управления
 
-// Стоимость пульта электро управления МНОЖЕСТВЕННЫЙ ВЫБОР
+// Стоимость пульта электро управления МНОЖЕСТВЕННЫЙ ВЫБОР _pult_TELECRANE_id _pult_IKUSI_id _pult_HBC_id
 add_action('wp_ajax_calc_pults', 'price_pultov');
-add_action('wp_ajax_nopriv_calc_pults', 'price_pulov');
-function price_pulov () {
-	$pult_id_82_84 = $_POST['_pult_id_82_84'];
-	$pult_id_83 = $_POST['_pult_id_83'];
-	$pult_id_joy = $_POST['_pult_id_joy'];
+add_action('wp_ajax_nopriv_calc_pults', 'price_pultov');
+function price_pultov () {
+	$pult_TELECRANE_id = $_POST['_pult_TELECRANE_id'];
+	$pult_IKUSI_id = $_POST['_pult_IKUSI_id'];
+	$pult_HBC_id = $_POST['_pult_HBC_id'];
 
 	global $wpdb;$wpdb->show_errors();
 	$variants = $wpdb->prefix . 'variants';
-	$variants_result_82 = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $pult_id_82_84");
-		if ($variants_result_82) {
-			$p82_84 = $variants_result[0]->price;
-		}
+	$variants_result_TELECRANE = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $pult_TELECRANE_id");
+	$variants_result_IKUSI = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $pult_IKUSI_id");
+	$variants_result_HBC = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $pult_HBC_id");
+	if ($variants_result_TELECRANE && variants_result_IKUSI && variants_result_HBC)
+	{
+		$TELECRANE = $variants_result_TELECRANE[0]->price;
+		$IKUSI = $variants_result_IKUSI[0]->price;
+		$HBC = $variants_result_HBC[0]->price;
+	}
+	$pult_rsult = array('pTELECRANE' => $TELECRANE, 'pIKUSI' => $IKUSI, 'pHBC' => $HBC);
+	echo json_encode($pult_rsult);
+
+	wp_die();
+}
+//// _joy_TELECRANE_id _joy_IKUSI_id _joy_HBC_id
+add_action('wp_ajax_calc_joy', 'price_joy');
+add_action('wp_ajax_nopriv_calc_joy', 'price_joy');
+function price_joy () {
+	$joy_TELECRANE_id = $_POST['_joy_TELECRANE_id'];
+	$joy_IKUSI_id = $_POST['_joy_IKUSI_id'];
+	$joy_HBC_id = $_POST['_joy_HBC_id'];
+
+	global $wpdb;$wpdb->show_errors();
 	$variants = $wpdb->prefix . 'variants';
-	$variants_result_83 = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $pult_id_83");
-		if ($variants_result_83) {
-			$p83 = $variants_result[0]->price;
-		}
-	$variants = $wpdb->prefix . 'variants';
-	$variants_result_joy = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $pult_id_joy");
-		if ($variants_result_joy) {
-			$joy = $variants_result[0]->price;
-		}
-	$pult_rsult = array('8_2' => $p82_84, '8_3' => $p83, 'joy' => $joy);
+	$variants_result_TELECRANE = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $joy_TELECRANE_id");
+	$variants_result_IKUSI = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $joy_IKUSI_id");
+	$variants_result_HBC = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $joy_HBC_id");
+	if ($variants_result_TELECRANE && variants_result_IKUSI && variants_result_HBC)
+	{
+		$TELECRANE = $variants_result_TELECRANE[0]->price;
+		$IKUSI = $variants_result_IKUSI[0]->price;
+		$HBC = $variants_result_HBC[0]->price;
+	}
+	$pult_rsult = array('jTELECRANE' => $TELECRANE, 'jIKUSI' => $IKUSI, 'jHBC' => $HBC);
 	echo json_encode($pult_rsult);
 
 	wp_die();
