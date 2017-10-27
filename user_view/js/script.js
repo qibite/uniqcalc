@@ -1,4 +1,5 @@
 var calc_ajaxurl = {url:location.origin+'/wp-admin/admin-ajax.php'}
+var locate = location.origin;
 jQuery(document).ready(($)=>{
 	$('html, body').animate({ scrollTop: '0px' }, 700)
 /************************************************************************************************************************
@@ -734,6 +735,8 @@ jQuery(document).ready(($)=>{
 			
 
 	$('.tal_no').click(()=>{
+		$('body').append('\
+			')
 		hide($('#vibor_tali'));
 		if (cran._1 == 'Опорный') {
 			resultatiO();
@@ -817,8 +820,6 @@ function next_group(arg, left) {
     });
     $('html, body').animate({ scrollTop: '0px' }, 700)
 }
-
-function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: scrollTo + 'px' }, 700) }
 
 /************************************************************************************************************************
 *																														*

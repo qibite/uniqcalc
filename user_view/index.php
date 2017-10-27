@@ -7,7 +7,6 @@ global $wpdb;
 $wpdb->show_errors();
 ?>
 <link rel="stylesheet" href="<?=$url_this;?>css/style.css">
-<link rel="stylesheet" href="<?=$url_this;?>css/animate.css">
 <section id="first">
 	<div id="main_block_for_steps" style="position: relative;width:100%;height:800px;margin:0 auto;/*min-width:1440px;*/text-align:center">
 		 
@@ -490,8 +489,10 @@ $wpdb->show_errors();
 <?php require_once("construct_calc/menu_dop.php"); ?>
 <!-- Опции для блоков ТОКОПОДВОД, ДОП. ОПЦИИ И УСЛУГИ -->
 <div style="clear:both"></div>
+<link rel="stylesheet" href="<?=$url_this;?>css/animate.css">
 <script src="<?=$url_this;?>js/script.js" type="text/javascript" charset="utf-8"></script>
 <script src="<?=$url_this;?>js/resume.js" type="text/javascript" charset="utf-8"></script>
+<script src="<?=$url_this;?>js/change_dop.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" href="<?=$url_this;?>css/font-awesome.min.css">
 <?php
 //require_once("construct_calc/podscheti.php");
