@@ -30,6 +30,25 @@ jQuery(document).ready(($)=>{
 		pult_upravleniya_h2.style.marginBottom = '50px';
 		pult_upravleniya.append(pult_upravleniya_h2);
 
+		let pult_upravleniya_PULTP = document.createElement('div'); // блок пульт
+		pult_upravleniya_PULTP.className = 'pult_upravleniya_PULTP animated zoomInLeft'
+		pult_upravleniya_PULTP.style.marginBottom = '50px';
+		pult_upravleniya.append(pult_upravleniya_PULTP);
+			let pult_upravleniya_PULTP_img = document.createElement('img'); //Картинка подвесого пульта
+				pult_upravleniya_PULTP_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.3.jpg';
+				pult_upravleniya_PULTP_img.className = 'allimg change_on_PULTP';
+				pult_upravleniya_PULTP.append(pult_upravleniya_PULTP_img);
+					pult_upravleniya_PULTP_img.addEventListener('click', function () {
+						cran._3Type = 'Подвесной пульт';
+					});
+			let pult_upravleniya_PULTP_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
+				pult_upravleniya_PULTP_h4.className = 'change_on_PULTP';
+				pult_upravleniya_PULTP_h4.innerText = 'Подвесной - беспланто';
+				pult_upravleniya_PULTP.append(pult_upravleniya_PULTP_h4);
+					pult_upravleniya_PULTP_h4.addEventListener('click', function () {
+						cran._3Type = 'Подвесной пульт';						
+					});
+
 		let pult_upravleniya_PULT = document.createElement('div'); // блок пульт
 		pult_upravleniya_PULT.className = 'pult_upravleniya_PULT animated zoomInLeft'
 		pult_upravleniya_PULT.style.marginBottom = '50px';
@@ -262,12 +281,29 @@ jQuery(document).ready(($)=>{
 		$(this).parent('.pultslider').detach();
 		$('html, body').animate({ 'scrollTop':'900px' }, 400)
 	})
-	$('body').on('click', '.change_on_TELECRANE, .change_on_IKUSI, .change_on_HBRRadiomatic', function(event) {
+	$('body').on('click', '.change_on_PULTP, .change_on_TELECRANE, .change_on_IKUSI, .change_on_HBRRadiomatic', function(event) {
 		$(this).parent().parent('.pultslider').detach();
 		$('.pult_change').parent('.dop_parametr').detach();
-		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya() : false;
 		$('html, body').animate({ 'scrollTop':'900px' }, 400);
+		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya() : false;
+		if ($(this).parent('.pult_upravleniya_PULTP')) {
+			$('#option_2 .dop_parametr:last-child').before(()=>{
+				let new_html = '<div class="dop_parametr"> \
+					<span class="change_this_option pult_change">Изменить \
+						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
+					</span> \
+					<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" class="pult_change" style="width:200px"> \
+					<h4>Подвесной пульт</h4> \
+					<p> \
+						<span class="opisanie_parametra">Входит в стоимость крана</span> \
+						<br> \
+						<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i> \
+					</p>';
+					return new_html;
+				});
+		}
 	})
+
 /************************************************************************************************************************************************************************************************************************************
 *
 *

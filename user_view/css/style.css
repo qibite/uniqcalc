@@ -374,7 +374,7 @@ p>b.hz4
 
 
 
-.pult_upravleniya_PULT, .pult_upravleniya_JOY
+.pult_upravleniya_PULTP, .pult_upravleniya_PULT, .pult_upravleniya_JOY
 {
 	text-align: center;
 }
@@ -396,13 +396,12 @@ div.pultslider>div>h4:hover, div.motor_reductor_slider>div>h4:hover, .preobrazov
 }
 
 
-.pultslider>.pult_upravleniya_JOY, .pultslider>.pult_upravleniya_PULT
+.pult_upravleniya_PULTP, .pultslider>.pult_upravleniya_JOY, .pultslider>.pult_upravleniya_PULT
 {
-	width: 33%;
+	width: 25%;
 	float: left;
 }
-.pultslider>.pult_upravleniya_PULT{margin-left: 8.6%}
-.pultslider>.pult_upravleniya_JOY{margin-left: 14%}
+.pultslider>.pult_upravleniya_PULTP, .pultslider>.pult_upravleniya_PULT, .pultslider>.pult_upravleniya_JOY{margin-left: 8.3%}
 
 .pult_upravleniya_TELECRANE, .pult_upravleniya_IKUSI, .pult_upravleniya_HBRRadiomatic
 {
@@ -411,7 +410,10 @@ div.pultslider>div>h4:hover, div.motor_reductor_slider>div>h4:hover, .preobrazov
 	width:25%;
 	padding: 15px 0;
 }
-
+.pult_d, .joy_d
+{
+	clear: both;
+}
 .motor_reductor_slider>div.animated, .preobrazovatel_slider>.animated
 {
 	float: left;
