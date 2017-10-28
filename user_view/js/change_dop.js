@@ -932,7 +932,7 @@ function get_preobrazovatel_id (model, img)
 					<span class="change_this_option motor_reductor_change">Изменить \
 						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 					</span> \
-					<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.jpg" alt="" style="width:200px"> \
+					<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.jpg" alt="" motor_reductor_change style="width:200px"> \
 					<h4>Червячная передача ABLE (Италия)</h4> \
 					<p> \
 						<span class="opisanie_parametra">Входит в стоимость крана</span> \

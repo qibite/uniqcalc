@@ -100,7 +100,7 @@ jQuery(document).ready(($)=>{
 								<span class="change_this_option pult_change">Изменить \
 									<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 								</span> \
-								<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" style="width:200px"> \
+								<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" class="pult_change" style="width:200px"> \
 								<h4>Подвесной пульт</h4> \
 								<p> \
 									<span class="opisanie_parametra">Входит в стоимость крана</span> \
@@ -116,7 +116,7 @@ jQuery(document).ready(($)=>{
 						<span class="change_this_option motor_reductor_change">Изменить \
 						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 						</span> \
-						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.jpg" alt="" style="width:200px"> \
+						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.jpg" alt="" class="motor_reductor_change" style="width:200px"> \
 						<h4>Червячная передача ABLE (Италия)</h4> \
 						<p> \
 						<span class="opisanie_parametra">Входит в стоимость крана</span> \
@@ -134,7 +134,7 @@ jQuery(document).ready(($)=>{
 						<span class="change_this_option preobrazovatel_change">Изменить \
 						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 						</span> \
-						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.jpg" alt="" style="width:200px"> \
+						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.jpg" alt="" class="preobrazovatel_change" style="width:200px"> \
 						<h4>Система управления</h4> \
 						<p> \
 						<span class="opisanie_parametra">Релейно-контакторная одна скорость движения</span> \
@@ -415,7 +415,7 @@ jQuery(document).ready(($)=>{
 								<p><span class="opisanie_parametra">Входит в стоимость крана</span><br> \
 								<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i></p>';
 			} else {
-			var new_html = '<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" style="width:200px"> \
+			var new_html = '<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" class="pult_change" style="width:200px"> \
 								<h4>'+ that.children().children().children('b.hz4').text() +'</h4> \
 								<p><span class="opisanie_parametra">'+ that.children().children().children('.opisanie_parametra').text() +'</span><br> \
 								<span class="stoimost_parametra">'+ that.children('.hiddened').text() +'</span><i class="id_bro">'+that.attr('id')+'</i></p>';

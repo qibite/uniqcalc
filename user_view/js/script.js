@@ -98,7 +98,7 @@ jQuery(document).ready(($)=>{
 								<span class="change_this_option pult_change">Изменить \
 									<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 								</span> \
-								<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" style="width:200px"> \
+								<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" class="pult_change" style="width:200px"> \
 								<h4>Подвесной пульт</h4> \
 								<p> \
 									<span class="opisanie_parametra">Входит в стоимость крана</span> \
@@ -924,7 +924,7 @@ cran.price_crane_electro_upravleniya = function (_8punkt) {
 				var data_crane_electro_upravleniya = { action: 'calc_crane_electro_upravleniya', _variant_id:price.id }
 				$.post( calc_ajaxurl.url, data_crane_electro_upravleniya, function (response) {
 					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="change_this_option_with_del pult_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span><span class="del_this_option return_pult_default"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
-						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" style="width:200px"><h4>Управление каном</h4> \
+						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" class="pult_change" style="width:200px"><h4>Управление каном</h4> \
 						<p><span class="opisanie_parametra">'+String(cran._3Type)+'</span><br> \
 						<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span><i class="id_bro">b3</i></p>');
 					$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
@@ -968,7 +968,7 @@ cran.chastotnik_price = function (model) {
 	var data_chastotnik = { action: 'calc_chastotnik', _chastotnik_id:price.id }
 				$.post( calc_ajaxurl.url, data_chastotnik, function (response) {
 					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="change_this_option_with_del preobrazovatel_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span><span class="del_this_option return_preobrazovatel_default"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
-						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" style="width:200px"><h4>Частотный преобразователь</h4> \
+						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" class="preobrazovatel_change" style="width:200px"><h4>Частотный преобразователь</h4> \
 						<p><span class="opisanie_parametra">'+String(cran.speed)+'</span><br> \
 						<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span></p>');
 					$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
@@ -1036,7 +1036,7 @@ cran.motor_price = function (model) {
 												<span class="change_this_option motor_reductor_change">Изменить \
 													<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 												</span> \
-												<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" style="width:200px"> \
+												<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" class="motor_reductor_change" style="width:200px"> \
 												<h4>Червячная передача ABLE (Италия)</h4> \
 												<p> \
 													<span class="opisanie_parametra">Входит в стоимость крана</span> \
@@ -1047,7 +1047,7 @@ cran.motor_price = function (model) {
 						})
 					} else {
 						$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="change_this_option_with_del motor_reductor_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span><span class="del_this_option return_motor_default"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
-						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" style="width:200px"><h4>Мотор-редуктор</h4> \
+						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" class="motor_reductor_change" style="width:200px"><h4>Мотор-редуктор</h4> \
 						<p><span class="opisanie_parametra">'+String(cran.motor)+'</span><br> \
 						<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span></p>');
 						$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
@@ -1080,7 +1080,7 @@ cran.calculate_tal = function  (argument) {
 					tal.summa = response;
 					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr  tal_for_search"><span class="change_this_option_with_del tal_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span> \
 						<span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
-					'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ tal.img +'" alt="" style="width:200px"><h4>Таль '+ tal.country +'</h4> \
+					'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ tal.img +'" alt="" class="tal_change" style="width:200px"><h4>Таль '+ tal.country +'</h4> \
 					<p><span class="opisanie_parametra">'+String(tal.upravlenie)+'<br>'+String(tal.type)+'</span><br> \
 					<span class="stoimost_parametra">'+ String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span> \
 					</p>');
