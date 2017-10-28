@@ -260,6 +260,21 @@ jQuery(document).ready(($)=>{
 		next_group($('#мотор_редуктора'), 0);
 		$('#main_block_for_steps').css('height', '800px');
 		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.3') : false;
+		$('#option_2 .dop_parametr:last-child').before(()=>{
+				let new_html = '<div class="dop_parametr"> \
+						<span class="change_this_option preobrazovatel_change">Изменить \
+						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
+						</span> \
+						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.jpg" alt="" class="preobrazovatel_change" style="width:200px"> \
+						<h4>Система управления</h4> \
+						<p> \
+						<span class="opisanie_parametra">Релейно-контакторная одна скорость движения</span> \
+						<br> \
+						<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b8</i> \
+						</p>';
+				return new_html;
+			});
+			cran.code_of_chastotnik = '8.3';
 	});
 	$('.несколько_с').click(function () {//8.4
 		hide($('#система_управления_краном'));
