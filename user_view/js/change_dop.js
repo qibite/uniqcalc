@@ -458,7 +458,7 @@ jQuery(document).ready(($)=>{
 			preobrazovatel.append(preobrazovatel_h2);
 		/*********************************************************************************************************************************/
 		
-		let preobrazovatel_8_4 = document.createElement('div'); // блок пульт
+	/*	let preobrazovatel_8_4 = document.createElement('div'); // блок пульт
 			preobrazovatel_8_4.className = 'preobrazovatel_8_4 animated zoomInLeft'
 			preobrazovatel_8_4.style.marginBottom = '50px';
 			preobrazovatel.append(preobrazovatel_8_4);
@@ -484,7 +484,90 @@ jQuery(document).ready(($)=>{
 						cran.setspeed = 'Несколько скоростей движения';
 
 					});
+		/*********************************************************************************************************************************/
 		
+		let preobrazovatel_8_5 = document.createElement('div'); // блок пульт
+			preobrazovatel_8_5.className = 'preobrazovatel_8_5 animated zoomInLeft'
+			preobrazovatel_8_5.style.marginBottom = '50px';
+			preobrazovatel.append(preobrazovatel_8_5);
+			let preobrazovatel_8_5_img = document.createElement('img'); //Картинка радио пульта
+				preobrazovatel_8_5_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.5.jpg';
+				preobrazovatel_8_5_img.className = 'allimg change_on_8_5';
+				preobrazovatel_8_5.append(preobrazovatel_8_5_img);
+					preobrazovatel_8_5_img.addEventListener('click', function () {
+						cran.code_of_chastotnik = '8.5';
+						cran.setspeed = 'Плавный пуск + 2 и более скорости ESQ (Китай)';
+					});
+			let preobrazovatel_8_5_price = document.createElement('span');
+				preobrazovatel_8_5_price.className = 'price_in_change';
+				preobrazovatel_8_5_price.innerText = '800 руб';
+				preobrazovatel_8_5.append(preobrazovatel_8_5_price);
+
+			let preobrazovatel_8_5_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
+				preobrazovatel_8_5_h4.className = 'change_on_8_5';
+				preobrazovatel_8_5_h4.innerText = 'Плавный пуск + 2 и более скорости ESQ (Китай)';
+				preobrazovatel_8_5.append(preobrazovatel_8_5_h4);
+					preobrazovatel_8_5_h4.addEventListener('click', function () {
+						cran.code_of_chastotnik = '8.5';
+						cran.setspeed = 'Плавный пуск + 2 и более скорости ESQ (Китай)';
+
+					});
+		/*********************************************************************************************************************************/
+		
+		let preobrazovatel_8_6 = document.createElement('div'); // блок пульт
+			preobrazovatel_8_6.className = 'preobrazovatel_8_6 animated zoomIn'
+			preobrazovatel_8_6.style.marginBottom = '50px';
+			preobrazovatel.append(preobrazovatel_8_6);
+			let preobrazovatel_8_6_img = document.createElement('img'); //Картинка радио пульта
+				preobrazovatel_8_6_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.6.jpg';
+				preobrazovatel_8_6_img.className = 'allimg change_on_8_6';
+				preobrazovatel_8_6.append(preobrazovatel_8_6_img);
+					preobrazovatel_8_6_img.addEventListener('click', function () {
+						cran.code_of_chastotnik = '8.6';
+						cran.setspeed = 'Плавный пуск + 2 и более скорости Hyundai (Корея)';
+					});
+			let preobrazovatel_8_6_price = document.createElement('span');
+				preobrazovatel_8_6_price.className = 'price_in_change';
+				preobrazovatel_8_6_price.innerText = '800 руб';
+				preobrazovatel_8_6.append(preobrazovatel_8_6_price);
+
+			let preobrazovatel_8_6_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
+				preobrazovatel_8_6_h4.className = 'change_on_8_6';
+				preobrazovatel_8_6_h4.innerText = 'Плавный пуск + 2 и более скорости Hyundai (Корея)';
+				preobrazovatel_8_6.append(preobrazovatel_8_6_h4);
+					preobrazovatel_8_6_h4.addEventListener('click', function () {
+						cran.code_of_chastotnik = '8.6';
+						cran.setspeed = 'Плавный пуск + 2 и более скорости Hyundai (Корея)';
+
+					});
+		/*********************************************************************************************************************************/
+		
+		let preobrazovatel_8_7 = document.createElement('div'); // блок пульт
+			preobrazovatel_8_7.className = 'preobrazovatel_8_7 animated zoomInRight'
+			preobrazovatel_8_7.style.marginBottom = '50px';
+			preobrazovatel.append(preobrazovatel_8_7);
+			let preobrazovatel_8_7_img = document.createElement('img'); //Картинка радио пульта
+				preobrazovatel_8_7_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.7.jpg';
+				preobrazovatel_8_7_img.className = 'allimg change_on_8_7';
+				preobrazovatel_8_7.append(preobrazovatel_8_7_img);
+					preobrazovatel_8_7_img.addEventListener('click', function () {
+						cran.code_of_chastotnik = '8.7';
+						cran.setspeed = 'Плавный пуск + 2 и более скорости Danfoss (Германия)';	
+					});
+			let preobrazovatel_8_7_price = document.createElement('span');
+				preobrazovatel_8_7_price.className = 'price_in_change';
+				preobrazovatel_8_7_price.innerText = '800 руб';
+				preobrazovatel_8_7.append(preobrazovatel_8_7_price);
+
+			let preobrazovatel_8_7_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
+				preobrazovatel_8_7_h4.className = 'change_on_8_7';
+				preobrazovatel_8_7_h4.innerText = 'Плавный пуск + 2 и более скорости Danfoss (Германия)';
+				preobrazovatel_8_7.append(preobrazovatel_8_7_h4);
+					preobrazovatel_8_7_h4.addEventListener('click', function () {
+						cran.code_of_chastotnik = '8.7';
+						cran.setspeed = 'Плавный пуск + 2 и более скорости Danfoss (Германия)';	
+
+					});
 			
 			$('html, body').animate({ 'scrollTop':'170px' }, 350)
 			$('.zzz').after(preobrazovatel);
@@ -495,11 +578,11 @@ jQuery(document).ready(($)=>{
 		$(this).parent('.preobrazovatel_slider').detach();
 		$('html, body').animate({ 'scrollTop':'900px' }, 400)
 	})
-	$('body').on('click', '.change_on_8_4', function(event) {
+	$('body').on('click', '.change_on_8_4, .change_on_8_5, .change_on_8_6, .change_on_8_7', function(event) {
 		$(this).parent().parent('.preobrazovatel_slider').detach();
 		$('.preobrazovatel_change').parent('.dop_parametr').detach();
 		console.log('preobrazovatel')
-		//cran.motor_price(cran.code_of_motor)
+		cran.chastotnik_price(cran.code_of_chastotnik)
 		$('html, body').animate({ 'scrollTop':'900px' }, 400);
 	})
 
@@ -779,7 +862,7 @@ function get_preobrazovatel_id (model)
 				return new_html;
 			});
 		}
-		if ($(this).hasClass('preobrazovatel_change')) {
+		if ($(this).hasClass('return_preobrazovatel_default')) {
 			$('#option_2 .dop_parametr:last-child').before(()=>{
 				let new_html = '<div class="dop_parametr"> \
 					<span class="change_this_option preobrazovatel_change">Изменить \
