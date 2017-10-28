@@ -477,6 +477,31 @@ function price_chastotnika () {
 }
 // Стоимость преобразователя
 
+// Стоимость всех преобразователей _preobrazovatel_id_8_5 _preobrazovatel_id_8_6 _preobrazovatel_id_8_7
+add_action('wp_ajax_calc_preobrazovatel', 'price_chastotnikov');
+add_action('wp_ajax_nopriv_calc_preobrazovatel', 'price_chastotnikov');
+function price_chastotnikov () {
+	$preobrazovatel_id_8_5 = $_POST['_preobrazovatel_id_8_5'];
+	$preobrazovatel_id_8_6 = $_POST['_preobrazovatel_id_8_6'];
+	$preobrazovatel_id_8_7 = $_POST['_preobrazovatel_id_8_7'];
+
+	global $wpdb;$wpdb->show_errors();
+	$variants = $wpdb->prefix . 'variants';
+	$variants_result_8_5 = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $preobrazovatel_id_8_5");
+	$variants_result_8_6 = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $preobrazovatel_id_8_6");
+	$variants_result_8_7 = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $preobrazovatel_id_8_7");
+		if ($variants_result_8_5 && variants_result_8_6 && variants_result_8_7) {
+			$result_8_5 = $variants_result_8_5[0]->price;
+			$result_8_6 = $variants_result_8_6[0]->price;
+			$result_8_7 = $variants_result_8_7[0]->price;				
+		}
+	$preobrazovatel_result = array('preo8_5' => $result_8_5, 'preo8_6' => $result_8_6, 'preo8_7' => $result_8_7/*, 'p9_5' => $m9_5*/);
+	echo json_encode($preobrazovatel_result);
+
+	wp_die();
+}
+// Стоимость всех преобразователей
+
 //Стоимость мотора
 add_action('wp_ajax_calc_motor', 'price_motor');
 add_action('wp_ajax_nopriv_calc_motor', 'price_motor');

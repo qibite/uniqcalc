@@ -440,9 +440,13 @@ jQuery(document).ready(($)=>{
 *
 ***********************************************************************************************************************************************************************************************************************************/
 	$('.dop_menu_open').on('click', '.preobrazovatel_change', function(event) {
-	//	var data_motor = { action: 'calc_motors', _motor_id_9_2:get_motor_id(9.2, 'id'), _motor_id_9_3:get_motor_id(9.3, 'id'), _motor_id_9_4:get_motor_id(9.4, 'id'), _motor_id_9_5:get_motor_id(9.5, 'id') }
-		//$.post( calc_ajaxurl.url, data_motor, function (response) {
-			//let results = JSON.parse(response)
+
+		console.log(get_preobrazovatel_id(8.5))
+		console.log(get_preobrazovatel_id(8.6))
+		console.log(get_preobrazovatel_id(8.7))
+		var data_preobrazovatel = { action: 'calc_preobrazovatel', _preobrazovatel_id_8_5:get_preobrazovatel_id(8.5), _preobrazovatel_id_8_6:get_preobrazovatel_id(8.6), _preobrazovatel_id_8_7:get_preobrazovatel_id(8.7) }
+		$.post( calc_ajaxurl.url, data_preobrazovatel, function (response) {
+			let results = JSON.parse(response)
 
 			let preobrazovatel = document.createElement('div'); // Главное окно выбора пульта
 			preobrazovatel.className = 'preobrazovatel_slider';	
@@ -500,7 +504,7 @@ jQuery(document).ready(($)=>{
 					});
 			let preobrazovatel_8_5_price = document.createElement('span');
 				preobrazovatel_8_5_price.className = 'price_in_change';
-				preobrazovatel_8_5_price.innerText = '800 руб';
+				preobrazovatel_8_5_price.innerText = String(Number(results.preo8_5).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ')+' руб';
 				preobrazovatel_8_5.append(preobrazovatel_8_5_price);
 
 			let preobrazovatel_8_5_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
@@ -528,7 +532,7 @@ jQuery(document).ready(($)=>{
 					});
 			let preobrazovatel_8_6_price = document.createElement('span');
 				preobrazovatel_8_6_price.className = 'price_in_change';
-				preobrazovatel_8_6_price.innerText = '800 руб';
+				preobrazovatel_8_6_price.innerText = String(Number(results.preo8_6).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ')+' руб';
 				preobrazovatel_8_6.append(preobrazovatel_8_6_price);
 
 			let preobrazovatel_8_6_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
@@ -556,7 +560,7 @@ jQuery(document).ready(($)=>{
 					});
 			let preobrazovatel_8_7_price = document.createElement('span');
 				preobrazovatel_8_7_price.className = 'price_in_change';
-				preobrazovatel_8_7_price.innerText = '800 руб';
+				preobrazovatel_8_7_price.innerText = String(Number(results.preo8_7).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ')+' руб';
 				preobrazovatel_8_7.append(preobrazovatel_8_7_price);
 
 			let preobrazovatel_8_7_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
@@ -571,6 +575,81 @@ jQuery(document).ready(($)=>{
 			
 			$('html, body').animate({ 'scrollTop':'170px' }, 350)
 			$('.zzz').after(preobrazovatel);
+		});
+	})
+
+	$('body').on('click', '#closePreobrazovatel', function(event) {
+		$(this).parent('.preobrazovatel_slider').detach();
+		$('html, body').animate({ 'scrollTop':'900px' }, 400)
+	})
+	$('body').on('click', '.change_on_8_4, .change_on_8_5, .change_on_8_6, .change_on_8_7', function(event) {
+		$(this).parent().parent('.preobrazovatel_slider').detach();
+		$('.preobrazovatel_change').parent('.dop_parametr').detach();
+		cran.chastotnik_price(cran.code_of_chastotnik)
+		$('html, body').animate({ 'scrollTop':'900px' }, 400);
+	})
+/************************************************************************************************************************************************************************************************************************************
+*
+*
+*
+*
+*																						Функции для изменения ПРЕОБРАЗОВАТЕЛЯ
+*																																	
+*																									  ДОП ОПЦИИ
+*
+*
+*
+*
+*
+*
+***********************************************************************************************************************************************************************************************************************************/
+	$('.dop_menu_open').on('click', '.preobrazovatel_change', function(event) {
+	//	var data_motor = { action: 'calc_motors', _motor_id_9_2:get_motor_id(9.2, 'id'), _motor_id_9_3:get_motor_id(9.3, 'id'), _motor_id_9_4:get_motor_id(9.4, 'id'), _motor_id_9_5:get_motor_id(9.5, 'id') }
+		//$.post( calc_ajaxurl.url, data_motor, function (response) {
+			//let results = JSON.parse(response)
+
+			let preobrazovatel = document.createElement('div'); // Главное окно выбора пульта
+			preobrazovatel.className = 'preobrazovatel_slider';	
+
+			let preobrazovatel_close = document.createElement('span'); // Закрыть окно выбора пульта
+			preobrazovatel_close.id = 'closePreobrazovatel';
+			preobrazovatel_close.innerHTML = '<i class="fa fa-times-circle-o" aria-hidden="true"></i>';
+			preobrazovatel.append(preobrazovatel_close);
+
+			let preobrazovatel_h2 = document.createElement('H2'); // Заголовок окна выбора пульта
+			preobrazovatel_h2.innerText = 'Выберите преобразователь';
+			preobrazovatel_h2.style.marginBottom = '50px';
+			preobrazovatel.append(preobrazovatel_h2);
+		/*********************************************************************************************************************************/
+		
+		let preobrazovatel_8_4 = document.createElement('div'); // блок пульт
+			preobrazovatel_8_4.className = 'preobrazovatel_8_4 animated zoomInLeft'
+			preobrazovatel_8_4.style.marginBottom = '50px';
+			preobrazovatel.append(preobrazovatel_8_4);
+			let preobrazovatel_8_4_img = document.createElement('img'); //Картинка радио пульта
+				preobrazovatel_8_4_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.jpg';
+				preobrazovatel_8_4_img.className = 'allimg change_on_8_4';
+				preobrazovatel_8_4.append(preobrazovatel_8_4_img);
+					preobrazovatel_8_4_img.addEventListener('click', function () {
+						cran.code_of_chastotnik = '8.4';
+						cran.setspeed = 'Несколько скоростей движения';
+					});
+			let preobrazovatel_8_4_price = document.createElement('span');
+				preobrazovatel_8_4_price.className = 'price_in_change';
+				preobrazovatel_8_4_price.innerText = '800 руб';
+				preobrazovatel_8_4.append(preobrazovatel_8_4_price);
+
+			let preobrazovatel_8_4_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
+				preobrazovatel_8_4_h4.className = 'change_on_8_4';
+				preobrazovatel_8_4_h4.innerText = 'Несколько скоростей движения';
+				preobrazovatel_8_4.append(preobrazovatel_8_4_h4);
+					preobrazovatel_8_4_h4.addEventListener('click', function () {
+						cran.code_of_chastotnik = '8.4';
+						cran.setspeed = 'Несколько скоростей движения';
+
+					});
+		/*********************************************************************************************************************************/
+
 	//	});
 	})
 
@@ -581,11 +660,9 @@ jQuery(document).ready(($)=>{
 	$('body').on('click', '.change_on_8_4, .change_on_8_5, .change_on_8_6, .change_on_8_7', function(event) {
 		$(this).parent().parent('.preobrazovatel_slider').detach();
 		$('.preobrazovatel_change').parent('.dop_parametr').detach();
-		console.log('preobrazovatel')
-		cran.chastotnik_price(cran.code_of_chastotnik)
+		//cran.calculate_tal()
 		$('html, body').animate({ 'scrollTop':'900px' }, 400);
 	})
-
 
 
 
@@ -808,7 +885,7 @@ function get_motor_id (model, type) {
 	}
 }
 
-function get_preobrazovatel_id (model)
+function get_preobrazovatel_id (model, img)
 {
 	let price =	
 			model == 8.5 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) ? {id:16, img:'8.5'} : 
@@ -820,6 +897,9 @@ function get_preobrazovatel_id (model)
 			 							model == 8.7 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) ? {id:22, img:'8.7'} :
 			 								model == 8.7 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) ? {id:23, img:'8.7'} :
 			 									model == 8.7 && (cran.gp == 12500 || cran.gp == 16000) ? {id:24, img:'8.7'} : false;
+	if (img == 'img') {
+		return price.img;
+	} return price.id;
 }
 
 

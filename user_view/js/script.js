@@ -560,7 +560,7 @@ jQuery(document).ready(($)=>{
 					}
 					$('#main_block_for_steps').css('height', '390px');
 					$('#dop_block').css('display', 'block');
-					calculate_tal();
+					cran.calculate_tal();
 			})
 
 			$('.bolgariya_tE').click(()=>{
@@ -593,7 +593,7 @@ jQuery(document).ready(($)=>{
 						}
 						$('#main_block_for_steps').css('height', '390px');
 						$('#dop_block').css('display', 'block');
-						calculate_tal();
+						cran.calculate_tal();
 				})
 				$('.umenV_t').click(()=>{
 					cran._2.search(/Взрывобезопасное/i) == 0 ? tal.type = 'Канатная УСВ ВБИ' : tal.type = 'Канатная УСВ';
@@ -610,7 +610,7 @@ jQuery(document).ready(($)=>{
 						}
 						$('#main_block_for_steps').css('height', '390px');
 						$('#dop_block').css('display', 'block');
-						calculate_tal();
+						cran.calculate_tal();
 				})
 
 			$('.russia_tR').click(()=>{
@@ -628,7 +628,7 @@ jQuery(document).ready(($)=>{
 					}
 					$('#main_block_for_steps').css('height', '390px');
 					$('#dop_block').css('display', 'block');
-					calculate_tal();
+					cran.calculate_tal();
 			})
 			$('.russia_tE').click(()=>{
 				tal.type = 'Канатная';
@@ -646,7 +646,7 @@ jQuery(document).ready(($)=>{
 					}
 					$('#main_block_for_steps').css('height', '390px');
 					$('#dop_block').css('display', 'block');
-					calculate_tal();
+					cran.calculate_tal();
 			})
 
 			$('.china_tR').click(()=>{
@@ -664,7 +664,7 @@ jQuery(document).ready(($)=>{
 					}
 					$('#main_block_for_steps').css('height', '390px');
 					$('#dop_block').css('display', 'block');
-					calculate_tal();	
+					cran.calculate_tal();	
 			})
 			$('.china_tE').click(()=>{
 				tal.country = 'Китай';
@@ -687,7 +687,7 @@ jQuery(document).ready(($)=>{
 					}
 					$('#main_block_for_steps').css('height', '390px');
 					$('#dop_block').css('display', 'block');
-					calculate_tal();
+					cran.calculate_tal();
 				  }
 			})
 
@@ -712,7 +712,7 @@ jQuery(document).ready(($)=>{
 							}
 							$('#main_block_for_steps').css('height', '390px');
 							$('#dop_block').css('display', 'block');
-							calculate_tal();
+							cran.calculate_tal();
 					}
 				})
 				$('.cep_t').click(()=>{
@@ -730,7 +730,7 @@ jQuery(document).ready(($)=>{
 						}
 						$('#main_block_for_steps').css('height', '390px');
 						$('#dop_block').css('display', 'block');
-						calculate_tal();
+						cran.calculate_tal();
 				})
 			
 
@@ -1073,7 +1073,7 @@ function calculate_oporniy_crane (argument) {
 			//////////////
 }
 
-function calculate_tal (argument) {	
+cran.calculate_tal = function  (argument) {	
 			//////////////
 				var data_tal = { action: 'calc_tal', _upravlenie:tal.upravlenie, _type:tal.type, _country:tal.country, _visota:tal.visota, _ispolnenie:tal.ispolnnie, _gp:tal.gp }
 				$.post( calc_ajaxurl.url, data_tal, function(response) {
