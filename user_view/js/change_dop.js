@@ -275,7 +275,7 @@ jQuery(document).ready(($)=>{
 *
 *																						Функции для изменения мотор-редуктора
 *																																	
-*																									ДОП ОПЦИИ
+*																								      ДОП ОПЦИИ
 *
 *
 *
@@ -431,7 +431,7 @@ jQuery(document).ready(($)=>{
 *
 *																						Функции для изменения ПРЕОБРАЗОВАТЕЛЯ
 *																																	
-*																									ДОП ОПЦИИ
+*																									  ДОП ОПЦИИ
 *
 *
 *
@@ -456,7 +456,7 @@ jQuery(document).ready(($)=>{
 			preobrazovatel_h2.innerText = 'Выберите преобразователь';
 			preobrazovatel_h2.style.marginBottom = '50px';
 			preobrazovatel.append(preobrazovatel_h2);
-			/*********************************************************************************************************************************/
+		/*********************************************************************************************************************************/
 		
 		let preobrazovatel_8_4 = document.createElement('div'); // блок пульт
 			preobrazovatel_8_4.className = 'preobrazovatel_8_4 animated zoomInLeft'
@@ -483,7 +483,8 @@ jQuery(document).ready(($)=>{
 						cran.code_of_chastotnik = '8.4';
 						cran.setspeed = 'Несколько скоростей движения';
 
-					});		
+					});
+		
 			
 			$('html, body').animate({ 'scrollTop':'170px' }, 350)
 			$('.zzz').after(preobrazovatel);

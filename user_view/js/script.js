@@ -820,7 +820,7 @@ function next_group(arg, left) {
     });
     $('html, body').animate({ scrollTop: '0px' }, 700)
 }
-
+function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.body.scrollTop + scrollTo) + 'px' }, 700) }
 /************************************************************************************************************************
 *																														*
 *	 					БЛОК ПРИМЕНЕНИЯ ЗАПОЛНЕННЫХ ДАННЫХ ЭЛЕМЕНТАМ НА КЛИЕНТСКОЙ ЧАСТИ ДЛЯ ОПОРНЫХ					*
@@ -923,10 +923,10 @@ cran.price_crane_electro_upravleniya = function (_8punkt) {
 			if (price.id == 0) return false;
 				var data_crane_electro_upravleniya = { action: 'calc_crane_electro_upravleniya', _variant_id:price.id }
 				$.post( calc_ajaxurl.url, data_crane_electro_upravleniya, function (response) {
-					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="del_this_option return_pult_default"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
+					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="change_this_option_with_del pult_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span><span class="del_this_option return_pult_default"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
 						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" style="width:200px"><h4>Управление каном</h4> \
 						<p><span class="opisanie_parametra">'+String(cran._3Type)+'</span><br> \
-						<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span></p>');
+						<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span><i class="id_bro">b3</i></p>');
 					$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
 					$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
 				});
@@ -971,8 +971,6 @@ function chastotnik_price (model) {
 						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" style="width:200px"><h4>Частотный преобразователь</h4> \
 						<p><span class="opisanie_parametra">'+String(cran.speed)+'</span><br> \
 						<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span></p>');
-					//$('#summa').text(String(Number(tal.summa).toFixed(2)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '));
-					//alert(String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '));
 					$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
 					$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
 				});
@@ -1048,7 +1046,7 @@ cran.motor_price = function (model) {
 							return new_html;
 						})
 					} else {
-						$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="del_this_option return_motor_default"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
+						$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="change_this_option_with_del motor_reductor_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span><span class="del_this_option return_motor_default"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
 						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" style="width:200px"><h4>Мотор-редуктор</h4> \
 						<p><span class="opisanie_parametra">'+String(cran.motor)+'</span><br> \
 						<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span></p>');
