@@ -1,6 +1,11 @@
 var calc_ajaxurl = {url:location.origin+'/wp-admin/admin-ajax.php'}
 var locate = location.origin;
 jQuery(document).ready(($)=>{
+	let steps = document.createElement('span');
+		steps.className = 'animated zoomIn';
+		steps.id = 'steps';
+		steps.innerText = cran.step;
+		document.querySelector('#main_block_for_steps').insertBefore(steps, document.querySelector('#main_block_for_steps').firstChild);
 	$('html, body').animate({ scrollTop: '0px' }, 700)
 /************************************************************************************************************************
 *																														*
@@ -9,12 +14,14 @@ jQuery(document).ready(($)=>{
 ************************************************************************************************************************/
 	$('._11').on('click', function () {
 		hide($('#_1'));
+		cran.step = 'Шаг 2 из 11'
 		next_group( $('#_2'), 10 );
 		cran._1 = 'Опорный';
 	});
 
 	$('._12').on('click', function () {
-		hide($('#_1'));
+		hide($('#_1'));		
+		cran.step = 'Шаг 2 из 11'
 		next_group( $('#_2'), 10 );
 		cran._1 = 'Подвесной';
 	});
@@ -26,6 +33,7 @@ jQuery(document).ready(($)=>{
 
 	$('.obsheprom').click(function () {
 		hide($('#_2'));
+		cran.step = 'Шаг 3 из 11'
 		next_group( $('#_3'), 7.5 );
 		cran._2 = tal.ispolnnie = 'Общепромышленное';		
 	});
@@ -43,7 +51,9 @@ jQuery(document).ready(($)=>{
 				continue
 			}
 			$('.back_dop_animate_vzr').removeClass('back_dop_animate_vzr').addClass('hide_dop_animate_vzr');
-			hide($('#_2')); tal.ispolnnie = 'Взрывобезопасное';
+			hide($('#_2'));
+			cran.step = 'Шаг 3 из 11'
+			tal.ispolnnie = 'Взрывобезопасное';
 			next_group( $('#_3'), 7.5 );		
 			$('._36').css('display','none');$('#Джойстик').css('display','none');
 		});
@@ -63,7 +73,9 @@ jQuery(document).ready(($)=>{
 				continue
 			}
 			$('.back_dop_animate_pozh').removeClass('back_dop_animate_pozh').addClass('hide_dop_animate_pozh');
-			hide($('#_2'));  tal.ispolnnie = 'Пожаробезопасное';
+			hide($('#_2'));
+			cran.step = 'Шаг 3 из 11'
+			tal.ispolnnie = 'Пожаробезопасное';
 			next_group( $('#_3'), 7.5 );});
 
 
@@ -74,8 +86,8 @@ jQuery(document).ready(($)=>{
 ************************************************************************************************************************/
 	$('._31').click(function () {
 		hide($('#_3'));
-		next_group( $('#грузоподъемность'), 0 ); // НОВОЕ
-		//next_group( $('#razmeshenie'), 0 ); СТАРОЕ
+		cran.step = 'Шаг 4 из 11'
+		next_group( $('#грузоподъемность'), 0 );
 		cran._3 = 'Ручное';
 		cran._3Type = 'Отсутствует при ручном управлении';
 		$('#gpO > ul li:nth-child(9)').css('display','none');
@@ -85,13 +97,13 @@ jQuery(document).ready(($)=>{
 	});
 
 	$('._32').click(function () {
-		//hide($('#_2'));
 		$('.hide_dop_el').removeClass('hide_dop_el hide_dop_animate_el').addClass('back_dop_animate_el');
 		easyscroll(250);
 		cran._3 = 'Электро';
 	});
 	$('._33_next').click(function () {
 		hide($('#_3'));
+		cran.step = 'Шаг 4 из 11'
 		cran._3Type = 'Подвесной пульт';
 		$('#option_2 .dop_parametr:last-child').before(()=>{
 			let new_html = '<div class="dop_parametr"> \
@@ -124,18 +136,21 @@ jQuery(document).ready(($)=>{
 		})
 	$('._37').click(function () {$('#main_block_for_steps').css('height', '800px');
 		hide($('#_3'));
+		cran.step = 'Шаг 4 из 11'
 		cran._3Type = cran._3Type + ' Telecrane (Тайвань)';
 		next_group( $('#грузоподъемность'), 0 ); // НОВОЕ
 		//next_group( $('#razmeshenie'), 0 ); СТАРОЕ
 	});
 	$('._38').click(function () {$('#main_block_for_steps').css('height', '800px');
 		hide($('#_3'));
+		cran.step = 'Шаг 4 из 11'
 		cran._3Type = cran._3Type + ' Ikusi (Испания)';
 		next_group( $('#грузоподъемность'), 0 ); // НОВОЕ
 		//next_group( $('#razmeshenie'), 0 ); СТАРОЕ
 	});
 	$('._39').click(function () {$('#main_block_for_steps').css('height', '800px');
 		hide($('#_3'));
+		cran.step = 'Шаг 4 из 11'
 		cran._3Type = cran._3Type + ' HBC-Radiomatic (Германия)';
 		next_group( $('#грузоподъемность'), 0 ); // НОВОЕ
 		//next_group( $('#razmeshenie'), 0 ); СТАРОЕ
@@ -195,11 +210,13 @@ jQuery(document).ready(($)=>{
 		if (cran._1 == 'Опорный') {
 			document.getElementById('vO').value = cran._3 == 'Электро'? '6000' : '3000'
 			hide($('#грузоподъемность'));
+			cran.step = 'Шаг 5 из 11'
 			next_group( $('#размеры_помещения_опорный'), 0 );
 		}
 		if (cran._1 == 'Подвесной') {
 			document.getElementById('vP').value = cran._3 == 'Электро'? '6000' : '3000'
 			hide($('#грузоподъемность'));
+			cran.step = 'Шаг 5 из 11'
 			next_group( $('#размеры_помещения_подвесной'), 0 );
 		}		
 		//cran._3 == 'Ручное' ? next_group($('#vibor_tali'), 0) : next_group( $('#система_управления_краном'), 8 );
@@ -217,6 +234,7 @@ jQuery(document).ready(($)=>{
 		tal.visota = cran.paramsO.vO = document.getElementById('vO').value = cran._3 == 'Электро'? '6000' : '3000';
 		cran.paramsO.vpO = document.getElementById('vpO').value;
 		hide($('#размеры_помещения_опорный'));
+		cran._3 == 'Электро' ? cran.step = 'Шаг 6 из 11' : cran.step = 'Шаг 8 из 11';
 		cran._3 == 'Ручное' ? next_group( $('#razmeshenie'), 0 ) : next_group( $('#система_управления_краном'), 0 ); // СЛЕДУЮЩИМ БЫЛ ТОКОПОДВОД
 	});
 /************************************************************************************************************************
@@ -232,6 +250,7 @@ jQuery(document).ready(($)=>{
 		cran.paramsP.vpP = document.getElementById('vpP').value;
 		document.getElementById('valdpPk').value = cran.paramsP.vpP;
 		hide($('#размеры_помещения_подвесной'));
+		cran._3 == 'Электро' ? cran.step = 'Шаг 6 из 11' : cran.step = 'Шаг 8 из 11';
 		cran._3 == 'Ручное' ? next_group( $('#razmeshenie'), 0 ) : next_group( $('#система_управления_краном'), 0 ); // СЛЕДУЮЩИМ БЫЛ ТОКОПОДВОД
 		
 	});
@@ -255,6 +274,7 @@ jQuery(document).ready(($)=>{
 
 	$('.одна_с').click(function () {//8.3
 		hide($('#система_управления_краном'));
+		cran.step = 'Шаг 7 из 11'
 		cran.setspeed = 'Одна скорость движения';
 		cran.code_of_chastotnik = '8.3';
 		next_group($('#мотор_редуктора'), 0);
@@ -278,6 +298,7 @@ jQuery(document).ready(($)=>{
 	});
 	$('.несколько_с').click(function () {//8.4
 		hide($('#система_управления_краном'));
+		cran.step = 'Шаг 7 из 11'
 		cran.setspeed = 'Несколько скоростей движения';
 		cran.code_of_chastotnik = '8.4';
 		next_group($('#мотор_редуктора'), 0);		
@@ -286,30 +307,33 @@ jQuery(document).ready(($)=>{
 	});
 	$('.esq').click(function () {
 		hide($('#система_управления_краном'));
+		cran.step = 'Шаг 7 из 11'
 		cran.setspeed = 'Плавный пуск + 2 и более скорости ESQ (Китай)';		
 		cran.code_of_chastotnik = '8.2';
 		next_group($('#мотор_редуктора'), 0);
 		$('#main_block_for_steps').css('height', '800px');
 		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;
-		chastotnik_price(8.5);
+		cran.chastotnik_price(8.5);
 	});
 	$('.hyundai').click(function () {
 		hide($('#система_управления_краном'));
+		cran.step = 'Шаг 7 из 11'
 		cran.setspeed = 'Плавный пуск + 2 и более скорости Hyundai (Корея)';		
 		cran.code_of_chastotnik = '8.2';
 		next_group($('#мотор_редуктора'), 0);
 		$('#main_block_for_steps').css('height', '800px');
 		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;
-		chastotnik_price(8.6);
+		cran.chastotnik_price(8.6);
 	});
 	$('.danfross').click(function () {
 		hide($('#система_управления_краном'));
+		cran.step = 'Шаг 7 из 11'
 		cran.setspeed = 'Плавный пуск + 2 и более скорости Danfoss (Германия)';				
 		cran.code_of_chastotnik = '8.2';
 		next_group($('#мотор_редуктора'), 0);
 		$('#main_block_for_steps').css('height', '800px');
 		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;
-		chastotnik_price(8.7);
+		cran.chastotnik_price(8.7);
 	});
 /************************************************************************************************************************
 *																														*
@@ -321,6 +345,7 @@ jQuery(document).ready(($)=>{
 		cran.motor_price(9.1);
 		cran.code_of_motor = 9.1;
 		hide($('#мотор_редуктора'));
+		cran.step = 'Шаг 8 из 11'
 		next_group( $('#razmeshenie'), 0 );
 		//next_group($('#vibor_tali'), 0); старый шаг
 		$('#main_block_for_steps').css('height', '540px');
@@ -330,6 +355,7 @@ jQuery(document).ready(($)=>{
 		cran.motor_price(9.2);
 		cran.code_of_motor = 9.2;
 		hide($('#мотор_редуктора'));
+		cran.step = 'Шаг 8 из 11'
 		next_group( $('#razmeshenie'), 0 );
 		//next_group($('#vibor_tali'), 0); старый шаг
 		$('#main_block_for_steps').css('height', '540px');
@@ -339,6 +365,7 @@ jQuery(document).ready(($)=>{
 		cran.motor_price(9.3);
 		cran.code_of_motor = 9.3;
 		hide($('#мотор_редуктора'));
+		cran.step = 'Шаг 8 из 11'
 		next_group( $('#razmeshenie'), 0 );
 		//next_group($('#vibor_tali'), 0); старый шаг
 		$('#main_block_for_steps').css('height', '540px');
@@ -348,6 +375,7 @@ jQuery(document).ready(($)=>{
 		cran.motor_price(9.4);
 		cran.code_of_motor = 9.4;
 		hide($('#мотор_редуктора'));
+		cran.step = 'Шаг 8 из 11'
 		next_group( $('#razmeshenie'), 0 );
 		//next_group($('#vibor_tali'), 0); старый шаг
 		$('#main_block_for_steps').css('height', '540px');
@@ -357,6 +385,7 @@ jQuery(document).ready(($)=>{
 		cran.motor_price(9.5);
 		cran.code_of_motor = 9.5;
 		hide($('#мотор_редуктора'));
+		cran.step = 'Шаг 8 из 11'
 		next_group( $('#razmeshenie'), 0 );
 		//next_group($('#vibor_tali'), 0); старый шаг
 		$('#main_block_for_steps').css('height', '540px');
@@ -389,6 +418,7 @@ jQuery(document).ready(($)=>{
 		if (cran.temper[0] == undefined) {return alert('Укажите температурный диапозон ОТ')}
 		if (cran.temper[1] == undefined) {return alert('Укажите температурный диапозон ДО')}
 		hide($('#razmeshenie'));
+		cran.step = 'Шаг 9 из 11'
 		cran.climat = 'Расположение на открытой местности';
 		if (cran._1 == 'Опорный') {
 			next_group( $('#пути_для_опорного'), 1 );
@@ -401,6 +431,7 @@ jQuery(document).ready(($)=>{
 		if (cran.temper[0] == undefined) {return alert('Укажите температурный диапозон ОТ')}
 		if (cran.temper[1] == undefined) {return alert('Укажите температурный диапозон ДО')}
 		hide($('#razmeshenie'));
+		cran.step = 'Шаг 9 из 11'
 		cran.climat = 'Расположение под навесом';
 		if (cran._1 == 'Опорный') {
 			next_group( $('#пути_для_опорного'), 1 );
@@ -413,6 +444,7 @@ jQuery(document).ready(($)=>{
 		if (cran.temper[0] == undefined) {return alert('Укажите температурный диапозон ОТ')}
 		if (cran.temper[1] == undefined) {return alert('Укажите температурный диапозон ДО')}
 		hide($('#razmeshenie'));
+		cran.step = 'Шаг 9 из 11'
 		cran.climat = 'Расположение в помещении';
 		if (cran._1 == 'Опорный') {
 			next_group( $('#пути_для_опорного'), 1 );
@@ -441,10 +473,12 @@ jQuery(document).ready(($)=>{
 	
 	$('.нужен_монтаж_пути').click(function () {
 			hide($('#пути_для_опорного'));
+			cran._3 == 'Электро' ? cran.step = 'Шаг 10 из 11' : cran.step = 'Шаг 11 из 11';
 			$('#main_block_for_steps').css('height', '620px');
 			cran._3 == 'Ручное' ? next_group( $('#vibor_tali'), 0 ) : next_group( $('#токоподвод'), 0 ); 
 	}); $('.нужен_монтаж_рельс').click(function () {
 			hide($('#пути_для_опорного'));
+			cran._3 == 'Электро' ? cran.step = 'Шаг 10 из 11' : cran.step = 'Шаг 11 из 11';
 			$('#main_block_for_steps').css('height', '620px');
 			$('#список_моделей_рельс').css('display', 'none');
 			cran._3 == 'Ручное' ? next_group( $('#vibor_tali'), 0 ) : next_group( $('#токоподвод'), 0 ); 
@@ -469,6 +503,7 @@ jQuery(document).ready(($)=>{
 		easyscroll(720);
 	}); $('.путь_подвесной').click(function () {
 			hide($('#пути_для_подвесного'));
+			cran._3 == 'Электро' ? cran.step = 'Шаг 10 из 11' : cran.step = 'Шаг 11 из 11';
 			cran._3 == 'Ручное' ? next_group( $('#vibor_tali'), 0 ) : next_group( $('#токоподвод'), 0 ); 
 			$('#main_block_for_steps').css('height', '620px');
 		})
@@ -477,6 +512,7 @@ jQuery(document).ready(($)=>{
 	
 	$('.нужен_монтаж_пути2').click(function () {
 			hide($('#пути_для_подвесного'));
+			cran._3 == 'Электро' ? cran.step = 'Шаг 10 из 11' : cran.step = 'Шаг 11 из 11';
 			$('#main_block_for_steps').css('height', '620px');
 			$('#пути_подвесной').css('display', 'none');
 			cran._3 == 'Ручное' ? next_group( $('#vibor_tali'), 0 ) : next_group( $('#токоподвод'), 0 ); 
@@ -490,15 +526,16 @@ jQuery(document).ready(($)=>{
 		$('#main_block_for_steps').css('height', '820px');easyscroll(180);
 		$('.скрыть_варианты_токоподвод').removeClass('скрыть_варианты_токоподвод скрыть_варианты_animate_токоподвод').addClass('показать_варианты_animate_токоподвод');
 	});
-		$('.каб_с_кол').click(()=>{cran.setttk = 'Кабельный с кольцами';hide($('#токоподвод'));$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.3.jpg')});
-		$('.каб_с_тел').click(()=>{cran.setttk = 'Кабельный с тележками';hide($('#токоподвод'));$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.4.jpg')});
-		$('.фесто').click(()=>{cran.setttk = 'Фестонный (С профиль)';hide($('#токоподвод'));$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.5.jpg')});
-		$('.откр_тролл').click(()=>{cran.setttk = 'Открытые троллеи';hide($('#токоподвод'));$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.6.jpg')});
-		$('.закр_тролл').click(()=>{cran.setttk = 'Закрытые троллеи';hide($('#токоподвод'));$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.7.jpg')});
+		$('.каб_с_кол').click(()=>{cran.setttk = 'Кабельный с кольцами';hide($('#токоподвод'));cran.step = 'Шаг 11 из 11';$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.3.jpg')});
+		$('.каб_с_тел').click(()=>{cran.setttk = 'Кабельный с тележками';hide($('#токоподвод'));cran.step = 'Шаг 11 из 11';$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.4.jpg')});
+		$('.фесто').click(()=>{cran.setttk = 'Фестонный (С профиль)';hide($('#токоподвод'));cran.step = 'Шаг 11 из 11';$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.5.jpg')});
+		$('.откр_тролл').click(()=>{cran.setttk = 'Открытые троллеи';hide($('#токоподвод'));cran.step = 'Шаг 11 из 11';$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.6.jpg')});
+		$('.закр_тролл').click(()=>{cran.setttk = 'Закрытые троллеи';hide($('#токоподвод'));cran.step = 'Шаг 11 из 11';$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.7.jpg')});
 
 	$('.ток_нетребуется').click(function () {
 		cran.setttk = 'Токоподвод не требуется';
 		hide($('#токоподвод'));
+		cran.step = 'Шаг 11 из 11';
 		$('#main_block_for_steps').css('height', '620px');
 		next_group( $('#vibor_tali'), 0 );
 	});
@@ -564,6 +601,7 @@ jQuery(document).ready(($)=>{
 				tal.country = 'Швеция';
 				tal.img = '17.10.jpg';
 					hide($('#vibor_tali'));
+					cran.step = 'end';
 					if (cran._1 == 'Опорный') {
 						resultatiO();
 						next_group($('#результат_опорного'), 0);
@@ -597,6 +635,7 @@ jQuery(document).ready(($)=>{
 					cran._2.search(/Взрывобезопасное/i) == 0 ? tal.type = 'Канатная ВБИ' : tal.type = 'Канатная';
 					tal.img = '17.5.1.jpg';
 					hide($('#vibor_tali'));
+					cran.step = 'end';
 						if (cran._1 == 'Опорный') {
 							resultatiO();
 							next_group($('#результат_опорного'), 0);
@@ -614,6 +653,7 @@ jQuery(document).ready(($)=>{
 					cran._2.search(/Взрывобезопасное/i) == 0 ? tal.type = 'Канатная УСВ ВБИ' : tal.type = 'Канатная УСВ';
 					tal.img = '17.5.2.jpg';
 						hide($('#vibor_tali'));
+						cran.step = 'end';
 						if (cran._1 == 'Опорный') {
 							resultatiO();
 							next_group($('#результат_опорного'), 0);
@@ -632,6 +672,7 @@ jQuery(document).ready(($)=>{
 				tal.country = 'Россия';
 				tal.img = '17.8.jpeg';
 					hide($('#vibor_tali'));
+					cran.step = 'end';
 					if (cran._1 == 'Опорный') {
 						resultatiO();
 						next_group($('#результат_опорного'), 0);
@@ -650,6 +691,7 @@ jQuery(document).ready(($)=>{
 				tal.country = 'Россия';				
 				tal.img = '17.6.jpg';
 					hide($('#vibor_tali'));
+					cran.step = 'end';
 					if (cran._1 == 'Опорный') {
 						resultatiO();
 						next_group($('#результат_опорного'), 0);
@@ -668,6 +710,7 @@ jQuery(document).ready(($)=>{
 				tal.country = 'Китай';
 				tal.img = '17.9.jpg';
 					hide($('#vibor_tali'));
+					cran.step = 'end';
 					if (cran._1 == 'Опорный') {
 						resultatiO();
 						next_group($('#результат_опорного'), 0);
@@ -691,6 +734,7 @@ jQuery(document).ready(($)=>{
 				} else {
 					tal.type = 'Канатная';
 					hide($('#vibor_tali'));
+					cran.step = 'end';
 					if (cran._1 == 'Опорный') {
 						resultatiO();
 						next_group($('#результат_опорного'), 0);
@@ -716,6 +760,7 @@ jQuery(document).ready(($)=>{
 						tal.type = 'Канатная';
 						tal.img = '17.3.jpg';
 							hide($('#vibor_tali'));
+							cran.step = 'end';
 							if (cran._1 == 'Опорный') {
 								resultatiO();
 								next_group($('#результат_опорного'), 0);
@@ -734,6 +779,7 @@ jQuery(document).ready(($)=>{
 					tal.type = 'Цепная';
 					tal.img = '17.4.jpg';
 						hide($('#vibor_tali'));
+						cran.step = 'end';
 						if (cran._1 == 'Опорный') {
 							resultatiO();
 							next_group($('#результат_опорного'), 0);
@@ -753,6 +799,7 @@ jQuery(document).ready(($)=>{
 		$('body').append('\
 			')
 		hide($('#vibor_tali'));
+		cran.step = 'end';
 		if (cran._1 == 'Опорный') {
 			resultatiO();
 			next_group($('#результат_опорного'), 0);
@@ -824,7 +871,9 @@ jQuery(document).ready(($)=>{
 	
 
 function hide(arg) {
-    arg.animate({ 'top': '-3000px' }, 700, function() {
+		document.querySelector('#main_block_for_steps').firstChild.remove();
+        $('#steps').css('visibility', 'hidden');
+    	arg.animate({ 'top': '-3000px' }, 700, function() {
         $(this).css('position', 'absolute')
     })
 }
@@ -832,6 +881,13 @@ function hide(arg) {
 function next_group(arg, left) {
     arg.animate({ 'left': left + '%' }, 1300, function() {
         $(this).css({ 'position': 'relative', 'left': '0' })
+        if (cran.step != 'end') {
+        	let steps = document.createElement('span');
+			steps.className = 'animated zoomIn';
+			steps.id = 'steps';
+			steps.innerText = cran.step;
+			document.querySelector('#main_block_for_steps').insertBefore(steps, document.querySelector('#main_block_for_steps').firstChild);
+	        }	
     });
     $('html, body').animate({ scrollTop: '0px' }, 700)
 }
@@ -1099,7 +1155,7 @@ cran.calculate_tal = function  (argument) {
 					<p><span class="opisanie_parametra">'+String(tal.upravlenie)+'<br>'+String(tal.type)+'</span><br> \
 					<span class="stoimost_parametra">'+ String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span> \
 					</p>');
-					easyscroll(700)
+					//easyscroll(700)
 					$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
 					$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
 				});
@@ -1152,6 +1208,7 @@ var cran = {
 	set setmotor (s) {this._3 == 'Ручное' ? this.motor =  'Не доступно при ручном управлении' : s ? this.motor = s : this.motor = this.motor },
 	resetparam:function(){this.setspeed = this.setspeedmetr = this.setszo = this.setncuprav = this.setmotor = cran.setttk = false; },
 	get getep () {return this._3 == 'Ручное' ? 'Не доступно при ручном управлении' : '3-х фазная (380 В)'},
+	step:'Шаг 1 из 11',
 	summa:0
 };
 

@@ -85,6 +85,18 @@ table {
 	from {transform:scale(1.1)}
 	to {transform:scale(1)}
 }
+#steps
+{
+	position: absolute;
+    display: inline-block;
+    z-index: 9999999;
+    left: 0;
+    top: 0;
+    font-size: .9em;
+    text-transform: uppercase;
+    font-family: 'Rubik Medium';
+    color: #b5212e;
+}
 #first{overflow:hidden;margin-bottom:30px}
 h1,h2,h3,h4,tr td,.ended{text-transform:uppercase}
 h2{display:block;font-size:1.3em;font-family:'Rubik Regular';/*background-color:#ffc65c;padding:10px 14px;color:#fff;*/margin:0 auto}
