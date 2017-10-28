@@ -365,6 +365,10 @@ p>b.hz4
 	overflow: hidden;
 	z-index: 9999;
 }
+.pultslider div:nth-child(6n), .motor_reductor_slider div:nth-child(6n)
+{
+	clear: both;
+}
 .pultslider>h2, .motor_reductor_slider>h2, .preobrazovatel_slider>h2
 {
 	text-align: center;
@@ -410,10 +414,7 @@ div.pultslider>div>h4:hover, div.motor_reductor_slider>div>h4:hover, .preobrazov
 	width:25%;
 	padding: 15px 0;
 }
-.pult_d, .joy_d
-{
-	clear: both;
-}
+
 .motor_reductor_slider>div.animated, .preobrazovatel_slider>.animated
 {
 	float: left;

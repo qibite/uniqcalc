@@ -50,7 +50,7 @@ jQuery(document).ready(($)=>{
 					});
 
 		let pult_upravleniya_PULT = document.createElement('div'); // блок пульт
-		pult_upravleniya_PULT.className = 'pult_upravleniya_PULT animated zoomInLeft'
+		pult_upravleniya_PULT.className = 'pult_upravleniya_PULT animated zoomIn'
 		pult_upravleniya_PULT.style.marginBottom = '50px';
 		pult_upravleniya.append(pult_upravleniya_PULT);
 			let pult_upravleniya_PULT_img = document.createElement('img'); //Картинка радио пульта
@@ -338,8 +338,35 @@ jQuery(document).ready(($)=>{
 			motor_reductor.append(motor_reductor_h2);
 			/*********************************************************************************************************************************/
 		
+			let motor_reductor_9_1 = document.createElement('div'); // блок пульт
+			motor_reductor_9_1.className = 'motor_reductor_9_1 animated zoomInLeft'
+			motor_reductor_9_1.style.marginBottom = '50px';
+			motor_reductor.append(motor_reductor_9_1);
+			let motor_reductor_9_1_img = document.createElement('img'); //Картинка радио пульта
+				motor_reductor_9_1_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.jpg';
+				motor_reductor_9_1_img.className = 'allimg change_on_9_1';
+				motor_reductor_9_1.append(motor_reductor_9_1_img);
+					motor_reductor_9_1_img.addEventListener('click', function () {
+						cran.code_of_motor = 9.1;
+						cran.setmotor = 'Червячная передача ABLE (Италия)';
+					});
+			let motor_reductor_9_1_price = document.createElement('span');
+				motor_reductor_9_1_price.className = 'price_in_change';
+				motor_reductor_9_1_price.innerText ='Бесплатно';
+				motor_reductor_9_1.append(motor_reductor_9_1_price);
+
+			let motor_reductor_9_1_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
+				motor_reductor_9_1_h4.className = 'change_on_9_1';
+				motor_reductor_9_1_h4.innerText = 'Червячная передача ABLE (Италия)';
+				motor_reductor_9_1.append(motor_reductor_9_1_h4);
+					motor_reductor_9_1_h4.addEventListener('click', function () {
+						cran.code_of_motor = 9.1;
+					});
+			/*********************************************************************************************************************************/
+			/*********************************************************************************************************************************/
+		
 			let motor_reductor_9_2 = document.createElement('div'); // блок пульт
-			motor_reductor_9_2.className = 'motor_reductor_9_2 animated zoomInLeft'
+			motor_reductor_9_2.className = 'motor_reductor_9_2 animated zoomIn'
 			motor_reductor_9_2.style.marginBottom = '50px';
 			motor_reductor.append(motor_reductor_9_2);
 			let motor_reductor_9_2_img = document.createElement('img'); //Картинка радио пульта
@@ -364,7 +391,7 @@ jQuery(document).ready(($)=>{
 					});
 			/*********************************************************************************************************************************/
 			let motor_reductor_9_3 = document.createElement('div'); // блок пульт
-			motor_reductor_9_3.className = 'motor_reductor_9_3 animated zoomIn'
+			motor_reductor_9_3.className = 'motor_reductor_9_3 animated zoomInRight'
 			motor_reductor_9_3.style.marginBottom = '50px';
 			motor_reductor.append(motor_reductor_9_3);
 				let motor_reductor_9_3_img = document.createElement('img'); //Картинка радио пульта
@@ -391,8 +418,8 @@ jQuery(document).ready(($)=>{
 						});
 		/*********************************************************************************************************************************/
 			let motor_reductor_9_4 = document.createElement('div'); // блок пульт
-			motor_reductor_9_4.className = 'motor_reductor_9_4 animated zoomInRight'
-			motor_reductor_9_4.style.marginBottom = '50px';
+			motor_reductor_9_4.className = 'motor_reductor_9_4 animated zoomInLeft'
+			motor_reductor_9_4.style.margin = '0 0 50px 22%';
 			motor_reductor.append(motor_reductor_9_4);
 				let motor_reductor_9_4_img = document.createElement('img'); //Картинка радио пульта
 					motor_reductor_9_4_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.4.jpg';
@@ -418,8 +445,8 @@ jQuery(document).ready(($)=>{
 					});
 		/*********************************************************************************************************************************/
 			let motor_reductor_9_5 = document.createElement('div'); // блок пульт
-			motor_reductor_9_5.className = 'motor_reductor_9_5 animated zoomIn'
-			motor_reductor_9_5.style.marginLeft = '37.5%'
+			motor_reductor_9_5.className = 'motor_reductor_9_5 animated zoomInRight'
+			motor_reductor_9_5.style.marginLeft = '6.5%'
 			motor_reductor_9_5.style.marginBottom = '50px';
 			motor_reductor.append(motor_reductor_9_5);
 				let motor_reductor_9_5_img = document.createElement('img'); //Картинка радио пульта
@@ -454,11 +481,27 @@ jQuery(document).ready(($)=>{
 	$('body').on('click', '#closeMotorReductor', function(event) {		$(this).parent('.motor_reductor_slider').detach();
 		$('html, body').animate({ 'scrollTop':'900px' }, 400)
 	})
-	$('body').on('click', '.change_on_9_2, .change_on_9_3, .change_on_9_4, .change_on_9_5', function(event) {
+	$('body').on('click', '.change_on_9_1, .change_on_9_2, .change_on_9_3, .change_on_9_4, .change_on_9_5', function(event) {
 		$(this).parent().parent('.motor_reductor_slider').detach();
 		$('.motor_reductor_change').parent('.dop_parametr').detach();
 		cran.motor_price(cran.code_of_motor)
 		$('html, body').animate({ 'scrollTop':'900px' }, 400);
+		if (this.parent('.motor_reductor_9_1')) {
+			$('#option_2 .dop_parametr:last-child').before(()=>{
+				let new_html = '<div class="dop_parametr"> \
+					<span class="change_this_option motor_reductor_change">Изменить \
+						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
+					</span> \
+					<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.jpg" alt="" class="motor_reductor_change" style="width:200px"> \
+					<h4>Червячная передача ABLE (Италия)</h4> \
+					<p> \
+						<span class="opisanie_parametra">Входит в стоимость крана</span> \
+						<br> \
+						<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i> \
+					</p>';
+				return new_html;
+			});
+		}
 	})
 /************************************************************************************************************************************************************************************************************************************
 *
