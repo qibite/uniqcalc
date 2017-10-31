@@ -110,7 +110,6 @@ jQuery(document).ready(($)=>{
 					let results = JSON.parse(response);
 
 					if ($('div').is('.joy_d')) {$('.pultslider').children('.pult_upravleniya_TELECRANE, .pult_upravleniya_IKUSI, .pult_upravleniya_HBRRadiomatic').remove()}
-						easyscroll(380);
 					let pult_upravleniya_TELECRANE = document.createElement('div'); // блок пульт
 						pult_upravleniya_TELECRANE.className = 'pult_d pult_upravleniya_TELECRANE animated fadeInLeftBig'
 						pult_upravleniya.append(pult_upravleniya_TELECRANE);
@@ -195,7 +194,6 @@ jQuery(document).ready(($)=>{
 					let results = JSON.parse(response);
 
 					if ($('div').is('.pult_d')) {$('.pultslider').children('.pult_upravleniya_TELECRANE, .pult_upravleniya_IKUSI, .pult_upravleniya_HBRRadiomatic').remove()}
-						easyscroll(380);
 					let pult_upravleniya_TELECRANE = document.createElement('div'); // блок пульт
 						pult_upravleniya_TELECRANE.className = 'joy_d pult_upravleniya_TELECRANE animated fadeInLeftBig'
 						pult_upravleniya.append(pult_upravleniya_TELECRANE);
@@ -279,13 +277,13 @@ jQuery(document).ready(($)=>{
 
 	$('body').on('click', '#closePult', function(event) {
 		$(this).parent('.pultslider').detach();
-		$('html, body').animate({ 'scrollTop':'900px' }, 400)
+		$('html, body').animate({ 'scrollTop':'700px' }, 400)
 	})
 	$('body').on('click', '.change_on_PULTP, .change_on_TELECRANE, .change_on_IKUSI, .change_on_HBRRadiomatic', function(event) {		
 		if (cran._3Type == 'Подвесной пульт') {			
 			$(this).parent().parent('.pultslider').detach();
 			$('.pult_change').parent('.dop_parametr').detach();
-			$('html, body').animate({ 'scrollTop':'900px' }, 400);
+			$('html, body').animate({ 'scrollTop':'700px' }, 400);
 			$('#option_2 .dop_parametr:last-child').before(()=>{
 				let new_html = '<div class="dop_parametr"> \
 					<span class="change_this_option pult_change">Изменить \
@@ -579,7 +577,7 @@ jQuery(document).ready(($)=>{
 		/*********************************************************************************************************************************/
 		
 		let preobrazovatel_8_4 = document.createElement('div'); // блок пульт
-			preobrazovatel_8_4.className = 'preobrazovatel_8_4 animated zoomInLeft'
+			preobrazovatel_8_4.className = 'preobrazovatel_8_4 animated zoomIn'
 			preobrazovatel_8_4.style.marginBottom = '50px';
 			preobrazovatel.append(preobrazovatel_8_4);
 			let preobrazovatel_8_4_img = document.createElement('img'); //Картинка радио пульта
@@ -607,7 +605,7 @@ jQuery(document).ready(($)=>{
 		/*********************************************************************************************************************************/
 		
 		let preobrazovatel_8_5 = document.createElement('div'); // блок пульт
-			preobrazovatel_8_5.className = 'preobrazovatel_8_5 animated zoomInLeft'
+			preobrazovatel_8_5.className = 'preobrazovatel_8_5 animated zoomInRight'
 			preobrazovatel_8_5.style.marginBottom = '50px';
 			preobrazovatel.append(preobrazovatel_8_5);
 			let preobrazovatel_8_5_img = document.createElement('img'); //Картинка радио пульта
@@ -635,8 +633,9 @@ jQuery(document).ready(($)=>{
 		/*********************************************************************************************************************************/
 		
 		let preobrazovatel_8_6 = document.createElement('div'); // блок пульт
-			preobrazovatel_8_6.className = 'preobrazovatel_8_6 animated zoomIn'
+			preobrazovatel_8_6.className = 'preobrazovatel_8_6 animated zoomInLeft'
 			preobrazovatel_8_6.style.marginBottom = '50px';
+			preobrazovatel_8_6.style.marginLeft = '16.6%';
 			preobrazovatel.append(preobrazovatel_8_6);
 			let preobrazovatel_8_6_img = document.createElement('img'); //Картинка радио пульта
 				preobrazovatel_8_6_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.6.jpg';
@@ -665,6 +664,7 @@ jQuery(document).ready(($)=>{
 		let preobrazovatel_8_7 = document.createElement('div'); // блок пульт
 			preobrazovatel_8_7.className = 'preobrazovatel_8_7 animated zoomInRight'
 			preobrazovatel_8_7.style.marginBottom = '50px';
+			preobrazovatel_8_6.style.marginLeft = '16.6%';
 			preobrazovatel.append(preobrazovatel_8_7);
 			let preobrazovatel_8_7_img = document.createElement('img'); //Картинка радио пульта
 				preobrazovatel_8_7_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.7.jpg';
