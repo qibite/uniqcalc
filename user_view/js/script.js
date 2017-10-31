@@ -280,21 +280,8 @@ jQuery(document).ready(($)=>{
 		next_group($('#мотор_редуктора'), 0);
 		$('#main_block_for_steps').css('height', '800px');
 		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.3') : false;
-		$('#option_2 .dop_parametr:last-child').before(()=>{
-				let new_html = '<div class="dop_parametr"> \
-						<span class="change_this_option preobrazovatel_change">Изменить \
-						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
-						</span> \
-						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.jpg" alt="" class="preobrazovatel_change" style="width:200px"> \
-						<h4>Система управления</h4> \
-						<p> \
-						<span class="opisanie_parametra">Релейно-контакторная одна скорость движения</span> \
-						<br> \
-						<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b8</i> \
-						</p>';
-				return new_html;
-			});
-			cran.code_of_chastotnik = '8.3';
+		cran.code_of_chastotnik = '8.3';
+		cran.chastotnik_price(8.3);
 	});
 	$('.несколько_с').click(function () {//8.4
 		hide($('#система_управления_краном'));
@@ -304,6 +291,7 @@ jQuery(document).ready(($)=>{
 		next_group($('#мотор_редуктора'), 0);		
 		$('#main_block_for_steps').css('height', '800px');
 		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.4') : false;
+		cran.chastotnik_price(8.4);
 	});
 	$('.esq').click(function () {
 		hide($('#система_управления_краном'));
@@ -1026,25 +1014,84 @@ function postavka_provoda (img) {
 
 
 cran.chastotnik_price = function (model) {
-	let price =	
-			model == 8.5 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) ? {id:16, img:'8.5'} : 
-				model == 8.5 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) ? {id:17, img:'8.5'} :
-					model == 8.5 && (cran.gp == 12500 || cran.gp == 16000) ? {id:18, img:'8.5'} :
-			 			model == 8.6 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) ? {id:19, img:'8.6'} :
-			 				model == 8.6 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) ? {id:20, img:'8.6'} :
-			 					model == 8.6 && (cran.gp == 12500 || cran.gp == 16000) ? {id:21, img:'8.6'} :
-			 							model == 8.7 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) ? {id:22, img:'8.7'} :
-			 								model == 8.7 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) ? {id:23, img:'8.7'} :
-			 									model == 8.7 && (cran.gp == 12500 || cran.gp == 16000) ? {id:24, img:'8.7'} : false;
-	var data_chastotnik = { action: 'calc_chastotnik', _chastotnik_id:price.id }
-				$.post( calc_ajaxurl.url, data_chastotnik, function (response) {
-					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="change_this_option_with_del preobrazovatel_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span><span class="del_this_option return_preobrazovatel_default"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
-						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" class="preobrazovatel_change" style="width:200px"><h4>Частотный преобразователь</h4> \
-						<p><span class="opisanie_parametra">'+String(cran.speed)+'</span><br> \
-						<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span></p>');
-					$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
-					$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
+	let price;
+	switch (model) {
+		case 8.3:
+			price =	(cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) ? {id:16, img:'nophotos'} : 
+						(cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) ? {id:17, img:'nophotos'} :
+							(cran.gp == 12500 || cran.gp == 16000) ? {id:18, img:'nophotos'} : 0;
+			$('#option_2 .dop_parametr:last-child').before(()=>{
+				let new_html = '<div class="dop_parametr"> \
+					<span class="change_this_option preobrazovatel_change">Изменить \
+						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
+					</span> \
+					<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.jpg" alt="" class="preobrazovatel_change" style="width:200px"> \
+					<h4>Система управления</h4> \
+					<p> \
+						<span class="opisanie_parametra">Релейно-контакторная одна скорость движения</span> \
+						<br> \
+						<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b8</i> \
+					</p>';
+					return new_html;
+			});
+			break;
+		case 8.4:
+			price =	(cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) ? {id:555, img:'nophotos'} : 
+						(cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) ? {id:556, img:'nophotos'} :
+							(cran.gp == 12500 || cran.gp == 16000) ? {id:557, img:'nophotos'} : false;
+			var data_chastotnik = { action: 'calc_chastotnik', _chastotnik_id:price.id }
+			$.post( calc_ajaxurl.url, data_chastotnik, function (response) {
+				$('#option_2 .dop_parametr:last-child').before(()=>{
+				let new_html = '<div class="dop_parametr"> \
+					<span class="change_this_option_with_del preobrazovatel_change"> \
+						<i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить\
+					</span> \
+					<span class="del_this_option return_preobrazovatel_default"> \
+						<i class="fa fa-trash-o" aria-hidden="true"></i> \
+					</span> \
+					<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" class="preobrazovatel_change" style="width:200px"> \
+					<h4>Система управления</h4> \
+					<p> \
+						<span class="opisanie_parametra">Релейно-контакторная '+String(cran.speed)+'</span> \
+						<br> \
+						<span class="stoimost_parametra">'/*+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ')*/ +'~ руб</span><i class="id_bro">b8</i> \
+					</p>';
+					return new_html;
 				});
+			});
+			break;
+		default:
+			price = model == 8.5 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) ? {id:16, img:'8.5'} : 
+						model == 8.5 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) ? {id:17, img:'8.5'} :
+							model == 8.5 && (cran.gp == 12500 || cran.gp == 16000) ? {id:18, img:'8.5'} :
+								model == 8.6 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) ? {id:19, img:'8.6'} :
+									model == 8.6 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) ? {id:20, img:'8.6'} :
+										model == 8.6 && (cran.gp == 12500 || cran.gp == 16000) ? {id:21, img:'8.6'} :
+											model == 8.7 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) ? {id:22, img:'8.7'} :
+												model == 8.7 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) ? {id:23, img:'8.7'} :
+													model == 8.7 && (cran.gp == 12500 || cran.gp == 16000) ? {id:24, img:'8.7'} : false;
+			var data_chastotnik = { action: 'calc_chastotnik', _chastotnik_id:price.id }
+			$.post( calc_ajaxurl.url, data_chastotnik, function (response) {
+				$('#option_2 .dop_parametr:last-child').before(()=>{
+				let new_html = '<div class="dop_parametr"> \
+					<span class="change_this_option_with_del preobrazovatel_change"> \
+						<i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить\
+					</span> \
+					<span class="del_this_option return_preobrazovatel_default"> \
+						<i class="fa fa-trash-o" aria-hidden="true"></i> \
+					</span> \
+					<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" class="preobrazovatel_change" style="width:200px"> \
+					<h4>Частотный преобразователь</h4> \
+					<p> \
+						<span class="opisanie_parametra">'+String(cran.speed)+'</span> \
+						<br> \
+						<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span><i class="id_bro">b8</i> \
+					</p>';
+					return new_html;
+				});
+			});
+			break;
+	}
 }
 
 
