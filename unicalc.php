@@ -218,7 +218,7 @@ function activate_unicalc()
 	$shef_montazh = $wpdb->prefix . 'shef_montazh';
 	if ($wpdb->get_var("SHOW TABLES LIKE '$shef_montazh'") != $shef_montazh) {
 		$sql = "CREATE TABLE IF NOT EXISTS `$shef_montazh` (
-		`id` int (10) NOT NULL AUTO_INCREMENT,		
+		`id` int (10) NOT NULL AUTO_INCREMENT,
 		`gp` int(255) NOT NULL,
 		`shirina_mezh_putami` int(255) NOT NULL,
 		`price` int NOT NULL,
@@ -242,7 +242,26 @@ function activate_unicalc()
 		ENGINE=InnoDB;";
 		$wpdb->query($sql);
 		include_once ("db_inserts/insert_variants.php");	
-	}	
+	}
+
+	$mr = $wpdb->prefix . 'mr';
+	if ($wpdb->get_var("SHOW TABLES LIKE '$mr'") != $mr) {
+		$sql = "CREATE TABLE IF NOT EXISTS `$mr` (
+		`id` int (30) NOT NULL AUTO_INCREMENT,		
+		`model` varchar(255) NOT NULL,
+		`code` varchar(255) NOT NULL,
+		`gp` int(255) NOT NULL,
+		`shirina` int(255) NOT NULL,
+		`base_price` int NOT NULL,
+		`double_speed_price` int NOT NULL,
+		`brake_price` int NOT NULL,
+		PRIMARY KEY(`id`)
+		)
+		COLLATE='utf8_general_ci'
+		ENGINE=InnoDB;";
+		$wpdb->query($sql);
+		include_once ("db_inserts/insert_m-r.php");	
+	}
 }
 
 function deactivate_unicalc()
