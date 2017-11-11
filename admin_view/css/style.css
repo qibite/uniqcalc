@@ -85,13 +85,13 @@ td>input[type="text"],td>input[type="number"]{
     background-color: inherit;
 }
 .editing_price>form>input[type="number"]{width:80px}
-.editing_price>form>input[type="submit"]{
+.editing_price>form>input[type="button"]{
 	cursor:pointer;
 	background-color: #0073aa;
     border: none;
     color: #FFF;
 }
-.editing_price>form>input[type="submit"]:hover{
+.editing_price>form>input[type="button"]:hover{
 	background-color: #8BC34A;
 }
 

@@ -307,6 +307,50 @@ function vivod () {
 add_shortcode('unicalc', 'vivod');
 
 
+add_action('wp_ajax_change_price_base', 'change_price');
+// Изменение цены в прайсах
+function change_price ($value='')
+{
+
+	global $wpdb;
+	$table = $_POST['db'];
+	$name_price = $_POST['name_price'];
+	$id = $_POST['edited_id'];
+	$new_price = $_POST['new_price'];
+	// Цена на доставку кранбалок в копейках пересчет!
+	if ( $table == ($wpdb->prefix.'dostavka_cranbalok')) {
+		$table = $_POST['db'];
+		$id = $_POST['edited_id'];
+		$new_price = $_POST['new_price'];
+		$new_price = $new_price*100;
+		$res = $wpdb->update(
+				$table, 
+				array( $name_price => $new_price),
+				array('id' => $id),
+				array( '%d' ),
+				array( '%d' )
+			);
+		echo $new_price/100;
+	}
+	// Цена на остальное montazh_rels_submit montazh_provod_submit stoimost_rels_result_submit stoimost_provod_submit montazh_ruchnih_cran_submit montazh_electro_cran_submit km_viezd_submit shef_montazh_submit
+	elseif 	( $table == $wpdb->prefix.'electro_tali_submit' || $wpdb->prefix.'ruchnie_tali_submit' || $wpdb->prefix.'opornie_crani_submit' || $wpdb->prefix.'podvesnie_crani_submit' || $wpdb->prefix.'variants_submit' || $wpdb->prefix.'montazh_rels_submit' || $wpdb->prefix.'montazh_provod_submit' || $wpdb->prefix.'stoimost_rels_result_submit' || $wpdb->prefix.'montazh_ruchnih_cran_submit' || $wpdb->prefix.'montazh_electro_cran_submit' || $wpdb->prefix.'km_viezd_submit' || $wpdb->prefix.'shef_montazh_submit' || $wpdb->prefix.'mr' ) {
+		$table = $_POST['db'];
+		$id = $_POST['edited_id'];
+		$new_price = $_POST['new_price'];
+		//$new_price = $new_price*100;
+		global $wpdb;
+		$res = $wpdb->update(
+				$table, 
+				array( $name_price => $new_price),
+				array('id' => $id),
+				array( '%d' ),
+				array( '%d' )
+			);
+	echo $new_price;
+	}
+	else echo "---";
+	wp_die();
+}
 
 add_action('wp_ajax_calc_cran', 'stoimost_crana');
 add_action('wp_ajax_nopriv_calc_cran', 'stoimost_crana');
