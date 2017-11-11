@@ -687,6 +687,87 @@ $wpdb->show_errors();
 	</tbody>
 </table>
 
+<table class="tabla" style="width:100%;float:left">
+<caption class="close_table"><span class="close">Открыть</span>Мотор-редукторы прайс</caption>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Модель</th>
+			<th>Кодовое имя</th>
+			<th>Грузоподъемность</th>
+			<th>Ширина между путями</th>
+			<th>Базовая цена</th>			
+			<th class="ch_price">Редактировать цену</th>
+			<th>Надбавка за вторую скорость</th>			
+			<th class="ch_price">Редактировать цену</th>
+			<th>Надбавка за тормоз</th>
+			<th class="ch_price">Редактировать цену</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php
+		$mr = $wpdb->prefix . 'mr';
+		$mr_result = $wpdb->get_results(
+		"SELECT id, model, code, gp, shirina, base_price, double_speed_price, brake_price FROM $mr");
+		if ($mr_result) {
+			foreach ($mr_result as $motor) {
+				$id = $motor->id;
+				$model = $motor->model;
+				$code = $motor->code;
+				$gp = $motor->gp;
+				$shirina = $motor->shirina;
+				$base_price = $motor->base_price;
+				$double_speed_price = $motor->double_speed_price;
+				$brake_price = $motor->brake_price;
+				echo "<tr>
+						<td class='id'>{$id}</td>
+						<td>{$model}</td>
+						<td>{$code}</td>
+						<td>{$gp}</td>
+						<td>{$shirina}</td>
+						<td class='price' style='position:relative'>
+							{$base_price} &#8381;
+							<div class='editing_price'>
+								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+									<input type='hidden' name='db' value='$mr'>
+									<input type='hidden' name='edited_id' value='$id'>
+									<input type='number' name='new_price' value='$base_price' placeholder=''>
+									<input type='submit' name='mr_base_submit' value='Ок'>
+								</form>
+							</div>
+						</td>
+						<td><i class='edit_price'>Изменить</i></td>
+						<td class='price' style='position:relative'>
+							{$double_speed_price} &#8381;
+							<div class='editing_price'>
+								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+									<input type='hidden' name='db' value='$mr'>
+									<input type='hidden' name='edited_id' value='$id'>
+									<input type='number' name='new_price' value='$double_speed_price' placeholder=''>
+									<input type='submit' name='mr_double_speed_submit' value='Ок'>
+								</form>
+							</div>
+						</td>
+						<td><i class='edit_price'>Изменить</i></td>
+						<td class='price' style='position:relative'>
+							{$brake_price} &#8381;
+							<div class='editing_price'>
+								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+									<input type='hidden' name='db' value='$mr'>
+									<input type='hidden' name='edited_id' value='$id'>
+									<input type='number' name='new_price' value='$brake_price' placeholder=''>
+									<input type='submit' name='mr_brake_submit' value='Ок'>
+								</form>
+							</div>
+						</td>
+						<td><i class='edit_price'>Изменить</i></td>
+					</tr>";
+			}
+		} else echo "<span style='font-size:1.3em;color:red'>База данных 'Монтаж кран - балок с ручным управлением' не существует </span><a href='https://kwork.ru/user/qibite' target='blank'>Сообщить разработчику</a>";
+	?>
+	</tbody>
+</table>
+
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$('.close').toggle(function() {
