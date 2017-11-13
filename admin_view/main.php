@@ -658,9 +658,6 @@ $wpdb->show_errors();
 	<tr><td colspan="5" style="background-color:#fff429">8.2 Частотный приобразователь</td></tr>
 	<?php print_ops(15, 24, 'variants_chastot_result');?>
 
-	<tr><td colspan="5" style="background-color:#fff429">9 Мотор-редукторы других стран</td></tr>
-	<?php print_ops(44, 74, 'variants_motor_result');?>
-
 	<tr><td colspan="5" style="background-color:#fff429">10 Концевые выключатели / оптические датчики</td></tr>
 	<?php print_ops(24, 28, 'variants_vikl_result');?>
 

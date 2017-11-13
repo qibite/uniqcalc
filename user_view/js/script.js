@@ -993,7 +993,8 @@ cran.price_crane_electro_upravleniya = function (_8punkt) {
 				0;
 			if (price.id == 0) return false;
 				var data_crane_electro_upravleniya = { action: 'calc_crane_electro_upravleniya', _variant_id:price.id }
-				$.post( calc_ajaxurl.url, data_crane_electro_upravleniya, function (response) {
+				$.post( calc_ajaxurl.url, data_crane_electro_upravleniya, function (response) {					
+					$('.pult_change').parent('.dop_parametr').detach();
 					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="change_this_option_with_del pult_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span><span class="del_this_option return_pult_default"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
 						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" class="pult_change" style="width:200px"><h4>Управление каном</h4> \
 						<p><span class="opisanie_parametra">'+String(cran._3Type)+'</span><br> \
@@ -1052,79 +1053,38 @@ cran.chastotnik_price = function (model) {
 
 //Рассчет стоимости мотор-редуктора
 cran.motor_price = function (model) {
-	let price =	
-///////////////////////////////////////////////// 9.1
-			model == 9.1 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO < 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP < 16500 : false) ? {id:45, img:'9.1'} :
-			model == 9.1 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO > 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP > 16500 : false) ? {id:46, img:'9.1'} :
-
-				model == 9.1 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO < 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP < 16500 : false) ? {id:47, img:'9.1'} :
-				model == 9.1 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO > 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP > 16500 : false) ? {id:48, img:'9.1'} :
-
-					model == 9.1 && (cran.gp == 12500 || cran.gp == 16000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO < 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP < 16500 : false) ? {id:49, img:'9.1'} :
-					model == 9.1 && (cran.gp == 12500 || cran.gp == 16000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO > 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP > 16500 : false) ? {id:50, img:'9.1'} :
-///////////////////////////////////////////////// 9.2
-			model == 9.2 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO < 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP < 16500 : false) ? {id:51, img:'9.2'} :
-			model == 9.2 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO > 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP > 16500 : false) ? {id:52, img:'9.2'} :
-
-			 	model == 9.2 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO < 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP < 16500 : false) ? {id:53, img:'9.2'} :
-			 	model == 9.2 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO > 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP > 16500 : false) ? {id:54, img:'9.2'} :
-
-			 		model == 9.2 && (cran.gp == 12500 || cran.gp == 16000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO < 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP < 16500 : false) ? {id:55, img:'9.2'} :
-			 		model == 9.2 && (cran.gp == 12500 || cran.gp == 16000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO > 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP > 16500 : false) ? {id:56, img:'9.2'} :
-/////////////////////////////////////////////// 9.3
-			model == 9.3 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO < 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP < 16500 : false) ? {id:57, img:'9.3'} :
-			model == 9.3 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO > 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP > 16500 : false) ? {id:58, img:'9.3'} :
-
-			 	model == 9.3 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO < 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP < 16500 : false) ? {id:59, img:'9.3'} :
-			 	model == 9.3 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO > 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP > 16500 : false) ? {id:60, img:'9.3'} :
-
-			 		model == 9.3 && (cran.gp == 12500 || cran.gp == 16000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO < 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP < 16500 : false) ? {id:61, img:'9.3'} :
-			 		model == 9.3 && (cran.gp == 12500 || cran.gp == 16000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO > 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP > 16500 : false) ? {id:62, img:'9.3'} :
-//////////////////////////////////////////////// 9.4
-			model == 9.4 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO < 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP < 16500 : false) ? {id:63, img:'9.4'} :
-			model == 9.4 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO > 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP > 16500 : false) ? {id:64, img:'9.4'} :
-
-			 	model == 9.4 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO < 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP < 16500 : false) ? {id:65, img:'9.4'} :
-			 	model == 9.4 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO > 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP > 16500 : false) ? {id:66, img:'9.4'} :
-
-			 		model == 9.4 && (cran.gp == 12500 || cran.gp == 16000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO < 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP < 16500 : false) ? {id:67, img:'9.4'} :
-			 		model == 9.4 && (cran.gp == 12500 || cran.gp == 16000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO > 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP > 16500 : false) ? {id:68, img:'9.4'} :
-//////////////////////////////////////////////// 9.5
-			model == 9.5 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO < 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP < 16500 : false) ? {id:69, img:'9.5'} :
-			model == 9.5 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO > 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP > 16500 : false) ? {id:70, img:'9.5'} :
-
-			 	model == 9.5 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO < 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP < 16500 : false) ? {id:71, img:'9.5'} :
-			 	model == 9.5 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO > 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP > 16500 : false) ? {id:72, img:'9.5'} :
-
-			 		model == 9.5 && (cran.gp == 12500 || cran.gp == 16000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO < 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP < 16500 : false) ? {id:73, img:'9.5'} :
-			 		model == 9.5 && (cran.gp == 12500 || cran.gp == 16000) && (cran._1 == 'Опорный' ? cran.paramsO.shpO > 16500 : cran._1 == 'Подвесной' ? cran.paramsP.shpP > 16500 : false) ? {id:74, img:'9.5'} :
-						false;
-	var data_motor = { action: 'calc_motor', _motor_id:price.id }
+	let price;
+	var data_motor = { action: 'calc_motor', _motor_code:model, _motor_gp:cran.gp, _shirina:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP }
+		switch (model) {
+			case 9.1:
+				$('#option_2 .dop_parametr:last-child').before(()=>{
+					let new_html = '<div class="dop_parametr"> \
+										<span class="change_this_option motor_reductor_change">Изменить \
+											<i class="fa fa-pencil-square" aria-hidden="true"></i> \
+										</span> \
+										<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.jpg" alt="" class="motor_reductor_change" style="width:200px"> \
+										<h4>Червячная передача ABLE (Италия)</h4> \
+										<p> \
+											<span class="opisanie_parametra">Входит в стоимость крана</span> \
+												<br> \
+											<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i> \
+										</p>';
+					return new_html;
+				})
+				break;
+			default:
 				$.post( calc_ajaxurl.url, data_motor, function (response) {
-					if (model == 9.1) {
-						$('#option_2 .dop_parametr:last-child').before(()=>{
-							let new_html = '<div class="dop_parametr"> \
-												<span class="change_this_option motor_reductor_change">Изменить \
-													<i class="fa fa-pencil-square" aria-hidden="true"></i> \
-												</span> \
-												<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" class="motor_reductor_change" style="width:200px"> \
-												<h4>Червячная передача ABLE (Италия)</h4> \
-												<p> \
-													<span class="opisanie_parametra">Входит в стоимость крана</span> \
-														<br> \
-													<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i> \
-												</p>';
-							return new_html;
-						})
-					} else {
-						$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="change_this_option_with_del motor_reductor_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span><span class="del_this_option return_motor_default"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
-						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" class="motor_reductor_change" style="width:200px"><h4>Мотор-редуктор</h4> \
+					let answer = JSON.parse(response);
+					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="change_this_option_with_del motor_reductor_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span><span class="del_this_option return_motor_default"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
+						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ answer.code +'.jpg" alt="" class="motor_reductor_change" style="width:200px"><h4>Мотор-редуктор</h4> \
 						<p><span class="opisanie_parametra">'+String(cran.motor)+'</span><br> \
-						<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span></p>');
+						<span class="stoimost_parametra">'+ String(Number(answer.base_price).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span></p>');
 						$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
 						$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
-					}			
-				});
+				})
+				break;
+		}
+		//$.post( calc_ajaxurl.url, data_motor, function (response) {return console.log(response)})
 }
 //Рассчет стоимости мотор-редуктора
 

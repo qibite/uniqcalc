@@ -569,14 +569,19 @@ function price_chastotnikov () {
 add_action('wp_ajax_calc_motor', 'price_motor');
 add_action('wp_ajax_nopriv_calc_motor', 'price_motor');
 function price_motor () {
-	$motor_id = $_POST['_motor_id'];
+	$motor_code = '\''.$_POST['_motor_code'].'\''; 
+	$motor_gp = $_POST['_motor_gp'];
+	$shirina = $_POST['_shirina'];
 
-	global $wpdb;$wpdb->show_errors();
-	$variants = $wpdb->prefix . 'variants';
-	$variants_result = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $motor_id");
-		if ($variants_result) {
-			print_r($variants_result[0]->price);
+	global $wpdb;
+	$mrtable = $wpdb->prefix . 'mr';
+	$mr_result = $wpdb->get_results("SELECT id, model, code, gp, shirina, base_price, double_speed_price, brake_price FROM $mrtable WHERE code = $motor_code AND gp = $motor_gp AND shirina >= $shirina");
+		if ($mr_result) {
+			//print_r($mr_result[0]->base_price);
+			$result_motor = array( 'id' => $mr_result[0]->id, 'code' => $mr_result[0]->code, 'base_price' => $mr_result[0]->base_price, 'double_speed_price' => $mr_result[0]->double_speed_price, 'brake_price' => $mr_result[0]->brake_price );
+			echo json_encode($result_motor);
 		}
+		
 
 	wp_die();
 }
@@ -586,28 +591,27 @@ function price_motor () {
 add_action('wp_ajax_calc_motors', 'price_motors');
 add_action('wp_ajax_nopriv_calc_motors', 'price_motors');
 function price_motors () {
-	$motor_id_9_2 = $_POST['_motor_id_9_2'];
-	$motor_id_9_3 = $_POST['_motor_id_9_3'];
-	$motor_id_9_4 = $_POST['_motor_id_9_4'];
-	$motor_id_9_5 = $_POST['_motor_id_9_5'];
+	 
+	$motor_gp = $_POST['_motor_gp'];
+	$shirina = $_POST['_shirina'];
 
 	global $wpdb;$wpdb->show_errors();
-	$variants = $wpdb->prefix . 'variants';
-	$variants_result = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $motor_id_9_2");
-		if ($variants_result) {
-			$m9_2 = $variants_result[0]->price;
+	$mrtable = $wpdb->prefix . 'mr';
+	$mr_result = $wpdb->get_results("SELECT id, code, gp, shirina, base_price FROM $mrtable WHERE code = '9.2' AND gp = $motor_gp AND shirina >= $shirina");
+		if ($mr_result) {
+			$m9_2 = $mr_result[0]->base_price;
 		}
-	$variants_result = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $motor_id_9_3");
-		if ($variants_result) {
-			$m9_3 = $variants_result[0]->price;
+	$mr_result = $wpdb->get_results("SELECT id, code, gp, shirina, base_price FROM $mrtable WHERE code = '9.3' AND gp = $motor_gp AND shirina >= $shirina");
+		if ($mr_result) {
+			$m9_3 = $mr_result[0]->base_price;
 		}
-	$variants_result = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $motor_id_9_4");
-		if ($variants_result) {
-			$m9_4 = $variants_result[0]->price;
+	$mr_result = $wpdb->get_results("SELECT id, code, gp, shirina, base_price FROM $mrtable WHERE code = '9.4' AND gp = $motor_gp AND shirina >= $shirina");
+		if ($mr_result) {
+			$m9_4 = $mr_result[0]->base_price;
 		}
-	$variants_result = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $motor_id_9_5");
-		if ($variants_result) {
-			$m9_5 = $variants_result[0]->price;
+	$mr_result = $wpdb->get_results("SELECT id, code, gp, shirina, base_price FROM $mrtable WHERE code = '9.5' AND gp = $motor_gp AND shirina >= $shirina");
+		if ($mr_result) {
+			$m9_5 = $mr_result[0]->base_price;
 		}
 	$moto_result = array('p9_2' => $m9_2, 'p9_3' => $m9_3, 'p9_4' => $m9_4, 'p9_5' => $m9_5);
 	echo json_encode($moto_result);

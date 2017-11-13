@@ -300,7 +300,7 @@ jQuery(document).ready(($)=>{
 						<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i> \
 					</p>';
 					return new_html;
-				});
+			});
 		}
 	})
 
@@ -320,7 +320,7 @@ jQuery(document).ready(($)=>{
 *
 ***********************************************************************************************************************************************************************************************************************************/
 	$('.dop_menu_open').on('click', '.motor_reductor_change', function(event) {
-		var data_motor = { action: 'calc_motors', _motor_id_9_2:get_motor_id(9.2, 'id'), _motor_id_9_3:get_motor_id(9.3, 'id'), _motor_id_9_4:get_motor_id(9.4, 'id'), _motor_id_9_5:get_motor_id(9.5, 'id') }
+		var data_motor = { action: 'calc_motors', _motor_gp:cran.gp, _shirina:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP  }
 		$.post( calc_ajaxurl.url, data_motor, function (response) { 
 			let results = JSON.parse(response)
 
@@ -361,6 +361,7 @@ jQuery(document).ready(($)=>{
 				motor_reductor_9_1.append(motor_reductor_9_1_h4);
 					motor_reductor_9_1_h4.addEventListener('click', function () {
 						cran.code_of_motor = 9.1;
+						cran.setmotor = 'Червячная передача ABLE (Италия)';
 					});
 			/*********************************************************************************************************************************/
 			/*********************************************************************************************************************************/
@@ -388,6 +389,7 @@ jQuery(document).ready(($)=>{
 				motor_reductor_9_2.append(motor_reductor_9_2_h4);
 					motor_reductor_9_2_h4.addEventListener('click', function () {
 						cran.code_of_motor = 9.2;
+						cran.setmotor = 'Червячная передача NORD (Германия)';
 					});
 			/*********************************************************************************************************************************/
 			let motor_reductor_9_3 = document.createElement('div'); // блок пульт
@@ -478,7 +480,8 @@ jQuery(document).ready(($)=>{
 		});
 	})
 
-	$('body').on('click', '#closeMotorReductor', function(event) {		$(this).parent('.motor_reductor_slider').detach();
+	$('body').on('click', '#closeMotorReductor', function(event) {
+		$(this).parent('.motor_reductor_slider').detach();
 		$('html, body').animate({ 'scrollTop':'900px' }, 400)
 	})
 	$('body').on('click', '.change_on_9_1, .change_on_9_2, .change_on_9_3, .change_on_9_4, .change_on_9_5', function(event) {
@@ -486,22 +489,6 @@ jQuery(document).ready(($)=>{
 		$('.motor_reductor_change').parent('.dop_parametr').detach();
 		cran.motor_price(cran.code_of_motor)
 		$('html, body').animate({ 'scrollTop':'900px' }, 400);
-		if (this.parent('.motor_reductor_9_1')) {
-			$('#option_2 .dop_parametr:last-child').before(()=>{
-				let new_html = '<div class="dop_parametr"> \
-					<span class="change_this_option motor_reductor_change">Изменить \
-						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
-					</span> \
-					<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.jpg" alt="" class="motor_reductor_change" style="width:200px"> \
-					<h4>Червячная передача ABLE (Италия)</h4> \
-					<p> \
-						<span class="opisanie_parametra">Входит в стоимость крана</span> \
-						<br> \
-						<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i> \
-					</p>';
-				return new_html;
-			});
-		}
 	})
 /************************************************************************************************************************************************************************************************************************************
 *
