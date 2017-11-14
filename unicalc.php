@@ -247,7 +247,7 @@ function activate_unicalc()
 	$mr = $wpdb->prefix . 'mr';
 	if ($wpdb->get_var("SHOW TABLES LIKE '$mr'") != $mr) {
 		$sql = "CREATE TABLE IF NOT EXISTS `$mr` (
-		`id` int (30) NOT NULL AUTO_INCREMENT,		
+		`id` int (30) NOT NULL AUTO_INCREMENT,
 		`model` varchar(255) NOT NULL,
 		`code` varchar(255) NOT NULL,
 		`gp` int(255) NOT NULL,
@@ -261,6 +261,21 @@ function activate_unicalc()
 		ENGINE=InnoDB;";
 		$wpdb->query($sql);
 		include_once ("db_inserts/insert_m-r.php");	
+	}
+
+	$eshit = $wpdb->prefix . 'eshit';
+	if ($wpdb->get_var("SHOW TABLES LIKE '$eshit'") != $eshit) {
+		$sql = "CREATE TABLE IF NOT EXISTS `$eshit` (
+		`id` int (30) NOT NULL AUTO_INCREMENT,
+		`gp` int(255) NOT NULL,
+		`shirina` int(255) NOT NULL,
+		`price` int NOT NULL,
+		PRIMARY KEY(`id`)
+		)
+		COLLATE='utf8_general_ci'
+		ENGINE=InnoDB;";
+		$wpdb->query($sql);
+		include_once ("db_inserts/insert_shit.php");	
 	}
 }
 
@@ -538,6 +553,24 @@ function price_chastotnika () {
 
 	wp_die();
 }
+// 8.4 преобразователь
+add_action('wp_ajax_calc_double_speed', 'price_preobrazovatelya');
+add_action('wp_ajax_nopriv_calc_double_speed', 'price_preobrazovatelya');
+function price_preobrazovatelya () {
+
+	$motor_code = '\''.$_POST['_motor_code'].'\'';
+	$motor_gp = $_POST['_motor_gp'];
+	$shirina = $_POST['_shirina'];	
+
+	global $wpdb;
+	$mrtable = $wpdb->prefix . 'mr';
+	$mr_result = $wpdb->get_results("SELECT id, model, code, gp, shirina, base_price, double_speed_price, brake_price FROM $mrtable WHERE code = $motor_code AND gp = $motor_gp AND shirina >= $shirina");
+		if ($mr_result) {
+			print_r($mr_result[0]->double_speed_price);
+		}
+
+	wp_die();
+}
 // Стоимость преобразователя
 
 // Стоимость всех преобразователей _preobrazovatel_id_8_5 _preobrazovatel_id_8_6 _preobrazovatel_id_8_7
@@ -548,18 +581,31 @@ function price_chastotnikov () {
 	$preobrazovatel_id_8_6 = $_POST['_preobrazovatel_id_8_6'];
 	$preobrazovatel_id_8_7 = $_POST['_preobrazovatel_id_8_7'];
 
+	$motor_code = '\''.$_POST['_motor_code'].'\''; 
+	$motor_gp = $_POST['_motor_gp'];
+	$shirina = $_POST['_shirina'];
+
 	global $wpdb;$wpdb->show_errors();
 	$variants = $wpdb->prefix . 'variants';
 	$variants_result_8_5 = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $preobrazovatel_id_8_5");
 	$variants_result_8_6 = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $preobrazovatel_id_8_6");
 	$variants_result_8_7 = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $preobrazovatel_id_8_7");
-		if ($variants_result_8_5 && variants_result_8_6 && variants_result_8_7) {
+
+
+	$mrtable = $wpdb->prefix . 'mr';
+	$mr_result = $wpdb->get_results("SELECT id, model, code, gp, shirina, base_price, double_speed_price, brake_price FROM $mrtable WHERE code = $motor_code AND gp = $motor_gp AND shirina >= $shirina");
+
+		if ($variants_result_8_5 && variants_result_8_6 && variants_result_8_7 && mr_result) {
 			$result_8_5 = $variants_result_8_5[0]->price;
 			$result_8_6 = $variants_result_8_6[0]->price;
-			$result_8_7 = $variants_result_8_7[0]->price;				
+			$result_8_7 = $variants_result_8_7[0]->price;
+			$result_8_4 = $mr_result[0]->double_speed_price;
+
+			$preobrazovatel_result = array('preo8_4' => $result_8_4, 'preo8_5' => $result_8_5, 'preo8_6' => $result_8_6, 'preo8_7' => $result_8_7/*, 'p9_5' => $m9_5*/);
+			echo json_encode($preobrazovatel_result);			
 		}
-	$preobrazovatel_result = array('preo8_5' => $result_8_5, 'preo8_6' => $result_8_6, 'preo8_7' => $result_8_7/*, 'p9_5' => $m9_5*/);
-	echo json_encode($preobrazovatel_result);
+
+	
 
 	wp_die();
 }

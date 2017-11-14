@@ -265,6 +265,41 @@ jQuery(document).ready(($)=>{
 		$('.показать_варианты_animate_чп').removeClass('показать_варианты_animate_чп').addClass('скрыть_варианты_animate_чп');
 		$('#main_block_for_steps').css('height', '860px');easyscroll(230);
 	})
+
+		$('.одна_с').click(function () {//8.3
+			hide($('#система_управления_краном'));
+			cran.step = 'Шаг 7 из 11'
+			cran.setspeed = 'Одна скорость движения';
+			cran.code_of_chastotnik = '8.3';
+			next_group($('#мотор_редуктора'), 0);
+			$('#main_block_for_steps').css('height', '800px');
+			cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.3') : false;
+			$('#option_2 .dop_parametr:last-child').before(()=>{
+					let new_html = '<div class="dop_parametr"> \
+							<span class="change_this_option preobrazovatel_change">Изменить \
+							<i class="fa fa-pencil-square" aria-hidden="true"></i> \
+							</span> \
+							<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.jpg" alt="" class="preobrazovatel_change" style="width:200px"> \
+							<h4>Система управления</h4> \
+							<p> \
+							<span class="opisanie_parametra">Релейно-контакторная одна скорость движения</span> \
+							<br> \
+							<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b8</i> \
+							</p>';
+					return new_html;
+				});
+				cran.code_of_chastotnik = '8.3';
+		});
+		$('.несколько_с').click(function () {//8.4
+			hide($('#система_управления_краном'));
+			cran.step = 'Шаг 7 из 11'
+			cran.setspeed = 'Несколько скоростей движения';
+			cran.code_of_chastotnik = '8.4';
+			next_group($('#мотор_редуктора'), 0);		
+			$('#main_block_for_steps').css('height', '800px');
+			cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.4') : false;
+		});
+
 	$('.преобразователь').click(function () {//8.2
 		$('.скрыть_варианты_чп').removeClass('скрыть_варианты_чп скрыть_варианты_animate_чп').addClass('показать_варианты_animate_чп');
 		$('.скрыть_варианты_animate_чп').removeClass('скрыть_варианты_animate_чп').addClass('показать_варианты_animate_чп');
@@ -272,69 +307,36 @@ jQuery(document).ready(($)=>{
 		$('#main_block_for_steps').css('height', '860px');easyscroll(230);
 	})
 
-	$('.одна_с').click(function () {//8.3
-		hide($('#система_управления_краном'));
-		cran.step = 'Шаг 7 из 11'
-		cran.setspeed = 'Одна скорость движения';
-		cran.code_of_chastotnik = '8.3';
-		next_group($('#мотор_редуктора'), 0);
-		$('#main_block_for_steps').css('height', '800px');
-		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.3') : false;
-		$('#option_2 .dop_parametr:last-child').before(()=>{
-				let new_html = '<div class="dop_parametr"> \
-						<span class="change_this_option preobrazovatel_change">Изменить \
-						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
-						</span> \
-						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.jpg" alt="" class="preobrazovatel_change" style="width:200px"> \
-						<h4>Система управления</h4> \
-						<p> \
-						<span class="opisanie_parametra">Релейно-контакторная одна скорость движения</span> \
-						<br> \
-						<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b8</i> \
-						</p>';
-				return new_html;
-			});
-			cran.code_of_chastotnik = '8.3';
-	});
-	$('.несколько_с').click(function () {//8.4
-		hide($('#система_управления_краном'));
-		cran.step = 'Шаг 7 из 11'
-		cran.setspeed = 'Несколько скоростей движения';
-		cran.code_of_chastotnik = '8.4';
-		next_group($('#мотор_редуктора'), 0);		
-		$('#main_block_for_steps').css('height', '800px');
-		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.4') : false;
-	});
-	$('.esq').click(function () {
-		hide($('#система_управления_краном'));
-		cran.step = 'Шаг 7 из 11'
-		cran.setspeed = 'Плавный пуск + 2 и более скорости ESQ (Китай)';		
-		cran.code_of_chastotnik = '8.2';
-		next_group($('#мотор_редуктора'), 0);
-		$('#main_block_for_steps').css('height', '800px');
-		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;
-		cran.chastotnik_price(8.5);
-	});
-	$('.hyundai').click(function () {
-		hide($('#система_управления_краном'));
-		cran.step = 'Шаг 7 из 11'
-		cran.setspeed = 'Плавный пуск + 2 и более скорости Hyundai (Корея)';		
-		cran.code_of_chastotnik = '8.2';
-		next_group($('#мотор_редуктора'), 0);
-		$('#main_block_for_steps').css('height', '800px');
-		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;
-		cran.chastotnik_price(8.6);
-	});
-	$('.danfross').click(function () {
-		hide($('#система_управления_краном'));
-		cran.step = 'Шаг 7 из 11'
-		cran.setspeed = 'Плавный пуск + 2 и более скорости Danfoss (Германия)';				
-		cran.code_of_chastotnik = '8.2';
-		next_group($('#мотор_редуктора'), 0);
-		$('#main_block_for_steps').css('height', '800px');
-		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;
-		cran.chastotnik_price(8.7);
-	});
+		$('.esq').click(function () {
+			hide($('#система_управления_краном'));
+			cran.step = 'Шаг 7 из 11'
+			cran.setspeed = 'Плавный пуск + 2 и более скорости ESQ (Китай)';		
+			cran.code_of_chastotnik = '8.2';
+			next_group($('#мотор_редуктора'), 0);
+			$('#main_block_for_steps').css('height', '800px');
+			cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;
+			cran.chastotnik_price(8.5);
+		});
+		$('.hyundai').click(function () {
+			hide($('#система_управления_краном'));
+			cran.step = 'Шаг 7 из 11'
+			cran.setspeed = 'Плавный пуск + 2 и более скорости Hyundai (Корея)';		
+			cran.code_of_chastotnik = '8.2';
+			next_group($('#мотор_редуктора'), 0);
+			$('#main_block_for_steps').css('height', '800px');
+			cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;
+			cran.chastotnik_price(8.6);
+		});
+		$('.danfross').click(function () {
+			hide($('#система_управления_краном'));
+			cran.step = 'Шаг 7 из 11'
+			cran.setspeed = 'Плавный пуск + 2 и более скорости Danfoss (Германия)';				
+			cran.code_of_chastotnik = '8.2';
+			next_group($('#мотор_редуктора'), 0);
+			$('#main_block_for_steps').css('height', '800px');
+			cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;	
+			cran.chastotnik_price(8.7);
+		});
 /************************************************************************************************************************
 *																														*
 *										ВЫБОР ВЫБОР МОТОР-РЕДУКТОРА КРАНА ШАГ-7 										*
@@ -347,8 +349,8 @@ jQuery(document).ready(($)=>{
 		hide($('#мотор_редуктора'));
 		cran.step = 'Шаг 8 из 11'
 		next_group( $('#razmeshenie'), 0 );
-		//next_group($('#vibor_tali'), 0); старый шаг
 		$('#main_block_for_steps').css('height', '540px');
+	//	double_speed(cran.code_of_chastotnik);
 	});
 	$('.чнг').click(function () {
 		cran.setmotor = 'Червячная передача NORD (Германия)';
@@ -357,8 +359,8 @@ jQuery(document).ready(($)=>{
 		hide($('#мотор_редуктора'));
 		cran.step = 'Шаг 8 из 11'
 		next_group( $('#razmeshenie'), 0 );
-		//next_group($('#vibor_tali'), 0); старый шаг
 		$('#main_block_for_steps').css('height', '540px');
+		//double_speed(cran.code_of_chastotnik);
 	});
 	$('.цбб').click(function () {
 		cran.setmotor = 'Циллиндрическая передача Балкан Эхо (Болгария)';
@@ -367,8 +369,8 @@ jQuery(document).ready(($)=>{
 		hide($('#мотор_редуктора'));
 		cran.step = 'Шаг 8 из 11'
 		next_group( $('#razmeshenie'), 0 );
-		//next_group($('#vibor_tali'), 0); старый шаг
 		$('#main_block_for_steps').css('height', '540px');
+		//double_speed(cran.code_of_chastotnik);
 	});
 	$('.цнг').click(function () {
 		cran.setmotor = 'Циллиндрическая передача NORD (Германия)';
@@ -377,8 +379,8 @@ jQuery(document).ready(($)=>{
 		hide($('#мотор_редуктора'));
 		cran.step = 'Шаг 8 из 11'
 		next_group( $('#razmeshenie'), 0 );
-		//next_group($('#vibor_tali'), 0); старый шаг
 		$('#main_block_for_steps').css('height', '540px');
+		//double_speed(cran.code_of_chastotnik);
 	});
 	$('.цер').click(function () {
 		cran.setmotor = 'Циллиндрическая передача Европривод (Россия)';
@@ -387,8 +389,8 @@ jQuery(document).ready(($)=>{
 		hide($('#мотор_редуктора'));
 		cran.step = 'Шаг 8 из 11'
 		next_group( $('#razmeshenie'), 0 );
-		//next_group($('#vibor_tali'), 0); старый шаг
 		$('#main_block_for_steps').css('height', '540px');
+		//double_speed(cran.code_of_chastotnik);
 	});
 /************************************************************************************************************************
 *																														*
@@ -426,6 +428,7 @@ jQuery(document).ready(($)=>{
 		if (cran._1 == 'Подвесной') {
 			next_group( $('#пути_для_подвесного'), 1 );
 		}
+		cran.double_speed(cran.code_of_chastotnik);
 	})
 	$('.naves').click(function () {
 		if (cran.temper[0] == undefined) {return alert('Укажите температурный диапозон ОТ')}
@@ -439,6 +442,7 @@ jQuery(document).ready(($)=>{
 		if (cran._1 == 'Подвесной') {
 			next_group( $('#пути_для_подвесного'), 1 );
 		}
+		cran.double_speed(cran.code_of_chastotnik);
 	})
 	$('.pomeshenie').click(function () {
 		if (cran.temper[0] == undefined) {return alert('Укажите температурный диапозон ОТ')}
@@ -452,6 +456,7 @@ jQuery(document).ready(($)=>{
 		if (cran._1 == 'Подвесной') {
 			next_group( $('#пути_для_подвесного'), 1 );
 		}
+		cran.double_speed(cran.code_of_chastotnik);
 	})
 
 /************************************************************************************************************************
@@ -1048,6 +1053,20 @@ cran.chastotnik_price = function (model) {
 				});
 }
 
+cran.double_speed = function (code_preobrazovatelya) {
+	console.log(code_preobrazovatelya)
+	if (code_preobrazovatelya != '8.4') {return}
+	let data_preobrazovatel = { action: 'calc_double_speed', _motor_code:cran.code_of_motor,  _motor_gp:cran.gp, _shirina:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP }
+	$.post( calc_ajaxurl.url, data_preobrazovatel, function (response) {
+		$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="change_this_option_with_del preobrazovatel_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span><span class="del_this_option return_preobrazovatel_default"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
+			'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.jpg" alt="" class="preobrazovatel_change" style="width:200px"><h4>Релейно-контакторный преобразователь</h4> \
+			<p><span class="opisanie_parametra">'+String(cran.speed)+'</span><br> \
+			<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span></p>');
+		$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
+		$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
+	});
+}
+
 
 
 
@@ -1163,7 +1182,7 @@ var cran = {
 	ttk:'',
 	set setttk (s) {this._3 == 'Ручное' ? this.ttk =  'Не доступно при ручном управлении' : s ? this.ttk = s : this.ttk = this.ttk },
 	motor:'Червячная передача ABLE (Италия) - стандартно',
-	code_of_chastotnik:'',
+	code_of_chastotnik:'8.3',
 	code_of_motor:9.1,
 	set setmotor (s) {this._3 == 'Ручное' ? this.motor =  'Не доступно при ручном управлении' : s ? this.motor = s : this.motor = this.motor },
 	resetparam:function(){this.setspeed = this.setspeedmetr = this.setszo = this.setncuprav = this.setmotor = cran.setttk = false; },

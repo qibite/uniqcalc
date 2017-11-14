@@ -510,7 +510,7 @@ jQuery(document).ready(($)=>{
 		console.log(get_preobrazovatel_id(8.5))
 		console.log(get_preobrazovatel_id(8.6))
 		console.log(get_preobrazovatel_id(8.7))
-		var data_preobrazovatel = { action: 'calc_preobrazovatel', _preobrazovatel_id_8_5:get_preobrazovatel_id(8.5), _preobrazovatel_id_8_6:get_preobrazovatel_id(8.6), _preobrazovatel_id_8_7:get_preobrazovatel_id(8.7) }
+		var data_preobrazovatel = { action: 'calc_preobrazovatel',  _preobrazovatel_id_8_5:get_preobrazovatel_id(8.5), _preobrazovatel_id_8_6:get_preobrazovatel_id(8.6), _preobrazovatel_id_8_7:get_preobrazovatel_id(8.7), _motor_code:cran.code_of_motor,  _motor_gp:cran.gp, _shirina:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP  }
 		$.post( calc_ajaxurl.url, data_preobrazovatel, function (response) {
 			let results = JSON.parse(response)
 
@@ -528,7 +528,7 @@ jQuery(document).ready(($)=>{
 			preobrazovatel.append(preobrazovatel_h2);
 		/*********************************************************************************************************************************/
 		
-	/*	let preobrazovatel_8_4 = document.createElement('div'); // блок пульт
+		let preobrazovatel_8_4 = document.createElement('div'); // блок пульт
 			preobrazovatel_8_4.className = 'preobrazovatel_8_4 animated zoomInLeft'
 			preobrazovatel_8_4.style.marginBottom = '50px';
 			preobrazovatel.append(preobrazovatel_8_4);
@@ -542,7 +542,7 @@ jQuery(document).ready(($)=>{
 					});
 			let preobrazovatel_8_4_price = document.createElement('span');
 				preobrazovatel_8_4_price.className = 'price_in_change';
-				preobrazovatel_8_4_price.innerText = '800 руб';
+				preobrazovatel_8_4_price.innerText =  String(Number(results.preo8_4).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ')+' руб';
 				preobrazovatel_8_4.append(preobrazovatel_8_4_price);
 
 			let preobrazovatel_8_4_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
@@ -648,10 +648,16 @@ jQuery(document).ready(($)=>{
 		$(this).parent('.preobrazovatel_slider').detach();
 		$('html, body').animate({ 'scrollTop':'900px' }, 400)
 	})
-	$('body').on('click', '.change_on_8_4, .change_on_8_5, .change_on_8_6, .change_on_8_7', function(event) {
+	$('body').on('click', '.change_on_8_5, .change_on_8_6, .change_on_8_7', function(event) {
 		$(this).parent().parent('.preobrazovatel_slider').detach();
 		$('.preobrazovatel_change').parent('.dop_parametr').detach();
 		cran.chastotnik_price(cran.code_of_chastotnik)
+		$('html, body').animate({ 'scrollTop':'900px' }, 400);
+	})
+	$('body').on('click', '.change_on_8_4', function(event) {
+		$(this).parent().parent('.preobrazovatel_slider').detach();
+		$('.preobrazovatel_change').parent('.dop_parametr').detach();
+		cran.double_speed(cran.code_of_chastotnik)
 		$('html, body').animate({ 'scrollTop':'900px' }, 400);
 	})
 /************************************************************************************************************************************************************************************************************************************

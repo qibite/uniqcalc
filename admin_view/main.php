@@ -765,6 +765,51 @@ $wpdb->show_errors();
 	</tbody>
 </table>
 
+<table class="tabla" style="width:49.5%;float:right">
+<caption class="close_table"><span class="close">Открыть</span>Электрический щит</caption>
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Грузоподъемность</th>
+			<th>Ширина между путями</th>
+			<th>Цена</th>
+			<th class="ch_price">Редактировать цену</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php
+		$eshit = $wpdb->prefix . 'eshit';
+		$eshit_result = $wpdb->get_results(
+		"SELECT id, gp, shirina, price FROM $eshit");
+		if ($eshit_result) {
+			foreach ($eshit_result as $shit) {
+				$id = $shit->id;
+				$gp = $shit->gp;
+				$shirina = $shit->shirina;
+				$price = $shit->price;
+				echo "<tr>
+						<td class='id'>{$id}</td>
+						<td>{$gp}</td>
+						<td>{$shirina}</td>
+						<td class='price' style='position:relative'>
+							<span class='ipaniy_price'>{$price}</span> &#8381;
+							<div class='editing_price'>
+								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+									<input type='hidden' name='db' value='$eshit'>
+									<input type='hidden' name='edited_id' value='$id'>
+									<input type='number' name='new_price' value='$price' placeholder=''>
+									<input type='button' name='price' value='Ок'>
+								</form>
+							</div>
+						</td>
+						<td><i class='edit_price'>Изменить</i></td>
+					</tr>";
+			}
+		} else echo "<span style='font-size:1.3em;color:red'>База данных 'Электрический щит' не существует </span><a href='https://kwork.ru/user/qibite' target='blank'>Сообщить разработчику</a>";
+	?>
+	</tbody>
+</table>
+
 <script type="text/javascript">
 	jQuery(document).ready(function($) {
 		$('.close').toggle(function() {
