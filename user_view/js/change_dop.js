@@ -547,7 +547,7 @@ jQuery(document).ready(($)=>{
 
 			let preobrazovatel_8_4_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
 				preobrazovatel_8_4_h4.className = 'change_on_8_4';
-				preobrazovatel_8_4_h4.innerText = 'Несколько скоростей движения';
+				preobrazovatel_8_4_h4.innerText = 'Релейно-контакторный Несколько скоростей движения';
 				preobrazovatel_8_4.append(preobrazovatel_8_4_h4);
 					preobrazovatel_8_4_h4.addEventListener('click', function () {
 						cran.code_of_chastotnik = '8.4';
@@ -557,7 +557,7 @@ jQuery(document).ready(($)=>{
 		/*********************************************************************************************************************************/
 		
 		let preobrazovatel_8_5 = document.createElement('div'); // блок пульт
-			preobrazovatel_8_5.className = 'preobrazovatel_8_5 animated zoomInLeft'
+			preobrazovatel_8_5.className = 'preobrazovatel_8_5 animated zoomIn'
 			preobrazovatel_8_5.style.marginBottom = '50px';
 			preobrazovatel.append(preobrazovatel_8_5);
 			let preobrazovatel_8_5_img = document.createElement('img'); //Картинка радио пульта
@@ -585,7 +585,7 @@ jQuery(document).ready(($)=>{
 		/*********************************************************************************************************************************/
 		
 		let preobrazovatel_8_6 = document.createElement('div'); // блок пульт
-			preobrazovatel_8_6.className = 'preobrazovatel_8_6 animated zoomIn'
+			preobrazovatel_8_6.className = 'preobrazovatel_8_6 animated zoomInRight'
 			preobrazovatel_8_6.style.marginBottom = '50px';
 			preobrazovatel.append(preobrazovatel_8_6);
 			let preobrazovatel_8_6_img = document.createElement('img'); //Картинка радио пульта
@@ -613,7 +613,7 @@ jQuery(document).ready(($)=>{
 		/*********************************************************************************************************************************/
 		
 		let preobrazovatel_8_7 = document.createElement('div'); // блок пульт
-			preobrazovatel_8_7.className = 'preobrazovatel_8_7 animated zoomInRight'
+			preobrazovatel_8_7.className = 'preobrazovatel_8_7 animated zoomIn'
 			preobrazovatel_8_7.style.marginBottom = '50px';
 			preobrazovatel.append(preobrazovatel_8_7);
 			let preobrazovatel_8_7_img = document.createElement('img'); //Картинка радио пульта
