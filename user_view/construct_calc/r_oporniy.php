@@ -40,10 +40,6 @@ echo <<<EOT
 				<td class="">Тип управления краном - <span id="Otc"></span></td>
 			</tr>
 			<tr>
-				<td><i class="hover"  id="sposob_uprO">изменить</i></td>
-				<td class="">Способ управления краном - <span id="Ouc"></span></td>
-			</tr>
-			<tr>
 				<td><i class="hover" id="CrazrezO">изменить</i></td>
 				<td class="">Разрезной тип конструкции - <span id="Otk"></span>
 				</td>
@@ -68,22 +64,18 @@ echo <<<EOT
 				<td><i class="hover" id="cOvolt">изменить</i></td>
 				<td class="">Напряжение цепи управления - <span id="Ovolt"></span></td>
 			</tr>
-			<tr>
+		<!--<tr>
 				<td><i class="hover" id="cOis">изменить</i></td>
 				<td class="">Исполнение скорости крана - <span id="Ois"></span></td>
-			</tr>
+			</tr>-->
 			<tr>
 				<td><i class="hover" id="сOspeed">изменить</i></td>
 				<td class="">Скорость перемещения крана - <span id="Ospeed"></span></td>
 			</tr>
-			<tr>
+		<!--<tr>
 				<td><i class="hover" id="cOttk">изменить</i></td>
-				<td class="">Токопровод к крану - <span id="Ottk"></span></td>
-			</tr>
-			<tr>
-				<td><i class="hover" id="cOmotor">изменить</i></td>
-				<td class="">Мотор редуктора - <span id="Omotor"></span></td>
-			</tr>
+				<td class="">Токоподвод к крану - <span id="Ottk"></span></td>
+			</tr>-->
 		</tbody>
 	</table>
 </article>

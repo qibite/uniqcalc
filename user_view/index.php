@@ -8,7 +8,7 @@ $wpdb->show_errors();
 ?>
 <link rel="stylesheet" href="<?=$url_this;?>css/style.css">
 <section id="first">
-	<div id="aftrfirst" style="position: relative;width:100%;height:800px;margin:0 auto;/*min-width:1440px;*/text-align:center">
+	<div id="main_block_for_steps" style="position: relative;width:100%;height:800px;margin:0 auto;/*min-width:1440px;*/text-align:center">
 		 
 		<!-- Выбор типа крана-->
 		<?php require_once("construct_calc/1.php"); ?>
@@ -22,33 +22,17 @@ $wpdb->show_errors();
 		<?php require_once("construct_calc/3.php"); ?>
 		<!-- Варианты управления краном -->
 
-		<!-- Местоположение крана и температурный режим -->
-		<?php require_once("construct_calc/4.php"); ?>
-		<!-- Местоположение крана и температурный режим -->
-
-		<!-- Крановые пути для ОПОРНЫХ -->
-		<?php require_once("construct_calc/5a.php"); ?>
-		<!-- Крановые пути для ОПОРНЫХ -->
+		<!-- ГРУЗОПОДЪЕМНОСТЬ -->
+		<?php require_once("construct_calc/7.php"); ?>
+		<!-- ГРУЗОПОДЪЕМНОСТЬ -->
 
 		<!-- Размеры помещения ОПОРНЫХ -->
 		<?php require_once("construct_calc/5a2.php"); ?>
-		<!-- Размеры помещения для ОПОРНЫХ -->		
-
-		<!-- Крановые пути для ПОДВЕСНЫХ -->
-		<?php require_once("construct_calc/5b.php"); ?>
-		<!-- Крановые пути для ПОДВЕСНЫХ -->
+		<!-- Размеры помещения для ОПОРНЫХ -->
 
 		<!-- Размеры помещения ПОДВЕСНЫХ -->
 		<?php require_once("construct_calc/5b2.php"); ?>
 		<!-- Размеры помещения для ПОДВЕСНЫХ -->
-
-		<!-- ТОКОПРОВОД -->
-		<?php require_once("construct_calc/6.php"); ?>
-		<!-- ТОКОПРОВОД -->
-
-		<!-- ГРУЗОПОДЪЕМНОСТЬ -->
-		<?php require_once("construct_calc/7.php"); ?>
-		<!-- ГРУЗОПОДЪЕМНОСТЬ -->
 
 		<!-- СИСТЕМА УПРАВЛЕНИЯ КРАНОМ -->
 		<?php require_once("construct_calc/8.php"); ?>
@@ -57,6 +41,22 @@ $wpdb->show_errors();
 		<!-- МОТОР РЕДУКТОРА -->
 		<?php require_once("construct_calc/9.php"); ?>
 		<!-- МОТОР РЕДУКТОРА -->
+
+		<!-- Местоположение крана и температурный режим -->
+		<?php require_once("construct_calc/4.php"); ?>
+		<!-- Местоположение крана и температурный режим -->
+
+		<!-- Крановые пути для ОПОРНЫХ -->
+		<?php require_once("construct_calc/5a.php"); ?>
+		<!-- Крановые пути для ОПОРНЫХ -->		
+
+		<!-- Крановые пути для ПОДВЕСНЫХ -->
+		<?php require_once("construct_calc/5b.php"); ?>
+		<!-- Крановые пути для ПОДВЕСНЫХ -->
+
+		<!-- ТОКОПОДВОД -->
+		<?php require_once("construct_calc/6.php"); ?>
+		<!-- ТОКОПОДВОД -->
 
 		<!-- Окно выбора талей -->
 		<?php require_once("construct_calc/tali.php"); ?>
@@ -157,28 +157,6 @@ $wpdb->show_errors();
 	</div>
 <!-- ТИП УПРАВЛЕНИЯ КРАНОМ -->
 
-<!-- ТИП СПОСОБ КРАНОМ -->
-	<div id="способ_управления" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="Пульт_подвесной" class="change_li"><span>Подвесной пульт</span></li>
-			<li id="Радио_управление" class="change_li"><span>Радиоуправление</span></li>
-		</ul>
-	</div>
-	<div id="тип_радио" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="Пульт" class="change_li"><span>Пульт</span></li>
-			<li id="Джойстик" class="change_li"><span>Джойстик</span></li>
-		</ul>
-	</div>
-	<div id="производитель_пульта" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="telecrane" class="change_li"><span>Telecrane</span></li>
-			<li id="ikusi" class="change_li"><span>Ikusi</span></li>
-			<li id="HBC" class="change_li"><span>HBC-Radiomatic</span></li>
-		</ul>
-	</div>
-<!-- ТИП СПОСОБ КРАНОМ -->
-
 <!-- РАЗРЕЗНОЙ -->
 	<div id="razrezO" class="modal_change modal_change_hide">
 		<ul class="ul_change">
@@ -256,8 +234,8 @@ $wpdb->show_errors();
 	</div>
 <!-- Скорость -->
 
-<!-- тип токопровода -->
-	<div id="тип_токопровода" class="modal_change modal_change_hide">
+<!-- тип токоподвода -->
+	<div id="тип_токоподвода" class="modal_change modal_change_hide">
 		<ul class="ul_change">
 			<li id="кск" class="change_li"><span>Кабельный с кольцами</span></li>
 			<li id="кст" class="change_li"><span>Кабельный с тележками</span></li>
@@ -267,7 +245,7 @@ $wpdb->show_errors();
 			<li id="нетребуется" class="change_li"><span>Не требуется</span></li>
 		</ul>
 	</div>
-<!-- тип токопровода -->
+<!-- тип токоподвода -->
 
 
 <!-- Мотор -->
@@ -380,28 +358,6 @@ $wpdb->show_errors();
 	</div>
 <!-- ТИП УПРАВЛЕНИЯ КРАНОМ -->
 
-<!-- ТИП СПОСОБ КРАНОМ -->
-	<div id="способ_управленияP" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="Пульт_подвеснойP" class="change_li"><span>Подвесной пульт</span></li>
-			<li id="Радио_управлениеP" class="change_li"><span>Радиоуправление</span></li>
-		</ul>
-	</div>
-	<div id="тип_радиоP" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="ПультP" class="change_li"><span>Пульт</span></li>
-			<li id="ДжойстикP" class="change_li"><span>Джойстик</span></li>
-		</ul>
-	</div>
-	<div id="производитель_пультаP" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="telecraneP" class="change_li"><span>Telecrane</span></li>
-			<li id="ikusiP" class="change_li"><span>Ikusi</span></li>
-			<li id="HBCP" class="change_li"><span>HBC-Radiomatic</span></li>
-		</ul>
-	</div>
-<!-- ТИП СПОСОБ КРАНОМ -->
-
 <!-- РАЗРЕЗНОЙ -->
 	<div id="razrezP" class="modal_change modal_change_hide">
 		<ul class="ul_change">
@@ -479,8 +435,8 @@ $wpdb->show_errors();
 	</div>
 <!-- Скорость -->
 
-<!-- тип токопровода -->
-	<div id="тип_токопроводаP" class="modal_change modal_change_hide">
+<!-- тип токоподвода -->
+	<div id="тип_токоподводаP" class="modal_change modal_change_hide">
 		<ul class="ul_change">
 			<li id="кскP" class="change_li"><span>Кабельный с кольцами</span></li>
 			<li id="кстP" class="change_li"><span>Кабельный с тележками</span></li>
@@ -490,7 +446,7 @@ $wpdb->show_errors();
 			<li id="нетребуетсяP" class="change_li"><span>Не требуется</span></li>
 		</ul>
 	</div>
-<!-- тип токопровода -->
+<!-- тип токоподвода -->
 
 <!-- Мотор -->
 	<div id="motorP" class="modal_change modal_change_hide">
@@ -507,7 +463,7 @@ $wpdb->show_errors();
 
 <aside id="dop_block">
 	<h2 style="text-align:center;margin-bottom:20px">ДОПОЛНИТЕЛЬНО ВКЛЮЧЕНО В СТОИМОСТЬ КОММЕРЧЕСКОГО ПРЕДЛОЖЕНИЯ</h2>
-	<span id="option_click1" class="head_dop_menu_open">Пути и токопровод</span>
+	<span id="option_click1" class="head_dop_menu_open">Пути и токоподвод</span>
 	<div id="option_1" class="dop_menu_open">
 		<div class="dop_parametr"><i></i>
 			<span class="add_dop_1"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
@@ -529,13 +485,14 @@ $wpdb->show_errors();
 		</div>
 	</div>
 </aside>
-<!-- ТОКОПРОВОД -->
+<!-- Опции для блоков ТОКОПОДВОД, ДОП. ОПЦИИ И УСЛУГИ -->
 <?php require_once("construct_calc/menu_dop.php"); ?>
-<!-- ТОКОПРОВОД -->
+<!-- Опции для блоков ТОКОПОДВОД, ДОП. ОПЦИИ И УСЛУГИ -->
 <div style="clear:both"></div>
+<link rel="stylesheet" href="<?=$url_this;?>css/animate.css">
 <script src="<?=$url_this;?>js/script.js" type="text/javascript" charset="utf-8"></script>
 <script src="<?=$url_this;?>js/resume.js" type="text/javascript" charset="utf-8"></script>
-<script src="<?=$url_this;?>js/сalculate.ls.js" type="text/javascript" charset="utf-8"></script>
+<script src="<?=$url_this;?>js/change_dop.js" type="text/javascript" charset="utf-8"></script>
 <link rel="stylesheet" href="<?=$url_this;?>css/font-awesome.min.css">
 <?php
 //require_once("construct_calc/podscheti.php");

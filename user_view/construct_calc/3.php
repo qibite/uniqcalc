@@ -19,7 +19,7 @@ echo <<<EOT
 					<h2>Тип пульта управления</h2>
 					<hr>
 					<ul style="text-align:center">
-						<li class="dopvar _33_next" style="display:inline-block"><img class="allimg _33_next" src="{$url}images/3.3.jpg" style="width:190px;margin:16px"><br>Подвесной пульт</li>
+						<li class="dopvar _33_next" style="display:inline-block"><img class="allimg" src="{$url}images/3.3.jpg" style="width:190px;margin:16px"><br>Подвесной пульт</li>
 						<li class="dopvar _34" style="display:inline-block"><img class="allimg _34" src="{$url}images/3.4.jpg" style="width:190px;margin:16px"><br>Радиоуправление</li>
 					</ul>
 					<br><br>

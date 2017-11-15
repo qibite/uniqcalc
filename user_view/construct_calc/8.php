@@ -11,9 +11,11 @@ echo <<<EOT
 			</div>
 			<div class="скрыть_варианты_ук" style="position:absolute;width:100%;padding:1em">
 				<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
+					<img class="allimg одна_с" src="{$url}images/nophotos.jpg" alt="" style="width:220px"><br>
 					<h4 class="одна_с releinokontakt">Одна скорость движения крана</h4>
 				</div>
 				<div class="block" style="position:relative;display:inline-block;margin:1em 0 0 1em">
+					<img class="allimg несколько_с" src="{$url}images/nophotos.jpg" alt="" style="width:220px"><br>
 					<h4 class="несколько_с releinokontakt">Несколько скоростей движения</h4>
 				</div>
 			</div>

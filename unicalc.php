@@ -218,7 +218,7 @@ function activate_unicalc()
 	$shef_montazh = $wpdb->prefix . 'shef_montazh';
 	if ($wpdb->get_var("SHOW TABLES LIKE '$shef_montazh'") != $shef_montazh) {
 		$sql = "CREATE TABLE IF NOT EXISTS `$shef_montazh` (
-		`id` int (10) NOT NULL AUTO_INCREMENT,		
+		`id` int (10) NOT NULL AUTO_INCREMENT,
 		`gp` int(255) NOT NULL,
 		`shirina_mezh_putami` int(255) NOT NULL,
 		`price` int NOT NULL,
@@ -242,7 +242,41 @@ function activate_unicalc()
 		ENGINE=InnoDB;";
 		$wpdb->query($sql);
 		include_once ("db_inserts/insert_variants.php");	
-	}	
+	}
+
+	$mr = $wpdb->prefix . 'mr';
+	if ($wpdb->get_var("SHOW TABLES LIKE '$mr'") != $mr) {
+		$sql = "CREATE TABLE IF NOT EXISTS `$mr` (
+		`id` int (30) NOT NULL AUTO_INCREMENT,
+		`model` varchar(255) NOT NULL,
+		`code` varchar(255) NOT NULL,
+		`gp` int(255) NOT NULL,
+		`shirina` int(255) NOT NULL,
+		`base_price` int NOT NULL,
+		`double_speed_price` int NOT NULL,
+		`brake_price` int NOT NULL,
+		PRIMARY KEY(`id`)
+		)
+		COLLATE='utf8_general_ci'
+		ENGINE=InnoDB;";
+		$wpdb->query($sql);
+		include_once ("db_inserts/insert_m-r.php");	
+	}
+
+	$eshit = $wpdb->prefix . 'eshit';
+	if ($wpdb->get_var("SHOW TABLES LIKE '$eshit'") != $eshit) {
+		$sql = "CREATE TABLE IF NOT EXISTS `$eshit` (
+		`id` int (30) NOT NULL AUTO_INCREMENT,
+		`gp` int(255) NOT NULL,
+		`shirina` int(255) NOT NULL,
+		`price` int NOT NULL,
+		PRIMARY KEY(`id`)
+		)
+		COLLATE='utf8_general_ci'
+		ENGINE=InnoDB;";
+		$wpdb->query($sql);
+		include_once ("db_inserts/insert_shit.php");	
+	}
 }
 
 function deactivate_unicalc()
@@ -288,6 +322,50 @@ function vivod () {
 add_shortcode('unicalc', 'vivod');
 
 
+add_action('wp_ajax_change_price_base', 'change_price');
+// Изменение цены в прайсах
+function change_price ($value='')
+{
+
+	global $wpdb;
+	$table = $_POST['db'];
+	$name_price = $_POST['name_price'];
+	$id = $_POST['edited_id'];
+	$new_price = $_POST['new_price'];
+	// Цена на доставку кранбалок в копейках пересчет!
+	if ( $table == ($wpdb->prefix.'dostavka_cranbalok')) {
+		$table = $_POST['db'];
+		$id = $_POST['edited_id'];
+		$new_price = $_POST['new_price'];
+		$new_price = $new_price*100;
+		$res = $wpdb->update(
+				$table, 
+				array( $name_price => $new_price),
+				array('id' => $id),
+				array( '%d' ),
+				array( '%d' )
+			);
+		echo $new_price/100;
+	}
+	// Цена на остальное montazh_rels_submit montazh_provod_submit stoimost_rels_result_submit stoimost_provod_submit montazh_ruchnih_cran_submit montazh_electro_cran_submit km_viezd_submit shef_montazh_submit
+	elseif 	( $table == $wpdb->prefix.'electro_tali_submit' || $wpdb->prefix.'ruchnie_tali_submit' || $wpdb->prefix.'opornie_crani_submit' || $wpdb->prefix.'podvesnie_crani_submit' || $wpdb->prefix.'variants_submit' || $wpdb->prefix.'montazh_rels_submit' || $wpdb->prefix.'montazh_provod_submit' || $wpdb->prefix.'stoimost_rels_result_submit' || $wpdb->prefix.'montazh_ruchnih_cran_submit' || $wpdb->prefix.'montazh_electro_cran_submit' || $wpdb->prefix.'km_viezd_submit' || $wpdb->prefix.'shef_montazh_submit' || $wpdb->prefix.'mr' ) {
+		$table = $_POST['db'];
+		$id = $_POST['edited_id'];
+		$new_price = $_POST['new_price'];
+		//$new_price = $new_price*100;
+		global $wpdb;
+		$res = $wpdb->update(
+				$table, 
+				array( $name_price => $new_price),
+				array('id' => $id),
+				array( '%d' ),
+				array( '%d' )
+			);
+	echo $new_price;
+	}
+	else echo "---";
+	wp_die();
+}
 
 add_action('wp_ajax_calc_cran', 'stoimost_crana');
 add_action('wp_ajax_nopriv_calc_cran', 'stoimost_crana');
@@ -410,6 +488,56 @@ function price_pulta () {
 }
 // Стоимость пульта электро управления
 
+// Стоимость пульта электро управления МНОЖЕСТВЕННЫЙ ВЫБОР _pult_TELECRANE_id _pult_IKUSI_id _pult_HBC_id
+add_action('wp_ajax_calc_pults', 'price_pultov');
+add_action('wp_ajax_nopriv_calc_pults', 'price_pultov');
+function price_pultov () {
+	$pult_TELECRANE_id = $_POST['_pult_TELECRANE_id'];
+	$pult_IKUSI_id = $_POST['_pult_IKUSI_id'];
+	$pult_HBC_id = $_POST['_pult_HBC_id'];
+
+	global $wpdb;$wpdb->show_errors();
+	$variants = $wpdb->prefix . 'variants';
+	$variants_result_TELECRANE = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $pult_TELECRANE_id");
+	$variants_result_IKUSI = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $pult_IKUSI_id");
+	$variants_result_HBC = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $pult_HBC_id");
+	if ($variants_result_TELECRANE && variants_result_IKUSI && variants_result_HBC)
+	{
+		$TELECRANE = $variants_result_TELECRANE[0]->price;
+		$IKUSI = $variants_result_IKUSI[0]->price;
+		$HBC = $variants_result_HBC[0]->price;
+	}
+	$pult_rsult = array('pTELECRANE' => $TELECRANE, 'pIKUSI' => $IKUSI, 'pHBC' => $HBC);
+	echo json_encode($pult_rsult);
+
+	wp_die();
+}
+//// _joy_TELECRANE_id _joy_IKUSI_id _joy_HBC_id
+add_action('wp_ajax_calc_joy', 'price_joy');
+add_action('wp_ajax_nopriv_calc_joy', 'price_joy');
+function price_joy () {
+	$joy_TELECRANE_id = $_POST['_joy_TELECRANE_id'];
+	$joy_IKUSI_id = $_POST['_joy_IKUSI_id'];
+	$joy_HBC_id = $_POST['_joy_HBC_id'];
+
+	global $wpdb;$wpdb->show_errors();
+	$variants = $wpdb->prefix . 'variants';
+	$variants_result_TELECRANE = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $joy_TELECRANE_id");
+	$variants_result_IKUSI = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $joy_IKUSI_id");
+	$variants_result_HBC = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $joy_HBC_id");
+	if ($variants_result_TELECRANE && variants_result_IKUSI && variants_result_HBC)
+	{
+		$TELECRANE = $variants_result_TELECRANE[0]->price;
+		$IKUSI = $variants_result_IKUSI[0]->price;
+		$HBC = $variants_result_HBC[0]->price;
+	}
+	$pult_rsult = array('jTELECRANE' => $TELECRANE, 'jIKUSI' => $IKUSI, 'jHBC' => $HBC);
+	echo json_encode($pult_rsult);
+
+	wp_die();
+}
+// Стоимость пульта электро управления МНОЖЕСТВЕННЫЙ ВЫБОР
+
 // Стоимость преобразователя
 add_action('wp_ajax_calc_chastotnik', 'price_chastotnika');
 add_action('wp_ajax_nopriv_calc_chastotnik', 'price_chastotnika');
@@ -425,36 +553,130 @@ function price_chastotnika () {
 
 	wp_die();
 }
+// 8.4 преобразователь
+add_action('wp_ajax_calc_double_speed', 'price_preobrazovatelya');
+add_action('wp_ajax_nopriv_calc_double_speed', 'price_preobrazovatelya');
+function price_preobrazovatelya () {
+
+	$motor_code = '\''.$_POST['_motor_code'].'\'';
+	$motor_gp = $_POST['_motor_gp'];
+	$shirina = $_POST['_shirina'];	
+
+	global $wpdb;
+	$mrtable = $wpdb->prefix . 'mr';
+	$mr_result = $wpdb->get_results("SELECT id, model, code, gp, shirina, base_price, double_speed_price, brake_price FROM $mrtable WHERE code = $motor_code AND gp = $motor_gp AND shirina >= $shirina");
+		if ($mr_result) {
+			print_r($mr_result[0]->double_speed_price);
+		}
+
+	wp_die();
+}
 // Стоимость преобразователя
+
+// Стоимость всех преобразователей _preobrazovatel_id_8_5 _preobrazovatel_id_8_6 _preobrazovatel_id_8_7
+add_action('wp_ajax_calc_preobrazovatel', 'price_chastotnikov');
+add_action('wp_ajax_nopriv_calc_preobrazovatel', 'price_chastotnikov');
+function price_chastotnikov () {
+	$preobrazovatel_id_8_5 = $_POST['_preobrazovatel_id_8_5'];
+	$preobrazovatel_id_8_6 = $_POST['_preobrazovatel_id_8_6'];
+	$preobrazovatel_id_8_7 = $_POST['_preobrazovatel_id_8_7'];
+
+	$motor_code = '\''.$_POST['_motor_code'].'\''; 
+	$motor_gp = $_POST['_motor_gp'];
+	$shirina = $_POST['_shirina'];
+
+	global $wpdb;$wpdb->show_errors();
+	$variants = $wpdb->prefix . 'variants';
+	$variants_result_8_5 = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $preobrazovatel_id_8_5");
+	$variants_result_8_6 = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $preobrazovatel_id_8_6");
+	$variants_result_8_7 = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $preobrazovatel_id_8_7");
+
+
+	$mrtable = $wpdb->prefix . 'mr';
+	$mr_result = $wpdb->get_results("SELECT id, model, code, gp, shirina, base_price, double_speed_price, brake_price FROM $mrtable WHERE code = $motor_code AND gp = $motor_gp AND shirina >= $shirina");
+
+		if ($variants_result_8_5 && variants_result_8_6 && variants_result_8_7 && mr_result) {
+			$result_8_5 = $variants_result_8_5[0]->price;
+			$result_8_6 = $variants_result_8_6[0]->price;
+			$result_8_7 = $variants_result_8_7[0]->price;
+			$result_8_4 = $mr_result[0]->double_speed_price;
+
+			$preobrazovatel_result = array('preo8_4' => $result_8_4, 'preo8_5' => $result_8_5, 'preo8_6' => $result_8_6, 'preo8_7' => $result_8_7/*, 'p9_5' => $m9_5*/);
+			echo json_encode($preobrazovatel_result);			
+		}
+
+	
+
+	wp_die();
+}
+// Стоимость всех преобразователей
 
 //Стоимость мотора
 add_action('wp_ajax_calc_motor', 'price_motor');
 add_action('wp_ajax_nopriv_calc_motor', 'price_motor');
 function price_motor () {
-	$motor_id = $_POST['_motor_id'];
+	$motor_code = '\''.$_POST['_motor_code'].'\''; 
+	$motor_gp = $_POST['_motor_gp'];
+	$shirina = $_POST['_shirina'];
 
-	global $wpdb;$wpdb->show_errors();
-	$variants = $wpdb->prefix . 'variants';
-	$variants_result = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $motor_id");
-		if ($variants_result) {
-			print_r($variants_result[0]->price);
+	global $wpdb;
+	$mrtable = $wpdb->prefix . 'mr';
+	$mr_result = $wpdb->get_results("SELECT id, model, code, gp, shirina, base_price, double_speed_price, brake_price FROM $mrtable WHERE code = $motor_code AND gp = $motor_gp AND shirina >= $shirina");
+		if ($mr_result) {
+			//print_r($mr_result[0]->base_price);
+			$result_motor = array( 'id' => $mr_result[0]->id, 'code' => $mr_result[0]->code, 'base_price' => $mr_result[0]->base_price, 'double_speed_price' => $mr_result[0]->double_speed_price, 'brake_price' => $mr_result[0]->brake_price );
+			echo json_encode($result_motor);
 		}
+		
 
 	wp_die();
 }
-//Стоимость мотора 
+//Стоимость мотора
+
+//Стоимость моторов
+add_action('wp_ajax_calc_motors', 'price_motors');
+add_action('wp_ajax_nopriv_calc_motors', 'price_motors');
+function price_motors () {
+	 
+	$motor_gp = $_POST['_motor_gp'];
+	$shirina = $_POST['_shirina'];
+
+	global $wpdb;$wpdb->show_errors();
+	$mrtable = $wpdb->prefix . 'mr';
+	$mr_result = $wpdb->get_results("SELECT id, code, gp, shirina, base_price FROM $mrtable WHERE code = '9.2' AND gp = $motor_gp AND shirina >= $shirina");
+		if ($mr_result) {
+			$m9_2 = $mr_result[0]->base_price;
+		}
+	$mr_result = $wpdb->get_results("SELECT id, code, gp, shirina, base_price FROM $mrtable WHERE code = '9.3' AND gp = $motor_gp AND shirina >= $shirina");
+		if ($mr_result) {
+			$m9_3 = $mr_result[0]->base_price;
+		}
+	$mr_result = $wpdb->get_results("SELECT id, code, gp, shirina, base_price FROM $mrtable WHERE code = '9.4' AND gp = $motor_gp AND shirina >= $shirina");
+		if ($mr_result) {
+			$m9_4 = $mr_result[0]->base_price;
+		}
+	$mr_result = $wpdb->get_results("SELECT id, code, gp, shirina, base_price FROM $mrtable WHERE code = '9.5' AND gp = $motor_gp AND shirina >= $shirina");
+		if ($mr_result) {
+			$m9_5 = $mr_result[0]->base_price;
+		}
+	$moto_result = array('p9_2' => $m9_2, 'p9_3' => $m9_3, 'p9_4' => $m9_4, 'p9_5' => $m9_5);
+	echo json_encode($moto_result);
+	wp_die();
+}
+//Стоимость моторов
 
 //Стоимость электрощита
 add_action('wp_ajax_calc_shit', 'price_shit');
 add_action('wp_ajax_nopriv_calc_shit', 'price_shit');
 function price_shit () {
-	$shit_id = $_POST['_shit_id'];
+	$shit_gp = $_POST['_gp'];
+	$shit_shirina = $_POST['_shirina'];
 
 	global $wpdb;$wpdb->show_errors();
-	$variants = $wpdb->prefix . 'variants';
-	$variants_result = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $shit_id");
-		if ($variants_result) {
-			print_r($variants_result[0]->price);
+	$eshit = $wpdb->prefix . 'eshit';
+	$eshit_result = $wpdb->get_results("SELECT id, gp, shirina, price FROM $eshit WHERE gp = $shit_gp AND shirina >= $shit_shirina");
+		if ($eshit_result) {
+			print_r($eshit_result[0]->price);
 		}
 
 	wp_die();
@@ -483,6 +705,7 @@ add_action('wp_ajax_calc_tormoz', 'price_tormoz');
 add_action('wp_ajax_nopriv_calc_tormoz', 'price_tormoz');
 function price_tormoz () {
 	$tormoz_id = $_POST['_tormoz_id'];
+
 
 	global $wpdb;$wpdb->show_errors();
 	$variants = $wpdb->prefix . 'variants';
@@ -520,7 +743,7 @@ function price_pokraska () {
 *
 *																																	Функции для раздела
 *																																	
-*																																	ПУТИ И ТОКОПРОВОД
+*																																	ПУТИ И ТОКОПОДВОД
 *
 *
 *
@@ -535,7 +758,7 @@ add_action('wp_ajax_nopriv_postavka_rels', 'postavka_rels');
 function postavka_rels () {
 	$rels_gp = $_POST['_rels_gp'];
 	$rels_upravlenie = '\''.$_POST['_rels_upravlenie'].'\'';
-	$rels_shirinamp = $_POST['_rels_shirinamp'];
+	$rels_shirinamp = $_POST['_rels_dlinna'];
 	$url_img = $_POST['rels_url_img'];
 
 	global $wpdb;$wpdb->show_errors();

@@ -72,7 +72,7 @@ jQuery(document).ready(($)=>{
 		$('#m20_2').click(()=>{cran.temper[0] = '-20'});
 		$('#p40_2').click(()=>{cran.temper[1] = '+40'});
 		$('#p60_2').click(()=>{cran.temper[1] = '+60'});
-		$('.savetemper').click(()=>{$('#Otr').text('От '+cran.temper[0]+' до '+cran.temper[1]);setTimeout(()=>{hideChange()},300)})
+		$('.savetemper').click(()=>{$('#Otr').text(cran.temper[0]+' до '+cran.temper[1]);setTimeout(()=>{hideChange()},300)})
 
 	$('#razmeshO').click(()=>{showChange($('#размещение'))})
 		$('#Улица').click(()=>{cran.climat = 'Расположение на открытой местности';setTimeout(()=>{hideChange()},300);$('#Ocu').text(cran.climat)});
@@ -80,24 +80,74 @@ jQuery(document).ready(($)=>{
 		$('#Помещение').click(()=>{cran.climat = 'Расположение в помещении';setTimeout(()=>{hideChange()},300);$('#Ocu').text(cran.climat)});
 
 	$('#type_uprO').click(()=>{showChange($('#тип_управления'))})
-		$('#Ручное').click(()=>{cran._3 = 'Ручное';cran._3Type = 'Отсутствует при ручном управлении';setTimeout(()=>{hideChange()},300);$('#Otc').text(cran._3);$('#Ouc').text(cran._3Type);
+		$('#Ручное').click(()=>{cran._3 = 'Ручное';cran._3Type = 'Отсутствует при ручном управлении';setTimeout(()=>{hideChange()},300);$('#Otc').text(cran._3);
 			$('#gpO > ul li:nth-child(9)').css('display','none');$('#gpO > ul li:nth-child(10)').css('display','none');
 			if (cran.gp > 10000) {cran.gp = 10000; alert('Грузоподъемность была уменьшена до 10000 кг для крана с ручным управлением!')}
 			$('#Ogp').text(cran.gp);
 			calculate_oporniy_crane();
+			$('.dop_parametr:has("span.pult_change")').remove();
+			$('.dop_parametr:has("span.motor_reductor_change")').remove();
+			$('.dop_parametr:has("span.preobrazovatel_change")').remove();
+			$('#gpO > ul li:nth-child(9)').css('display','none');$('#gpO > ul li:nth-child(10)').css('display','none');
+			if (cran.gp > 10000) {cran.gp = 10000; alert('Грузоподъемность была уменьшена до 10000 кг для крана с ручным управлением!')}
+			cran.resetparam();
 		});
-		$('#Электро').click(()=>{cran._3 = 'Электро';setTimeout(()=>{showChange($('#способ_управления'))},100);$('#Otc').text(cran._3);
-			$('#gpO > ul li:nth-child(9)').css('display','inline-block');$('#gpO > ul li:nth-child(10)').css('display','inline-block')});
+		$('#Электро').click(()=>{
+			cran._3 = 'Электро';
+			$('#Otc').text(cran._3);
+			$('#option_2 .dop_parametr:last-child').before(()=>{
+			let new_html = '<div class="dop_parametr"> \
+								<span class="change_this_option pult_change">Изменить \
+									<i class="fa fa-pencil-square" aria-hidden="true"></i> \
+								</span> \
+								<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" class="pult_change" style="width:200px"> \
+								<h4>Подвесной пульт</h4> \
+								<p> \
+									<span class="opisanie_parametra">Входит в стоимость крана</span> \
+										<br> \
+									<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i> \
+								</p>';
+			return new_html;
+			});
+			cran._3Type = 'Подвесной пульт';
 
-	$('#sposob_uprO').click(()=>{showChange($('#способ_управления'))})
-		$('#Пульт_подвесной').click(()=>{cran._3 = 'Электро';cran._3Type = 'Подвесной пульт';setTimeout(()=>{hideChange()},300);$('#Ouc').text(cran._3Type);$('#Otc').text(cran._3);calculate_oporniy_crane()});
-		$('#Радио_управление').click(()=>{setTimeout(()=>{showChange($('#тип_радио'))}, 300)});
-		$('sposob_uprO').click(()=>{showChange($('#тип_радио'))});
-			$('#Пульт').click(()=>{cran._3Type = 'Управление с пульта';setTimeout(()=>{showChange($('#производитель_пульта'))}, 300)});
-			$('#Джойстик').click(()=>{cran._3Type = 'Джойстик';setTimeout(()=>{showChange($('#производитель_пульта'))}, 300)});
-				$('#telecrane').click(()=>{cran._3 = 'Электро';cran._3Type = cran._3Type + ' Telecrane (Тайвань)';setTimeout(()=>{hideChange()},300);$('#Ouc').text(cran._3Type);$('#Otc').text(cran._3);calculate_oporniy_crane()});
-				$('#ikusi').click(()=>{cran._3 = 'Электро';cran._3Type = cran._3Type + ' Ikusi (Испания)';setTimeout(()=>{hideChange()},300);$('#Ouc').text(cran._3Type);$('#Otc').text(cran._3);calculate_oporniy_crane()});
-				$('#HBC').click(()=>{cran._3 = 'Электро';cran._3Type = cran._3Type + ' HBC-Radiomatic (Германия)';setTimeout(()=>{hideChange()},300);$('#Ouc').text(cran._3Type);$('#Otc').text(cran._3);calculate_oporniy_crane()});
+			$('#option_2 .dop_parametr:last-child').before(()=>{
+				let new_html = '<div class="dop_parametr"> \
+						<span class="change_this_option motor_reductor_change">Изменить \
+						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
+						</span> \
+						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.jpg" alt="" class="motor_reductor_change" style="width:200px"> \
+						<h4>Червячная передача ABLE (Италия)</h4> \
+						<p> \
+						<span class="opisanie_parametra">Входит в стоимость крана</span> \
+						<br> \
+						<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b9</i> \
+						</p>';
+				return new_html;
+			});
+			calculate_oporniy_crane();
+			$('#gpO > ul li:nth-child(9)').css('display','inline-block');$('#gpO > ul li:nth-child(10)').css('display','inline-block')
+			setTimeout(()=>{hideChange()},300);
+			cran.setmotor = 'Червячная передача ABLE (Италия) - стандартно';
+			$('#option_2 .dop_parametr:last-child').before(()=>{
+				let new_html = '<div class="dop_parametr"> \
+						<span class="change_this_option preobrazovatel_change">Изменить \
+						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
+						</span> \
+						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.jpg" alt="" class="preobrazovatel_change" style="width:200px"> \
+						<h4>Система управления</h4> \
+						<p> \
+						<span class="opisanie_parametra">Релейно-контакторная одна скорость движения</span> \
+						<br> \
+						<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b8</i> \
+						</p>';
+				return new_html;
+			});
+			cran.code_of_chastotnik = '8.3';
+
+			cran.resetparam();
+	});
+
 	$('#CrazrezO').click(()=>{showChange($('#razrezO'))})
 		$('#Разрезной').click(()=>{cran.razrez = 'Разрезной';setTimeout(()=>{hideChange()},300);$('#Otk').text('Да')});
 		$('#Неразрезной').click(()=>{cran.razrez = 'Неразрезной';setTimeout(()=>{hideChange()},300);$('#Otk').text('Нет')});
@@ -137,7 +187,7 @@ jQuery(document).ready(($)=>{
 		$('#metr8').click(()=>{cran.setspeedmetr = '8 м/мин';setTimeout(()=>{hideChange()},300);$('#Ospeed').text(cran.speedmetr)});
 
 
-	$('#cOttk').click(()=>{showChange($('#тип_токопровода'))});
+	$('#cOttk').click(()=>{showChange($('#тип_токоподвода'))});
 		$('#кск').click(()=>{cran.setttk = 'Кабельный с кольцами';setTimeout(()=>{hideChange()},300);$('#Ottk').text(cran.ttk)});
 		$('#кст').click(()=>{cran.setttk = 'Кабельный с тележками';setTimeout(()=>{hideChange()},300);$('#Ottk').text(cran.ttk)});
 		$('#ф').click(()=>{cran.setttk = 'Фестонный (с-профиль)';setTimeout(()=>{hideChange()},300);$('#Ottk').text(cran.ttk)});
@@ -231,7 +281,7 @@ jQuery(document).ready(($)=>{
 		$('#m20_2P').click(()=>{cran.temper[0] = '-20'});
 		$('#p40_2P').click(()=>{cran.temper[1] = '+40'});
 		$('#p60_2P').click(()=>{cran.temper[1] = '+60'});
-		$('.savetemperP').click(()=>{$('#Ptr').text('От '+cran.temper[0]+' до '+cran.temper[1]);setTimeout(()=>{hideChange()},300)})
+		$('.savetemperP').click(()=>{$('#Ptr').text(cran.temper[0]+' до '+cran.temper[1]);setTimeout(()=>{hideChange()},300)})
 
 	$('#razmeshP').click(()=>{showChange($('#размещениеP'))})
 		$('#УлицаP').click(()=>{cran.climat = 'Расположение на открытой местности';setTimeout(()=>{hideChange()},300);$('#Pcu').text(cran.climat)});
@@ -239,24 +289,13 @@ jQuery(document).ready(($)=>{
 		$('#ПомещениеP').click(()=>{cran.climat = 'Расположение в помещении';setTimeout(()=>{hideChange()},300);$('#Pcu').text(cran.climat)});
 
 	$('#type_uprP').click(()=>{showChange($('#тип_управленияP'))})
-		$('#РучноеP').click(()=>{cran._3 = 'Ручное';cran._3Type = 'Отсутствует при ручном управлении';setTimeout(()=>{hideChange()},300);$('#Ptc').text(cran._3);$('#Puc').text(cran._3Type);
+		$('#РучноеP').click(()=>{cran._3 = 'Ручное';cran._3Type = 'Отсутствует при ручном управлении';setTimeout(()=>{hideChange()},300);$('#Ptc').text(cran._3);
 			$('#gpP > ul li:nth-child(9)').css('display','none');$('#gpP > ul li:nth-child(10)').css('display','none');
 			if (cran.gp > 10000) {cran.gp = 10000; alert('Грузоподъемность была уменьшена до 10000 кг для крана с ручным управлением!')}
 			$('#Pgp').text(cran.gp);
 	});
-		$('#ЭлектроP').click(()=>{cran._3 = 'Электро';setTimeout(()=>{showChange($('#способ_управленияP'))},100);$('#Ptc').text(cran._3);
-			$('#gpP > ul li:nth-child(9)').css('display','inline-block');$('#gpP > ul li:nth-child(10)').css('display','inline-block')
-	});
+		$('#ЭлектроP').click(()=>{cran._3 = 'Электро';$('#Ptc').text(cran._3);setTimeout(()=>{hideChange()},300);});
 
-	$('#sposob_uprP').click(()=>{showChange($('#способ_управленияP'))})
-		$('#Пульт_подвеснойP').click(()=>{cran._3 = 'Электро';cran._3Type = 'Подвесной пульт';setTimeout(()=>{hideChange()},300);$('#Puc').text(cran._3Type);$('#Ptc').text(cran._3)});
-		$('#Радио_управлениеP').click(()=>{setTimeout(()=>{showChange($('#тип_радиоP'))}, 300)});
-		$('sposob_uprP').click(()=>{showChange($('#тип_радиоP'))});
-			$('#ПультP').click(()=>{cran._3Type = 'Управление с пульта';setTimeout(()=>{showChange($('#производитель_пультаP'))}, 300)});
-			$('#ДжойстикP').click(()=>{cran._3Type = 'Джойстик';setTimeout(()=>{showChange($('#производитель_пультаP'))}, 300)});
-				$('#telecraneP').click(()=>{cran._3 = 'Электро';cran._3Type = cran._3Type + ' Telecrane (Тайвань)';setTimeout(()=>{hideChange()},300);$('#Puc').text(cran._3Type);$('#Ptc').text(cran._3)});
-				$('#ikusiP').click(()=>{cran._3 = 'Электро';cran._3Type = cran._3Type + ' Ikusi (Испания)';setTimeout(()=>{hideChange()},300);$('#Puc').text(cran._3Type);$('#Ptc').text(cran._3)});
-				$('#HBCP').click(()=>{cran._3 = 'Электро';cran._3Type = cran._3Type + ' HBC-Radiomatic (Германия)';setTimeout(()=>{hideChange()},300);$('#Puc').text(cran._3Type);$('#Ptc').text(cran._3)});
 	$('#CrazrezP').click(()=>{showChange($('#razrezP'))})
 		$('#РазрезнойP').click(()=>{cran.razrez = 'Разрезной';setTimeout(()=>{hideChange()},300);$('#Ptk').text('Да')});
 		$('#НеразрезнойP').click(()=>{cran.razrez = 'Неразрезной';setTimeout(()=>{hideChange()},300);$('#Ptk').text('Нет')});
@@ -296,27 +335,13 @@ jQuery(document).ready(($)=>{
 		$('#metr8P').click(()=>{cran.setspeedmetr = '8 м/мин';setTimeout(()=>{hideChange()},300);$('#Pspeed').text(cran.speedmetr)});
 
 
-	$('#cPttk').click(()=>{showChange($('#тип_токопроводаP'))});
+	$('#cPttk').click(()=>{showChange($('#тип_токоподводаP'))});
 		$('#кскP').click(()=>{cran.setttk = 'Кабельный с кольцами';setTimeout(()=>{hideChange()},300);$('#Pttk').text(cran.ttk)});
 		$('#кстP').click(()=>{cran.setttk = 'Кабельный с тележками';setTimeout(()=>{hideChange()},300);$('#Pttk').text(cran.ttk)});
 		$('#фP').click(()=>{cran.setttk = 'Фестонный (с-профиль)';setTimeout(()=>{hideChange()},300);$('#Pttk').text(cran.ttk)});
 		$('#отP').click(()=>{cran.setttk = 'Откртые троллеи';setTimeout(()=>{hideChange()},300);$('#Pttk').text(cran.ttk)});
 		$('#зтP').click(()=>{cran.setttk = 'Закрытые троллеи';setTimeout(()=>{hideChange()},300);$('#Pttk').text(cran.ttk)});
 		$('#нетребуетсяP').click(()=>{cran.setttk = 'Не требуется';setTimeout(()=>{hideChange()},300);$('#Pttk').text(cran.ttk)});
-
-
-	$('#cOmotor').click(()=>{showChange($('#motorO'))});
-		$('#м1O').click(()=>{cran.setmotor = 'Червячная передача  ABLE (Италия)';setTimeout(()=>{hideChange()},300);$('#Omotor').text(cran.motor)});
-		$('#м2O').click(()=>{cran.setmotor = 'Червячная передача  NORD (Германия)';setTimeout(()=>{hideChange()},300);$('#Omotor').text(cran.motor)});
-		$('#м3O').click(()=>{cran.setmotor = 'Циллиндрическая передача  Балкан Эхо (Болгария)';setTimeout(()=>{hideChange()},300);$('#Omotor').text(cran.motor)});
-		$('#м4O').click(()=>{cran.setmotor = 'Циллиндрическая передача  NORD (Германия)';setTimeout(()=>{hideChange()},300);$('#Omotor').text(cran.motor)});
-		$('#м5O').click(()=>{cran.setmotor = 'Циллиндрическая передача  Европривод (Россия)';setTimeout(()=>{hideChange()},300);$('#Omotor').text(cran.motor)});
-	$('#cPmotor').click(()=>{showChange($('#motorP'))});
-		$('#м1P').click(()=>{cran.setmotor = 'Червячная передача  ABLE (Италия)';setTimeout(()=>{hideChange()},300);$('#Pmotor').text(cran.motor)});
-		$('#м2P').click(()=>{cran.setmotor = 'Червячная передача  NORD (Германия)';setTimeout(()=>{hideChange()},300);$('#Pmotor').text(cran.motor)});
-		$('#м3P').click(()=>{cran.setmotor = 'Циллиндрическая передача  Балкан Эхо (Болгария)';setTimeout(()=>{hideChange()},300);$('#Pmotor').text(cran.motor)});
-		$('#м4P').click(()=>{cran.setmotor = 'Циллиндрическая передача  NORD (Германия)';setTimeout(()=>{hideChange()},300);$('#Pmotor').text(cran.motor)});
-		$('#м5P').click(()=>{cran.setmotor = 'Циллиндрическая передача  Европривод (Россия)';setTimeout(()=>{hideChange()},300);$('#Pmotor').text(cran.motor)});
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -360,8 +385,15 @@ jQuery(document).ready(($)=>{
 			calculate_tormoz(); // Тормоз на передвижение крана
 			calculate_shit();  // Установить цену для щита
 			calculate_stop(); // Установить цену для Аварийный стоп на передвижение
+			//document.getElementById('b3').style.display = 'inline-block';
+			document.getElementById('b10').style.display = 'inline-block';
+			document.getElementById('b11').style.display = 'inline-block';
+			document.getElementById('b12').style.display = 'inline-block';
+			document.getElementById('b13').style.display = 'inline-block';
+			document.getElementById('b14').style.display = 'inline-block';
 			
 		} else {
+			//document.getElementById('b3').style.display = 'none';
 			document.getElementById('b10').style.display = 'none';
 			document.getElementById('b11').style.display = 'none';
 			document.getElementById('b12').style.display = 'none';
@@ -377,7 +409,8 @@ jQuery(document).ready(($)=>{
 		var that = $(this);		
 		$(this).css('display', 'none');
 		$('#option_2 .dop_parametr:last-child').before(()=>{
-			let new_html = '<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" style="width:200px"> \
+			console.log(that.attr('id'))
+			var new_html = '<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" style="width:200px"> \
 								<h4>'+ that.children().children().children('b.hz4').text() +'</h4> \
 								<p><span class="opisanie_parametra">'+ that.children().children().children('.opisanie_parametra').text() +'</span><br> \
 								<span class="stoimost_parametra">'+ that.children('.hiddened').text() +'</span><i class="id_bro">'+that.attr('id')+'</i></p>';
@@ -394,18 +427,8 @@ jQuery(document).ready(($)=>{
 		
 		
 	});
-
-
-
-
-
-//Удалить опцию
-	$('.dop_menu_open').on('click', '.del_this_option',function(event) {
-		$(this).parent().detach();
-	});
-
-
-
+/************************************************************************************************************************************************************************************************************************************/
+//Удалить опцию или изменить
 $('#first_opt, #second_opt').on('click', '.cat', function(event) {
 	$(this).siblings('li').css('display', 'none');
 	$(this).css('width', '100%');
@@ -423,6 +446,7 @@ $('#revers').on('click', function() {
 	if (cran._3 == 'Ручное')
 		{
 			document.getElementById('a3').style.display = 'none';
+			//document.getElementById('b3').style.display = 'none';
 			document.getElementById('b10').style.display = 'none';
 			document.getElementById('b11').style.display = 'none';
 			document.getElementById('b12').style.display = 'none';
@@ -436,7 +460,7 @@ $('#revers').on('click', function() {
 *
 *
 *
-*					ФУНКЦИЯ УДАЛЕНИЯ ЭЛЕМЕНТОВ ИЗ БЛОКА ВЫБОРА ОПЦИЙ, ТОКОПРОВОДА И Т.П.
+*					ФУНКЦИЯ СКРЫТИЯ ЭЛЕМЕНТОВ ИЗ БЛОКА ВЫБОРА ОПЦИЙ, ТОКОПОДВОДА И Т.П.
 *
 *
 *
@@ -455,7 +479,7 @@ function delete_doble (context /* string: #option_1, #option_2 */, container /* 
 		container.children().children('.cat').children('#'+hidden_elements).css('display', 'none');
 	});
 }
-
+/**************************************************************************************************************************************/
 function showChange (showMenu) {
 	$('.modal_view').removeClass('mmm modal_view_hide').addClass('modal_view_show');
 	showMenu.removeClass('modal_change_hide').addClass('modal_change_show');
@@ -495,6 +519,7 @@ function hideThisChange (this_Change) {
 		$('.cat').children('div').css('display', 'none');
 		if (cran._3 == 'Ручное')
 		{
+			//document.getElementById('b3').style.display = 'none';
 			document.getElementById('b10').style.display = 'none';
 			document.getElementById('b11').style.display = 'none';
 			document.getElementById('b12').style.display = 'none';
@@ -528,8 +553,10 @@ function hideThisChange (this_Change) {
 				$.post( calc_ajaxurl.url, data_sroki_cran, function(response) {
 					$('#sroki').text(response);
 				});
-				if (tal.summa > 0) {
+				if (tal.summa > 0 && ($('#option_2').children('.dop_parametr').hasClass('tal_for_search'))) {
+					tal.gp = cran.gp;
 					calculate_tal();
+					$('.tal_for_search').remove();
 				}
 			//////////////
 	}
@@ -538,25 +565,19 @@ function hideThisChange (this_Change) {
 				var data_tal = { action: 'calc_tal', _upravlenie:tal.upravlenie, _type:tal.type, _country:tal.country, _visota:tal.visota, _ispolnenie:tal.ispolnnie, _gp:tal.gp }
 				$.post( calc_ajaxurl.url, data_tal, function(response) {
 					tal.summa = response;
-					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="# \
-			'+ 'ssasa' +'" alt="" style="width:230px"><h4>Таль '
-			+ tal.country +'</h4> \
-			<p> \
-				<span class="stoimost_parametra">'+ String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span> \
-			</p>');
-					//$('#summa').text(String(Number(tal.summa).toFixed(2)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '));
-					//alert(String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '));
+					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr tal_for_search"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
+					'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ tal.img +'" alt="" style="width:230px"><h4>Таль '
+					+ tal.country +'</h4> \
+					<p> \
+						<span class="stoimost_parametra">'+ String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span> \
+					</p>');
 				});
 			//////////////
 	}
 
 	function calculate_shit () {
-			let shit =
-				cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000 ? {id:29} :
-					cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000 ? {id:30} :
-						cran.gp == 12500 || cran.gp == 16000 ? {id:31} : false;
 			//////////////
-				var data_shit = { action: 'calc_shit', _shit_id:shit.id }
+				var data_shit = { action: 'calc_shit', _gp:cran.gp, _shirina:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP}
 				$.post( calc_ajaxurl.url, data_shit, function(response) {
 					$('#b11 > .hiddened').text(String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 				});
@@ -620,6 +641,8 @@ function hideThisChange (this_Change) {
 	}
 
 
+	
+
 
 /*******************************************************************************************************************************************************************************************************************************************************************
 *
@@ -628,7 +651,7 @@ function hideThisChange (this_Change) {
 *
 *																																	Функции для раздела
 *																																	
-*																																	ПУТИ И ТОКОПРОВОД
+*																																	ПУТИ И ТОКОПОДВОД
 *
 *
 *
@@ -641,10 +664,10 @@ function hideThisChange (this_Change) {
 function postavka_rels () {
 	if (cran._1 == 'Опорный')
 	{
-		var rels =	{ gp:cran.gp, shirinamp:cran.paramsO.shpO, upravlenie:cran._3 }
+		var rels =	{ gp:cran.gp, shirinamp:cran.paramsO.dpO, upravlenie:cran._3 }
 	}
 	/////////////
-	var data_rels = { action: 'postavka_rels', _rels_gp:rels.gp, _rels_shirinamp:rels.shirinamp, _rels_upravlenie:rels.upravlenie, rels_url_img:location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/' }
+	var data_rels = { action: 'postavka_rels', _rels_gp:rels.gp, _rels_dlinna:rels.shirinamp, _rels_upravlenie:rels.upravlenie, rels_url_img:location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/' }
 	$.post( calc_ajaxurl.url, data_rels, function(response)
 	{
 		$('#a2').html(response);
@@ -667,21 +690,6 @@ $('#a3').on('click', '.tokoprovod', function(event) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.body.scrollTop + scrollTo) + 'px' }, 700) }
 });
+

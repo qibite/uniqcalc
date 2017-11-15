@@ -6,7 +6,7 @@
 		<ul class="ul_change">	
 			<li id="a1" class="change_li"><span><img src="<?=$url;?>images/puti1.jpg" alt="" style="width:140px"><p><b class="hz4">Разработка проектной документации</b><br><span class="opisanie_parametra">10 рабочих дней</span></p></span><span class='hiddened'>65 000 руб</span></li>
 			<li id="a2" class="change_li"></li>
-			<li id="a3" class="change_li  cat"><span><img src="<?=$url;?>images/6.1.jpg" alt="" style="width:140px"><p><b class="hz4">Токопровод</b></p></span><span class='hiddened'></span>
+			<li id="a3" class="change_li  cat"><span><img src="<?=$url;?>images/6.1.jpg" alt="" style="width:140px"><p><b class="hz4">Токоподвод</b></p></span><span class='hiddened'></span>
 			<?php
 			$stoimost_provod = $wpdb->prefix . 'stoimost_provod';
 			$stoimost_provod_result = $wpdb->get_results("SELECT id, type, price FROM $stoimost_provod");
@@ -26,7 +26,7 @@
 	</div>
 
 	<div id="second_opt" class="modal_change modal_change_hide">
-		<ul class="ul_change">		
+		<ul class="ul_change">
 		<li id="b10" class="change_li  cat"><span><img src="<?=$url;?>images/10.jpg" alt="" style="width:140px"><p><b class="hz4">Концевые выключатели</b></p></span><span class='hiddened'></span>
 		<?php
 			$variants = $wpdb->prefix . 'variants';
@@ -63,9 +63,8 @@
 		<li id="b13" class="change_li"><span><img src="<?=$url;?>images/13.jpg" alt="" style="width:140px"><p><b class="hz4">Аварийный стоп</b><br><span class="opisanie_parametra">с линейным выключателем</span></p></span><span class='hiddened'></span></li>
 		<li id="b14" class="change_li"><span><img src="<?=$url;?>images/14.jpeg" alt="" style="width:140px"><p><b class="hz4">Тормоз на передвижение</b></p></span><span class='hiddened'></span></li>
 		<li id="b17" class="change_li cat" style="position:relative"><span><img src="<?=$url;?>images/17.8.jpeg" alt="" style="width:140px"><p>Таль</p></span><span class='hiddened'></span>
-			<div>Болгария</div>
-			<div>Russia</div>
-			<div>China</div>
+			<!--<div id='b17_1' class='change_li pod_cat'><span><img src="<?=$url?>images/17.1.jpg" style='width:140px'><p><b class='hz4'>Ручная</b></p></span><span class='hiddened'>0 руб</span></div>
+			<div id='b17_2' class='change_li pod_cat'><span><img src="<?=$url?>images/17.2.jpg" style='width:140px'><p><b class='hz4'>Электрическая</b></p></span><span class='hiddened'>0 руб</span></div>-->
 		</li>
 		<li id="b18" class="change_li"><span><img src="<?=$url;?>images/18.jpg" alt="" style="width:140px"><p><b class="hz4">Индивидуальная покраска</b><br><span class="opisanie_parametra">требуется согласование цвета</span></p></span><span class='hiddened'></span></li>
 			<!--<li id="a" class="change_li"><span><img src="<?=$url;?>images/nophotos.jpg" alt="" style="width:140px"><p>Первая опция</p></span></li>
