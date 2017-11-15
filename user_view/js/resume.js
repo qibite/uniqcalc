@@ -410,18 +410,11 @@ jQuery(document).ready(($)=>{
 		$(this).css('display', 'none');
 		$('#option_2 .dop_parametr:last-child').before(()=>{
 			console.log(that.attr('id'))
-			/*if (that.attr('id') == 'b3') {
-			var new_html = 	'<div class="dop_parametr"><span class="change_this_option pult_change">Изменить <i class="fa fa-pencil-square" aria-hidden="true"></i></span><img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" style="width:200px"> \
-								<h4>Подвесной пульт</h4> \
-								<p><span class="opisanie_parametra">Входит в стоимость крана</span><br> \
-								<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i></p>';
-			} else {*/
 			var new_html = '<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" style="width:200px"> \
 								<h4>'+ that.children().children().children('b.hz4').text() +'</h4> \
 								<p><span class="opisanie_parametra">'+ that.children().children().children('.opisanie_parametra').text() +'</span><br> \
 								<span class="stoimost_parametra">'+ that.children('.hiddened').text() +'</span><i class="id_bro">'+that.attr('id')+'</i></p>';
 								console.log(that.attr('id'));
-			//}
 			return new_html;
 		});
 		setTimeout(()=>{
@@ -583,12 +576,8 @@ function hideThisChange (this_Change) {
 	}
 
 	function calculate_shit () {
-			let shit =
-				cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000 ? {id:29} :
-					cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000 ? {id:30} :
-						cran.gp == 12500 || cran.gp == 16000 ? {id:31} : false;
 			//////////////
-				var data_shit = { action: 'calc_shit', _shit_id:shit.id }
+				var data_shit = { action: 'calc_shit', _gp:cran.gp, _shirina:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP}
 				$.post( calc_ajaxurl.url, data_shit, function(response) {
 					$('#b11 > .hiddened').text(String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 				});

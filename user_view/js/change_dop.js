@@ -320,7 +320,7 @@ jQuery(document).ready(($)=>{
 *
 ***********************************************************************************************************************************************************************************************************************************/
 	$('.dop_menu_open').on('click', '.motor_reductor_change', function(event) {
-		var data_motor = { action: 'calc_motors', _motor_gp:cran.gp, _shirina:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP  }
+		var data_motor = { action: 'calc_motors', _motor_gp:cran.gp, _shirina:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP }
 		$.post( calc_ajaxurl.url, data_motor, function (response) { 
 			let results = JSON.parse(response)
 

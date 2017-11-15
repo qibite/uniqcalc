@@ -669,13 +669,14 @@ function price_motors () {
 add_action('wp_ajax_calc_shit', 'price_shit');
 add_action('wp_ajax_nopriv_calc_shit', 'price_shit');
 function price_shit () {
-	$shit_id = $_POST['_shit_id'];
+	$shit_gp = $_POST['_gp'];
+	$shit_shirina = $_POST['_shirina'];
 
 	global $wpdb;$wpdb->show_errors();
-	$variants = $wpdb->prefix . 'variants';
-	$variants_result = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $shit_id");
-		if ($variants_result) {
-			print_r($variants_result[0]->price);
+	$eshit = $wpdb->prefix . 'eshit';
+	$eshit_result = $wpdb->get_results("SELECT id, gp, shirina, price FROM $eshit WHERE gp = $shit_gp AND shirina >= $shit_shirina");
+		if ($eshit_result) {
+			print_r($eshit_result[0]->price);
 		}
 
 	wp_die();
@@ -704,6 +705,7 @@ add_action('wp_ajax_calc_tormoz', 'price_tormoz');
 add_action('wp_ajax_nopriv_calc_tormoz', 'price_tormoz');
 function price_tormoz () {
 	$tormoz_id = $_POST['_tormoz_id'];
+
 
 	global $wpdb;$wpdb->show_errors();
 	$variants = $wpdb->prefix . 'variants';
