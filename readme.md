@@ -1,24 +1,3 @@
-<style>
-	.in_work, .fork, .spor
-	{
-		color: #FFF;
-		padding: 7px 2.5px;
-		font-size: 0.8em;
-		text-transform: uppercase;
-	}
-	.in_work
-	{
-		background-color: red;		
-	}
-	.fork
-	{
-		background-color: green;
-	}
-	.spor
-	{
-		background-color: yellow;
-	}
-</style>
 Калькулятор кранов для сайта uniqcrane.ru
 
 <h2>Доработки:</h2>
