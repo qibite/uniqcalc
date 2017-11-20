@@ -18,11 +18,11 @@ echo <<<EOT
 				<h3>Модель кранового пути</h3>
 				<br>
 				<ul id="список_токоподводов">
-					<li><img class="allimg каб_с_кол" src="{$url}images/6.3.jpg" alt="" style="width:220px"><br>Кабельный с кольцами</li>
-					<li><img class="allimg каб_с_тел" src="{$url}images/6.4.jpg" alt="" style="width:220px"><br>Кабельный с тележками</li>
-					<li><img class="allimg фесто" src="{$url}images/6.5.jpg" alt="" style="width:220px"><br>Фестонный (С профиль)</li>
-					<li><img class="allimg откр_тролл" src="{$url}images/6.6.jpg" alt="" style="width:220px"><br>Открытые троллеи</li>					
-					<li><img class="allimg закр_тролл" src="{$url}images/6.7.jpg" alt="" style="width:220px"><br>Закрытые троллеи</li>
+					<li><img class="allimg каб_с_кол" src="{$url}images/6.3.png" alt="" style="width:220px"><br>Кабельный с кольцами</li>
+					<li><img class="allimg каб_с_тел" src="{$url}images/6.4.png" alt="" style="width:220px"><br>Кабельный с тележками</li>
+					<li><img class="allimg фесто" src="{$url}images/6.5.png" alt="" style="width:220px"><br>Фестонный (С профиль)</li>
+					<li><img class="allimg откр_тролл" src="{$url}images/6.6.png" alt="" style="width:220px"><br>Открытые троллеи</li>					
+					<li><img class="allimg закр_тролл" src="{$url}images/6.7.png" alt="" style="width:220px"><br>Закрытые троллеи</li>
 				</ul>
 			</article>
 </article>

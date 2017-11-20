@@ -35,7 +35,7 @@ jQuery(document).ready(($)=>{
 		pult_upravleniya_PULTP.style.marginBottom = '50px';
 		pult_upravleniya.append(pult_upravleniya_PULTP);
 			let pult_upravleniya_PULTP_img = document.createElement('img'); //Картинка подвесого пульта
-				pult_upravleniya_PULTP_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.3.jpg';
+				pult_upravleniya_PULTP_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.3.png';
 				pult_upravleniya_PULTP_img.className = 'allimg change_on_PULTP';
 				pult_upravleniya_PULTP.append(pult_upravleniya_PULTP_img);
 					pult_upravleniya_PULTP_img.addEventListener('click', function () {
@@ -54,7 +54,7 @@ jQuery(document).ready(($)=>{
 		pult_upravleniya_PULT.style.marginBottom = '50px';
 		pult_upravleniya.append(pult_upravleniya_PULT);
 			let pult_upravleniya_PULT_img = document.createElement('img'); //Картинка радио пульта
-				pult_upravleniya_PULT_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.5.jpg';
+				pult_upravleniya_PULT_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.5.png';
 				pult_upravleniya_PULT_img.className = 'allimg change_on_PULT';
 				pult_upravleniya_PULT.append(pult_upravleniya_PULT_img);
 					pult_upravleniya_PULT_img.addEventListener('click', function () {
@@ -78,7 +78,7 @@ jQuery(document).ready(($)=>{
 		pult_upravleniya_JOY.style.marginBottom = '50px';
 		pult_upravleniya.append(pult_upravleniya_JOY);
 			let pult_upravleniya_JOY_img = document.createElement('img');
-				pult_upravleniya_JOY_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.6.jpg';
+				pult_upravleniya_JOY_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.6.png';
 				pult_upravleniya_JOY_img.className = 'allimg change_on_JOY';
 				pult_upravleniya_JOY.append(pult_upravleniya_JOY_img);
 					pult_upravleniya_JOY_img.addEventListener('click', function () {
@@ -115,7 +115,7 @@ jQuery(document).ready(($)=>{
 						pult_upravleniya_TELECRANE.className = 'pult_d pult_upravleniya_TELECRANE animated fadeInLeftBig'
 						pult_upravleniya.append(pult_upravleniya_TELECRANE);
 					let pult_upravleniya_TELECRANE_img = document.createElement('img'); //Картинка радио пульта
-						pult_upravleniya_TELECRANE_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.7.jpg';
+						pult_upravleniya_TELECRANE_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.7.png';
 						pult_upravleniya_TELECRANE.style.marginLeft = '4%';
 						pult_upravleniya_TELECRANE_img.className = 'allimg change_on_TELECRANE';
 						pult_upravleniya_TELECRANE.append(pult_upravleniya_TELECRANE_img);
@@ -141,7 +141,7 @@ jQuery(document).ready(($)=>{
 						pult_upravleniya_IKUSI.className = 'pult_upravleniya_IKUSI animated zoomIn'
 						pult_upravleniya.append(pult_upravleniya_IKUSI);
 					let pult_upravleniya_IKUSI_img = document.createElement('img'); //Картинка радио пульта
-						pult_upravleniya_IKUSI_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.8.jpg';
+						pult_upravleniya_IKUSI_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.8.png';
 						pult_upravleniya_IKUSI_img.className = 'allimg change_on_IKUSI';
 						pult_upravleniya_IKUSI.append(pult_upravleniya_IKUSI_img);
 							pult_upravleniya_IKUSI_img.addEventListener('click', function () {
@@ -166,7 +166,7 @@ jQuery(document).ready(($)=>{
 						pult_upravleniya_HBRRadiomatic.className = 'pult_upravleniya_HBRRadiomatic animated fadeInRightBig'
 						pult_upravleniya.append(pult_upravleniya_HBRRadiomatic);
 					let pult_upravleniya_HBRRadiomatic_img = document.createElement('img'); //Картинка радио пульта
-						pult_upravleniya_HBRRadiomatic_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.9.jpg';
+						pult_upravleniya_HBRRadiomatic_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.9.png';
 						pult_upravleniya_HBRRadiomatic_img.className = 'allimg change_on_HBRRadiomatic';
 						pult_upravleniya_HBRRadiomatic.append(pult_upravleniya_HBRRadiomatic_img);
 							pult_upravleniya_HBRRadiomatic_img.addEventListener('click', function () {
@@ -200,7 +200,7 @@ jQuery(document).ready(($)=>{
 						pult_upravleniya_TELECRANE.className = 'joy_d pult_upravleniya_TELECRANE animated fadeInLeftBig'
 						pult_upravleniya.append(pult_upravleniya_TELECRANE);
 					let pult_upravleniya_TELECRANE_img = document.createElement('img'); //Картинка радио пульта
-						pult_upravleniya_TELECRANE_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.7.jpg';
+						pult_upravleniya_TELECRANE_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.7.png';
 						pult_upravleniya_TELECRANE.style.marginLeft = '4%';
 						pult_upravleniya_TELECRANE_img.className = 'allimg change_on_TELECRANE';
 						pult_upravleniya_TELECRANE.append(pult_upravleniya_TELECRANE_img);
@@ -226,7 +226,7 @@ jQuery(document).ready(($)=>{
 						pult_upravleniya_IKUSI.className = 'pult_upravleniya_IKUSI animated zoomIn'
 						pult_upravleniya.append(pult_upravleniya_IKUSI);
 					let pult_upravleniya_IKUSI_img = document.createElement('img'); //Картинка радио пульта
-						pult_upravleniya_IKUSI_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.8.jpg';
+						pult_upravleniya_IKUSI_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.8.png';
 						pult_upravleniya_IKUSI_img.className = 'allimg change_on_IKUSI';
 						pult_upravleniya_IKUSI.append(pult_upravleniya_IKUSI_img);
 							pult_upravleniya_IKUSI_img.addEventListener('click', function () {
@@ -251,7 +251,7 @@ jQuery(document).ready(($)=>{
 						pult_upravleniya_HBRRadiomatic.className = 'pult_upravleniya_HBRRadiomatic animated fadeInRightBig'
 						pult_upravleniya.append(pult_upravleniya_HBRRadiomatic);
 					let pult_upravleniya_HBRRadiomatic_img = document.createElement('img'); //Картинка радио пульта
-						pult_upravleniya_HBRRadiomatic_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.9.jpg';
+						pult_upravleniya_HBRRadiomatic_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.9.png';
 						pult_upravleniya_HBRRadiomatic_img.className = 'allimg change_on_HBRRadiomatic';
 						pult_upravleniya_HBRRadiomatic.append(pult_upravleniya_HBRRadiomatic_img);
 							pult_upravleniya_HBRRadiomatic_img.addEventListener('click', function () {
@@ -292,7 +292,7 @@ jQuery(document).ready(($)=>{
 					<span class="change_this_option pult_change">Изменить \
 						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 					</span> \
-					<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" class="pult_change" style="width:200px"> \
+					<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.3.png" alt="" class="pult_change" style="width:200px"> \
 					<h4>Подвесной пульт</h4> \
 					<p> \
 						<span class="opisanie_parametra">Входит в стоимость крана</span> \
@@ -343,7 +343,7 @@ jQuery(document).ready(($)=>{
 			motor_reductor_9_1.style.marginBottom = '50px';
 			motor_reductor.append(motor_reductor_9_1);
 			let motor_reductor_9_1_img = document.createElement('img'); //Картинка радио пульта
-				motor_reductor_9_1_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.jpg';
+				motor_reductor_9_1_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.png';
 				motor_reductor_9_1_img.className = 'allimg change_on_9_1';
 				motor_reductor_9_1.append(motor_reductor_9_1_img);
 					motor_reductor_9_1_img.addEventListener('click', function () {
@@ -371,7 +371,7 @@ jQuery(document).ready(($)=>{
 			motor_reductor_9_2.style.marginBottom = '50px';
 			motor_reductor.append(motor_reductor_9_2);
 			let motor_reductor_9_2_img = document.createElement('img'); //Картинка радио пульта
-				motor_reductor_9_2_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.2.jpg';
+				motor_reductor_9_2_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.2.png';
 				motor_reductor_9_2_img.className = 'allimg change_on_9_2';
 				motor_reductor_9_2.append(motor_reductor_9_2_img);
 					motor_reductor_9_2_img.addEventListener('click', function () {
@@ -397,7 +397,7 @@ jQuery(document).ready(($)=>{
 			motor_reductor_9_3.style.marginBottom = '50px';
 			motor_reductor.append(motor_reductor_9_3);
 				let motor_reductor_9_3_img = document.createElement('img'); //Картинка радио пульта
-					motor_reductor_9_3_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.3.jpg';
+					motor_reductor_9_3_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.3.png';
 					motor_reductor_9_3_img.className = 'allimg change_on_9_3';
 					motor_reductor_9_3.append(motor_reductor_9_3_img);
 						motor_reductor_9_3_img.addEventListener('click', function () {
@@ -424,7 +424,7 @@ jQuery(document).ready(($)=>{
 			motor_reductor_9_4.style.margin = '0 0 50px 22%';
 			motor_reductor.append(motor_reductor_9_4);
 				let motor_reductor_9_4_img = document.createElement('img'); //Картинка радио пульта
-					motor_reductor_9_4_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.4.jpg';
+					motor_reductor_9_4_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.4.png';
 					motor_reductor_9_4_img.className = 'allimg change_on_9_4';
 					motor_reductor_9_4.append(motor_reductor_9_4_img);
 						motor_reductor_9_4_img.addEventListener('click', function () {
@@ -452,7 +452,7 @@ jQuery(document).ready(($)=>{
 			motor_reductor_9_5.style.marginBottom = '50px';
 			motor_reductor.append(motor_reductor_9_5);
 				let motor_reductor_9_5_img = document.createElement('img'); //Картинка радио пульта
-					motor_reductor_9_5_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.5.jpg';
+					motor_reductor_9_5_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.5.png';
 					motor_reductor_9_5_img.className = 'allimg change_on_9_5';
 					motor_reductor_9_5.append(motor_reductor_9_5_img);
 						motor_reductor_9_5_img.addEventListener('click', function () {
@@ -528,12 +528,42 @@ jQuery(document).ready(($)=>{
 			preobrazovatel.append(preobrazovatel_h2);
 		/*********************************************************************************************************************************/
 		
+		let preobrazovatel_8_3 = document.createElement('div'); // блок пульт
+			preobrazovatel_8_3.className = 'preobrazovatel_8_3 animated zoomInLeft'
+			preobrazovatel_8_3.style.marginBottom = '50px';
+			preobrazovatel_8_3.style.marginLeft = '216px';
+			preobrazovatel.append(preobrazovatel_8_3);
+			let preobrazovatel_8_3_img = document.createElement('img'); //Картинка радио пульта
+				preobrazovatel_8_3_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.3.png';
+				preobrazovatel_8_3_img.className = 'allimg change_on_8_3';
+				preobrazovatel_8_3.append(preobrazovatel_8_3_img);
+					preobrazovatel_8_3_img.addEventListener('click', function () {
+						cran.code_of_chastotnik = '8.3';
+						cran.setspeed = 'Одна скорость движения';
+					});
+			let preobrazovatel_8_3_price = document.createElement('span');
+				preobrazovatel_8_3_price.className = 'price_in_change';
+				preobrazovatel_8_3_price.innerText =  'Бесплатно';
+				preobrazovatel_8_3.append(preobrazovatel_8_3_price);
+
+			let preobrazovatel_8_3_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
+				preobrazovatel_8_3_h4.className = 'change_on_8_3';
+				preobrazovatel_8_3_h4.innerText = 'Релейно-контакторный одна скорость движения';
+				preobrazovatel_8_3.append(preobrazovatel_8_3_h4);
+					preobrazovatel_8_3_h4.addEventListener('click', function () {
+						cran.code_of_chastotnik = '8.3';
+						cran.setspeed = 'Одна скорость движения';
+
+					});
+		/*********************************************************************************************************************************/
+		
 		let preobrazovatel_8_4 = document.createElement('div'); // блок пульт
-			preobrazovatel_8_4.className = 'preobrazovatel_8_4 animated zoomInLeft'
+			preobrazovatel_8_4.className = 'preobrazovatel_8_4 animated zoomInRight'
 			preobrazovatel_8_4.style.marginBottom = '50px';
+			preobrazovatel_8_4.style.marginLeft = '96px';
 			preobrazovatel.append(preobrazovatel_8_4);
 			let preobrazovatel_8_4_img = document.createElement('img'); //Картинка радио пульта
-				preobrazovatel_8_4_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.jpg';
+				preobrazovatel_8_4_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.4.png';
 				preobrazovatel_8_4_img.className = 'allimg change_on_8_4';
 				preobrazovatel_8_4.append(preobrazovatel_8_4_img);
 					preobrazovatel_8_4_img.addEventListener('click', function () {
@@ -554,14 +584,15 @@ jQuery(document).ready(($)=>{
 						cran.setspeed = 'Несколько скоростей движения';
 
 					});
+			let  clr_pr = document.createElement('div'); clr_pr.style.clear = 'both'; preobrazovatel.append(clr_pr);
 		/*********************************************************************************************************************************/
 		
 		let preobrazovatel_8_5 = document.createElement('div'); // блок пульт
-			preobrazovatel_8_5.className = 'preobrazovatel_8_5 animated zoomIn'
+			preobrazovatel_8_5.className = 'preobrazovatel_8_5 animated zoomInLeft'
 			preobrazovatel_8_5.style.marginBottom = '50px';
 			preobrazovatel.append(preobrazovatel_8_5);
 			let preobrazovatel_8_5_img = document.createElement('img'); //Картинка радио пульта
-				preobrazovatel_8_5_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.5.jpg';
+				preobrazovatel_8_5_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.5.png';
 				preobrazovatel_8_5_img.className = 'allimg change_on_8_5';
 				preobrazovatel_8_5.append(preobrazovatel_8_5_img);
 					preobrazovatel_8_5_img.addEventListener('click', function () {
@@ -585,11 +616,11 @@ jQuery(document).ready(($)=>{
 		/*********************************************************************************************************************************/
 		
 		let preobrazovatel_8_6 = document.createElement('div'); // блок пульт
-			preobrazovatel_8_6.className = 'preobrazovatel_8_6 animated zoomInRight'
+			preobrazovatel_8_6.className = 'preobrazovatel_8_6 animated zoomIn'
 			preobrazovatel_8_6.style.marginBottom = '50px';
 			preobrazovatel.append(preobrazovatel_8_6);
 			let preobrazovatel_8_6_img = document.createElement('img'); //Картинка радио пульта
-				preobrazovatel_8_6_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.6.jpg';
+				preobrazovatel_8_6_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.6.png';
 				preobrazovatel_8_6_img.className = 'allimg change_on_8_6';
 				preobrazovatel_8_6.append(preobrazovatel_8_6_img);
 					preobrazovatel_8_6_img.addEventListener('click', function () {
@@ -613,11 +644,11 @@ jQuery(document).ready(($)=>{
 		/*********************************************************************************************************************************/
 		
 		let preobrazovatel_8_7 = document.createElement('div'); // блок пульт
-			preobrazovatel_8_7.className = 'preobrazovatel_8_7 animated zoomIn'
+			preobrazovatel_8_7.className = 'preobrazovatel_8_7 animated zoomInRight'
 			preobrazovatel_8_7.style.marginBottom = '50px';
 			preobrazovatel.append(preobrazovatel_8_7);
 			let preobrazovatel_8_7_img = document.createElement('img'); //Картинка радио пульта
-				preobrazovatel_8_7_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.7.jpg';
+				preobrazovatel_8_7_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.7.png';
 				preobrazovatel_8_7_img.className = 'allimg change_on_8_7';
 				preobrazovatel_8_7.append(preobrazovatel_8_7_img);
 					preobrazovatel_8_7_img.addEventListener('click', function () {
@@ -660,6 +691,25 @@ jQuery(document).ready(($)=>{
 		cran.double_speed(cran.code_of_chastotnik)
 		$('html, body').animate({ 'scrollTop':'900px' }, 400);
 	})
+	$('body').on('click', '.change_on_8_3', function(event) {
+		$(this).parent().parent('.preobrazovatel_slider').detach();
+		$('.preobrazovatel_change').parent('.dop_parametr').detach();
+		$('#option_2 .dop_parametr:last-child').before(()=>{
+			let new_html = '<div class="dop_parametr"> \
+				<span class="change_this_option preobrazovatel_change">Изменить \
+					<i class="fa fa-pencil-square" aria-hidden="true"></i> \
+				</span> \
+				<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" class="preobrazovatel_change" style="width:200px"> \
+				<h4>Система управления</h4> \
+				<p> \
+					<span class="opisanie_parametra">Релейно-контакторная одна скорость движения</span> \
+						<br> \
+					<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b8</i> \
+				</p>';
+			return new_html;
+		});
+		$('html, body').animate({ 'scrollTop':'900px' }, 400);
+	})
 /************************************************************************************************************************************************************************************************************************************
 *
 *
@@ -699,7 +749,7 @@ jQuery(document).ready(($)=>{
 			preobrazovatel_8_4.style.marginBottom = '50px';
 			preobrazovatel.append(preobrazovatel_8_4);
 			let preobrazovatel_8_4_img = document.createElement('img'); //Картинка радио пульта
-				preobrazovatel_8_4_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.jpg';
+				preobrazovatel_8_4_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png';
 				preobrazovatel_8_4_img.className = 'allimg change_on_8_4';
 				preobrazovatel_8_4.append(preobrazovatel_8_4_img);
 					preobrazovatel_8_4_img.addEventListener('click', function () {
@@ -988,7 +1038,7 @@ function get_preobrazovatel_id (model, img)
 									<span class="change_this_option pult_change">Изменить \
 										<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 									</span> \
-									<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" class="pult_change" style="width:200px"> \
+									<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.3.png" alt="" class="pult_change" style="width:200px"> \
 									<h4>Подвесной пульт</h4> \
 									<p> \
 										<span class="opisanie_parametra">Входит в стоимость крана</span> \
@@ -1004,7 +1054,7 @@ function get_preobrazovatel_id (model, img)
 					<span class="change_this_option motor_reductor_change">Изменить \
 						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 					</span> \
-					<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.jpg" alt="" class="motor_reductor_change" style="width:200px"> \
+					<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.png" alt="" class="motor_reductor_change" style="width:200px"> \
 					<h4>Червячная передача ABLE (Италия)</h4> \
 					<p> \
 						<span class="opisanie_parametra">Входит в стоимость крана</span> \
@@ -1020,7 +1070,7 @@ function get_preobrazovatel_id (model, img)
 					<span class="change_this_option preobrazovatel_change">Изменить \
 						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 					</span> \
-					<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.jpg" alt="" class="preobrazovatel_change" style="width:200px"> \
+					<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" class="preobrazovatel_change" style="width:200px"> \
 					<h4>Система управления</h4> \
 					<p> \
 						<span class="opisanie_parametra">Релейно-контакторная одна скорость движения</span> \

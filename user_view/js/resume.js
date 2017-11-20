@@ -100,7 +100,7 @@ jQuery(document).ready(($)=>{
 								<span class="change_this_option pult_change">Изменить \
 									<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 								</span> \
-								<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" class="pult_change" style="width:200px"> \
+								<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.3.png" alt="" class="pult_change" style="width:200px"> \
 								<h4>Подвесной пульт</h4> \
 								<p> \
 									<span class="opisanie_parametra">Входит в стоимость крана</span> \
@@ -116,7 +116,7 @@ jQuery(document).ready(($)=>{
 						<span class="change_this_option motor_reductor_change">Изменить \
 						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 						</span> \
-						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.jpg" alt="" class="motor_reductor_change" style="width:200px"> \
+						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.png" alt="" class="motor_reductor_change" style="width:200px"> \
 						<h4>Червячная передача ABLE (Италия)</h4> \
 						<p> \
 						<span class="opisanie_parametra">Входит в стоимость крана</span> \
@@ -134,7 +134,7 @@ jQuery(document).ready(($)=>{
 						<span class="change_this_option preobrazovatel_change">Изменить \
 						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 						</span> \
-						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.jpg" alt="" class="preobrazovatel_change" style="width:200px"> \
+						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" class="preobrazovatel_change" style="width:200px"> \
 						<h4>Система управления</h4> \
 						<p> \
 						<span class="opisanie_parametra">Релейно-контакторная одна скорость движения</span> \

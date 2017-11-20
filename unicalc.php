@@ -770,7 +770,7 @@ function postavka_rels () {
 	$podborka_rels = $wpdb->prefix . 'stoimost_rels';
 	$podborka_rels_result = $wpdb->get_results("SELECT type, price FROM $podborka_rels WHERE type = $name_relsa");
 	if ($podborka_rels_result) {
-		echo '<span><img src="'.$url_img.'images/_5.11.jpg" alt="" style="width:140px"><p><b class="hz4">Рельс '.($rels_shirinamp/1000).'м. '.$podborka_rels_result[0]->type.'</b><br><span class="opisanie_parametra">подобран в соответствии с параметрами крана</span></p></span><span class="hiddened">'.number_format($podborka_rels_result[0]->price*($rels_shirinamp/1000), 0, ',', ' ').' руб</span>';
+		echo '<span><img src="'.$url_img.'images/_5.11.png" alt="" style="width:140px"><p><b class="hz4">Рельс '.($rels_shirinamp/1000).'м. '.$podborka_rels_result[0]->type.'</b><br><span class="opisanie_parametra">подобран в соответствии с параметрами крана</span></p></span><span class="hiddened">'.number_format($podborka_rels_result[0]->price*($rels_shirinamp/1000), 0, ',', ' ').' руб</span>';
 	}
 
 	wp_die();
@@ -797,5 +797,5 @@ function postavka_provod () {
 
 
 /*
-								'<span><img src="'.$url_img.'images/_5.12.jpg" alt="" style="width:140px"><p><b class="hz4">'.$stoimost_provod_result[0]->type.'</b><br><span class="opisanie_parametra">подобран в соответствии с параметрами крана</span></p></span><span class="hiddened">'.number_format($stoimost_provod_result[0]->price*($provod_dlinna/1000), 0, ',', ' ').' руб</span>';
+								'<span><img src="'.$url_img.'images/_5.12.png" alt="" style="width:140px"><p><b class="hz4">'.$stoimost_provod_result[0]->type.'</b><br><span class="opisanie_parametra">подобран в соответствии с параметрами крана</span></p></span><span class="hiddened">'.number_format($stoimost_provod_result[0]->price*($provod_dlinna/1000), 0, ',', ' ').' руб</span>';
 								*/
