@@ -110,6 +110,7 @@ jQuery(document).ready(($)=>{
 					let results = JSON.parse(response);
 
 					if ($('div').is('.joy_d')) {$('.pultslider').children('.pult_upravleniya_TELECRANE, .pult_upravleniya_IKUSI, .pult_upravleniya_HBRRadiomatic').remove()}
+					if ($('div').is('.pult_d')) {return}
 						easyscroll(380);
 					let pult_upravleniya_TELECRANE = document.createElement('div'); // блок пульт
 						pult_upravleniya_TELECRANE.className = 'pult_d pult_upravleniya_TELECRANE animated fadeInLeftBig'
@@ -194,7 +195,8 @@ jQuery(document).ready(($)=>{
 				$.post( calc_ajaxurl.url, data_pult, function (response) {
 					let results = JSON.parse(response);
 
-					if ($('div').is('.pult_d')) {$('.pultslider').children('.pult_upravleniya_TELECRANE, .pult_upravleniya_IKUSI, .pult_upravleniya_HBRRadiomatic').remove()}
+					if ($('div').is('.pult_d')) {$('.pultslider').children('.pult_upravleniya_TELECRANE, .pult_upravleniya_IKUSI, .pult_upravleniya_HBRRadiomatic').remove()}						
+					if ($('div').is('.joy_d')) {return}
 						easyscroll(380);
 					let pult_upravleniya_TELECRANE = document.createElement('div'); // блок пульт
 						pult_upravleniya_TELECRANE.className = 'joy_d pult_upravleniya_TELECRANE animated fadeInLeftBig'
