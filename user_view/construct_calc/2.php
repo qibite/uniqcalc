@@ -8,14 +8,17 @@ echo <<<EOT
 				<img class="allimg obsheprom" src="{$url}images/2.1.jpg" alt="" style="width:265px">
 				<h3 class="btns">Общепромышленное</h3>
 				<button type="button" class="obsheprom">Выбрать</button>
-			</div>				
+				<p>Без доплаты</p>
+			</div>	
+
+
+
 			<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 1em">
 				<img class="allimg vzrivo" src="{$url}images/2.2.png" alt="" style="width:265px">		
 				<h3 class="btns">Взрывобезопасное</h3>
 				<button type="button" class="vzrivo">Выбрать</button>
+				<p>Доплата 35%</p>
 			</div>
-
-
 			<div class="hide_dop_vzr" style="position:absolute;width:30%;left:36%;padding:1em;background-color:#eee">
 					<h4>Категория, группа и класс</h4>
 					<hr>
@@ -31,6 +34,7 @@ echo <<<EOT
 				<img class="allimg pozharo" src="{$url}images/2.3.jpg" alt="" style="width:265px">		
 				<h3 class="btns">Пожаробезопасное</h3>
 				<button type="button" class="pozharo">Выбрать</button>
+				<p>Доплата 10%</p>
 			</div>
 			<div class="hide_dop_pozh" style="position:absolute;width:30%;left:36%;padding:1em;background-color:#eee">
 				<h4>Класс пожарной безопасности</h4>

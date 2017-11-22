@@ -704,15 +704,17 @@ function price_stop () {
 add_action('wp_ajax_calc_tormoz', 'price_tormoz');
 add_action('wp_ajax_nopriv_calc_tormoz', 'price_tormoz');
 function price_tormoz () {
-	$tormoz_id = $_POST['_tormoz_id'];
-
+	$motor_code = '\''.$_POST['_motor_code'].'\'';
+	$motor_gp = $_POST['_motor_gp'];
+	$shirina = $_POST['_shirina'];
 
 	global $wpdb;$wpdb->show_errors();
-	$variants = $wpdb->prefix . 'variants';
-	$variants_result = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $tormoz_id");
-		if ($variants_result) {
-			print_r($variants_result[0]->price);
+	$mrtable = $wpdb->prefix . 'mr';
+	$mr_result = $wpdb->get_results("SELECT id, code, gp, shirina, brake_price FROM $mrtable WHERE code = $motor_code AND gp = $motor_gp AND shirina >= $shirina");
+		if ($mr_result) {
+			$tormoz = $mr_result[0]->brake_price;
 		}
+		echo $tormoz;
 
 	wp_die();
 }
@@ -791,6 +793,22 @@ function postavka_provod () {
 	if ($stoimost_provod_result) {
 		echo '<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'.$url_img.'" alt="" style="width:200px"><h4>'.$stoimost_provod_result[0]->type.'</h4><p><span class="opisanie_parametra">Цена за 1 метр '.$stoimost_provod_result[0]->price.' руб</span><br><span class="stoimost_parametra">'.number_format($stoimost_provod_result[0]->price*($provod_dlinna/1000), 0, ',', ' ').' руб</span></p>';
 	}
+	wp_die();
+}
+
+add_action('wp_ajax_tokopodvod_all', 'tok_all');
+add_action('wp_ajax_nopriv_tokopodvod_all', 'tok_all');
+function tok_all () {
+	$dlinna = $_POST['_dlinna'];
+	global $wpdb;$wpdb->show_errors();
+	$stoimost_provod = $wpdb->prefix . 'stoimost_provod';
+	$cabkol = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Кабельный с кольцами' ");
+	$cabtel = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Кабельный с тележками' ");
+	$feston = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Фестонный (С профиль)' ");
+	$opentrol = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Открытые троллеи' ");
+	$closetrol = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Закрытые троллеи' ");
+	$prices = array('tok1' => $cabkol[0]->price * ($dlinna/1000), 'tok2' => $cabtel[0]->price * ($dlinna/1000), 'tok3' => $feston[0]->price * ($dlinna/1000), 'tok4' => $opentrol[0]->price * ($dlinna/1000), 'tok5' => $closetrol[0]->price * ($dlinna/1000) );
+	echo json_encode($prices);
 	wp_die();
 }
 // Провод

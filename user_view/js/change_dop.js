@@ -285,7 +285,7 @@ jQuery(document).ready(($)=>{
 		$(this).parent().parent('.pultslider').detach();
 		$('.pult_change').parent('.dop_parametr').detach();
 		$('html, body').animate({ 'scrollTop':'900px' }, 400);
-		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya() : false;
+		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya(cran.code_of_chastotnik) : false;
 		if ($(this).parent('.pult_upravleniya_PULTP')) {
 			$('#option_2 .dop_parametr:last-child').before(()=>{
 				let new_html = '<div class="dop_parametr"> \
@@ -684,12 +684,14 @@ jQuery(document).ready(($)=>{
 		$('.preobrazovatel_change').parent('.dop_parametr').detach();
 		cran.chastotnik_price(cran.code_of_chastotnik)
 		$('html, body').animate({ 'scrollTop':'900px' }, 400);
+		if ($('.return_pult_default')) {$('.return_pult_default').parent().detach();cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya(cran.code_of_chastotnik) : false;}
 	})
 	$('body').on('click', '.change_on_8_4', function(event) {
 		$(this).parent().parent('.preobrazovatel_slider').detach();
 		$('.preobrazovatel_change').parent('.dop_parametr').detach();
 		cran.double_speed(cran.code_of_chastotnik)
 		$('html, body').animate({ 'scrollTop':'900px' }, 400);
+		if ($('.return_pult_default')) {$('.return_pult_default').parent().detach();cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya(cran.code_of_chastotnik) : false;}
 	})
 	$('body').on('click', '.change_on_8_3', function(event) {
 		$(this).parent().parent('.preobrazovatel_slider').detach();
@@ -709,6 +711,7 @@ jQuery(document).ready(($)=>{
 			return new_html;
 		});
 		$('html, body').animate({ 'scrollTop':'900px' }, 400);
+		if ($('.return_pult_default')) {$('.return_pult_default').parent().detach();cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya(cran.code_of_chastotnik) : false;}
 	})
 /************************************************************************************************************************************************************************************************************************************
 *
@@ -1047,6 +1050,7 @@ function get_preobrazovatel_id (model, img)
 									</p>';
 				return new_html;
 			});
+			cran._3Type = 'Подвесной пульт';
 		}
 		if ($(this).hasClass('return_motor_default')) {
 			$('#option_2 .dop_parametr:last-child').before(()=>{
@@ -1063,6 +1067,8 @@ function get_preobrazovatel_id (model, img)
 					</p>';
 				return new_html;
 			});
+			cran.setmotor = 'Червячная передача ABLE (Италия) - стандартно';
+			cran.code_of_motor = 9.1;
 		}
 		if ($(this).hasClass('return_preobrazovatel_default')) {
 			$('#option_2 .dop_parametr:last-child').before(()=>{
@@ -1070,7 +1076,7 @@ function get_preobrazovatel_id (model, img)
 					<span class="change_this_option preobrazovatel_change">Изменить \
 						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 					</span> \
-					<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" class="preobrazovatel_change" style="width:200px"> \
+					<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.3.png" alt="" class="preobrazovatel_change" style="width:200px"> \
 					<h4>Система управления</h4> \
 					<p> \
 						<span class="opisanie_parametra">Релейно-контакторная одна скорость движения</span> \
@@ -1079,6 +1085,9 @@ function get_preobrazovatel_id (model, img)
 					</p>';
 				return new_html;
 			});
+			cran.setspeed = 'Одна скорость движения';
+			cran.code_of_chastotnik = '8.3';
+			if ($('.return_pult_default')) {$('.return_pult_default').parent().detach();cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya(cran.code_of_chastotnik) : false;}
 		}
 		$(this).parent().detach();
 	});

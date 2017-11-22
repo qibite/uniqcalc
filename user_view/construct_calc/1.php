@@ -16,7 +16,7 @@ echo <<<EOT
 	<img class="allimg _11" src="{$url}images/1.1.png" alt="" style="width:530px">
 		<h3 class="btns">Опорный</h3>
 		<button type="button" class="_11">Выбрать</button>
-		<p>От {$minimal_price_opornii_cran} руб.</p>				
+		<p>От {$minimal_price_opornii_cran} руб.</p>
 	</div>
 	<div class="block" style="position:relative;display:inline-block;margin:1em 0 0 1em">			
 		<img class="allimg _12" src="{$url}images/1.2.png" alt="" style="width:530px">		
