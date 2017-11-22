@@ -360,7 +360,7 @@ jQuery(document).ready(($)=>{
 		
 				
 	});
-	$('#first_opt').on('click', 'li:not(".cat"), .cat>div.change_li', function () {
+	$('#first_opt').on('click', 'li:not(".cat"), li:not(".pod_cat_cat"), .cat>div.change_li', function () {
 		var that = $(this);
 		$('#option_1 .dop_parametr:last-child').before(()=>{
 			let new_html = '<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" style="width:200px"> \

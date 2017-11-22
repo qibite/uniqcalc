@@ -302,10 +302,10 @@ td>span,img+br+p>span,img+br+p+p>span{color:#b5212e}
 /*.ul_change li:active{background-color:#59de59}
 
    https://colorscheme.ru/#3I41TkvUgw0w0  \2014 */
-.hidden_options_show .modal_change_show .ul_change .change_li {width:20%;line-height:1.2em;background-color:transparent;padding:5px 0;margin:4px;font-weight:normal}
-.hidden_options_show .modal_change_show .ul_change .change_li span{font-size:0.8em}
-.hidden_options_show .modal_change_show .ul_change .change_li:hover{outline:2px solid #b5212e;background-color:transparent}
-.hidden_options_show .modal_change_show .ul_change .change_li span:hover{background-color:transparent}
+.hidden_options_show .modal_change_show .ul_change .change_li, .pod_cat_cat{width:20%;line-height:1.2em;background-color:transparent;padding:5px 0;margin:4px;font-weight:normal}
+.hidden_options_show .modal_change_show .ul_change .change_li span, .pod_cat_cat span{font-size:0.8em}
+.hidden_options_show .modal_change_show .ul_change .change_li:hover, .pod_cat_cat:hover{outline:2px solid #b5212e;background-color:transparent}
+.hidden_options_show .modal_change_show .ul_change .change_li span:hover, .pod_cat_cat span:hover{background-color:transparent}
 
 
 #dop_block{display:none;width:100%;margin:0 auto}

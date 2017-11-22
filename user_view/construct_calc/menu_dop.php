@@ -63,8 +63,15 @@
 		<li id="b13" class="change_li"><span><img src="<?=$url;?>images/13.png" alt="" style="width:140px"><p><b class="hz4">Аварийный стоп</b><br><span class="opisanie_parametra">с линейным выключателем</span></p></span><span class='hiddened'></span></li>
 		<li id="b14" class="change_li"><span><img src="<?=$url;?>images/14.png" alt="" style="width:140px"><p><b class="hz4">Тормоз на передвижение</b></p></span><span class='hiddened'></span></li>
 		<li id="b17" class="change_li cat" style="position:relative"><span><img src="<?=$url;?>images/17.8.png" alt="" style="width:140px"><p>Таль</p></span><span class='hiddened'></span>
-			<!--<div id='b17_1' class='change_li pod_cat'><span><img src="<?=$url?>images/17.1.png" style='width:140px'><p><b class='hz4'>Ручная</b></p></span><span class='hiddened'>0 руб</span></div>
-			<div id='b17_2' class='change_li pod_cat'><span><img src="<?=$url?>images/17.2.png" style='width:140px'><p><b class='hz4'>Электрическая</b></p></span><span class='hiddened'>0 руб</span></div>-->
+			<?php
+				global $wpdb; $wpdb->show_errors();
+				$e_tal_table = $wpdb->prefix . 'electro_tali';
+				$e_tal_result = $wpdb->get_results("SELECT price FROM $e_tal_table WHERE strana = 'Россия' OR strana = 'Китай' ORDER BY price ASC");
+				$r_tal_table = $wpdb->prefix . 'ruchnie_tali';
+				$r_tal_result = $wpdb->get_results("SELECT price FROM $r_tal_table ORDER BY price ASC");
+			?>
+			<div id='b17_1' class='pod_cat_cat'><span><img src="<?=$url?>images/17.1.png" style='width:140px'><p><b class='hz4'>Ручная</b></p></span><span class='hiddened'>От <?php print_r($r_tal_result[0]->price)?> руб</span></div>
+			<div id='b17_2' class='pod_cat_cat'><span><img src="<?=$url?>images/17.2.png" style='width:140px'><p><b class='hz4'>Электрическая</b></p></span><span class='hiddened'>От <?php print_r($e_tal_result[0]->price)?> руб</span></div>
 		</li>
 		<li id="b18" class="change_li"><span><img src="<?=$url;?>images/18.png" alt="" style="width:140px"><p><b class="hz4">Индивидуальная покраска</b><br><span class="opisanie_parametra">требуется согласование цвета</span></p></span><span class='hiddened'></span></li>
 			<!--<li id="a" class="change_li"><span><img src="<?=$url;?>images/nophotos.png" alt="" style="width:140px"><p>Первая опция</p></span></li>
