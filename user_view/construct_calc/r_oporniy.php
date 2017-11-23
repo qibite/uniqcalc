@@ -7,7 +7,9 @@ echo <<<EOT
 		<img class="" src="{$url}images/1.1.png" alt="" style="width:430px">
 		<br>
 		<p class="ended">Сроки изготовления: <span id="sroki"></span> дней</p>
-		<p class="ended">Общая стоимость производства: <span id="summa"></span> руб</p>
+		<p class="ended">Стоимость производства крана: <span id="summa"></span> руб</p>
+		<p class="ended">Стоимость всех дополнений: <span id="summa1"></span> руб</p>
+		<p class="ended">Общая стоимость производства: <span id="summa2"></span> руб</p>
 	</div>
 	<table class="res" style="width:55%;;float:right;margin:-8px 0 0 0;background-color:transparent">
 		<tbody>

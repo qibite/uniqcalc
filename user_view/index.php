@@ -1,6 +1,7 @@
 <?php 
 $url_this = plugin_dir_url( __FILE__ );
 ini_set('error_reporting', E_ALL);
+error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 global $wpdb;
@@ -312,17 +313,17 @@ $wpdb->show_errors();
 <!-- Изменить исполнение крана -->
 	<div id="icP2" class="modal_change modal_change_hide">
 		<ul class="ul_change">
-			<li class="change_li"><span id="obshprm2">Общепромышленное</span></li>
-			<li class="change_li">
+			<li class="change_li" style="width:285px"><span id="obshprm2">Общепромышленное</span></li>
+			<li class="change_li" style="width:355px">
 				<span id="vzrivoshow2">Взрывобезопасное</span>
-				<select name="vzriv2" id="vzrivoselect2" style="display:none;width: 70%;font-size:1.2em;margin:0 auto 17px auto">
+				<select name="vzriv2" id="vzrivoselect2" style="display:none;width: 70%;font-size:1.2em;margin:0 auto 17px auto" size="2" multiple="multiple">
 					<option value="B1a, IIB Т5 (B1а, IIА Т5)">B1a, IIB Т5 (B1а, IIА Т5)</option>
 					<option value="B1a, IIС Т5">B1a, IIС Т5</option>
 				</select>
 			</li>
-			<li class="change_li">
+			<li class="change_li" style="width:285px">
 				<span id="pozharshow2">Пожаробезопасное</span>
-				<select name="pozhar2" id="pozharselect2" style="display:none;width: 70%;font-size:1.2em;margin:0 auto 17px auto">
+				<select name="pozhar2" id="pozharselect2" style="display:none;width: 70%;font-size:1.2em;margin:0 auto 17px auto" size="2" multiple="multiple">
 					<option value="П-I">П-I</option>
 					<option value="П-II / П-Iia / П-III">П-II / П-Iia / П-III</option>
 				</select>
