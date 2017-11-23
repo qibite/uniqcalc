@@ -103,19 +103,25 @@ $wpdb->show_errors();
 <!-- Изменить длинну пролёта -->
 
 <!-- Изменить исполнение крана -->
+<style>
+	 select#pozharselect:-internal-list-box
+	 {
+	 	overflow-y: hidden;
+	 }
+</style>
 	<div id="icO2" class="modal_change modal_change_hide">
 		<ul class="ul_change">
-			<li class="change_li"><span id="obshprm">Общепромышленное</span></li>
-			<li class="change_li">
+			<li class="change_li" style="width:285px"><span id="obshprm">Общепромышленное</span></li>
+			<li class="change_li" style="width:355px">
 				<span id="vzrivoshow">Взрывобезопасное</span>
-				<select name="vzriv" id="vzrivoselect" style="display:none;width: 70%;font-size:1.2em;margin:0 auto 17px auto">
+				<select name="vzriv" id="vzrivoselect" style="display:none;width: 70%;font-size:1.2em;margin:0 auto 17px auto" size="2" multiple="multiple">
 					<option value="B1a, IIB Т5 (B1а, IIА Т5)">B1a, IIB Т5 (B1а, IIА Т5)</option>
 					<option value="B1a, IIС Т5">B1a, IIС Т5</option>
 				</select>
 			</li>
-			<li class="change_li">
+			<li class="change_li" style="width:285px">
 				<span id="pozharshow">Пожаробезопасное</span>
-				<select name="pozhar" id="pozharselect" style="display:none;width: 70%;font-size:1.2em;margin:0 auto 17px auto">
+				<select name="pozhar" id="pozharselect" style="display:none;width: 70%;font-size:1.2em;margin:0 auto 17px auto" size="2" multiple="multiple">
 					<option value="П-I">П-I</option>
 					<option value="П-II / П-Iia / П-III">П-II / П-Iia / П-III</option>
 				</select>

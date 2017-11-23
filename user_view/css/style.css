@@ -307,10 +307,11 @@ td>span,img+br+p>span,img+br+p+p>span{color:#b5212e}
 .hidden_options_show .modal_change_show .ul_change .change_li:hover, .pod_cat_cat:hover{outline:2px solid #b5212e;background-color:transparent}
 .hidden_options_show .modal_change_show .ul_change .change_li span:hover, .pod_cat_cat span:hover{background-color:transparent}
 
+option:hover{background-color:#b5212e;color:#fff;cursor: pointer;}
 
 #dop_block{display:none;width:100%;margin:0 auto}
 .dop_menu{position:relative;margin-bottom:10px;height:0;overflow:hidden}
-.dop_menu_open{display:flex;align-items:center;flex-wrap:wrap;margin-bottom:52px;height:auto}
+.dop_menu_open{display:flex;align-items:flex-start;flex-wrap:wrap;margin-bottom:52px;height:auto}
 .head_dop_menu, .head_dop_menu_open{position:relative;display:block;width:100%;text-transform:uppercase;background-color:#b5212e;padding:6px 40px 6px 20px;font-family:'Rubik Regular';color:#FFF;cursor:pointer;text-align:center;z-index:999}
 .head_dop_menu::before{transform:rotateZ(-90deg)}
 .head_dop_menu_open::before{transform:rotateZ(90deg)}
