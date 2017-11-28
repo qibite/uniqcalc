@@ -6,8 +6,13 @@ echo <<<EOT
 		<h2 style="text-align:left;padding-left:30px">Результаты расчётов</h2>
 		<img class="" src="{$url}images/1.2.png" alt="" style="width:430px">
 		<br>
-		<p class="ended">Сроки изготовления: <span id="sroki"></span></p>
-		<p class="ended">Общая стоимость производства: <span id="summa"></span></p>
+		<p class="ended">Срок изготовления крана: <span id="sroki_p"></span> дней</p>
+		<p class="ended">Базовая стоимость крана: <span id="summa_p"></span> руб</p>
+		<p class="ended">Стоимость путей и токоподвода: <span id="summa1_p"></span> руб</p>
+		<p class="ended">Стоимость дополнительного оборудования: <span id="summa2_p"></span> руб</p>
+		<p class="ended">Стоимость услуг: <span id="summa3_p"></span> руб</p>
+		<hr>
+		<p class="ended">Общая стоимость: <span id="summa4_p"></span> руб</p>
 	</div>
 	<table class="res" style="width:55%;;float:right;margin:-8px 0 0 0;background-color:transparent">
 		<tbody>
