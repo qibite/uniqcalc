@@ -440,7 +440,18 @@ jQuery(document).ready(($)=>{
 $('#first_opt, #second_opt').on('click', '.cat', function(event) {
 	$(this).siblings('li').css('display', 'none');
 	$(this).css('width', '100%');
-	$(this).children('div').css('display', 'inline-block');
+	if ($(this).hasClass('tali_dop')) {
+		$(this).children('.tal_e').css('display', 'inline-block');
+		if (false) {
+			$(this).children('.tal_r').css('display', 'none');
+		}
+		else {
+			$(this).children('.tal_r').css('display', 'inline-block');
+		}
+	}
+	else {			
+		$(this).children('div').css('display', 'inline-block');
+	}
 	$('#revers').css('display', 'block');
 	delete_doble('#option_1', $('#first_opt'));
 	delete_doble('#option_2', $('#second_opt'));

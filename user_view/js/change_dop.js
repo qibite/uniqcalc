@@ -1094,4 +1094,33 @@ function get_preobrazovatel_id (model, img)
 		$(this).parent().detach();
 	});
 function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.body.scrollTop + scrollTo) + 'px' }, 700) }
+
+
+
+
+
+/*
+*
+*
+*  Тали в доп опциях
+*
+*
+*/
+
+	$('#second_opt').on('click', '#b17_1', function(event) {
+		$('.e_tal').css('display', 'none');
+		$('.r_tal').css('display', 'inline-block');
+		tal.upravlenie = 'Ручное';
+		tal.type = 'Цепная';
+	});
+
+	$('#second_opt').on('click', '.tal_e', function(event) {
+		$('.r_tal').css('display', 'none');
+		$('.e_tal').css('display', 'inline-block');
+		tal.upravlenie = 'Электро';
+	});
+
+
+
+
 });
