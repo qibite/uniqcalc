@@ -357,13 +357,14 @@ jQuery(document).ready(($)=>{
 		delete_doble('#option_1', $('#first_opt'));
 		showOptions($('#first_opt'));
 		postavka_rels();
-		
-				
+		if ($('#option_1').children('.tokoprovod').length>0) {
+			$('#first_opt .cat[name$="tokoprovod"]').css('display', 'none');
+		}				
 	});
-	$('#first_opt').on('click', 'li:not(".cat"), li:not(".pod_cat_cat"), .cat>div.change_li', function () {
+	$('#first_opt').on('click', 'li:not(".cat"), .cat>div.change_li', function () {
 		var that = $(this);
 		$('#option_1 .dop_parametr:last-child').before(()=>{
-			let new_html = '<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" style="width:200px"> \
+			let new_html = '<div class="dop_parametr '+ that.attr('name') +'"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" style="width:200px"> \
 								<h4>'+ that.children().children().children('b.hz4').text() +'</h4> \
 								<p><span class="opisanie_parametra">'+ that.children().children().children('.opisanie_parametra').text() +'</span><br> \
 								<span class="stoimost_parametra">'+ that.children('.hiddened').text() +'</span><i class="id_bro">'+that.attr('id')+'</i></p>';
@@ -405,13 +406,19 @@ jQuery(document).ready(($)=>{
 		showOptions($('#second_opt'));
 		
 		calculate_pokraska (); // Стоимость покраски
+		if ($('#option_2').children('.sirena').length>0) {
+			$('#second_opt .cat[name$="sirena"]').css('display', 'none');
+		}
+		if ($('#option_2').children('.vikluchateli').length>0) {
+			$('#second_opt .cat[name$="vikluchateli"]').css('display', 'none');
+		}
 	});
 	$('#second_opt').on('click', 'li:not(".cat"), .cat>div.change_li', function () {
 		var that = $(this);		
 		$(this).css('display', 'none');
 		$('#option_2 .dop_parametr:last-child').before(()=>{
 			console.log(that.attr('id'))
-			var new_html = '<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" style="width:200px"> \
+			var new_html = '<div class="dop_parametr '+ that.attr('name') +'"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" style="width:200px"> \
 								<h4>'+ that.children().children().children('b.hz4').text() +'</h4> \
 								<p><span class="opisanie_parametra">'+ that.children().children().children('.opisanie_parametra').text() +'</span><br> \
 								<span class="stoimost_parametra">'+ that.children('.hiddened').text() +'</span><i class="id_bro">'+that.attr('id')+'</i></p>';
@@ -456,6 +463,12 @@ $('#revers').on('click', function() {
 		}
 	delete_doble('#option_1', $('#first_opt'));
 	delete_doble('#option_2', $('#second_opt'));
+	if ($('#option_2').children('.sirena').length>0) {
+			$('#second_opt .cat[name$="sirena"]').css('display', 'none');
+		}
+	if ($('#option_2').children('.vikluchateli').length>0) {
+		$('#second_opt .cat[name$="vikluchateli"]').css('display', 'none');
+	}
 })
 /**
 *

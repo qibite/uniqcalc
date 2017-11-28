@@ -6,7 +6,7 @@
 		<ul class="ul_change">	
 			<li id="a1" class="change_li"><span><img src="<?=$url;?>images/puti1.png" alt="" style="width:140px"><p><b class="hz4">Разработка проектной документации</b><br><span class="opisanie_parametra">10 рабочих дней</span></p></span><span class='hiddened'>65 000 руб</span></li>
 			<li id="a2" class="change_li"></li>
-			<li id="a3" class="change_li  cat"><span><img src="<?=$url;?>images/6.1.jpg" alt="" style="width:140px"><p><b class="hz4">Токоподвод</b></p></span><span class='hiddened'></span>
+			<li id="a3" class="change_li cat" name='tokoprovod'><span><img src="<?=$url;?>images/6.1.jpg" alt="" style="width:140px"><p><b class="hz4">Токоподвод</b></p></span><span class='hiddened'></span>
 			<?php
 			$stoimost_provod = $wpdb->prefix . 'stoimost_provod';
 			$stoimost_provod_result = $wpdb->get_results("SELECT id, type, price FROM $stoimost_provod");
@@ -17,7 +17,7 @@
 						$id = $provod->id;
 						$type = $provod->type;
 						$price = $provod->price;
-						echo "<div id='tokoprovod{$id}' class='change_li tokoprovod'><span><img src='{$url}images/6.{$nimg}.png' style='width:140px'><p><b class='hz4'>{$type}</b><span class='opisanie_parametra'>цена за метр <span style='color:#e60216;font-size:1.4em'>{$price}</span></span></p></span><span class='hiddened'></span></div>";
+						echo "<div id='tokoprovod{$id}' class='change_li tokoprovod' name='tokoprovod'><span><img src='{$url}images/6.{$nimg}.png' style='width:140px'><p><b class='hz4'>{$type}</b><span class='opisanie_parametra'>цена за метр <span style='color:#e60216;font-size:1.4em'>{$price}</span></span></p></span><span class='hiddened'></span></div>";
 					}
 				}
 			?>
@@ -27,7 +27,7 @@
 
 	<div id="second_opt" class="modal_change modal_change_hide">
 		<ul class="ul_change">
-		<li id="b10" class="change_li  cat"><span><img src="<?=$url;?>images/10.png" alt="" style="width:140px"><p><b class="hz4">Концевые выключатели</b></p></span><span class='hiddened'></span>
+		<li id="b10" class="change_li cat" name='vikluchateli'><span><img src="<?=$url;?>images/10.png" alt="" style="width:140px"><p><b class="hz4">Концевые выключатели</b></p></span><span class='hiddened'></span>
 		<?php
 			$variants = $wpdb->prefix . 'variants';
 			$name_result = $wpdb->get_results("SELECT id, code_option, price FROM $variants WHERE id > 24 AND id <= 28");
@@ -38,13 +38,13 @@
 					$id = $option->id;
 					$code_option = $option->code_option;
 					$price = $option->price;
-					echo "<div id='b{$id}' class='change_li'><span><img src='{$url}images/10.{$nimg}.png' style='width:140px'><p><b class='hz4'>{$code_option}</b></p></span><span class='hiddened'>{$price} руб</span></div>";
+					echo "<div id='b{$id}' class='change_li' name='vikluchateli'><span><img src='{$url}images/10.{$nimg}.png' style='width:140px'><p><b class='hz4'>{$code_option}</b></p></span><span class='hiddened'>{$price} руб</span></div>";
 				}
 			}
 		?>
 		</li>		
 		<li id="b11" class="change_li"><span><img src="<?=$url;?>images/11.png" alt="" style="width:140px"><p><b class="hz4">Электрический щит крана</b><br><span class="opisanie_parametra">с импортными компонентами</span></p></span><span class='hiddened'></span></li>
-		<li id="b12" class="change_li  cat"><span><img src="<?=$url;?>images/12.png" alt="" style="width:140px"><p><b class="hz4">Световая | звуковая сирена</b></p></span><span class='hiddened'></span>
+		<li id="b12" class="change_li cat" name="sirena"><span><img src="<?=$url;?>images/12.png" alt="" style="width:140px"><p><b class="hz4">Световая | звуковая сирена</b></p></span><span class='hiddened'></span>
 		<?php
 			$variants = $wpdb->prefix . 'variants';
 			$name_result = $wpdb->get_results("SELECT id, code_option, price FROM $variants WHERE id > 31 AND id <= 33");
@@ -55,7 +55,7 @@
 					$id = $option->id;
 					$code_option = $option->code_option;
 					$price = $option->price;
-					echo "<div id='b{$id}' class='change_li'><span><img src='{$url}images/12.{$nimg}.png' style='width:140px'><p><b class='hz4'>{$code_option}</b></p></span><span class='hiddened'>{$price} руб</span></div>";
+					echo "<div id='b12_{$id}' class='change_li' name='sirena'><span><img src='{$url}images/12.{$nimg}.png' style='width:140px'><p><b class='hz4'>{$code_option}</b></p></span><span class='hiddened'>{$price} руб</span></div>";
 				}
 			}
 		?>
