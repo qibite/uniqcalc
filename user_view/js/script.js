@@ -608,18 +608,16 @@ jQuery(document).ready(($)=>{
 			$('#main_block_for_steps').css('height', '1300px');
 		})
 		$('.electro_t').click(()=>{
+			$('#main_block_for_steps').css('height', '1350px');
+			easyscroll(820);
 			if (cran._2.search(/Взрывобезопасное/i) == 0) {
 				$('.hide_s_visota_tal').removeClass('hide_s_visota_tal').addClass('show_s_visota_tal')
-				easyscroll(820);
-				$('#main_block_for_steps').css('height', '1300px');
 				tal.type = 'Канатная';
 				tal.country = 'Болгария';
 				tal.img = '17.5.png';
 			} else {
 				$('.hide_country_e').removeClass('hide_country_e').addClass('show_country_e')
 				$('.show_country_r').removeClass('show_country_r').addClass('hide_country_r')
-				easyscroll(820);
-				$('#main_block_for_steps').css('height', '1300px');
 		      }			
 			tal.upravlenie = 'Электро';
 		})
@@ -1180,6 +1178,12 @@ cran.calculate_tal = function  (argument) {
 				});
 			//////////////
 }
+
+$('.bolgariya_tE').hover(function() {
+	$(this).siblings('p').css('display', 'block');
+}, function() {
+	$(this).siblings('p').css('display', 'none');
+});
 
 });
 

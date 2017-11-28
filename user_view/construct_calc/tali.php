@@ -43,6 +43,7 @@ echo <<<EOT
 				<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 					<img class="allimg bolgariya_tE" src="{$url}images/17.5.png" style="height:240px" alt="">
 					<h4 class=" talbtn bolgariya_tE">Болгария</h4>
+					<p style="display:none;font-size:.6em;position:absolute;left:12px">Внимание! Стоимость болгарских талей пересчитывается<br>в рубли с ЕВРО по курсу на сегодняшний день.</p>
 				</div>
 				<div class="block rus_e" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 					<img class="allimg russia_tE" src="{$url}images/17.6.png" style="height:240px" alt="">
