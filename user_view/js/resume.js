@@ -440,13 +440,14 @@ jQuery(document).ready(($)=>{
 $('#first_opt, #second_opt').on('click', '.cat', function(event) {
 	$(this).siblings('li').css('display', 'none');
 	$(this).css('width', '100%');
-	if ($(this).hasClass('tali_dop')) {
-		$(this).children('.tal_e').css('display', 'inline-block');
-		if (false) {
-			$(this).children('.tal_r').css('display', 'none');
+	if ($(this).hasClass('tali_dop')) {		
+		if (cran.gp > 10000) {
+			$('#conteinert_talei_1').css('display', 'block');
+			$('.e_tal').css('display', 'inline-block');
 		}
 		else {
 			$(this).children('.tal_r').css('display', 'inline-block');
+			$(this).children('.tal_e').css('display', 'inline-block');
 		}
 	}
 	else {			

@@ -73,7 +73,7 @@
 			<div id='b17_1' class='pod_cat_cat tal_r'><span><img src="<?=$url?>images/17.1.png" style='width:140px'><p><b class='hz4'>Ручная</b></p></span><span class='hiddened'>От <?php print_r($r_tal_result[0]->price)?> руб</span></div>
 			<div id='b17_2' class='pod_cat_cat tal_e'><span><img src="<?=$url?>images/17.2.png" style='width:140px'><p><b class='hz4'>Электрическая</b></p></span><span class='hiddened'>От <?php print_r($e_tal_result[0]->price)?> руб</span></div>
 
-			<div style="display:block;width:100%;margin-top:16px">
+			<div id="conteinert_talei_1" style="display:block;width:100%;margin-top:16px">
 				<div id='b17_8' class='pod_cat_cat tal_r_RUS r_tal' style="display:none"><span><img src="<?=$url?>images/17.8.png" style='width:140px'><p><b class='hz4'>Россия</b></p></span><span class='hiddened'>От <?php print_r('0')?> руб</span></div>
 				<div id='b17_9' class='pod_cat_cat tal_r_CHN r_tal' style="display:none"><span><img src="<?=$url?>images/17.9.png" style='width:140px'><p><b class='hz4'>Китай</b></p></span><span class='hiddened'>От <?php print_r('0')?> руб</span></div>
 				<div id='b17_10' class='pod_cat_cat tal_r_SHVED r_tal' style="display:none"><span><img src="<?=$url?>images/17.10.png" style='width:140px'><p><b class='hz4'>Швеция</b></p></span><span class='hiddened'>От <?php print_r('0')?> руб</span></div>

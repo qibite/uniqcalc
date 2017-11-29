@@ -1108,6 +1108,7 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 */
 
 	$('#second_opt').on('click', '#b17_1', function(event) {
+		$('#conteinert_talei_1').css('display', 'block');
 		$('.e_tal').css('display', 'none');
 		$('.r_tal').css('display', 'inline-block');
 		tal.upravlenie = 'Ручное';
@@ -1115,6 +1116,7 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 	});
 
 	$('#second_opt').on('click', '.tal_e', function(event) {
+		$('#conteinert_talei_1').css('display', 'block');
 		$('.r_tal').css('display', 'none');
 		$('.e_tal').css('display', 'inline-block');
 		tal.upravlenie = 'Электро';
