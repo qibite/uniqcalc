@@ -52,19 +52,20 @@ jQuery(document).ready(($)=>{
 		}
 		$('#Ogp').text(cran.gp);
 		setTimeout(()=>{hideChange()},300);
-		calculate_oporniy_crane();
+		cran.calculate_oporniy_crane();
+		if ($('.return_motor_default')) {$('.return_motor_default').parent().detach();cran.motor_price(cran.code_of_motor)}
 	});
 
 
 	$('#cdpO').click(()=>{showChange($('#dpO2'))})
-	$('.cOdp').click(()=>{cran.paramsO.shpO = document.getElementById('valdpO').value;$('#Odp').text(document.getElementById('valdpO').value);setTimeout(()=>{hideChange()},300);calculate_oporniy_crane();})
+	$('.cOdp').click(()=>{cran.paramsO.shpO = document.getElementById('valdpO').value;$('#Odp').text(document.getElementById('valdpO').value);setTimeout(()=>{hideChange()},300);cran.calculate_oporniy_crane();})
 
 	$('#cicO').click(()=>{showChange($('#icO2'))})
-		$('#obshprm').click(()=>{cran._2 = 'Общепромышленное';$('#Oic').text('Общепромышленное');$('#pozharselect').css('display','none');$('#vzrivoselect').css('display','none');setTimeout(()=>{hideChange()},300);$('#Джойстик').css('display','inline-block')})
+		$('#obshprm').click(()=>{cran._2 = 'Общепромышленное';$('#Oic').text('Общепромышленное');$('#pozharselect').css('display','none');$('#vzrivoselect').css('display','none');setTimeout(()=>{hideChange()},300);cran.calculate_oporniy_crane();$('#Джойстик').css('display','inline-block')})
 		$('#vzrivoshow').click(()=>{$('#vzrivoselect').css('display','block');$('#pozharselect').css('display','none')})
-			$('#vzrivoselect').change(()=>{cran._2 = 'Взрывобезопасное класса '+document.getElementById('vzrivoselect').value;$('#Oic').text(document.getElementById('vzrivoselect').value);setTimeout(()=>{hideChange()},300);$('#Джойстик').css('display','none')})
+			$('#vzrivoselect').change(()=>{cran._2 = 'Взрывобезопасное класса '+document.getElementById('vzrivoselect').value;$('#Oic').text(document.getElementById('vzrivoselect').value);setTimeout(()=>{hideChange()},300);cran.calculate_oporniy_crane();$('#Джойстик').css('display','none')})
 		$('#pozharshow').click(()=>{$('#pozharselect').css('display','block');$('#vzrivoselect').css('display','none')})
-			$('#pozharselect').change(()=>{cran._2 = 'Пожаробезопасное класса '+document.getElementById('pozharselect').value;$('#Oic').text(document.getElementById('pozharselect').value);setTimeout(()=>{hideChange()},300);$('#Джойстик').css('display','inline-block')})
+			$('#pozharselect').change(()=>{cran._2 = 'Пожаробезопасное класса '+document.getElementById('pozharselect').value;$('#Oic').text(document.getElementById('pozharselect').value);setTimeout(()=>{hideChange()},300);cran.calculate_oporniy_crane();$('#Джойстик').css('display','inline-block')})
 
 	$('#ctemperO').click(()=>{showChange($('#temperO'))})
 		$('#m50_2').click(()=>{cran.temper[0] = '-50'});
@@ -72,7 +73,7 @@ jQuery(document).ready(($)=>{
 		$('#m20_2').click(()=>{cran.temper[0] = '-20'});
 		$('#p40_2').click(()=>{cran.temper[1] = '+40'});
 		$('#p60_2').click(()=>{cran.temper[1] = '+60'});
-		$('.savetemper').click(()=>{$('#Otr').text(cran.temper[0]+' до '+cran.temper[1]);setTimeout(()=>{hideChange()},300)})
+		$('.savetemper').click(()=>{$('#Otr').text(cran.temper[0]+' до '+cran.temper[1]);setTimeout(()=>{hideChange()},300);cran.calculate_oporniy_crane();})
 
 	$('#razmeshO').click(()=>{showChange($('#размещение'))})
 		$('#Улица').click(()=>{cran.climat = 'Расположение на открытой местности';setTimeout(()=>{hideChange()},300);$('#Ocu').text(cran.climat)});
@@ -84,7 +85,7 @@ jQuery(document).ready(($)=>{
 			$('#gpO > ul li:nth-child(9)').css('display','none');$('#gpO > ul li:nth-child(10)').css('display','none');
 			if (cran.gp > 10000) {cran.gp = 10000; alert('Грузоподъемность была уменьшена до 10000 кг для крана с ручным управлением!')}
 			$('#Ogp').text(cran.gp);
-			calculate_oporniy_crane();
+			cran.calculate_oporniy_crane();
 			$('.dop_parametr:has("span.pult_change")').remove();
 			$('.dop_parametr:has("span.motor_reductor_change")').remove();
 			$('.dop_parametr:has("span.preobrazovatel_change")').remove();
@@ -100,7 +101,7 @@ jQuery(document).ready(($)=>{
 								<span class="change_this_option pult_change">Изменить \
 									<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 								</span> \
-								<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" class="pult_change" style="width:200px"> \
+								<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.3.png" alt="" class="pult_change" style="width:200px"> \
 								<h4>Подвесной пульт</h4> \
 								<p> \
 									<span class="opisanie_parametra">Входит в стоимость крана</span> \
@@ -116,7 +117,7 @@ jQuery(document).ready(($)=>{
 						<span class="change_this_option motor_reductor_change">Изменить \
 						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 						</span> \
-						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.jpg" alt="" class="motor_reductor_change" style="width:200px"> \
+						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.png" alt="" class="motor_reductor_change" style="width:200px"> \
 						<h4>Червячная передача ABLE (Италия)</h4> \
 						<p> \
 						<span class="opisanie_parametra">Входит в стоимость крана</span> \
@@ -125,7 +126,7 @@ jQuery(document).ready(($)=>{
 						</p>';
 				return new_html;
 			});
-			calculate_oporniy_crane();
+			cran.calculate_oporniy_crane();
 			$('#gpO > ul li:nth-child(9)').css('display','inline-block');$('#gpO > ul li:nth-child(10)').css('display','inline-block')
 			setTimeout(()=>{hideChange()},300);
 			cran.setmotor = 'Червячная передача ABLE (Италия) - стандартно';
@@ -134,7 +135,7 @@ jQuery(document).ready(($)=>{
 						<span class="change_this_option preobrazovatel_change">Изменить \
 						<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 						</span> \
-						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.jpg" alt="" class="preobrazovatel_change" style="width:200px"> \
+						<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.3.png" alt="" class="preobrazovatel_change" style="width:200px"> \
 						<h4>Система управления</h4> \
 						<p> \
 						<span class="opisanie_parametra">Релейно-контакторная одна скорость движения</span> \
@@ -542,24 +543,6 @@ function hideThisChange (this_Change) {
 *
 *
 *******************************************************************************************************************************************************************************************************************************************************************/
-	function calculate_oporniy_crane(argument) {	
-			//////////////
-				var data_cran = { action: 'calc_cran', _gp:cran.gp, _shir:cran.paramsO.shpO, _upravl:cran._3 }
-				$.post( calc_ajaxurl.url, data_cran, function(response) {
-					cran.summa = response;
-					$('#summa').text(String(cran.summa).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '));
-				});
-				var data_sroki_cran = { action: 'calc_sroki', _gp:cran.gp, _shir:cran.paramsO.shpO, _upravl:cran._3 }
-				$.post( calc_ajaxurl.url, data_sroki_cran, function(response) {
-					$('#sroki').text(response);
-				});
-				if (tal.summa > 0 && ($('#option_2').children('.dop_parametr').hasClass('tal_for_search'))) {
-					tal.gp = cran.gp;
-					calculate_tal();
-					$('.tal_for_search').remove();
-				}
-			//////////////
-	}
 	function calculate_tal (argument) {	
 			//////////////
 				var data_tal = { action: 'calc_tal', _upravlenie:tal.upravlenie, _type:tal.type, _country:tal.country, _visota:tal.visota, _ispolnenie:tal.ispolnnie, _gp:tal.gp }
@@ -601,16 +584,8 @@ function hideThisChange (this_Change) {
 
 	function calculate_tormoz () {
 		if (cran._3 != 'Ручное') {
-			let tormoz =
-				cran.motor.search(/Червячная передача ABLE/)/* 9.1 */ != -1 || cran.motor.search(/Циллиндрическая передача Европривод/)/* 9.5 */ != -1 && ( cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000 ) ? {id:36} :
-						cran.motor.search(/Червячная передача NORD/)/* 9.2 */ != -1 || cran.motor.search(/Циллиндрическая передача NORD/)/* 9.4 */ != -1 && ( cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000 ) ? {id:37} :
-								cran.motor.search(/Циллиндрическая передача Балкан Эхо/)/* 9.3 */ != -1 && ( cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000 ) ? {id:38} :
-
-				cran.motor.search(/Червячная передача ABLE/)/* 9.1 */ != -1 || cran.motor.search(/Циллиндрическая передача Европривод/)/* 9.5 */ != -1 && ( cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000 || cran.gp == 12500 || cran.gp == 16000 ) ? {id:39} :
-						cran.motor.search(/Червячная передача NORD/)/* 9.2 */ != -1 || cran.motor.search(/Циллиндрическая передача NORD/)/* 9.4 */ != -1 && ( cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000 || cran.gp == 12500 || cran.gp == 16000 ) ? {id:40} :
-								cran.motor.search(/Циллиндрическая передача Балкан Эхо/)/* 9.3 */ != -1 && ( cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000 || cran.gp == 12500 || cran.gp == 16000 ) ? {id:41} : false;
 				/////////////
-				var data_tormoz = { action: 'calc_tormoz', _tormoz_id:tormoz.id }
+				var data_tormoz = { action: 'calc_tormoz',  _motor_code:cran.code_of_motor,  _motor_gp:cran.gp, _shirina:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP }
 					$.post( calc_ajaxurl.url, data_tormoz, function(response) {
 						$('#b14 > .hiddened').text(String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 					});

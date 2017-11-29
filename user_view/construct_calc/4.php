@@ -24,16 +24,19 @@ echo <<<EOT
 				<img class="allimg ulica" src="{$url}images/4.1.png" alt="" style="width:320px">
 				<h3 class="btns">Улица</h3>
 				<button type="button" class="ulica">Выбрать</button>
+				<p>Доплата от 9000 руб.</p>
 			</div>				
 			<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 1em">
 				<img class="allimg naves" src="{$url}images/4.2.png" alt="" style="width:320px">		
 				<h3 class="btns">Навес</h3>
 				<button type="button" class="naves">Выбрать</button>
+				<p>Без доплаты</p>
 			</div>
 			<div class="block" style="position:relative;display:inline-block;margin:1em 0 0 1em">
 				<img class="allimg pomeshenie" src="{$url}images/4.3.png" alt="" style="width:320px">		
 				<h3 class="btns">Помещение</h3>
 				<button type="button" class="pomeshenie">Выбрать</button>
+				<p>Без доплаты</p>
 			</div>
 		</article>
 EOT;

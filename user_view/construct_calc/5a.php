@@ -35,11 +35,11 @@ echo <<<EOT
 					<li><img id="p43" class="allimg нужен_монтаж_рельс" src="{$url}images/5.6.png" alt="" style="width:220px"><br>Рельс Р43</li>
 					<li><img id="p50" class="allimg нужен_монтаж_рельс" src="{$url}images/5.7.png" alt="" style="width:220px"><br>Рельс Р50</li>
 					<li><img id="kp65" class="allimg нужен_монтаж_рельс" src="{$url}images/5.8.png" alt="" style="width:220px"><br>Рельс КР65</li>
-					<li><img id="kp70" class="allimg нужен_монтаж_рельс" src="{$url}images/5.9.jpg" alt="" style="width:220px"><br>Рельс КР70</li>
-					<li><img id="kp80" class="allimg нужен_монтаж_рельс" src="{$url}images/5.10.jpg" alt="" style="width:220px"><br>Рельс КР80</li>
-					<li><img id="kubik40" class="allimg нужен_монтаж_рельс" src="{$url}images/5.11.jpg" alt="" style="width:220px"><br>Квадрат  40х40</li>
-					<li><img id="kubik50" class="allimg нужен_монтаж_рельс" src="{$url}images/5.12.jpg" alt="" style="width:220px"><br>Квадрат  50х50</li>
-					<li><img id="kubik60" class="allimg нужен_монтаж_рельс" src="{$url}images/5.13.jpg" alt="" style="width:220px"><br>Квадрат  60х60</li>
+					<li><img id="kp70" class="allimg нужен_монтаж_рельс" src="{$url}images/5.9.png" alt="" style="width:220px"><br>Рельс КР70</li>
+					<li><img id="kp80" class="allimg нужен_монтаж_рельс" src="{$url}images/5.10.png" alt="" style="width:220px"><br>Рельс КР80</li>
+					<li><img id="kubik40" class="allimg нужен_монтаж_рельс" src="{$url}images/5.11.png" alt="" style="width:220px"><br>Квадрат  40х40</li>
+					<li><img id="kubik50" class="allimg нужен_монтаж_рельс" src="{$url}images/5.12.png" alt="" style="width:220px"><br>Квадрат  50х50</li>
+					<li><img id="kubik60" class="allimg нужен_монтаж_рельс" src="{$url}images/5.13.png" alt="" style="width:220px"><br>Квадрат  60х60</li>
 				</ul>
 			</article>
 		</article>

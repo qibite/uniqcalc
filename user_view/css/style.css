@@ -102,6 +102,7 @@ h1,h2,h3,h4,tr td,.ended{text-transform:uppercase}
 h2{display:block;font-size:1.3em;font-family:'Rubik Regular';/*background-color:#ffc65c;padding:10px 14px;color:#fff;*/margin:0 auto}
 h3,tr td,.ended{font-size:1em;margin-top:10px;font-family:'Rubik Regular';text-align:center}
 h4{font-size:0.889em;margin:10px ;font-family:'Rubik Regular';text-align:center}
+h4>i{font-size: .7em;}
 #first>div>article>p{margin:10px 0 0 0;font-family:'Rubik Lite';font-size:0.9em;text-align:center}
 #first>h1 {position:relative;font-family:'Rubik Regular';background-color:#6495ed;color:#fff;text-align:center;font-size:1.6em;line-height:2em;z-index:9999}
 
@@ -143,6 +144,18 @@ h4{font-size:0.889em;margin:10px ;font-family:'Rubik Regular';text-align:center}
 .cels:nth-child(4)::after{content:'';background-color:#b5212e}
 .cels_selectedM::before{background-color:#1854a7 !important}
 .cels_selectedP::before{background-color:#e60216 !important}
+
+.descript_temper
+{
+	position: absolute;
+    top: -35px;
+    left: -40px;
+    width: 126px;
+    font-size: 0.75em;
+    padding: 5px 3px;
+    color: #FFF;
+    font-family: 'Open Sans';
+}
 
 .dopvar input[type="radio"], .dopvar label{font-family:'Rubik Lite';cursor:pointer;margin-bottom:8px}
 .dopvar input[type="radio"]{color:red}
@@ -253,7 +266,7 @@ td>span,img+br+p>span,img+br+p+p>span{color:#b5212e}
 #closePult,#closeMotorReductor,#closePreobrazovatel{top:30px}
 #close:hover,#close2:hover,#closePult:hover,#closeMotorReductor:hover,#closePreobrazovatel:hover{color:#b5212e;transform:scale(1.1)}
 .mmm,.zzz{transform:translateY(5000px)}
-.modal_view,.hidden_options{position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(255, 255, 255, 0.9);z-index:99999}
+.modal_view,.hidden_options{position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(255, 255, 255, 1);z-index:99999}
 .modal_view_hide,.hidden_options_hide{animation: hidem 0.7s ease;animation-fill-mode:forwards}
 .modal_view_show,.hidden_options_show{animation: showm 0.5s ease;animation-fill-mode:forwards}
 
@@ -297,7 +310,7 @@ td>span,img+br+p>span,img+br+p+p>span{color:#b5212e}
 
 #dop_block{display:none;width:100%;margin:0 auto}
 .dop_menu{position:relative;margin-bottom:10px;height:0;overflow:hidden}
-.dop_menu_open{display:flex;align-items:flex-start;flex-wrap:wrap;margin-bottom:52px;height:auto}
+.dop_menu_open{display:flex;align-items:center;flex-wrap:wrap;margin-bottom:52px;height:auto}
 .head_dop_menu, .head_dop_menu_open{position:relative;display:block;width:100%;text-transform:uppercase;background-color:#b5212e;padding:6px 40px 6px 20px;font-family:'Rubik Regular';color:#FFF;cursor:pointer;text-align:center;z-index:999}
 .head_dop_menu::before{transform:rotateZ(-90deg)}
 .head_dop_menu_open::before{transform:rotateZ(90deg)}

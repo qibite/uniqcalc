@@ -98,7 +98,8 @@ jQuery(document).ready(($)=>{
 
 	$('._32').click(function () {
 		$('.hide_dop_el').removeClass('hide_dop_el hide_dop_animate_el').addClass('back_dop_animate_el');
-		easyscroll(250);
+		easyscroll(380);
+		$('#main_block_for_steps').css('height', '900px');
 		cran._3 = 'Электро';
 	});
 	$('._33_next').click(function () {
@@ -110,7 +111,7 @@ jQuery(document).ready(($)=>{
 								<span class="change_this_option pult_change">Изменить \
 									<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 								</span> \
-								<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_3.3.jpg" alt="" class="pult_change" style="width:200px"> \
+								<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.3.png" alt="" class="pult_change" style="width:200px"> \
 								<h4>Подвесной пульт</h4> \
 								<p> \
 									<span class="opisanie_parametra">Входит в стоимость крана</span> \
@@ -123,16 +124,16 @@ jQuery(document).ready(($)=>{
 		//next_group( $('#razmeshenie'), 0 ); СТАРОЕ
 	});
 	$('._34').click(function () {
-		$('#main_block_for_steps').css('height', '1120px');
-		$('#vidipultov').css('display','block');easyscroll(520);
+		$('#main_block_for_steps').css('height', '1200px');
+		$('#vidipultov').css('display','block');easyscroll(720);
 	})
-	$('._35').click(function () {$('#main_block_for_steps').css('height', '1360px');// Пульт
-		$('#proizvositeli_pult').animate({'bottom':'-324px'}, 800);easyscroll(750);
+	$('._35').click(function () {$('#main_block_for_steps').css('height', '1550px');// Пульт
+		$('#proizvositeli_pult').animate({'bottom':'-324px'}, 800);easyscroll(1050);
 		cran._3Type = 'Радиоуправление с пультом';
 	});
-	$('._36').click(function () {$('#main_block_for_steps').css('height', '1360px'); //Джостик
+	$('._36').click(function () {$('#main_block_for_steps').css('height', '1550px'); //Джостик
 			cran._3Type = 'Радиоуправление с джойстиком';
-			$('#proizvositeli_pult').animate({'bottom':'-324px'}, 800);easyscroll(750);
+			$('#proizvositeli_pult').animate({'bottom':'-324px'}, 800);easyscroll(1050);
 		})
 	$('._37').click(function () {$('#main_block_for_steps').css('height', '800px');
 		hide($('#_3'));
@@ -263,7 +264,7 @@ jQuery(document).ready(($)=>{
 		$('.скрыть_варианты_ук').removeClass('скрыть_варианты_ук скрыть_варианты_animate_ук').addClass('показать_варианты_animate_ук');
 		$('.скрыть_варианты_animate_ук').removeClass('скрыть_варианты_animate_ук').addClass('показать_варианты_animate_ук');
 		$('.показать_варианты_animate_чп').removeClass('показать_варианты_animate_чп').addClass('скрыть_варианты_animate_чп');
-		$('#main_block_for_steps').css('height', '860px');easyscroll(230);
+		$('#main_block_for_steps').css('height', '950px');easyscroll(380);
 	})
 
 		$('.одна_с').click(function () {//8.3
@@ -279,7 +280,7 @@ jQuery(document).ready(($)=>{
 							<span class="change_this_option preobrazovatel_change">Изменить \
 							<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 							</span> \
-							<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.jpg" alt="" class="preobrazovatel_change" style="width:200px"> \
+							<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.3.png" alt="" class="preobrazovatel_change" style="width:200px"> \
 							<h4>Система управления</h4> \
 							<p> \
 							<span class="opisanie_parametra">Релейно-контакторная одна скорость движения</span> \
@@ -304,7 +305,7 @@ jQuery(document).ready(($)=>{
 		$('.скрыть_варианты_чп').removeClass('скрыть_варианты_чп скрыть_варианты_animate_чп').addClass('показать_варианты_animate_чп');
 		$('.скрыть_варианты_animate_чп').removeClass('скрыть_варианты_animate_чп').addClass('показать_варианты_animate_чп');
 		$('.показать_варианты_animate_ук').removeClass('показать_варианты_animate_ук').addClass('скрыть_варианты_animate_ук');
-		$('#main_block_for_steps').css('height', '860px');easyscroll(230);
+		$('#main_block_for_steps').css('height', '950px');easyscroll(380);
 	})
 
 		$('.esq').click(function () {
@@ -349,7 +350,7 @@ jQuery(document).ready(($)=>{
 		hide($('#мотор_редуктора'));
 		cran.step = 'Шаг 8 из 11'
 		next_group( $('#razmeshenie'), 0 );
-		$('#main_block_for_steps').css('height', '540px');
+		$('#main_block_for_steps').css('height', '650px');
 	//	double_speed(cran.code_of_chastotnik);
 	});
 	$('.чнг').click(function () {
@@ -359,7 +360,7 @@ jQuery(document).ready(($)=>{
 		hide($('#мотор_редуктора'));
 		cran.step = 'Шаг 8 из 11'
 		next_group( $('#razmeshenie'), 0 );
-		$('#main_block_for_steps').css('height', '540px');
+		$('#main_block_for_steps').css('height', '650px');
 		//double_speed(cran.code_of_chastotnik);
 	});
 	$('.цбб').click(function () {
@@ -369,7 +370,7 @@ jQuery(document).ready(($)=>{
 		hide($('#мотор_редуктора'));
 		cran.step = 'Шаг 8 из 11'
 		next_group( $('#razmeshenie'), 0 );
-		$('#main_block_for_steps').css('height', '540px');
+		$('#main_block_for_steps').css('height', '650px');
 		//double_speed(cran.code_of_chastotnik);
 	});
 	$('.цнг').click(function () {
@@ -379,7 +380,7 @@ jQuery(document).ready(($)=>{
 		hide($('#мотор_редуктора'));
 		cran.step = 'Шаг 8 из 11'
 		next_group( $('#razmeshenie'), 0 );
-		$('#main_block_for_steps').css('height', '540px');
+		$('#main_block_for_steps').css('height', '650px');
 		//double_speed(cran.code_of_chastotnik);
 	});
 	$('.цер').click(function () {
@@ -389,7 +390,7 @@ jQuery(document).ready(($)=>{
 		hide($('#мотор_редуктора'));
 		cran.step = 'Шаг 8 из 11'
 		next_group( $('#razmeshenie'), 0 );
-		$('#main_block_for_steps').css('height', '540px');
+		$('#main_block_for_steps').css('height', '650px');
 		//double_speed(cran.code_of_chastotnik);
 	});
 /************************************************************************************************************************
@@ -407,11 +408,23 @@ jQuery(document).ready(($)=>{
 	});
 
 
-	$('#m50').click(function() {cran.temper[0] = '-50'});
-	$('#m40').click(function() {cran.temper[0] = '-40'});
+	$('#m50').click(function() {cran.temper[0] = '-50'}).hover(function() {
+		$(this).html('<span class="descript_temper" style="background-color:#5689d0">Плюс 25% к стоимости крана</span>')
+	}, function() {
+		$(this).html('')
+	});
+	$('#m40').click(function() {cran.temper[0] = '-40'}).hover(function() {
+		$(this).html('<span class="descript_temper" style="background-color:#5689d0">Плюс 10% к стоимости крана</span>')
+	}, function() {
+		$(this).html('')
+	});
 	$('#m20').click(function() {cran.temper[0] = '-20'});
 	$('#p40').click(function() {cran.temper[1] = '+40'});
-	$('#p60').click(function() {cran.temper[1] = '+60'});
+	$('#p60').click(function() {cran.temper[1] = '+60'}).hover(function() {
+		$(this).html('<span class="descript_temper" style="background-color:#b5212e">Плюс 10% к стоимости крана</span>')
+	}, function() {
+		$(this).html('')
+	});
 	
 
 
@@ -528,14 +541,23 @@ jQuery(document).ready(($)=>{
 *																														*
 ************************************************************************************************************************/
 	$('.ток_требуется').click(()=>{
-		$('#main_block_for_steps').css('height', '820px');easyscroll(180);
+		$('#main_block_for_steps').css('height', '860px');easyscroll(180);
 		$('.скрыть_варианты_токоподвод').removeClass('скрыть_варианты_токоподвод скрыть_варианты_animate_токоподвод').addClass('показать_варианты_animate_токоподвод');
+		var data_all_tok = { action: 'tokopodvod_all',  _dlinna:cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP  };
+		$.post( calc_ajaxurl.url, data_all_tok, function (response) {
+			let result = JSON.parse(response);
+			$('#tok1').text(result.tok1+' руб.');
+			$('#tok2').text(result.tok2+' руб.');
+			$('#tok3').text(result.tok3+' руб.');
+			$('#tok4').text(result.tok4+' руб.');
+			$('#tok5').text(result.tok5+' руб.');
+		})
 	});
-		$('.каб_с_кол').click(()=>{cran.setttk = 'Кабельный с кольцами';hide($('#токоподвод'));cran.step = 'Шаг 11 из 11';$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.3.jpg')});
-		$('.каб_с_тел').click(()=>{cran.setttk = 'Кабельный с тележками';hide($('#токоподвод'));cran.step = 'Шаг 11 из 11';$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.4.jpg')});
-		$('.фесто').click(()=>{cran.setttk = 'Фестонный (С профиль)';hide($('#токоподвод'));cran.step = 'Шаг 11 из 11';$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.5.jpg')});
-		$('.откр_тролл').click(()=>{cran.setttk = 'Открытые троллеи';hide($('#токоподвод'));cran.step = 'Шаг 11 из 11';$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.6.jpg')});
-		$('.закр_тролл').click(()=>{cran.setttk = 'Закрытые троллеи';hide($('#токоподвод'));cran.step = 'Шаг 11 из 11';$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.7.jpg')});
+		$('.каб_с_кол').click(()=>{cran.setttk = 'Кабельный с кольцами';hide($('#токоподвод'));cran.step = 'Шаг 11 из 11';$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.3.png')});
+		$('.каб_с_тел').click(()=>{cran.setttk = 'Кабельный с тележками';hide($('#токоподвод'));cran.step = 'Шаг 11 из 11';$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.4.png')});
+		$('.фесто').click(()=>{cran.setttk = 'Фестонный (С профиль)';hide($('#токоподвод'));cran.step = 'Шаг 11 из 11';$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.5.png')});
+		$('.откр_тролл').click(()=>{cran.setttk = 'Открытые троллеи';hide($('#токоподвод'));cran.step = 'Шаг 11 из 11';$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.6.png')});
+		$('.закр_тролл').click(()=>{cran.setttk = 'Закрытые троллеи';hide($('#токоподвод'));cran.step = 'Шаг 11 из 11';$('#main_block_for_steps').css('height', '620px');next_group( $('#vibor_tali'), 0 );postavka_provoda('6.7.png')});
 
 	$('.ток_нетребуется').click(function () {
 		cran.setttk = 'Токоподвод не требуется';
@@ -571,7 +593,7 @@ jQuery(document).ready(($)=>{
 				tal.upravlenie = 'Электро';
 				tal.type = 'Канатная';
 				tal.country = 'Болгария';
-				tal.img = '17.5.jpg';
+				tal.img = '17.5.png';
 		    }
 		
 		$('#main_block_for_steps').css('height', '920px');
@@ -592,7 +614,7 @@ jQuery(document).ready(($)=>{
 				$('#main_block_for_steps').css('height', '1300px');
 				tal.type = 'Канатная';
 				tal.country = 'Болгария';
-				tal.img = '17.5.jpg';
+				tal.img = '17.5.png';
 			} else {
 				$('.hide_country_e').removeClass('hide_country_e').addClass('show_country_e')
 				$('.show_country_r').removeClass('show_country_r').addClass('hide_country_r')
@@ -604,13 +626,13 @@ jQuery(document).ready(($)=>{
 
 			$('.sheciya_tR').click(()=>{
 				tal.country = 'Швеция';
-				tal.img = '17.10.jpg';
+				tal.img = '17.10.png';
 					hide($('#vibor_tali'));
 					cran.step = 'end';
 					if (cran._1 == 'Опорный') {
 						resultatiO();
 						next_group($('#результат_опорного'), 0);
-						calculate_oporniy_crane();
+						cran.calculate_oporniy_crane();
 					}
 					if (cran._1 == 'Подвесной') {
 						resultatiP();
@@ -634,17 +656,17 @@ jQuery(document).ready(($)=>{
 					tal.type = 'Канатная';
 				  }
 				tal.country = 'Болгария';
-				tal.img = '17.5.jpg';
+				tal.img = '17.5.png';
 			})
 				$('.stdV_t').click(()=>{
 					cran._2.search(/Взрывобезопасное/i) == 0 ? tal.type = 'Канатная ВБИ' : tal.type = 'Канатная';
-					tal.img = '17.5.1.jpg';
+					tal.img = '17.5.1.png';
 					hide($('#vibor_tali'));
 					cran.step = 'end';
 						if (cran._1 == 'Опорный') {
 							resultatiO();
 							next_group($('#результат_опорного'), 0);
-							calculate_oporniy_crane();
+							cran.calculate_oporniy_crane();
 						}
 						if (cran._1 == 'Подвесной') {
 							resultatiP();
@@ -656,13 +678,13 @@ jQuery(document).ready(($)=>{
 				})
 				$('.umenV_t').click(()=>{
 					cran._2.search(/Взрывобезопасное/i) == 0 ? tal.type = 'Канатная УСВ ВБИ' : tal.type = 'Канатная УСВ';
-					tal.img = '17.5.2.jpg';
+					tal.img = '17.5.2.png';
 						hide($('#vibor_tali'));
 						cran.step = 'end';
 						if (cran._1 == 'Опорный') {
 							resultatiO();
 							next_group($('#результат_опорного'), 0);
-							calculate_oporniy_crane();
+							cran.calculate_oporniy_crane();
 						}
 						if (cran._1 == 'Подвесной') {
 							resultatiP();
@@ -675,13 +697,13 @@ jQuery(document).ready(($)=>{
 
 			$('.russia_tR').click(()=>{
 				tal.country = 'Россия';
-				tal.img = '17.8.jpeg';
+				tal.img = '17.8.png';
 					hide($('#vibor_tali'));
 					cran.step = 'end';
 					if (cran._1 == 'Опорный') {
 						resultatiO();
 						next_group($('#результат_опорного'), 0);
-						calculate_oporniy_crane();
+						cran.calculate_oporniy_crane();
 					}
 					if (cran._1 == 'Подвесной') {
 						resultatiP();
@@ -694,13 +716,13 @@ jQuery(document).ready(($)=>{
 			$('.russia_tE').click(()=>{
 				tal.type = 'Канатная';
 				tal.country = 'Россия';				
-				tal.img = '17.6.jpg';
+				tal.img = '17.6.png';
 					hide($('#vibor_tali'));
 					cran.step = 'end';
 					if (cran._1 == 'Опорный') {
 						resultatiO();
 						next_group($('#результат_опорного'), 0);
-						calculate_oporniy_crane();
+						cran.calculate_oporniy_crane();
 					}
 					if (cran._1 == 'Подвесной') {
 						resultatiP();
@@ -713,13 +735,13 @@ jQuery(document).ready(($)=>{
 
 			$('.china_tR').click(()=>{
 				tal.country = 'Китай';
-				tal.img = '17.9.jpg';
+				tal.img = '17.9.png';
 					hide($('#vibor_tali'));
 					cran.step = 'end';
 					if (cran._1 == 'Опорный') {
 						resultatiO();
 						next_group($('#результат_опорного'), 0);
-						calculate_oporniy_crane();
+						cran.calculate_oporniy_crane();
 					}
 					if (cran._1 == 'Подвесной') {
 						resultatiP();
@@ -731,7 +753,7 @@ jQuery(document).ready(($)=>{
 			})
 			$('.china_tE').click(()=>{
 				tal.country = 'Китай';
-				tal.img = '17.7.jpg';
+				tal.img = '17.7.png';
 				if ((tal.gp <= 500 && tal.visota <= 6000) || (tal.gp <= 10000 && tal.visota <= 9000)) {
 					$('.hide_type_tal').removeClass('hide_type_tal').addClass('show_type_tal')
 					easyscroll(920);
@@ -743,7 +765,7 @@ jQuery(document).ready(($)=>{
 					if (cran._1 == 'Опорный') {
 						resultatiO();
 						next_group($('#результат_опорного'), 0);
-						calculate_oporniy_crane();
+						cran.calculate_oporniy_crane();
 					}
 					if (cran._1 == 'Подвесной') {
 						resultatiP();
@@ -763,13 +785,13 @@ jQuery(document).ready(($)=>{
 						$('#main_block_for_steps').css('height', '2100px');
 					} else {
 						tal.type = 'Канатная';
-						tal.img = '17.3.jpg';
+						tal.img = '17.3.png';
 							hide($('#vibor_tali'));
 							cran.step = 'end';
 							if (cran._1 == 'Опорный') {
 								resultatiO();
 								next_group($('#результат_опорного'), 0);
-								calculate_oporniy_crane();
+								cran.calculate_oporniy_crane();
 							}
 							if (cran._1 == 'Подвесной') {
 								resultatiP();
@@ -782,13 +804,13 @@ jQuery(document).ready(($)=>{
 				})
 				$('.cep_t').click(()=>{
 					tal.type = 'Цепная';
-					tal.img = '17.4.jpg';
+					tal.img = '17.4.png';
 						hide($('#vibor_tali'));
 						cran.step = 'end';
 						if (cran._1 == 'Опорный') {
 							resultatiO();
 							next_group($('#результат_опорного'), 0);
-							calculate_oporniy_crane();
+							cran.calculate_oporniy_crane();
 						}
 						if (cran._1 == 'Подвесной') {
 							resultatiP();
@@ -808,7 +830,7 @@ jQuery(document).ready(($)=>{
 		if (cran._1 == 'Опорный') {
 			resultatiO();
 			next_group($('#результат_опорного'), 0);
-			calculate_oporniy_crane();
+			cran.calculate_oporniy_crane();
 		}
 		if (cran._1 == 'Подвесной') {
 			resultatiP();
@@ -1001,7 +1023,7 @@ cran.price_crane_electro_upravleniya = function (_8punkt) {
 				$.post( calc_ajaxurl.url, data_crane_electro_upravleniya, function (response) {					
 					$('.pult_change').parent('.dop_parametr').detach();
 					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="change_this_option_with_del pult_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span><span class="del_this_option return_pult_default"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
-						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" class="pult_change" style="width:200px"><h4>Управление каном</h4> \
+						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.png" alt="" class="pult_change" style="width:200px"><h4>Управление краном</h4> \
 						<p><span class="opisanie_parametra">'+String(cran._3Type)+'</span><br> \
 						<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span><i class="id_bro">b3</i></p>');
 					$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
@@ -1045,7 +1067,7 @@ cran.chastotnik_price = function (model) {
 	var data_chastotnik = { action: 'calc_chastotnik', _chastotnik_id:price.id }
 				$.post( calc_ajaxurl.url, data_chastotnik, function (response) {
 					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="change_this_option_with_del preobrazovatel_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span><span class="del_this_option return_preobrazovatel_default"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
-						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.jpg" alt="" class="preobrazovatel_change" style="width:200px"><h4>Частотный преобразователь</h4> \
+						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.png" alt="" class="preobrazovatel_change" style="width:200px"><h4>Частотный преобразователь</h4> \
 						<p><span class="opisanie_parametra">'+String(cran.speed)+'</span><br> \
 						<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span></p>');
 					$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
@@ -1059,7 +1081,7 @@ cran.double_speed = function (code_preobrazovatelya) {
 	let data_preobrazovatel = { action: 'calc_double_speed', _motor_code:cran.code_of_motor,  _motor_gp:cran.gp, _shirina:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP }
 	$.post( calc_ajaxurl.url, data_preobrazovatel, function (response) {
 		$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="change_this_option_with_del preobrazovatel_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span><span class="del_this_option return_preobrazovatel_default"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
-			'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.jpg" alt="" class="preobrazovatel_change" style="width:200px"><h4>Релейно-контакторный преобразователь</h4> \
+			'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.4.png" alt="" class="preobrazovatel_change" style="width:200px"><h4>Релейно-контакторный преобразователь</h4> \
 			<p><span class="opisanie_parametra">'+String(cran.speed)+'</span><br> \
 			<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span></p>');
 		$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
@@ -1081,7 +1103,7 @@ cran.motor_price = function (model) {
 										<span class="change_this_option motor_reductor_change">Изменить \
 											<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 										</span> \
-										<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.jpg" alt="" class="motor_reductor_change" style="width:200px"> \
+										<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/9.1.png" alt="" class="motor_reductor_change" style="width:200px"> \
 										<h4>Червячная передача ABLE (Италия)</h4> \
 										<p> \
 											<span class="opisanie_parametra">Входит в стоимость крана</span> \
@@ -1095,7 +1117,7 @@ cran.motor_price = function (model) {
 				$.post( calc_ajaxurl.url, data_motor, function (response) {
 					let answer = JSON.parse(response);
 					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr"><span class="change_this_option_with_del motor_reductor_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span><span class="del_this_option return_motor_default"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
-						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ answer.code +'.jpg" alt="" class="motor_reductor_change" style="width:200px"><h4>Мотор-редуктор</h4> \
+						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ answer.code +'.png" alt="" class="motor_reductor_change" style="width:200px"><h4>Мотор-редуктор</h4> \
 						<p><span class="opisanie_parametra">'+String(cran.motor)+'</span><br> \
 						<span class="stoimost_parametra">'+ String(Number(answer.base_price).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span></p>');
 						$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
@@ -1109,11 +1131,29 @@ cran.motor_price = function (model) {
 
 
 
-function calculate_oporniy_crane (argument) {	
+cran.calculate_oporniy_crane = function  (argument) {	
 			//////////////
 				var data_cran = { action: 'calc_cran', _gp:cran.gp, _shir:cran.paramsO.shpO, _upravl:cran._3 }
 				$.post( calc_ajaxurl.url, data_cran, function(response) {
-					cran.summa = response;
+					let price_crane = response;
+					if (cran._2.search(/Пожаробезопасное/i) != -1) {
+						cran.summa = (price_crane*10)/100 + Number(price_crane);
+					}
+					if (cran._2.search(/Взрывобезопасное/i) != -1) {
+						cran.summa = (price_crane*35)/100 + Number(price_crane);
+					}
+					if (cran._2.search(/Общепромышленное/i) != -1) {
+						cran.summa = price_crane;
+					}
+					if (cran.temper[0] == '-50') {
+						cran.summa = (price_crane*25)/100 + Number(cran.summa);
+					}
+					if (cran.temper[0] == '-40') {
+						cran.summa = (price_crane*10)/100 + Number(cran.summa);
+					}
+					if (cran.temper[1] == '+60') {
+						cran.summa = (price_crane*10)/100 + Number(cran.summa);
+					}
 					$('#summa').text(String(Number(cran.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '));
 				});
 				var data_sroki_cran = { action: 'calc_sroki', _gp:cran.gp, _shir:cran.paramsO.shpO, _upravl:cran._3 }

@@ -704,15 +704,17 @@ function price_stop () {
 add_action('wp_ajax_calc_tormoz', 'price_tormoz');
 add_action('wp_ajax_nopriv_calc_tormoz', 'price_tormoz');
 function price_tormoz () {
-	$tormoz_id = $_POST['_tormoz_id'];
-
+	$motor_code = '\''.$_POST['_motor_code'].'\'';
+	$motor_gp = $_POST['_motor_gp'];
+	$shirina = $_POST['_shirina'];
 
 	global $wpdb;$wpdb->show_errors();
-	$variants = $wpdb->prefix . 'variants';
-	$variants_result = $wpdb->get_results("SELECT id, price FROM $variants WHERE id = $tormoz_id");
-		if ($variants_result) {
-			print_r($variants_result[0]->price);
+	$mrtable = $wpdb->prefix . 'mr';
+	$mr_result = $wpdb->get_results("SELECT id, code, gp, shirina, brake_price FROM $mrtable WHERE code = $motor_code AND gp = $motor_gp AND shirina >= $shirina");
+		if ($mr_result) {
+			$tormoz = $mr_result[0]->brake_price;
 		}
+		echo $tormoz;
 
 	wp_die();
 }
@@ -770,7 +772,7 @@ function postavka_rels () {
 	$podborka_rels = $wpdb->prefix . 'stoimost_rels';
 	$podborka_rels_result = $wpdb->get_results("SELECT type, price FROM $podborka_rels WHERE type = $name_relsa");
 	if ($podborka_rels_result) {
-		echo '<span><img src="'.$url_img.'images/_5.11.jpg" alt="" style="width:140px"><p><b class="hz4">Рельс '.($rels_shirinamp/1000).'м. '.$podborka_rels_result[0]->type.'</b><br><span class="opisanie_parametra">подобран в соответствии с параметрами крана</span></p></span><span class="hiddened">'.number_format($podborka_rels_result[0]->price*($rels_shirinamp/1000), 0, ',', ' ').' руб</span>';
+		echo '<span><img src="'.$url_img.'images/_5.11.png" alt="" style="width:140px"><p><b class="hz4">Рельс '.($rels_shirinamp/1000).'м. '.$podborka_rels_result[0]->type.'</b><br><span class="opisanie_parametra">подобран в соответствии с параметрами крана</span></p></span><span class="hiddened">'.number_format($podborka_rels_result[0]->price*($rels_shirinamp/1000), 0, ',', ' ').' руб</span>';
 	}
 
 	wp_die();
@@ -793,9 +795,25 @@ function postavka_provod () {
 	}
 	wp_die();
 }
+
+add_action('wp_ajax_tokopodvod_all', 'tok_all');
+add_action('wp_ajax_nopriv_tokopodvod_all', 'tok_all');
+function tok_all () {
+	$dlinna = $_POST['_dlinna'];
+	global $wpdb;$wpdb->show_errors();
+	$stoimost_provod = $wpdb->prefix . 'stoimost_provod';
+	$cabkol = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Кабельный с кольцами' ");
+	$cabtel = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Кабельный с тележками' ");
+	$feston = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Фестонный (С профиль)' ");
+	$opentrol = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Открытые троллеи' ");
+	$closetrol = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Закрытые троллеи' ");
+	$prices = array('tok1' => $cabkol[0]->price * ($dlinna/1000), 'tok2' => $cabtel[0]->price * ($dlinna/1000), 'tok3' => $feston[0]->price * ($dlinna/1000), 'tok4' => $opentrol[0]->price * ($dlinna/1000), 'tok5' => $closetrol[0]->price * ($dlinna/1000) );
+	echo json_encode($prices);
+	wp_die();
+}
 // Провод
 
 
 /*
-								'<span><img src="'.$url_img.'images/_5.12.jpg" alt="" style="width:140px"><p><b class="hz4">'.$stoimost_provod_result[0]->type.'</b><br><span class="opisanie_parametra">подобран в соответствии с параметрами крана</span></p></span><span class="hiddened">'.number_format($stoimost_provod_result[0]->price*($provod_dlinna/1000), 0, ',', ' ').' руб</span>';
+								'<span><img src="'.$url_img.'images/_5.12.png" alt="" style="width:140px"><p><b class="hz4">'.$stoimost_provod_result[0]->type.'</b><br><span class="opisanie_parametra">подобран в соответствии с параметрами крана</span></p></span><span class="hiddened">'.number_format($stoimost_provod_result[0]->price*($provod_dlinna/1000), 0, ',', ' ').' руб</span>';
 								*/
