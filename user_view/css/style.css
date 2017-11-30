@@ -444,3 +444,9 @@ div.pultslider>div>h4:hover, div.motor_reductor_slider>div>h4:hover, .preobrazov
     color: #b5212e;
 
 }
+
+p + hr 
+{
+	margin-top: 5px;
+    margin-bottom: 5px;
+}
