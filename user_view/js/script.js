@@ -588,24 +588,40 @@ jQuery(document).ready(($)=>{
 			easyscroll(520);
 			$('#main_block_for_steps').css('height', '1360px');
 		  }	
-		  	else if (cran._2.search(/Взрывобезопасное/i) == 0) {
-				$('.hide_s_visota_tal').removeClass('hide_s_visota_tal').addClass('show_s_visota_tal');
-				tal.upravlenie = 'Электро';
-				tal.type = 'Канатная';
-				tal.country = 'Болгария';
-				tal.img = '17.5.png';
+		  	else if (cran._2.search(/Взрывобезопасное/i) == 0 && tal.gp <= 10000) {
+		  		$('.hide_type_upravleniya').removeClass('hide_type_upravleniya').addClass('show_type_upravleniya');
 		    }
 		
 		$('#main_block_for_steps').css('height', '920px');
 	});
 
 		$('.ruchnaya_t').click(()=>{
-			$('.hide_country_r').removeClass('hide_country_r').addClass('show_country_r')
-			$('.show_country_e').removeClass('show_country_e').addClass('hide_country_e')
 			tal.upravlenie = 'Ручное';
 			tal.type = 'Цепная';
-			easyscroll(820);
-			$('#main_block_for_steps').css('height', '1300px');
+			if (cran._2.search(/Взрывобезопасное/i) == 0) {
+				tal.country = 'Россия';
+				tal.img = '17.8.png';
+				cran.calculate_tal();
+				if (cran._1 == 'Опорный') {
+					resultatiO();
+					next_group($('#результат_опорного'), 0);
+					cran.calculate_oporniy_crane();
+				}
+				if (cran._1 == 'Подвесной') {
+					resultatiP();
+					next_group($('#результат_подвесного'), 0);
+				}
+				$('#dop_block').css('display', 'block');
+				hide($('#vibor_tali'));
+				$('#main_block_for_steps').css('height', '390px');
+				cran.step = 'end';
+			}
+			else {
+				$('#main_block_for_steps').css('height', '1300px');
+				$('.hide_country_r').removeClass('hide_country_r').addClass('show_country_r')
+				$('.show_country_e').removeClass('show_country_e').addClass('hide_country_e')
+				easyscroll(820);	
+			}					
 		})
 		$('.electro_t').click(()=>{
 			$('#main_block_for_steps').css('height', '1350px');
@@ -1161,22 +1177,26 @@ cran.calculate_oporniy_crane = function  (argument) {
 			//////////////
 }
 
-cran.calculate_tal = function  (argument) {	
-			//////////////
-				var data_tal = { action: 'calc_tal', _upravlenie:tal.upravlenie, _type:tal.type, _country:tal.country, _visota:tal.visota, _ispolnenie:tal.ispolnnie, _gp:tal.gp }
-				$.post( calc_ajaxurl.url, data_tal, function(response) {
-					tal.summa = response;
-					$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr  tal_for_search"><span class="change_this_option_with_del tal_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span> \
-						<span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
-					'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ tal.img +'" alt="" class="tal_change" style="width:200px"><h4>Таль '+ tal.country +'</h4> \
-					<p><span class="opisanie_parametra">'+String(tal.upravlenie)+'<br>'+String(tal.type)+'</span><br> \
-					<span class="stoimost_parametra">'+ String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span> \
-					</p>');
+cran.calculate_tal = function  (argument) {
+
+	if ($('#second_opt').find('div.tal_for_search')) {
+		$('div.tal_for_search').remove();
+	}	
+	//////////////
+	var data_tal = { action: 'calc_tal', _upravlenie:tal.upravlenie, _type:tal.type, _country:tal.country, _visota:tal.visota, _ispolnenie:tal.ispolnnie, _gp:tal.gp }
+	$.post( calc_ajaxurl.url, data_tal, function(response) {
+		tal.summa = response;
+		$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr tal_for_search"><!--<span class="change_this_option_with_del tal_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span>--> \
+			<span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
+			'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ tal.img +'" alt="" class="tal_change" style="width:200px"><h4>Таль '+ tal.country +'</h4> \
+			<p><span class="opisanie_parametra">'+String(tal.upravlenie)+'<br>'+String(tal.type)+'</span><br> \
+				<span class="stoimost_parametra">'+ String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span> \
+			</p>');
 					//easyscroll(700)
-					$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
-					$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
-				});
-			//////////////
+		$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
+		$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
+	});
+	//////////////
 }
 
 $('.bolgariya_tE').hover(function() {

@@ -100,7 +100,7 @@ table {
 #first{overflow:hidden;margin-bottom:30px}
 h1,h2,h3,h4,tr td,.ended{text-transform:uppercase}
 h2{display:block;font-size:1.3em;font-family:'Rubik Regular';/*background-color:#ffc65c;padding:10px 14px;color:#fff;*/margin:0 auto}
-h3,tr td,.ended{font-size:1em;margin-top:10px;font-family:'Rubik Regular';text-align:center}
+h3,tr td,.ended{font-size:.8em;margin-top:10px;font-family:'Rubik Regular';text-align:center}
 h4{font-size:0.889em;margin:10px ;font-family:'Rubik Regular';text-align:center}
 h4>i{font-size: .7em;}
 #first>div>article>p{margin:10px 0 0 0;font-family:'Rubik Lite';font-size:0.9em;text-align:center}

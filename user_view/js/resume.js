@@ -5,47 +5,47 @@ jQuery(document).ready(($)=>{
 		let Ogp = $('#Ogp');
 		switch (countLi) {
 					case 1: {
-	    				cran.gp = 500;
+	    				tal.gp=cran.gp = 500;
 	    				break
 	    			}
 	    			case 2: {
-	    				cran.gp = 1000;
+	    				tal.gp=cran.gp = 1000;
 	    				break
 	    			}
 	    			case 3: {
-	    				cran.gp = 2000;
+	    				tal.gp=cran.gp = 2000;
 	    				break
 	    			}
 	    			case 4: {
-	    				cran.gp = 3200;
+	    				tal.gp=cran.gp = 3200;
 	    				break
 	    			}
 	    			case 5: {
-	    				cran.gp = 5000;
+	    				tal.gp=cran.gp = 5000;
 	    				break
 	    			}
 	    			case 6: {
-	    				cran.gp = 6300;
+	    				tal.gp=cran.gp = 6300;
 	    				break
 	    			}
 	    			case 7: {
-	    				cran.gp = 8000;
+	    				tal.gp=cran.gp = 8000;
 	    				break
 	    			}
 	    			case 8: {
-	    				cran.gp = 10000;
+	    				tal.gp=cran.gp = 10000;
 	    				break
 	    			}
 	    			case 9: {
-	    				cran.gp = 12500;
+	    				tal.gp=cran.gp = 12500;
 	    				break
 	    			}
 	    			case 10: {
-	    				cran.gp = 16000;
+	    				tal.gp=cran.gp = 16000;
 	    				break
 	    			}
 	    			default: {
-	    				cran.gp = 500;
+	    				tal.gp=cran.gp = 500;
 	    				break
 	    			}
 
@@ -53,7 +53,7 @@ jQuery(document).ready(($)=>{
 		$('#Ogp').text(cran.gp);
 		setTimeout(()=>{hideChange()},300);
 		cran.calculate_oporniy_crane();
-		if ($('.return_motor_default')) {$('.return_motor_default').parent().detach();cran.motor_price(cran.code_of_motor)}
+		if ($('.return_motor_default') && cran._3 != 'Ручное' && cran.code_of_motor != 9.1) {$('.return_motor_default').parent().detach();cran.motor_price(cran.code_of_motor)}
 	});
 
 
@@ -61,11 +61,11 @@ jQuery(document).ready(($)=>{
 	$('.cOdp').click(()=>{cran.paramsO.shpO = document.getElementById('valdpO').value;$('#Odp').text(document.getElementById('valdpO').value);setTimeout(()=>{hideChange()},300);cran.calculate_oporniy_crane();})
 
 	$('#cicO').click(()=>{showChange($('#icO2'))})
-		$('#obshprm').click(()=>{cran._2 = 'Общепромышленное';$('#Oic').text('Общепромышленное');$('#pozharselect').css('display','none');$('#vzrivoselect').css('display','none');setTimeout(()=>{hideChange()},300);cran.calculate_oporniy_crane();$('#Джойстик').css('display','inline-block')})
+		$('#obshprm').click(()=>{tal.ispolnnie = cran._2 = 'Общепромышленное';$('#Oic').text('Общепромышленное');$('#pozharselect').css('display','none');$('#vzrivoselect').css('display','none');setTimeout(()=>{hideChange()},300);cran.calculate_oporniy_crane();$('#Джойстик').css('display','inline-block');})
 		$('#vzrivoshow').click(()=>{$('#vzrivoselect').css('display','block');$('#pozharselect').css('display','none')})
-			$('#vzrivoselect').change(()=>{cran._2 = 'Взрывобезопасное класса '+document.getElementById('vzrivoselect').value;$('#Oic').text(cran._2);setTimeout(()=>{hideChange()},300);cran.calculate_oporniy_crane();$('#Джойстик').css('display','none')})
+			$('#vzrivoselect').change(()=>{cran._2 = 'Взрывобезопасное класса '+document.getElementById('vzrivoselect').value;$('#Oic').text(cran._2);setTimeout(()=>{hideChange()},300);cran.calculate_oporniy_crane();$('#Джойстик').css('display','none');tal.ispolnnie = 'Взрывобезопасное';})
 		$('#pozharshow').click(()=>{$('#pozharselect').css('display','block');$('#vzrivoselect').css('display','none')})
-			$('#pozharselect').change(()=>{cran._2 = 'Пожаробезопасное класса '+document.getElementById('pozharselect').value;$('#Oic').text(cran._2);setTimeout(()=>{hideChange()},300);cran.calculate_oporniy_crane();$('#Джойстик').css('display','inline-block')})
+			$('#pozharselect').change(()=>{cran._2 = 'Пожаробезопасное класса '+document.getElementById('pozharselect').value;$('#Oic').text(cran._2);setTimeout(()=>{hideChange()},300);cran.calculate_oporniy_crane();$('#Джойстик').css('display','inline-block');tal.ispolnnie = 'Пожаробезопасное';})
 
 	$('#ctemperO').click(()=>{showChange($('#temperO'))})
 		$('#m50_2').click(()=>{cran.temper[0] = '-50'});
@@ -209,47 +209,47 @@ jQuery(document).ready(($)=>{
 		let Ogp = $('#Pgp');
 		switch (countLi) {
 					case 1: {
-	    				cran.gp = 500;
+	    				tal.gp=cran.gp = 500;
 	    				break
 	    			}
 	    			case 2: {
-	    				cran.gp = 1000;
+	    				tal.gp=cran.gp = 1000;
 	    				break
 	    			}
 	    			case 3: {
-	    				cran.gp = 2000;
+	    				tal.gp=cran.gp = 2000;
 	    				break
 	    			}
 	    			case 4: {
-	    				cran.gp = 3200;
+	    				tal.gp=cran.gp = 3200;
 	    				break
 	    			}
 	    			case 5: {
-	    				cran.gp = 5000;
+	    				tal.gp=cran.gp = 5000;
 	    				break
 	    			}
 	    			case 6: {
-	    				cran.gp = 6300;
+	    				tal.gp=cran.gp = 6300;
 	    				break
 	    			}
 	    			case 7: {
-	    				cran.gp = 8000;
+	    				tal.gp=cran.gp = 8000;
 	    				break
 	    			}
 	    			case 8: {
-	    				cran.gp = 10000;
+	    				tal.gp=cran.gp = 10000;
 	    				break
 	    			}
 	    			case 9: {
-	    				cran.gp = 12500;
+	    				tal.gp=cran.gp = 12500;
 	    				break
 	    			}
 	    			case 10: {
-	    				cran.gp = 16000;
+	    				tal.gp=cran.gp = 16000;
 	    				break
 	    			}
 	    			default: {
-	    				cran.gp = 500;
+	    				tal.gp=cran.gp = 500;
 	    				break
 	    			}
 
@@ -441,9 +441,28 @@ $('#first_opt, #second_opt').on('click', '.cat', function(event) {
 	$(this).siblings('li').css('display', 'none');
 	$(this).css('width', '100%');
 	if ($(this).hasClass('tali_dop')) {		
-		if (cran.gp > 10000) {
+		if (cran.gp > 10000 && cran._2.search(/Взрывобезопасное/i) != 0) {
 			$('#conteinert_talei_1').css('display', 'block');
 			$('.e_tal').css('display', 'inline-block');
+			if (tal.gp > 12500 && tal.visota > 15000) {
+				$('.tal_e_RUS').css('display', 'none');
+			}
+			tal.upravlenie = 'Электро';
+		}
+		else if (cran._2.search(/Взрывобезопасное/i) == 0 && tal.gp <= 10000)
+		{
+			$(this).children('.tal_r').css('display', 'inline-block');
+			$(this).children('.tal_e').css('display', 'inline-block');
+		}
+		else if (cran._2.search(/Взрывобезопасное/i) == 0 && tal.gp > 10000)
+		{
+			tal.upravlenie = 'Электро';
+			tal.type = 'Канатная';
+			tal.country = 'Болгария';
+			tal.img = '17.5.png';
+			$('#conteinert_talei_3').css('display', 'block');
+			$('.tal_std_height').css('display', 'inline-block');
+			$('.tal_mini_std_height').css('display', 'inline-block');
 		}
 		else {
 			$(this).children('.tal_r').css('display', 'inline-block');

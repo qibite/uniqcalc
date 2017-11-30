@@ -1108,21 +1108,205 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 */
 
 	$('#second_opt').on('click', '#b17_1', function(event) {
-		$('#conteinert_talei_1').css('display', 'block');
-		$('.e_tal').css('display', 'none');
-		$('.r_tal').css('display', 'inline-block');
 		tal.upravlenie = 'Ручное';
 		tal.type = 'Цепная';
+		if (cran._2.search(/Взрывобезопасное/i) == 0)
+		{
+			tal.country = 'Россия';
+			tal.img = '17.8.png';
+			tal.type = 'Взрывобезопасная'
+			cran.calculate_tal();
+			setTimeout(()=>{
+				hideOptions();
+				$('.cat').css('width', '20%');
+				$('.cat').siblings('li').css('display', 'inline-block');
+				$('.cat').children('div').css('display', 'none');
+				$('#revers').css('display', 'none');
+			},200);
+		}
+		else
+		{
+			$('#conteinert_talei_1').css('display', 'block');
+			$('.e_tal').css('display', 'none');
+			$('.r_tal').css('display', 'inline-block');	
+		}			
 	});
 
-	$('#second_opt').on('click', '.tal_e', function(event) {
-		$('#conteinert_talei_1').css('display', 'block');
-		$('.r_tal').css('display', 'none');
-		$('.e_tal').css('display', 'inline-block');
+	$('#second_opt').on('click', '#b17_2', function(event) {
 		tal.upravlenie = 'Электро';
+		if (cran._2.search(/Взрывобезопасное/i) == 0)
+		{
+			tal.country = 'Болгария';
+			tal.type = 'Канатная';
+			$('#conteinert_talei_3').css('display', 'block');
+			$('.tal_std_height').css('display', 'inline-block');
+			$('.tal_mini_std_height').css('display', 'inline-block');
+		}
+		else
+		{
+			$('#conteinert_talei_1').css('display', 'block');
+			$('.r_tal').css('display', 'none');
+			$('.e_tal').css('display', 'inline-block');			
+		}
 	});
+// РУЧНЫЕ ТАЛИ
+		$('.tal_r_RUS').click(()=>{
+			tal.country = 'Россия';
+			tal.img = '17.8.png';
+			cran.calculate_tal();
+			setTimeout(()=>{
+				hideOptions();
+				$('.cat').css('width', '20%');
+				$('.cat').siblings('li').css('display', 'inline-block');
+				$('.cat').children('div').css('display', 'none');
+				$('#revers').css('display', 'none');
+			},200);
+		});
+
+		$('.tal_r_CHN').click(()=>{
+			tal.country = 'Китай';
+			tal.img = '17.9.png';
+			cran.calculate_tal();			
+			setTimeout(()=>{
+				hideOptions();
+				$('.cat').css('width', '20%');
+				$('.cat').siblings('li').css('display', 'inline-block');
+				$('.cat').children('div').css('display', 'none');
+				$('#revers').css('display', 'none');
+			},200);
+		});
+
+		$('.tal_r_SHVED').click(()=>{
+			tal.country = 'Швеция';
+			tal.img = '17.10.png';
+			cran.calculate_tal();
+			setTimeout(()=>{
+				hideOptions();
+				$('.cat').css('width', '20%');
+				$('.cat').siblings('li').css('display', 'inline-block');
+				$('.cat').children('div').css('display', 'none');
+				$('#revers').css('display', 'none');
+			},200);
+		});
+// РУЧНЫЕ ТАЛИ
 
 
 
+// ЭЛЕКТРО ТАЛИ БОЛГАРИЯ
+$('.tal_e_BOLG').click(()=>{
+	if (tal.gp <= 2000 && tal.visota <= 12000) {
+		$('#conteinert_talei_2').css('display', 'block');
+		$('.tal_canat').css('display', 'inline-block');
+		$('.tal_cep').css('display', 'inline-block');
+	} else {		
+		$('#conteinert_talei_2').css('display', 'block');
+		$('.tal_canat').css('display', 'inline-block');
+		$('.tal_cep').css('display', 'inline-block');
+		tal.type = 'Канатная';
+	  }
+	tal.country = 'Болгария';
+	tal.img = '17.5.png';
+});
 
+	$('.tal_canat').click(()=>{
+		if (tal.country == 'Болгария') {
+			$('#conteinert_talei_3').css('display', 'block');
+			$('.tal_std_height').css('display', 'inline-block');
+			$('.tal_mini_std_height').css('display', 'inline-block');
+			tal.type = 'Канатная';
+		} else {
+			tal.type = 'Канатная';
+			tal.img = '17.3.png';
+			cran.calculate_tal();
+			setTimeout(()=>{
+				hideOptions();
+				$('.cat').css('width', '20%');
+				$('.cat').siblings('li').css('display', 'inline-block');
+				$('.cat').children('div').css('display', 'none');
+				$('#revers').css('display', 'none');
+			},200);
+		}
+	})
+	$('.tal_cep').click(()=>{
+		tal.type = 'Цепная';
+		tal.img = '17.4.png';
+		cran.calculate_tal();
+		setTimeout(()=>{
+			hideOptions();
+			$('.cat').css('width', '20%');
+			$('.cat').siblings('li').css('display', 'inline-block');
+			$('.cat').children('div').css('display', 'none');
+			$('#revers').css('display', 'none');
+		},200);
+	})
+
+		$('.tal_std_height').click(()=>{
+			cran._2.search(/Взрывобезопасное/i) == 0 ? tal.type = 'Канатная ВБИ' : tal.type = 'Канатная';
+			tal.img = '17.5.1.png';
+			cran.calculate_tal();
+			setTimeout(()=>{
+				hideOptions();
+				$('.cat').css('width', '20%');
+				$('.cat').siblings('li').css('display', 'inline-block');
+				$('.cat').children('div').css('display', 'none');
+				$('#revers').css('display', 'none');
+			},200);
+		})
+		$('.tal_mini_std_height').click(()=>{
+			cran._2.search(/Взрывобезопасное/i) == 0 ? tal.type = 'Канатная УСВ ВБИ' : tal.type = 'Канатная УСВ';
+			tal.img = '17.5.2.png';
+			cran.calculate_tal();
+			setTimeout(()=>{
+				hideOptions();
+				$('.cat').css('width', '20%');
+				$('.cat').siblings('li').css('display', 'inline-block');
+				$('.cat').children('div').css('display', 'none');
+				$('#revers').css('display', 'none');
+			},200);
+		})
+// ЭЛЕКТРО ТАЛИ БОЛГАРИЯЫ
+
+// ЭЛЕКТРО ТАЛИ РОССИЯ
+$('.tal_e_RUS').click(()=>{
+	tal.type = 'Канатная';
+	tal.country = 'Россия';
+	tal.img = '17.6.png';
+	cran.calculate_tal();
+	setTimeout(()=>{
+		hideOptions();
+		$('.cat').css('width', '20%');
+		$('.cat').siblings('li').css('display', 'inline-block');
+		$('.cat').children('div').css('display', 'none');
+		$('#revers').css('display', 'none');
+	},200);
+})
+// ЭЛЕКТРО ТАЛИ РОССИЯ
+
+// ЭЛЕКТРО ТАЛИ КИТАЙ
+$('.tal_e_CHN').click(()=>{
+	tal.country = 'Китай';
+	tal.img = '17.7.png';
+	if ((tal.gp <= 500 && tal.visota <= 6000) || (tal.gp <= 10000 && tal.visota <= 9000)) {
+		$('#conteinert_talei_2').css('display', 'block');
+	//	$('#conteinert_talei_3').css('display', 'none');
+		$('.tal_canat').css('display', 'inline-block');
+		$('.tal_cep').css('display', 'inline-block');
+	} else {
+		tal.type = 'Канатная';
+		cran.calculate_tal();
+		setTimeout(()=>{
+			hideOptions();
+			$('.cat').css('width', '20%');
+			$('.cat').siblings('li').css('display', 'inline-block');
+			$('.cat').children('div').css('display', 'none');
+			$('#revers').css('display', 'none');
+		},200);
+	}
+})
+// ЭЛЕКТРО ТАЛИ КИТАЙ
+
+function hideOptions () {
+	$('.hidden_options').removeClass('hidden_options_show').addClass('zzz hidden_options_hide');
+	$('.hidden_options div.modal_change_show').removeClass('modal_change_show').addClass('modal_change_hide');
+}
 });
