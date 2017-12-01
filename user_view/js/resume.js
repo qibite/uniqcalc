@@ -376,6 +376,26 @@ jQuery(document).ready(($)=>{
 			$('.cat').siblings('li').css('display', 'inline-block');
 			$('.cat').children('div').css('display', 'none');
 			$('#revers').css('display', 'none');
+			$('#first_opt .ul_change > li').each(function(index, el) {
+				if (cran._3 == 'Ручное') {
+					if ($('#option_1').children('.dop_parametr').length+1 > 3) {
+						$('.add_dop_1').parent().css('display', 'none');
+					}
+					else {
+						$('.add_dop_1').parent().css('display', 'inline-block');
+					}
+				}
+				else {			
+					if (cran._3 != 'Ручное') {
+						if ($('#option_1').children('.dop_parametr').length+1 >= 4) {
+							$('.add_dop_1').parent().css('display', 'none');
+						}
+						else {
+						$('.add_dop_1').parent().css('display', 'inline-block');
+						}
+					}
+				}
+			});
 		},200);
 		
 		
@@ -412,6 +432,9 @@ jQuery(document).ready(($)=>{
 		if ($('#option_2').children('.vikluchateli').length>0) {
 			$('#second_opt .cat[name$="vikluchateli"]').css('display', 'none');
 		}
+		if ($('#option_2').children('.tali').length>0) {
+			$('#second_opt .cat[name$="tali"]').css('display', 'none');
+		}
 	});
 	$('#second_opt').on('click', 'li:not(".cat"), .cat>div.change_li', function () {
 		var that = $(this);		
@@ -431,6 +454,26 @@ jQuery(document).ready(($)=>{
 			$('.cat').siblings('li').css('display', 'inline-block');
 			$('.cat').children('div').css('display', 'none');
 			$('#revers').css('display', 'none');
+			$('#second_opt .ul_change > li').each(function(index, el) {
+				if (cran._3 == 'Ручное') {
+					if ($('#option_2').children('.dop_parametr').length+1 > 3) {
+						$('.add_dop_2').parent().css('display', 'none');
+					}
+					else {
+						$('.add_dop_2').parent().css('display', 'inline-block');
+					}
+				}
+				else {			
+					if (cran._3 != 'Ручное') {
+						if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
+							$('.add_dop_2').parent().css('display', 'none');
+						}
+						else {
+						$('.add_dop_2').parent().css('display', 'inline-block');
+						}
+					}
+				}
+			});
 		},200);
 		
 		
@@ -453,16 +496,6 @@ $('#first_opt, #second_opt').on('click', '.cat', function(event) {
 		{
 			$(this).children('.tal_r').css('display', 'inline-block');
 			$(this).children('.tal_e').css('display', 'inline-block');
-		}
-		else if (cran._2.search(/Взрывобезопасное/i) == 0 && tal.gp > 10000)
-		{
-			tal.upravlenie = 'Электро';
-			tal.type = 'Канатная';
-			tal.country = 'Болгария';
-			tal.img = '17.5.png';
-			$('#conteinert_talei_3').css('display', 'block');
-			$('.tal_std_height').css('display', 'inline-block');
-			$('.tal_mini_std_height').css('display', 'inline-block');
 		}
 		else {
 			$(this).children('.tal_r').css('display', 'inline-block');
@@ -710,5 +743,10 @@ $('#a3').on('click', '.tokoprovod', function(event) {
 
 
 function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.body.scrollTop + scrollTo) + 'px' }, 700) }
+
+
+
+
+
 });
 

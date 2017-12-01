@@ -1186,7 +1186,7 @@ cran.calculate_tal = function  (argument) {
 	var data_tal = { action: 'calc_tal', _upravlenie:tal.upravlenie, _type:tal.type, _country:tal.country, _visota:tal.visota, _ispolnenie:tal.ispolnnie, _gp:tal.gp }
 	$.post( calc_ajaxurl.url, data_tal, function(response) {
 		tal.summa = response;
-		$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr tal_for_search"><!--<span class="change_this_option_with_del tal_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span>--> \
+		$('#option_2 .dop_parametr:last-child').before('<div class="dop_parametr tal_for_search tali"><!--<span class="change_this_option_with_del tal_change"><i class="fa fa-pencil-square" aria-hidden="true"></i> Изменить</span>--> \
 			<span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src=" \
 			'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ tal.img +'" alt="" class="tal_change" style="width:200px"><h4>Таль '+ tal.country +'</h4> \
 			<p><span class="opisanie_parametra">'+String(tal.upravlenie)+'<br>'+String(tal.type)+'</span><br> \

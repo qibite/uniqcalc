@@ -1092,6 +1092,46 @@ function get_preobrazovatel_id (model, img)
 			if ($('.return_pult_default')) {$('.return_pult_default').parent().detach();cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya(cran.code_of_chastotnik) : false;}
 		}
 		$(this).parent().detach();
+		$('#first_opt .ul_change > li').each(function(index, el) {
+			if (cran._3 == 'Ручное') {
+				if ($('#option_1').children('.dop_parametr').length+1 > 3) {
+					$('.add_dop_1').parent().css('display', 'none');
+				}
+				else {
+					$('.add_dop_1').parent().css('display', 'inline-block');
+				}
+			}
+			else {			
+				if (cran._3 != 'Ручное') {
+					if ($('#option_1').children('.dop_parametr').length+1 >= 4) {
+						$('.add_dop_1').parent().css('display', 'none');
+					}
+					else {
+					$('.add_dop_1').parent().css('display', 'inline-block');
+					}
+				}
+			}
+		});
+		$('#second_opt .ul_change > li').each(function(index, el) {
+			if (cran._3 == 'Ручное') {
+				if ($('#option_2').children('.dop_parametr').length+1 > 3) {
+					$('.add_dop_2').parent().css('display', 'none');
+				}
+				else {
+					$('.add_dop_2').parent().css('display', 'inline-block');
+				}
+			}
+			else {			
+				if (cran._3 != 'Ручное') {
+					if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
+						$('.add_dop_2').parent().css('display', 'none');
+					}
+					else {
+					$('.add_dop_2').parent().css('display', 'inline-block');
+					}
+				}
+			}
+		});
 	});
 function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.body.scrollTop + scrollTo) + 'px' }, 700) }
 
@@ -1198,10 +1238,10 @@ $('.tal_e_BOLG').click(()=>{
 		$('#conteinert_talei_2').css('display', 'block');
 		$('.tal_canat').css('display', 'inline-block');
 		$('.tal_cep').css('display', 'inline-block');
-	} else {		
-		$('#conteinert_talei_2').css('display', 'block');
-		$('.tal_canat').css('display', 'inline-block');
-		$('.tal_cep').css('display', 'inline-block');
+	} else {
+		$('#conteinert_talei_3').css('display', 'block');
+		$('.tal_std_height').css('display', 'inline-block');
+		$('.tal_mini_std_height').css('display', 'inline-block');
 		tal.type = 'Канатная';
 	  }
 	tal.country = 'Болгария';
@@ -1309,4 +1349,5 @@ function hideOptions () {
 	$('.hidden_options').removeClass('hidden_options_show').addClass('zzz hidden_options_hide');
 	$('.hidden_options div.modal_change_show').removeClass('modal_change_show').addClass('modal_change_hide');
 }
+
 });
