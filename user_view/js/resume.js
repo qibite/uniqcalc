@@ -89,9 +89,50 @@ jQuery(document).ready(($)=>{
 			$('.dop_parametr:has("span.pult_change")').remove();
 			$('.dop_parametr:has("span.motor_reductor_change")').remove();
 			$('.dop_parametr:has("span.preobrazovatel_change")').remove();
+			$('#option_1 > .tokoprovod').remove();
 			$('#gpO > ul li:nth-child(9)').css('display','none');$('#gpO > ul li:nth-child(10)').css('display','none');
 			if (cran.gp > 10000) {cran.gp = 10000; alert('Грузоподъемность была уменьшена до 10000 кг для крана с ручным управлением!')}
 			cran.resetparam();
+			$('#first_opt .ul_change > li').each(function(index, el) {
+			if (cran._3 == 'Ручное') {
+				if ($('#option_1').children('.dop_parametr').length+1 > 3) {
+					$('.add_dop_1').parent().css('display', 'none');
+				}
+				else {
+					$('.add_dop_1').parent().css('display', 'inline-block');
+				}
+			}
+			else {			
+				if (cran._3 != 'Ручное') {
+					if ($('#option_1').children('.dop_parametr').length+1 > 4) {
+						$('.add_dop_1').parent().css('display', 'none');
+					}
+					else {
+					$('.add_dop_1').parent().css('display', 'inline-block');
+					}
+				}
+			}
+		});
+		$('#second_opt .ul_change > li').each(function(index, el) {
+			if (cran._3 == 'Ручное') {
+				if ($('#option_2').children('.dop_parametr').length+1 > 3) {
+					$('.add_dop_2').parent().css('display', 'none');
+				}
+				else {
+					$('.add_dop_2').parent().css('display', 'inline-block');
+				}
+			}
+			else {			
+				if (cran._3 != 'Ручное') {
+					if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
+						$('.add_dop_2').parent().css('display', 'none');
+					}
+					else {
+					$('.add_dop_2').parent().css('display', 'inline-block');
+					}
+				}
+			}
+		});
 		});
 		$('#Электро').click(()=>{
 			cran._3 = 'Электро';
@@ -147,6 +188,46 @@ jQuery(document).ready(($)=>{
 			cran.code_of_chastotnik = '8.3';
 
 			cran.resetparam();
+			$('#first_opt .ul_change > li').each(function(index, el) {
+			if (cran._3 == 'Ручное') {
+				if ($('#option_1').children('.dop_parametr').length+1 > 3) {
+					$('.add_dop_1').parent().css('display', 'none');
+				}
+				else {
+					$('.add_dop_1').parent().css('display', 'inline-block');
+				}
+			}
+			else {			
+				if (cran._3 != 'Ручное') {
+					if ($('#option_1').children('.dop_parametr').length+1 > 4) {
+						$('.add_dop_1').parent().css('display', 'none');
+					}
+					else {
+					$('.add_dop_1').parent().css('display', 'inline-block');
+					}
+				}
+			}
+		});
+		$('#second_opt .ul_change > li').each(function(index, el) {
+			if (cran._3 == 'Ручное') {
+				if ($('#option_2').children('.dop_parametr').length+1 > 3) {
+					$('.add_dop_2').parent().css('display', 'none');
+				}
+				else {
+					$('.add_dop_2').parent().css('display', 'inline-block');
+				}
+			}
+			else {			
+				if (cran._3 != 'Ручное') {
+					if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
+						$('.add_dop_2').parent().css('display', 'none');
+					}
+					else {
+					$('.add_dop_2').parent().css('display', 'inline-block');
+					}
+				}
+			}
+		});
 	});
 
 	$('#CrazrezO').click(()=>{showChange($('#razrezO'))})
@@ -387,7 +468,7 @@ jQuery(document).ready(($)=>{
 				}
 				else {			
 					if (cran._3 != 'Ручное') {
-						if ($('#option_1').children('.dop_parametr').length+1 >= 4) {
+						if ($('#option_1').children('.dop_parametr').length+1 > 4) {
 							$('.add_dop_1').parent().css('display', 'none');
 						}
 						else {

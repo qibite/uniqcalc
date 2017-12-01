@@ -1103,7 +1103,7 @@ function get_preobrazovatel_id (model, img)
 			}
 			else {			
 				if (cran._3 != 'Ручное') {
-					if ($('#option_1').children('.dop_parametr').length+1 >= 4) {
+					if ($('#option_1').children('.dop_parametr').length+1 > 4) {
 						$('.add_dop_1').parent().css('display', 'none');
 					}
 					else {
