@@ -1162,6 +1162,26 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 				$('.cat').siblings('li').css('display', 'inline-block');
 				$('.cat').children('div').css('display', 'none');
 				$('#revers').css('display', 'none');
+				$('#second_opt .ul_change > li').each(function(index, el) {
+					if (cran._3 == 'Ручное') {
+						if ($('#option_2').children('.dop_parametr').length+1 > 2) {
+							$('.add_dop_2').parent().css('display', 'none');
+						}
+						else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+						}
+					}
+					else {			
+						if (cran._3 != 'Ручное') {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+								$('.add_dop_2').parent().css('display', 'none');
+							}
+							else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+							}
+						}
+					}
+				});
 			},200);
 		}
 		else
@@ -1200,6 +1220,26 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 				$('.cat').siblings('li').css('display', 'inline-block');
 				$('.cat').children('div').css('display', 'none');
 				$('#revers').css('display', 'none');
+				$('#second_opt .ul_change > li').each(function(index, el) {
+					if (cran._3 == 'Ручное') {
+						if ($('#option_2').children('.dop_parametr').length+1 > 2) {
+							$('.add_dop_2').parent().css('display', 'none');
+						}
+						else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+						}
+					}
+					else {			
+						if (cran._3 != 'Ручное') {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+								$('.add_dop_2').parent().css('display', 'none');
+							}
+							else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+							}
+						}
+					}
+				});
 			},200);
 		});
 
@@ -1213,6 +1253,26 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 				$('.cat').siblings('li').css('display', 'inline-block');
 				$('.cat').children('div').css('display', 'none');
 				$('#revers').css('display', 'none');
+				$('#second_opt .ul_change > li').each(function(index, el) {
+					if (cran._3 == 'Ручное') {
+						if ($('#option_2').children('.dop_parametr').length+1 > 2) {
+							$('.add_dop_2').parent().css('display', 'none');
+						}
+						else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+						}
+					}
+					else {			
+						if (cran._3 != 'Ручное') {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+								$('.add_dop_2').parent().css('display', 'none');
+							}
+							else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+							}
+						}
+					}
+				});
 			},200);
 		});
 
@@ -1226,6 +1286,26 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 				$('.cat').siblings('li').css('display', 'inline-block');
 				$('.cat').children('div').css('display', 'none');
 				$('#revers').css('display', 'none');
+				$('#second_opt .ul_change > li').each(function(index, el) {
+					if (cran._3 == 'Ручное') {
+						if ($('#option_2').children('.dop_parametr').length+1 > 2) {
+							$('.add_dop_2').parent().css('display', 'none');
+						}
+						else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+						}
+					}
+					else {			
+						if (cran._3 != 'Ручное') {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+								$('.add_dop_2').parent().css('display', 'none');
+							}
+							else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+							}
+						}
+					}
+				});
 			},200);
 		});
 // РУЧНЫЕ ТАЛИ
@@ -1264,6 +1344,26 @@ $('.tal_e_BOLG').click(()=>{
 				$('.cat').siblings('li').css('display', 'inline-block');
 				$('.cat').children('div').css('display', 'none');
 				$('#revers').css('display', 'none');
+				$('#second_opt .ul_change > li').each(function(index, el) {
+					if (cran._3 == 'Ручное') {
+						if ($('#option_2').children('.dop_parametr').length+1 > 2) {
+							$('.add_dop_2').parent().css('display', 'none');
+						}
+						else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+						}
+					}
+					else {			
+						if (cran._3 != 'Ручное') {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+								$('.add_dop_2').parent().css('display', 'none');
+							}
+							else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+							}
+						}
+					}
+				});
 			},200);
 		}
 	})
@@ -1277,6 +1377,26 @@ $('.tal_e_BOLG').click(()=>{
 			$('.cat').siblings('li').css('display', 'inline-block');
 			$('.cat').children('div').css('display', 'none');
 			$('#revers').css('display', 'none');
+				$('#second_opt .ul_change > li').each(function(index, el) {
+					if (cran._3 == 'Ручное') {
+						if ($('#option_2').children('.dop_parametr').length+1 > 2) {
+							$('.add_dop_2').parent().css('display', 'none');
+						}
+						else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+						}
+					}
+					else {			
+						if (cran._3 != 'Ручное') {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+								$('.add_dop_2').parent().css('display', 'none');
+							}
+							else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+							}
+						}
+					}
+				});
 		},200);
 	})
 
@@ -1290,6 +1410,26 @@ $('.tal_e_BOLG').click(()=>{
 				$('.cat').siblings('li').css('display', 'inline-block');
 				$('.cat').children('div').css('display', 'none');
 				$('#revers').css('display', 'none');
+				$('#second_opt .ul_change > li').each(function(index, el) {
+					if (cran._3 == 'Ручное') {
+						if ($('#option_2').children('.dop_parametr').length+1 > 2) {
+							$('.add_dop_2').parent().css('display', 'none');
+						}
+						else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+						}
+					}
+					else {			
+						if (cran._3 != 'Ручное') {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+								$('.add_dop_2').parent().css('display', 'none');
+							}
+							else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+							}
+						}
+					}
+				});
 			},200);
 		})
 		$('.tal_mini_std_height').click(()=>{
@@ -1302,6 +1442,26 @@ $('.tal_e_BOLG').click(()=>{
 				$('.cat').siblings('li').css('display', 'inline-block');
 				$('.cat').children('div').css('display', 'none');
 				$('#revers').css('display', 'none');
+				$('#second_opt .ul_change > li').each(function(index, el) {
+					if (cran._3 == 'Ручное') {
+						if ($('#option_2').children('.dop_parametr').length+1 > 2) {
+							$('.add_dop_2').parent().css('display', 'none');
+						}
+						else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+						}
+					}
+					else {			
+						if (cran._3 != 'Ручное') {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+								$('.add_dop_2').parent().css('display', 'none');
+							}
+							else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+							}
+						}
+					}
+				});
 			},200);
 		})
 // ЭЛЕКТРО ТАЛИ БОЛГАРИЯЫ
@@ -1318,6 +1478,26 @@ $('.tal_e_RUS').click(()=>{
 		$('.cat').siblings('li').css('display', 'inline-block');
 		$('.cat').children('div').css('display', 'none');
 		$('#revers').css('display', 'none');
+				$('#second_opt .ul_change > li').each(function(index, el) {
+					if (cran._3 == 'Ручное') {
+						if ($('#option_2').children('.dop_parametr').length+1 > 2) {
+							$('.add_dop_2').parent().css('display', 'none');
+						}
+						else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+						}
+					}
+					else {			
+						if (cran._3 != 'Ручное') {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+								$('.add_dop_2').parent().css('display', 'none');
+							}
+							else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+							}
+						}
+					}
+				});
 	},200);
 })
 // ЭЛЕКТРО ТАЛИ РОССИЯ
@@ -1340,6 +1520,26 @@ $('.tal_e_CHN').click(()=>{
 			$('.cat').siblings('li').css('display', 'inline-block');
 			$('.cat').children('div').css('display', 'none');
 			$('#revers').css('display', 'none');
+				$('#second_opt .ul_change > li').each(function(index, el) {
+					if (cran._3 == 'Ручное') {
+						if ($('#option_2').children('.dop_parametr').length+1 > 2) {
+							$('.add_dop_2').parent().css('display', 'none');
+						}
+						else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+						}
+					}
+					else {			
+						if (cran._3 != 'Ручное') {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+								$('.add_dop_2').parent().css('display', 'none');
+							}
+							else {
+							$('.add_dop_2').parent().css('display', 'inline-block');
+							}
+						}
+					}
+				});
 		},200);
 	}
 })
