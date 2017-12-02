@@ -888,7 +888,7 @@ jQuery(document).ready(($)=>{
 		}		
 	});
 
-	$('.dop_menu_open').on('mouseenter', '.dop_parametr',function(event) {
+	$('.dop_menu_open, .dop_menu').on('mouseenter', '.dop_parametr',function(event) {
 		$(this).children('.del_this_option').css('visibility','visible')
 		$(this).children('.change_this_option').css('visibility','visible')
 		$(this).children('.change_this_option_with_del').css('visibility','visible')
@@ -1167,6 +1167,12 @@ cran.calculate_oporniy_crane = function  (argument) {
 					}
 					if (cran.temper[1] == '+60') {
 						cran.summa = (price_crane*10)/100 + Number(cran.summa);
+					}
+					if (cran.ncuprav == '24В') {
+						cran.summa = 5000 + Number(cran.summa);
+					}
+					if (cran.visota == 'Увеличенная') {
+						cran.summa = 70000 + Number(cran.summa);
 					}
 					$('#summa').text(String(Number(cran.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '));
 				});

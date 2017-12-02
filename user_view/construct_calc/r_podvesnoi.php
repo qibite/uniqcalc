@@ -49,10 +49,6 @@ echo <<<EOT
 				<td class="">Тип управления краном - <span id="Ptc"></span></td>
 			</tr>
 			<tr>
-				<td><i class="hover"  id="sposob_uprP">изменить</i></td>
-				<td class="">Способ управления краном - <span id="Puc"></span></td>
-			</tr>
-			<tr>
 				<td><i class="hover" id="CrazrezP">изменить</i></td>
 				<td class="">Разрезной тип конструкции - <span id="Ptk"></span></td>
 			</tr>
@@ -77,16 +73,8 @@ echo <<<EOT
 				<td class="">Напряжение цепи управления - <span id="Pvolt"></span></td>
 			</tr>
 			<tr>
-				<td><i class="hover" id="cPis">изменить</i></td>
-				<td class="">Исполнение скорости крана - <span id="Pis"></span></td>
-			</tr>
-			<tr>
 				<td><i class="hover" id="сPspeed">изменить</i></td>
 				<td class="">Скорость перемещения крана - <span id="Pspeed"></span></td>
-			</tr>
-			<tr>
-				<td><i class="hover" id="cPttk">изменить</i></td>
-				<td class="">Токоподвод к крану - <span id="Pttk"></span></td>
 			</tr>
 		</tbody>
 	</table>

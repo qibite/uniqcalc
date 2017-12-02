@@ -203,34 +203,6 @@ $wpdb->show_errors();
 	</div>
 <!-- Напряжение цепи -->
 
-<!-- Исполнение скорости крана -->
-	<div id="исполнение_скорости" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="rk" class="change_li"><span>Релейно-контакторная</span></li>
-			<li id="chp" class="change_li"><span>Частотный преобразователь</span></li>
-		</ul>
-	</div>
-<!-- Исполнение скорости крана -->
-
-<!-- Релейло -->
-	<div id="релейно" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="одна_скорость" class="change_li"><span>Одна скорость движения крана</span></li>
-			<li id="несколько_скоростей" class="change_li"><span>Несколько скоростей крана</span></li>
-		</ul>
-	</div>
-<!-- Релейло -->
-
-<!-- Частотно -->
-	<div id="частотно" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="esq" class="change_li"><span>ESQ (Китай)</span></li>
-			<li id="hyundai" class="change_li"><span>Hyundai (Корея)</span></li>
-			<li id="danfross" class="change_li"><span>Danfoss (Германия)</span></li>
-		</ul>
-	</div>
-<!-- Частотно -->
-
 <!-- Скорость -->
 	<div id="скорость" class="modal_change modal_change_hide">
 		<ul class="ul_change">
@@ -240,33 +212,6 @@ $wpdb->show_errors();
 		</ul>
 	</div>
 <!-- Скорость -->
-
-<!-- тип токоподвода -->
-	<div id="тип_токоподвода" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="кск" class="change_li"><span>Кабельный с кольцами</span></li>
-			<li id="кст" class="change_li"><span>Кабельный с тележками</span></li>
-			<li id="ф" class="change_li"><span>Фестонный (с-профиль)</span></li>
-			<li id="от" class="change_li"><span>Откртые троллеи</span></li>
-			<li id="зт" class="change_li"><span>Закрытые троллеи</span></li>			
-			<li id="нетребуется" class="change_li"><span>Не требуется</span></li>
-		</ul>
-	</div>
-<!-- тип токоподвода -->
-
-
-<!-- Мотор -->
-	<div id="motorO" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="м1O" class="change_li" style="line-height:2em"><span>Червячная передача<br>ABLE (Италия)</span></li>
-			<li id="м2O" class="change_li" style="line-height:2em"><span>Червячная передача<br>NORD (Германия)</span></li>
-			<li id="м3O" class="change_li" style="line-height:2em"><span>Циллиндрическая передача<br>Балкан Эхо (Болгария)</span></li>
-			<li id="м4O" class="change_li" style="line-height:2em"><span>Циллиндрическая передача<br>NORD (Германия)</span></li>
-			<li id="м5O" class="change_li" style="line-height:2em"><span>Циллиндрическая передача<br>Европривод (Россия)</span></li>
-		</ul>
-	</div>
-<!-- Мотор -->
-
 
 <!---------------------------------------------------------------------------------------------------------->
 
@@ -404,34 +349,6 @@ $wpdb->show_errors();
 	</div>
 <!-- Напряжение цепи -->
 
-<!-- Исполнение скорости крана -->
-	<div id="исполнение_скоростиP" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="rkP" class="change_li"><span>Релейно-контакторная</span></li>
-			<li id="chpP" class="change_li"><span>Частотный преобразователь</span></li>
-		</ul>
-	</div>
-<!-- Исполнение скорости крана -->
-
-<!-- Релейло -->
-	<div id="релейноP" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="одна_скоростьP" class="change_li"><span>Одна скорость движения крана</span></li>
-			<li id="несколько_скоростейP" class="change_li"><span>Несколько скоростей крана</span></li>
-		</ul>
-	</div>
-<!-- Релейло -->
-
-<!-- Частотно -->
-	<div id="частотноP" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="esqP" class="change_li"><span>ESQ (Китай)</span></li>
-			<li id="hyundaiP" class="change_li"><span>Hyundai (Корея)</span></li>
-			<li id="danfrossP" class="change_li"><span>Danfoss (Германия)</span></li>
-		</ul>
-	</div>
-<!-- Частотно -->
-
 <!-- Скорость -->
 	<div id="скоростьP" class="modal_change modal_change_hide">
 		<ul class="ul_change">
@@ -441,31 +358,6 @@ $wpdb->show_errors();
 		</ul>
 	</div>
 <!-- Скорость -->
-
-<!-- тип токоподвода -->
-	<div id="тип_токоподводаP" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="кскP" class="change_li"><span>Кабельный с кольцами</span></li>
-			<li id="кстP" class="change_li"><span>Кабельный с тележками</span></li>
-			<li id="фP" class="change_li"><span>Фестонный (с-профиль)</span></li>
-			<li id="отP" class="change_li"><span>Откртые троллеи</span></li>
-			<li id="зтP" class="change_li"><span>Закрытые троллеи</span></li>
-			<li id="нетребуетсяP" class="change_li"><span>Не требуется</span></li>
-		</ul>
-	</div>
-<!-- тип токоподвода -->
-
-<!-- Мотор -->
-	<div id="motorP" class="modal_change modal_change_hide">
-		<ul class="ul_change">
-			<li id="м1P" class="change_li" style="line-height:2em"><span>Червячная передача<br>ABLE (Италия)</span></li>
-			<li id="м2P" class="change_li" style="line-height:2em"><span>Червячная передача<br>NORD (Германия)</span></li>
-			<li id="м3P" class="change_li" style="line-height:2em"><span>Циллиндрическая передача<br>Балкан Эхо (Болгария)</span></li>
-			<li id="м4P" class="change_li" style="line-height:2em"><span>Циллиндрическая передача<br>NORD (Германия)</span></li>
-			<li id="м5P" class="change_li" style="line-height:2em"><span>Циллиндрическая передача<br>Европривод (Россия)</span></li>
-		</ul>
-	</div>
-<!-- Мотор -->
 </aside>
 
 <aside id="dop_block">

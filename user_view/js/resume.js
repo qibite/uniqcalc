@@ -1,64 +1,64 @@
 jQuery(document).ready(($)=>{
 	$('#cgpO').click(()=>{showChange($('#gpO'))})
-	$('#gpO > ul').on('click', 'li', function(event) {
-		let countLi = $(this).index() + 1;
-		let Ogp = $('#Ogp');
-		switch (countLi) {
-					case 1: {
-	    				tal.gp=cran.gp = 500;
-	    				break
-	    			}
-	    			case 2: {
-	    				tal.gp=cran.gp = 1000;
-	    				break
-	    			}
-	    			case 3: {
-	    				tal.gp=cran.gp = 2000;
-	    				break
-	    			}
-	    			case 4: {
-	    				tal.gp=cran.gp = 3200;
-	    				break
-	    			}
-	    			case 5: {
-	    				tal.gp=cran.gp = 5000;
-	    				break
-	    			}
-	    			case 6: {
-	    				tal.gp=cran.gp = 6300;
-	    				break
-	    			}
-	    			case 7: {
-	    				tal.gp=cran.gp = 8000;
-	    				break
-	    			}
-	    			case 8: {
-	    				tal.gp=cran.gp = 10000;
-	    				break
-	    			}
-	    			case 9: {
-	    				tal.gp=cran.gp = 12500;
-	    				break
-	    			}
-	    			case 10: {
-	    				tal.gp=cran.gp = 16000;
-	    				break
-	    			}
-	    			default: {
-	    				tal.gp=cran.gp = 500;
-	    				break
-	    			}
+		$('#gpO > ul').on('click', 'li', function(event) {
+			let countLi = $(this).index() + 1;
+			let Ogp = $('#Ogp');
+			switch (countLi) {
+						case 1: {
+		    				tal.gp=cran.gp = 500;
+		    				break
+		    			}
+		    			case 2: {
+		    				tal.gp=cran.gp = 1000;
+		    				break
+		    			}
+		    			case 3: {
+		    				tal.gp=cran.gp = 2000;
+		    				break
+		    			}
+		    			case 4: {
+		    				tal.gp=cran.gp = 3200;
+		    				break
+		    			}
+		    			case 5: {
+		    				tal.gp=cran.gp = 5000;
+		    				break
+		    			}
+		    			case 6: {
+		    				tal.gp=cran.gp = 6300;
+		    				break
+		    			}
+		    			case 7: {
+		    				tal.gp=cran.gp = 8000;
+		    				break
+		    			}
+		    			case 8: {
+		    				tal.gp=cran.gp = 10000;
+		    				break
+		    			}
+		    			case 9: {
+		    				tal.gp=cran.gp = 12500;
+		    				break
+		    			}
+		    			case 10: {
+		    				tal.gp=cran.gp = 16000;
+		    				break
+		    			}
+		    			default: {
+		    				tal.gp=cran.gp = 500;
+		    				break
+		    			}
 
-		}
-		$('#Ogp').text(cran.gp);
-		setTimeout(()=>{hideChange()},300);
-		cran.calculate_oporniy_crane();
-		if ($('.return_motor_default') && cran._3 != 'Ручное' && cran.code_of_motor != 9.1) {$('.return_motor_default').parent().detach();cran.motor_price(cran.code_of_motor)}
-	});
+			}
+			$('#Ogp').text(cran.gp);
+			setTimeout(()=>{hideChange()},300);
+			cran.calculate_oporniy_crane();
+			if ($('.return_motor_default') && cran._3 != 'Ручное' && cran.code_of_motor != 9.1) {$('.return_motor_default').parent().detach();cran.motor_price(cran.code_of_motor)}
+		});
 
 
 	$('#cdpO').click(()=>{showChange($('#dpO2'))})
-	$('.cOdp').click(()=>{cran.paramsO.shpO = document.getElementById('valdpO').value;$('#Odp').text(document.getElementById('valdpO').value);setTimeout(()=>{hideChange()},300);cran.calculate_oporniy_crane();})
+		$('.cOdp').click(()=>{cran.paramsO.shpO = document.getElementById('valdpO').value;$('#Odp').text(document.getElementById('valdpO').value);setTimeout(()=>{hideChange()},300);cran.calculate_oporniy_crane();})
 
 	$('#cicO').click(()=>{showChange($('#icO2'))})
 		$('#obshprm').click(()=>{tal.ispolnnie = cran._2 = 'Общепромышленное';$('#Oic').text('Общепромышленное');$('#pozharselect').css('display','none');$('#vzrivoselect').css('display','none');setTimeout(()=>{hideChange()},300);cran.calculate_oporniy_crane();$('#Джойстик').css('display','inline-block');})
@@ -94,45 +94,45 @@ jQuery(document).ready(($)=>{
 			if (cran.gp > 10000) {cran.gp = 10000; alert('Грузоподъемность была уменьшена до 10000 кг для крана с ручным управлением!')}
 			cran.resetparam();
 			$('#first_opt .ul_change > li').each(function(index, el) {
-			if (cran._3 == 'Ручное') {
-				if ($('#option_1').children('.dop_parametr').length+1 > 3) {
-					$('.add_dop_1').parent().css('display', 'none');
-				}
-				else {
-					$('.add_dop_1').parent().css('display', 'inline-block');
-				}
-			}
-			else {			
-				if (cran._3 != 'Ручное') {
-					if ($('#option_1').children('.dop_parametr').length+1 > 4) {
+				if (cran._3 == 'Ручное') {
+					if ($('#option_1').children('.dop_parametr').length+1 > 3) {
 						$('.add_dop_1').parent().css('display', 'none');
 					}
 					else {
-					$('.add_dop_1').parent().css('display', 'inline-block');
+						$('.add_dop_1').parent().css('display', 'inline-block');
 					}
 				}
-			}
-		});
-		$('#second_opt .ul_change > li').each(function(index, el) {
-			if (cran._3 == 'Ручное') {
-				if ($('#option_2').children('.dop_parametr').length+1 > 3) {
-					$('.add_dop_2').parent().css('display', 'none');
+				else {			
+					if (cran._3 != 'Ручное') {
+						if ($('#option_1').children('.dop_parametr').length+1 > 4) {
+							$('.add_dop_1').parent().css('display', 'none');
+						}
+						else {
+						$('.add_dop_1').parent().css('display', 'inline-block');
+						}
+					}
 				}
-				else {
-					$('.add_dop_2').parent().css('display', 'inline-block');
-				}
-			}
-			else {			
-				if (cran._3 != 'Ручное') {
-					if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
+			});
+			$('#second_opt .ul_change > li').each(function(index, el) {
+				if (cran._3 == 'Ручное') {
+					if ($('#option_2').children('.dop_parametr').length+1 > 3) {
 						$('.add_dop_2').parent().css('display', 'none');
 					}
 					else {
-					$('.add_dop_2').parent().css('display', 'inline-block');
+						$('.add_dop_2').parent().css('display', 'inline-block');
 					}
 				}
-			}
-		});
+				else {			
+					if (cran._3 != 'Ручное') {
+						if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
+							$('.add_dop_2').parent().css('display', 'none');
+						}
+						else {
+						$('.add_dop_2').parent().css('display', 'inline-block');
+						}
+					}
+				}
+			});
 		});
 		$('#Электро').click(()=>{
 			cran._3 = 'Электро';
@@ -189,55 +189,55 @@ jQuery(document).ready(($)=>{
 
 			cran.resetparam();
 			$('#first_opt .ul_change > li').each(function(index, el) {
-			if (cran._3 == 'Ручное') {
-				if ($('#option_1').children('.dop_parametr').length+1 > 3) {
-					$('.add_dop_1').parent().css('display', 'none');
-				}
-				else {
-					$('.add_dop_1').parent().css('display', 'inline-block');
-				}
-			}
-			else {			
-				if (cran._3 != 'Ручное') {
-					if ($('#option_1').children('.dop_parametr').length+1 > 4) {
+				if (cran._3 == 'Ручное') {
+					if ($('#option_1').children('.dop_parametr').length+1 > 3) {
 						$('.add_dop_1').parent().css('display', 'none');
 					}
 					else {
-					$('.add_dop_1').parent().css('display', 'inline-block');
+						$('.add_dop_1').parent().css('display', 'inline-block');
 					}
 				}
-			}
-		});
-		$('#second_opt .ul_change > li').each(function(index, el) {
-			if (cran._3 == 'Ручное') {
-				if ($('#option_2').children('.dop_parametr').length+1 > 3) {
-					$('.add_dop_2').parent().css('display', 'none');
+				else {			
+					if (cran._3 != 'Ручное') {
+						if ($('#option_1').children('.dop_parametr').length+1 > 4) {
+							$('.add_dop_1').parent().css('display', 'none');
+						}
+						else {
+						$('.add_dop_1').parent().css('display', 'inline-block');
+						}
+					}
 				}
-				else {
-					$('.add_dop_2').parent().css('display', 'inline-block');
-				}
-			}
-			else {			
-				if (cran._3 != 'Ручное') {
-					if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
+			});
+			$('#second_opt .ul_change > li').each(function(index, el) {
+				if (cran._3 == 'Ручное') {
+					if ($('#option_2').children('.dop_parametr').length+1 > 3) {
 						$('.add_dop_2').parent().css('display', 'none');
 					}
 					else {
-					$('.add_dop_2').parent().css('display', 'inline-block');
+						$('.add_dop_2').parent().css('display', 'inline-block');
 					}
 				}
-			}
+				else {			
+					if (cran._3 != 'Ручное') {
+						if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
+							$('.add_dop_2').parent().css('display', 'none');
+						}
+						else {
+						$('.add_dop_2').parent().css('display', 'inline-block');
+						}
+					}
+				}
+			});
 		});
-	});
 
 	$('#CrazrezO').click(()=>{showChange($('#razrezO'))})
 		$('#Разрезной').click(()=>{cran.razrez = 'Разрезной';setTimeout(()=>{hideChange()},300);$('#Otk').text('Да')});
 		$('#Неразрезной').click(()=>{cran.razrez = 'Неразрезной';setTimeout(()=>{hideChange()},300);$('#Otk').text('Нет')});
 
 	$('#COvc').click(()=>{showChange($('#высота_крана'))});
-		$('#std').click(()=>{cran.visota = 'Стандартная';setTimeout(()=>{hideChange()},300);$('#Ovc').text(cran.visota)});
-		$('#middl').click(()=>{cran.visota = 'Уменьшенная';setTimeout(()=>{hideChange()},300);$('#Ovc').text(cran.visota)});
-		$('#largest').click(()=>{cran.visota = 'Увеличенная';setTimeout(()=>{hideChange()},300);$('#Ovc').text(cran.visota)});
+		$('#std').click(()=>{cran.visota = 'Стандартная';setTimeout(()=>{hideChange()},300);$('#Ovc').text(cran.visota);cran.calculate_oporniy_crane()});
+		$('#middl').click(()=>{cran.visota = 'Уменьшенная';setTimeout(()=>{hideChange()},300);$('#Ovc').text(cran.visota);cran.calculate_oporniy_crane()});
+		$('#largest').click(()=>{cran.visota = 'Увеличенная';setTimeout(()=>{hideChange()},300);$('#Ovc').text(cran.visota);cran.calculate_oporniy_crane()});
 
 
 	$('#cOszo').click(()=>{showChange($('#степень_защиты'))});
@@ -246,39 +246,14 @@ jQuery(document).ready(($)=>{
 		$('#IP44').click(()=>{cran.setszo = 'IP44';setTimeout(()=>{hideChange()},300);$('#Oszo').text(cran.szo)});
 		$('#IP65').click(()=>{cran.setszo = 'IP65';setTimeout(()=>{hideChange()},300);$('#Oszo').text(cran.szo)});
 
-
 	$('#cOvolt').click(()=>{showChange($('#напряжение_цепи'))});
-		$('#42В').click(()=>{cran.setncuprav = '42В';setTimeout(()=>{hideChange()},300);$('#Ovolt').text(cran.ncuprav)});
-		$('#24В').click(()=>{cran.setncuprav = '24В';setTimeout(()=>{hideChange()},300);$('#Ovolt').text(cran.ncuprav)});
-
-
-
-	$('#cOis').click(()=>{showChange($('#исполнение_скорости'))});
-		$('#rk').click(()=>{cran.setspeed = 'Релейно-контакторная';showChange($('#релейно'));hideThisChange($('#частотно'))});
-			$('#одна_скорость').click(()=>{cran.setspeed = 'Одна скорость движения';setTimeout(()=>{hideChange()},300);$('#Ois').text(cran.speed)});
-			$('#несколько_скоростей').click(()=>{cran.setspeed = 'Несколько скоростей движения';setTimeout(()=>{hideChange()},300);$('#Ois').text(cran.speed)});
-		$('#chp').click(()=>{cran.setspeed = 'Частотный преобразователь';showChange($('#частотно'));hideThisChange($('#релейно'))});
-			$('#esq').click(()=>{cran.setspeed = 'Плавный пуск + 2 и более скорости ESQ (Китай)';setTimeout(()=>{hideChange()},300);$('#Ois').text(cran.speed)});
-			$('#hyundai').click(()=>{cran.setspeed = 'Плавный пуск + 2 и более скорости Hyundai (Корея)';setTimeout(()=>{hideChange()},300);$('#Ois').text(cran.speed)});
-			$('#danfross').click(()=>{cran.setspeed = 'Плавный пуск + 2 и более скорости Danfoss (Германия)';setTimeout(()=>{hideChange()},300);$('#Ois').text(cran.speed)});
-
+		$('#42В').click(()=>{cran.setncuprav = '42В';setTimeout(()=>{hideChange()},300);$('#Ovolt').text(cran.ncuprav);cran.calculate_oporniy_crane()});
+		$('#24В').click(()=>{cran.setncuprav = '24В';setTimeout(()=>{hideChange()},300);$('#Ovolt').text(cran.ncuprav);cran.calculate_oporniy_crane()});
 
 	$('#сOspeed').click(()=>{showChange($('#скорость'))});
 		$('#metr20').click(()=>{cran.setspeedmetr = '20 м/мин';setTimeout(()=>{hideChange()},300);$('#Ospeed').text(cran.speedmetr)});
 		$('#metr40').click(()=>{cran.setspeedmetr = '40 м/мин';setTimeout(()=>{hideChange()},300);$('#Ospeed').text(cran.speedmetr)});
 		$('#metr8').click(()=>{cran.setspeedmetr = '8 м/мин';setTimeout(()=>{hideChange()},300);$('#Ospeed').text(cran.speedmetr)});
-
-
-	$('#cOttk').click(()=>{showChange($('#тип_токоподвода'))});
-		$('#кск').click(()=>{cran.setttk = 'Кабельный с кольцами';setTimeout(()=>{hideChange()},300);$('#Ottk').text(cran.ttk)});
-		$('#кст').click(()=>{cran.setttk = 'Кабельный с тележками';setTimeout(()=>{hideChange()},300);$('#Ottk').text(cran.ttk)});
-		$('#ф').click(()=>{cran.setttk = 'Фестонный (с-профиль)';setTimeout(()=>{hideChange()},300);$('#Ottk').text(cran.ttk)});
-		$('#от').click(()=>{cran.setttk = 'Откртые троллеи';setTimeout(()=>{hideChange()},300);$('#Ottk').text(cran.ttk)});
-		$('#зт').click(()=>{cran.setttk = 'Закрытые троллеи';setTimeout(()=>{hideChange()},300);$('#Ottk').text(cran.ttk)});		
-		$('#нетребуется').click(()=>{cran.setttk = 'Не требуется';setTimeout(()=>{hideChange()},300);$('#Ottk').text(cran.ttk)});
-
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -336,10 +311,9 @@ jQuery(document).ready(($)=>{
 
 		}
 		$('#Pgp').text(cran.gp);
-		setTimeout(()=>{hideChange()},300);	
+		setTimeout(()=>{hideChange()},300);
+		if ($('.return_motor_default') && cran._3 != 'Ручное' && cran.code_of_motor != 9.1) {$('.return_motor_default').parent().detach();cran.motor_price(cran.code_of_motor)}
 	});
-
-
 	
 
 	$('#cdpP').click(()=>{showChange($('#dpP2'))})
@@ -375,7 +349,7 @@ jQuery(document).ready(($)=>{
 			$('#gpP > ul li:nth-child(9)').css('display','none');$('#gpP > ul li:nth-child(10)').css('display','none');
 			if (cran.gp > 10000) {cran.gp = 10000; alert('Грузоподъемность была уменьшена до 10000 кг для крана с ручным управлением!')}
 			$('#Pgp').text(cran.gp);
-	});
+		});
 		$('#ЭлектроP').click(()=>{cran._3 = 'Электро';$('#Ptc').text(cran._3);setTimeout(()=>{hideChange()},300);});
 
 	$('#CrazrezP').click(()=>{showChange($('#razrezP'))})
@@ -400,31 +374,10 @@ jQuery(document).ready(($)=>{
 		$('#24ВP').click(()=>{cran.setncuprav = '24В';setTimeout(()=>{hideChange()},300);$('#Pvolt').text(cran.ncuprav)});
 
 
-
-	$('#cPis').click(()=>{showChange($('#исполнение_скоростиP'))});
-		$('#rkP').click(()=>{cran.setspeed = 'Релейно-контакторная';showChange($('#релейноP'));hideThisChange($('#частотноP'))});
-			$('#одна_скоростьP').click(()=>{cran.setspeed = 'Одна скорость движения';setTimeout(()=>{hideChange()},300);$('#Pis').text(cran.speed)});
-			$('#несколько_скоростейP').click(()=>{cran.setspeed = 'Несколько скоростей движения';setTimeout(()=>{hideChange()},300);$('#Pis').text(cran.speed)});
-		$('#chpP').click(()=>{cran.setspeed = 'Частотный преобразователь';showChange($('#частотноP'));hideThisChange($('#релейноP'))});
-			$('#esqP').click(()=>{cran.setspeed = 'Плавный пуск + 2 и более скорости ESQ (Китай)';setTimeout(()=>{hideChange()},300);$('#Pis').text(cran.speed)});
-			$('#hyundaiP').click(()=>{cran.setspeed = 'Плавный пуск + 2 и более скорости Hyundai (Корея)';setTimeout(()=>{hideChange()},300);$('#Pis').text(cran.speed)});
-			$('#danfrossP').click(()=>{cran.setspeed = 'Плавный пуск + 2 и более скорости Danfoss (Германия)';setTimeout(()=>{hideChange()},300);$('#Pis').text(cran.speed)});
-
-
 	$('#сPspeed').click(()=>{showChange($('#скоростьP'))});
 		$('#metr20P').click(()=>{cran.setspeedmetr = '20 м/мин';setTimeout(()=>{hideChange()},300);$('#Pspeed').text(cran.speedmetr)});
 		$('#metr40P').click(()=>{cran.setspeedmetr = '40 м/мин';setTimeout(()=>{hideChange()},300);$('#Pspeed').text(cran.speedmetr)});
 		$('#metr8P').click(()=>{cran.setspeedmetr = '8 м/мин';setTimeout(()=>{hideChange()},300);$('#Pspeed').text(cran.speedmetr)});
-
-
-	$('#cPttk').click(()=>{showChange($('#тип_токоподводаP'))});
-		$('#кскP').click(()=>{cran.setttk = 'Кабельный с кольцами';setTimeout(()=>{hideChange()},300);$('#Pttk').text(cran.ttk)});
-		$('#кстP').click(()=>{cran.setttk = 'Кабельный с тележками';setTimeout(()=>{hideChange()},300);$('#Pttk').text(cran.ttk)});
-		$('#фP').click(()=>{cran.setttk = 'Фестонный (с-профиль)';setTimeout(()=>{hideChange()},300);$('#Pttk').text(cran.ttk)});
-		$('#отP').click(()=>{cran.setttk = 'Откртые троллеи';setTimeout(()=>{hideChange()},300);$('#Pttk').text(cran.ttk)});
-		$('#зтP').click(()=>{cran.setttk = 'Закрытые троллеи';setTimeout(()=>{hideChange()},300);$('#Pttk').text(cran.ttk)});
-		$('#нетребуетсяP').click(()=>{cran.setttk = 'Не требуется';setTimeout(()=>{hideChange()},300);$('#Pttk').text(cran.ttk)});
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -488,7 +441,6 @@ jQuery(document).ready(($)=>{
 			calculate_tormoz(); // Тормоз на передвижение крана
 			calculate_shit();  // Установить цену для щита
 			calculate_stop(); // Установить цену для Аварийный стоп на передвижение
-			//document.getElementById('b3').style.display = 'inline-block';
 			document.getElementById('b10').style.display = 'inline-block';
 			document.getElementById('b11').style.display = 'inline-block';
 			document.getElementById('b12').style.display = 'inline-block';
@@ -559,9 +511,57 @@ jQuery(document).ready(($)=>{
 		
 		
 	});
+
+	$('.add_dop_3 i').click(()=>{
+		montazh_cranov(); // Вычисление цены монтажа крана
+		shef_montazh_cranov(); // ШЕФ монтаж крана
+		montazh_rels(); // Монтаж рельс
+		delete_doble('#option_3', $('#third_opt'));
+		showOptions($('#third_opt'));
+	});
+	$('#third_opt').on('click', 'li:not(".cat"), .cat>div.change_li', function () {
+		var that = $(this);
+		$('#option_3 .dop_parametr:last-child').before(()=>{
+			let new_html = '<div class="dop_parametr '+ that.attr('name') +'"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" style="width:200px"> \
+								<h4>'+ that.children().children().children('b.hz4').text() +'</h4> \
+								<p><span class="opisanie_parametra">'+ that.children().children().children('.opisanie_parametra').text() +'</span><br> \
+								<span class="stoimost_parametra">'+ that.children('.hiddened').text() +'</span><i class="id_bro">'+that.attr('id')+'</i></p>';
+								console.log(that.children('.hiddened').text())
+			return new_html;
+		});
+		setTimeout(()=>{
+			hideOptions();
+			$('.cat').css('width', '20%');
+			$('.cat').siblings('li').css('display', 'inline-block');
+			$('.cat').children('div').css('display', 'none');
+			$('#revers').css('display', 'none');
+			$('#third_opt .ul_change > li').each(function(index, el) {
+				if (cran._3 == 'Ручное') {
+					if ($('#option_3').children('.dop_parametr').length+1 > 3) {
+						$('.add_dop_2').parent().css('display', 'none');
+					}
+					else {
+						$('.add_dop_2').parent().css('display', 'inline-block');
+					}
+				}
+				else {			
+					if (cran._3 != 'Ручное') {
+						if ($('#option_3').children('.dop_parametr').length+1 >= 12) {
+							$('.add_dop_2').parent().css('display', 'none');
+						}
+						else {
+						$('.add_dop_2').parent().css('display', 'inline-block');
+						}
+					}
+				}
+			});
+		},200);
+		
+		
+	});
 /************************************************************************************************************************************************************************************************************************************/
 //Удалить опцию или изменить
-$('#first_opt, #second_opt').on('click', '.cat', function(event) {
+$('#first_opt, #second_opt, #option_3').on('click', '.cat', function(event) {
 	$(this).siblings('li').css('display', 'none');
 	$(this).css('width', '100%');
 	if ($(this).hasClass('tali_dop')) {		
@@ -589,6 +589,7 @@ $('#first_opt, #second_opt').on('click', '.cat', function(event) {
 	$('#revers').css('display', 'block');
 	delete_doble('#option_1', $('#first_opt'));
 	delete_doble('#option_2', $('#second_opt'));
+	delete_doble('#option_3', $('#third_opt'));
 });
 
 $('#revers').on('click', function() {
@@ -599,7 +600,6 @@ $('#revers').on('click', function() {
 	if (cran._3 == 'Ручное')
 		{
 			document.getElementById('a3').style.display = 'none';
-			//document.getElementById('b3').style.display = 'none';
 			document.getElementById('b10').style.display = 'none';
 			document.getElementById('b11').style.display = 'none';
 			document.getElementById('b12').style.display = 'none';
@@ -608,6 +608,7 @@ $('#revers').on('click', function() {
 		}
 	delete_doble('#option_1', $('#first_opt'));
 	delete_doble('#option_2', $('#second_opt'));
+	delete_doble('#option_3', $('#third_opt'));
 	if ($('#option_2').children('.sirena').length>0) {
 			$('#second_opt .cat[name$="sirena"]').css('display', 'none');
 		}
@@ -625,13 +626,8 @@ $('#revers').on('click', function() {
 *
 */
 
-function delete_doble (context /* string: #option_1, #option_2 */, container /* [$(#first_opt), $(#second_opt)]*/) {
+function delete_doble (context /* string: #option_1, #option_2, #option_3 */, container /* [$(#first_opt), $(#second_opt), $(#third_opt)]*/) {
 	var hidden_elements;
-	$(context+' > .dop_parametr:not(:last-child) >p >i.id_bro').each(function(index, el) {
-		hidden_elements  = $(this).text();
-		container.children().children('#'+hidden_elements).css('display', 'none');
-		container.children().children('.cat').children('#'+hidden_elements).css('display', 'none');
-	});
 	$(context+' > .dop_parametr:not(:last-child) >p >i.id_bro').each(function(index, el) {
 		hidden_elements  = $(this).text();
 		container.children().children('#'+hidden_elements).css('display', 'none');
@@ -661,24 +657,14 @@ function hideThisChange (this_Change) {
 }
 
 
-	$('#close').click(()=>{
-		hideChange();
-		$('.cat').css('width', '20%');
-		$('.cat').siblings('li').css('display', 'inline-block');
-		$('.cat').children('div').css('display', 'none');
-		if (cran._3 == 'Ручное')
-		{
-			document.getElementById('a3').style.display = 'none';
-		}	
-	});
+	$('#close').click(()=>{hideChange()});
 	$('#close2').click(()=>{
-		hideOptions();
+		hideOptions();		
 		$('.cat').css('width', '20%');
-		$('.cat').siblings('li').css('display', 'inline-block');
+		$('.ul_change > .change_li').css('display', 'inline-block');
 		$('.cat').children('div').css('display', 'none');
 		if (cran._3 == 'Ручное')
 		{
-			//document.getElementById('b3').style.display = 'none';
 			document.getElementById('b10').style.display = 'none';
 			document.getElementById('b11').style.display = 'none';
 			document.getElementById('b12').style.display = 'none';
@@ -809,7 +795,6 @@ function postavka_rels () {
 }
 
 $('#a3').on('click', '.tokoprovod', function(event) {
-	console.log($(this));
 	var stoim = $(this).children().children().children('.opisanie_parametra').text();
 	console.log(stoim);
 	stoim = stoim.match(/\d+/g);
@@ -819,6 +804,68 @@ $('#a3').on('click', '.tokoprovod', function(event) {
 		$(this).children('.hiddened').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 	}
 });	
+
+/*******************************************************************************************************************************************************************************************************************************************************************
+*
+*
+*
+*
+*																															  Функции для раздела
+*																																	
+*																																	УСЛУГИ
+*
+*
+*
+*
+*
+*
+*******************************************************************************************************************************************************************************************************************************************************************/
+
+function montazh_cranov () {
+	/////////////
+	let upr = cran._3 == 'Ручное' ? 'montazh_crana_r' : 'montazh_crana_el';
+	var data_montazh = { action: upr, _gp:cran.gp, _uprav:upr, _shirina:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP }
+	$.post( calc_ajaxurl.url, data_montazh, function(response)
+	{
+		$('#c1').html(response);
+	});
+	/////////////
+}
+
+function shef_montazh_cranov () {
+	/////////////
+	var data_montazh = { action: 'shef_montazh', _gp:cran.gp, _shirina:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP }
+	$.post( calc_ajaxurl.url, data_montazh, function(response)
+	{
+		$('#c2').html(response);
+	});
+	/////////////
+}
+
+function montazh_rels () {
+	/////////////
+	let dlinna = cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP;
+	var data_montazh_rels = { action: 'rels_montazh', _gp:cran.gp, _upravl:cran._3, _dlinna:dlinna, _shir:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP }
+	$.post( calc_ajaxurl.url, data_montazh_rels, function(response)
+	{
+		$('#c4').html(response)
+	});
+	/////////////
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -69,18 +69,10 @@ echo <<<EOT
 				<td><i class="hover" id="cOvolt">изменить</i></td>
 				<td class="">Напряжение цепи управления - <span id="Ovolt"></span></td>
 			</tr>
-		<!--<tr>
-				<td><i class="hover" id="cOis">изменить</i></td>
-				<td class="">Исполнение скорости крана - <span id="Ois"></span></td>
-			</tr>-->
 			<tr>
 				<td><i class="hover" id="сOspeed">изменить</i></td>
 				<td class="">Скорость перемещения крана - <span id="Ospeed"></span></td>
 			</tr>
-		<!--<tr>
-				<td><i class="hover" id="cOttk">изменить</i></td>
-				<td class="">Токоподвод к крану - <span id="Ottk"></span></td>
-			</tr>-->
 		</tbody>
 	</table>
 </article>

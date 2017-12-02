@@ -1036,7 +1036,7 @@ function get_preobrazovatel_id (model, img)
 
 
 
-	$('.dop_menu_open').on('click', '.del_this_option',function(event) {
+	$('.dop_menu_open, .dop_menu').on('click', '.del_this_option',function(event) {
 		if ($(this).hasClass('return_pult_default')) {
 			$('#option_2 .dop_parametr:last-child').before(()=>{
 				let new_html = '<div class="dop_parametr"> \

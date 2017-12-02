@@ -96,4 +96,14 @@
 			<li id="b18" class="change_li"><span><img src="<?=$url;?>images/18.png" alt="" style="width:140px"><p><b class="hz4">Индивидуальная покраска</b><br><span class="opisanie_parametra">требуется согласование цвета</span></p></span><span class='hiddened'></span></li>
 		</ul>
 	</div>
+	<div id="third_opt" class="modal_change modal_change_hide">
+		<ul class="ul_change">
+			<li id="c1" class="change_li" name="montazh"></li>
+			<li id="c2" class="change_li" name="shef_montazh"></li>
+			<!--<li id="c3" class="change_li" name="dostavka"></li>-->
+			<li id="c4" class="change_li" name="rels_montazh"></li>
+			<li id="c7" class="change_li" name="rels_montazh"><span><img src="wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Чертеж</b><br><span class="opisanie_parametra">Габаритный чертеж</span></p></span><span class="hiddened">Бесплатно</span></li>
+			
+		</ul>
+	</div>
 </div>
