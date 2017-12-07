@@ -905,3 +905,248 @@ function rels_montazh () {
 	wp_die();
 }
 // RELS MONTAZH
+
+
+
+/*****************************************************************************************************************************************/
+
+add_action('wp_ajax_gp_insert', 'gp_insert');
+add_action('wp_ajax_nopriv_gp_insert', 'gp_insert');
+function gp_insert () {
+	$type = $_POST['type_cran'];
+	$upr = '\''.$_POST['upr_cran'].'\'';
+	if ($type == 'Опорный') {
+		global $wpdb;$wpdb->show_errors();
+		$cr = $wpdb->prefix . 'opornie_crani';
+		$cr_result_500 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 500 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_1000 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 1000 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_2000 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 2000 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_3200 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 3200 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_5000 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 5000 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_6300 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 6300 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_8000 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 8000 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_10000 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 10000 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_12500 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 12500 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_16000 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 16000 AND upravlenie = $upr ORDER BY price ASC");
+		$gp_price = array(
+			'_500' => $cr_result_500[0]->price,
+			'_1000' => $cr_result_1000[0]->price,
+			'_2000' => $cr_result_2000[0]->price,
+			'_3200' => $cr_result_3200[0]->price,
+			'_5000' => $cr_result_5000[0]->price,
+			'_6300' => $cr_result_6300[0]->price,
+			'_8000' => $cr_result_8000[0]->price,
+			'_10000' => $cr_result_10000[0]->price,
+			'_12500' => $cr_result_12500[0]->price,
+			'_16000' => $cr_result_16000[0]->price
+		);
+		echo json_encode($gp_price);
+	}
+	if ($type == 'Подвесной') {
+		global $wpdb;$wpdb->show_errors();
+		$cr = $wpdb->prefix . 'podvesnie_crani';
+		$cr_result_500 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 500 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_1000 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 1000 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_2000 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 2000 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_3200 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 3200 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_5000 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 5000 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_6300 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 6300 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_8000 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 8000 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_10000 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 10000 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_12500 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 12500 AND upravlenie = $upr ORDER BY price ASC");
+		$cr_result_16000 = $wpdb->get_results("SELECT id, price FROM $cr WHERE gp = 16000 AND upravlenie = $upr ORDER BY price ASC");
+		$gp_price = array(
+			'_500' => $cr_result_500[0]->price,
+			'_1000' => $cr_result_1000[0]->price,
+			'_2000' => $cr_result_2000[0]->price,
+			'_3200' => $cr_result_3200[0]->price,
+			'_5000' => $cr_result_5000[0]->price,
+			'_6300' => $cr_result_6300[0]->price,
+			'_8000' => $cr_result_8000[0]->price,
+			'_10000' => $cr_result_10000[0]->price,
+			'_12500' => $cr_result_12500[0]->price,
+			'_16000' => $cr_result_16000[0]->price
+		);
+		echo json_encode($gp_price);
+	}
+wp_die();
+}
+
+add_action('wp_ajax_chastotniki_insert', 'chastotniki_insert');
+add_action('wp_ajax_nopriv_chastotniki_insert', 'chastotniki_insert');
+function chastotniki_insert () {
+	$gp = $_POST['_gp'];
+	global $wpdb;$wpdb->show_errors();
+	$chst = $wpdb->prefix . 'variants';
+	$dbls = $wpdb->prefix . 'mr';
+	if ( $gp <= 5000 ) {
+		$chst_result_85 = $wpdb->get_results("SELECT id, price FROM $chst WHERE id = 16");
+		$chst_result_86 = $wpdb->get_results("SELECT id, price FROM $chst WHERE id = 19");
+		$chst_result_87 = $wpdb->get_results("SELECT id, price FROM $chst WHERE id = 22");
+	}
+	if ( $gp > 5000 && $gp <= 10000 ) {
+		$chst_result_85 = $wpdb->get_results("SELECT id, price FROM $chst WHERE id = 17");
+		$chst_result_86 = $wpdb->get_results("SELECT id, price FROM $chst WHERE id = 20");
+		$chst_result_87 = $wpdb->get_results("SELECT id, price FROM $chst WHERE id = 23");
+	}
+	if ( $gp > 10000 ) {
+		$chst_result_85 = $wpdb->get_results("SELECT id, price FROM $chst WHERE id = 18");
+		$chst_result_86 = $wpdb->get_results("SELECT id, price FROM $chst WHERE id = 21");
+		$chst_result_87 = $wpdb->get_results("SELECT id, price FROM $chst WHERE id = 24");
+	}
+	$dbls_result = $wpdb->get_results("SELECT id, double_speed_price FROM $dbls ORDER BY double_speed_price ASC");
+	$chstot = array(
+		'_85' => $chst_result_85[0]->price,
+		'_86' => $chst_result_86[0]->price,
+		'_87' => $chst_result_87[0]->price,
+		'dbls' => $dbls_result[0]->double_speed_price
+	);
+	echo json_encode($chstot);
+wp_die();
+}
+
+add_action('wp_ajax_motor_insert', 'motor_insert');
+add_action('wp_ajax_nopriv_motor_insert', 'motor_insert');
+function motor_insert () {
+	$gp = $_POST['_gp'];
+	$shir = $_POST['_shir'];
+	global $wpdb;$wpdb->show_errors();
+	$dbls = $wpdb->prefix . 'mr';
+	$motor92 = $wpdb->get_results("SELECT base_price FROM $dbls WHERE gp = $gp AND shirina >= $shir AND code = '9.2' ");
+	$motor93 = $wpdb->get_results("SELECT base_price FROM $dbls WHERE gp = $gp AND shirina >= $shir AND code = '9.3' ");
+	$motor94 = $wpdb->get_results("SELECT base_price FROM $dbls WHERE gp = $gp AND shirina >= $shir AND code = '9.4' ");
+	$motor95 = $wpdb->get_results("SELECT base_price FROM $dbls WHERE gp = $gp AND shirina >= $shir AND code = '9.5' ");
+	$motor_res = array (
+		'_92' => $motor92[0]->base_price,
+		'_93' => $motor93[0]->base_price,
+		'_94' => $motor94[0]->base_price,
+		'_95' => $motor95[0]->base_price
+	);
+	echo json_encode($motor_res);
+wp_die();
+}
+
+
+add_action('wp_ajax_tal_insert', 'tal_insert');
+add_action('wp_ajax_nopriv_tal_insert', 'tal_insert');
+function tal_insert ()
+{
+	$upravlenie_t = $_POST['_upravlenie'];
+	$visota_t = $_POST['_visota'];
+	$ispolnenie_t = '\''.$_POST['_ispolnenie'].'\'';
+	$gp_t = $_POST['_gp'];
+
+	global $wpdb; $wpdb->show_errors();	
+		$tal_table = $wpdb->prefix . 'electro_tali';
+		$tal_r_table = $wpdb->prefix . 'ruchnie_tali';
+		$bolgariya_t = $wpdb->get_results("SELECT id, gp, visota, strana, price FROM $tal_table WHERE gp = $gp_t AND visota >= $visota_t AND type_tali = 'Канатная' AND strana = 'Болгария'");
+		if ($bolgariya_t) {
+			// Получаем текущие курсы валют в rss-формате с сайта www.cbr.ru 
+			$content = get_curs_euro(); 
+			// Разбираем содержимое, при помощи регулярных выражений 
+			$pattern = "#<Valute ID=\"([^\"]+)[^>]+>[^>]+>([^<]+)[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>([^<]+)[^>]+>[^>]+>([^<]+)#i"; 
+			preg_match_all($pattern, $content, $out, PREG_SET_ORDER); 
+			$dollar = ""; 
+			$euro = ""; 
+			foreach($out as $cur) 
+			{
+			if($cur[2] == 978) $euro   = str_replace(",",".",$cur[4]); 
+			}
+			$bolgariya_el_canat_t = $bolgariya_t[0]->price*$euro;
+		}
+		$bolgariya_t = $wpdb->get_results("SELECT id, gp, visota, strana, price FROM $tal_table WHERE gp = $gp_t AND visota >= $visota_t AND type_tali = 'Цепная' AND strana = 'Болгария'");
+		if ($bolgariya_t) {
+			// Получаем текущие курсы валют в rss-формате с сайта www.cbr.ru 
+			$content = get_curs_euro(); 
+			// Разбираем содержимое, при помощи регулярных выражений 
+			$pattern = "#<Valute ID=\"([^\"]+)[^>]+>[^>]+>([^<]+)[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>([^<]+)[^>]+>[^>]+>([^<]+)#i"; 
+			preg_match_all($pattern, $content, $out, PREG_SET_ORDER); 
+			$dollar = ""; 
+			$euro = ""; 
+			foreach($out as $cur) 
+			{
+			if($cur[2] == 978) $euro   = str_replace(",",".",$cur[4]); 
+			}
+			$bolgariya_el_cep_t = $bolgariya_t[0]->price*$euro;
+		}
+		$bolgariya_t = $wpdb->get_results("SELECT id, gp, visota, strana, price FROM $tal_table WHERE gp = $gp_t AND visota >= $visota_t AND type_tali = 'Канатная УСВ' AND strana = 'Болгария'");
+		if ($bolgariya_t) {
+			// Получаем текущие курсы валют в rss-формате с сайта www.cbr.ru 
+			$content = get_curs_euro(); 
+			// Разбираем содержимое, при помощи регулярных выражений 
+			$pattern = "#<Valute ID=\"([^\"]+)[^>]+>[^>]+>([^<]+)[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>([^<]+)[^>]+>[^>]+>([^<]+)#i"; 
+			preg_match_all($pattern, $content, $out, PREG_SET_ORDER); 
+			$dollar = ""; 
+			$euro = ""; 
+			foreach($out as $cur) 
+			{
+			if($cur[2] == 978) $euro   = str_replace(",",".",$cur[4]); 
+			}
+			$bolgariya_el_canatUSV_t = $bolgariya_t[0]->price*$euro;
+		}
+		$bolgariya_t = $wpdb->get_results("SELECT id, gp, visota, strana, price FROM $tal_table WHERE gp = $gp_t AND visota >= $visota_t AND type_tali = 'Канатная ВБИ' AND strana = 'Болгария'");
+		if ($bolgariya_t) {
+			// Получаем текущие курсы валют в rss-формате с сайта www.cbr.ru 
+			$content = get_curs_euro(); 
+			// Разбираем содержимое, при помощи регулярных выражений 
+			$pattern = "#<Valute ID=\"([^\"]+)[^>]+>[^>]+>([^<]+)[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>([^<]+)[^>]+>[^>]+>([^<]+)#i"; 
+			preg_match_all($pattern, $content, $out, PREG_SET_ORDER); 
+			$dollar = ""; 
+			$euro = ""; 
+			foreach($out as $cur) 
+			{
+			if($cur[2] == 978) $euro   = str_replace(",",".",$cur[4]); 
+			}
+			$bolgariya_el_canatVBI_t = $bolgariya_t[0]->price*$euro;
+		}
+		$bolgariya_t = $wpdb->get_results("SELECT id, gp, visota, strana, price FROM $tal_table WHERE gp = $gp_t AND visota >= $visota_t AND type_tali = 'Канатная УСВ ВБИ' AND strana = 'Болгария'");
+		if ($bolgariya_t) {
+			// Получаем текущие курсы валют в rss-формате с сайта www.cbr.ru 
+			$content = get_curs_euro(); 
+			// Разбираем содержимое, при помощи регулярных выражений 
+			$pattern = "#<Valute ID=\"([^\"]+)[^>]+>[^>]+>([^<]+)[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>[^>]+>([^<]+)[^>]+>[^>]+>([^<]+)#i"; 
+			preg_match_all($pattern, $content, $out, PREG_SET_ORDER); 
+			$dollar = ""; 
+			$euro = ""; 
+			foreach($out as $cur) 
+			{
+			if($cur[2] == 978) $euro   = str_replace(",",".",$cur[4]); 
+			}
+			$bolgariya_el_canatUSVVBI_t = $bolgariya_t[0]->price*$euro;
+		}
+
+
+
+
+		$russia_t = $wpdb->get_results("SELECT id, gp, visota, strana, price FROM $tal_table WHERE gp = $gp_t AND visota >= $visota_t AND strana = 'Россия'");
+		$russia_el_t = $russia_t[0]->price;
+
+		$china_t = $wpdb->get_results("SELECT id, gp, visota, strana, price FROM $tal_table WHERE gp = $gp_t AND visota >= $visota_t AND type_tali = 'Канатная' AND strana = 'Китай'");
+		$china_el_canat_t = $china_t[0]->price;
+		$china_t = $wpdb->get_results("SELECT id, gp, visota, strana, price FROM $tal_table WHERE gp = $gp_t AND visota >= $visota_t AND type_tali = 'Цепная' AND strana = 'Китай'");
+		$china_el_cep_t = $china_t[0]->price;
+
+		$shved_tt = $wpdb->get_results("SELECT id, gp, visota, strana, price FROM $tal_r_table WHERE gp = $gp_t AND visota >= $visota_t AND ispolnenie = $ispolnenie_t AND strana = 'Швеция'");
+		$shved_r_t = $shved_tt[0]->price;
+
+		$russia_tt = $wpdb->get_results("SELECT id, gp, visota, strana, price FROM $tal_r_table WHERE gp = $gp_t AND visota >= $visota_t AND ispolnenie = $ispolnenie_t AND strana = 'Россия'");
+		$russia_r_t = $russia_tt[0]->price;
+
+		$china_tt = $wpdb->get_results("SELECT id, gp, visota, strana, price FROM $tal_r_table WHERE gp = $gp_t AND visota >= $visota_t AND ispolnenie = $ispolnenie_t AND strana = 'Китай'");
+		$china_r_t = $china_tt[0]->price;
+	$tali_res = array (
+		'bolgariya_el_canat_t' => $bolgariya_el_canat_t,
+		'bolgariya_el_cep_t' => $bolgariya_el_cep_t,
+		'bolgariya_el_canatUSV_t' => $bolgariya_el_canatUSV_t,
+		'bolgariya_el_canatVBI_t' => $bolgariya_el_canatVBI_t,
+		'bolgariya_el_canatUSVVBI_t' => $bolgariya_el_canatUSVVBI_t,
+		'russia_el_t' => $russia_el_t,
+		'china_el_canat_t' => $china_el_canat_t,
+		'china_el_cep_t' => $china_el_cep_t,
+		'st_r' => $shved_r_t,
+		'rt_r' => $russia_r_t,
+		'ct_r' => $china_r_t
+	);
+	echo json_encode($tali_res);
+	wp_die();
+}

@@ -93,16 +93,18 @@ jQuery(document).ready(($)=>{
 		$('#gpO > ul li:nth-child(9)').css('display','none');
 		$('#gpO > ul li:nth-child(10)').css('display','none');
 		$('#грузоподъемность div:nth-child(12)').css('display','none');
-		$('#грузоподъемность div:nth-child(13)').css('display','none');
+		$('#грузоподъемность div:nth-child(13)').css('display','none');		
+		gp_insert_price();
 	});
 
 	$('._32').click(function () {
 		$('.hide_dop_el').removeClass('hide_dop_el hide_dop_animate_el').addClass('back_dop_animate_el');
 		easyscroll(380);
-		$('#main_block_for_steps').css('height', '900px');
+		$('#main_block_for_steps').css('height', '910px');
 		cran._3 = 'Электро';
 	});
 	$('._33_next').click(function () {
+		gp_insert_price();
 		hide($('#_3'));
 		cran.step = 'Шаг 4 из 11'
 		cran._3Type = 'Подвесной пульт';
@@ -116,7 +118,7 @@ jQuery(document).ready(($)=>{
 								<p> \
 									<span class="opisanie_parametra">Входит в стоимость крана</span> \
 										<br> \
-									<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i> \
+									<span class="stoimost_parametra">Без доплаты</span><i class="id_bro">b3</i> \
 								</p>';
 			return new_html;
 		});
@@ -124,32 +126,45 @@ jQuery(document).ready(($)=>{
 		//next_group( $('#razmeshenie'), 0 ); СТАРОЕ
 	});
 	$('._34').click(function () {
-		$('#main_block_for_steps').css('height', '1200px');
+		$('#main_block_for_steps').css('height', '1250px');
 		$('#vidipultov').css('display','block');easyscroll(720);
 	})
-	$('._35').click(function () {$('#main_block_for_steps').css('height', '1550px');// Пульт
+	$('._35').click(function () {$('#main_block_for_steps').css('height', '1560px');// Пульт
 		$('#proizvositeli_pult').animate({'bottom':'-324px'}, 800);easyscroll(1050);
 		cran._3Type = 'Радиоуправление с пультом';
+		$('._37_j, ._38_j, ._39_j').parent().css('display', 'none');
+		if (cran._2.search(/Взрывобезопасное/i) != -1) {
+			$('._37vbi, ._38vbi, ._39vbi').parent().css('display', 'inline-block');
+			$('._37, ._38, ._39').parent().css('display', 'none');
+		} else {
+			$('._37vbi, ._38vbi, ._39vbi').parent().css('display', 'none');
+			$('._37, ._38, ._39').parent().css('display', 'inline-block');
+		}
 	});
-	$('._36').click(function () {$('#main_block_for_steps').css('height', '1550px'); //Джостик
+	$('._36').click(function () {$('#main_block_for_steps').css('height', '1560px'); //Джостик
 			cran._3Type = 'Радиоуправление с джойстиком';
+			$('._37_j, ._38_j, ._39_j').parent().css('display', 'inline-block');
+			$('._37, ._38, ._39, ._37_vbi, ._38_vbi, ._39vbi').parent().css('display', 'none');
 			$('#proizvositeli_pult').animate({'bottom':'-324px'}, 800);easyscroll(1050);
 		})
-	$('._37').click(function () {$('#main_block_for_steps').css('height', '800px');
+	$('._37, ._37_j, ._37vbi').click(function () {$('#main_block_for_steps').css('height', '800px');
+		gp_insert_price();
 		hide($('#_3'));
 		cran.step = 'Шаг 4 из 11'
 		cran._3Type = cran._3Type + ' Telecrane (Тайвань)';
 		next_group( $('#грузоподъемность'), 0 ); // НОВОЕ
 		//next_group( $('#razmeshenie'), 0 ); СТАРОЕ
 	});
-	$('._38').click(function () {$('#main_block_for_steps').css('height', '800px');
+	$('._38, ._38_j, ._38vbi').click(function () {$('#main_block_for_steps').css('height', '800px');
+		gp_insert_price();
 		hide($('#_3'));
 		cran.step = 'Шаг 4 из 11'
 		cran._3Type = cran._3Type + ' Ikusi (Испания)';
 		next_group( $('#грузоподъемность'), 0 ); // НОВОЕ
 		//next_group( $('#razmeshenie'), 0 ); СТАРОЕ
 	});
-	$('._39').click(function () {$('#main_block_for_steps').css('height', '800px');
+	$('._39, ._39_j, ._39vbi').click(function () {$('#main_block_for_steps').css('height', '800px');
+		gp_insert_price();
 		hide($('#_3'));
 		cran.step = 'Шаг 4 из 11'
 		cran._3Type = cran._3Type + ' HBC-Radiomatic (Германия)';
@@ -220,7 +235,7 @@ jQuery(document).ready(($)=>{
 			cran.step = 'Шаг 5 из 11'
 			next_group( $('#размеры_помещения_подвесной'), 0 );
 		}		
-		//cran._3 == 'Ручное' ? next_group($('#vibor_tali'), 0) : next_group( $('#система_управления_краном'), 8 );
+		chastotnik_insert_price();
 		
 	});
 /************************************************************************************************************************
@@ -285,11 +300,12 @@ jQuery(document).ready(($)=>{
 							<p> \
 							<span class="opisanie_parametra">Релейно-контакторная одна скорость движения</span> \
 							<br> \
-							<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b8</i> \
+							<span class="stoimost_parametra">Без доплаты</span><i class="id_bro">b8</i> \
 							</p>';
 					return new_html;
 				});
 				cran.code_of_chastotnik = '8.3';
+				motor_insert_price();
 		});
 		$('.несколько_с').click(function () {//8.4
 			hide($('#система_управления_краном'));
@@ -299,6 +315,7 @@ jQuery(document).ready(($)=>{
 			next_group($('#мотор_редуктора'), 0);		
 			$('#main_block_for_steps').css('height', '800px');
 			cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.4') : false;
+			motor_insert_price();
 		});
 
 	$('.преобразователь').click(function () {//8.2
@@ -317,6 +334,7 @@ jQuery(document).ready(($)=>{
 			$('#main_block_for_steps').css('height', '800px');
 			cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;
 			cran.chastotnik_price(8.5);
+			motor_insert_price();
 		});
 		$('.hyundai').click(function () {
 			hide($('#система_управления_краном'));
@@ -327,6 +345,7 @@ jQuery(document).ready(($)=>{
 			$('#main_block_for_steps').css('height', '800px');
 			cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;
 			cran.chastotnik_price(8.6);
+			motor_insert_price();
 		});
 		$('.danfross').click(function () {
 			hide($('#система_управления_краном'));
@@ -337,6 +356,7 @@ jQuery(document).ready(($)=>{
 			$('#main_block_for_steps').css('height', '800px');
 			cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;	
 			cran.chastotnik_price(8.7);
+			motor_insert_price();
 		});
 /************************************************************************************************************************
 *																														*
@@ -572,6 +592,7 @@ jQuery(document).ready(($)=>{
 *																														*
 ************************************************************************************************************************/
 	$('.tal_yes').click(()=>{
+		tali_insert_price();
 		if (tal.gp <=10000 && cran._2.search(/Взрывобезопасное/i) != 0) {
 			$('.hide_type_upravleniya').removeClass('hide_type_upravleniya').addClass('show_type_upravleniya');
 			easyscroll(520);
@@ -617,7 +638,7 @@ jQuery(document).ready(($)=>{
 				cran.step = 'end';
 			}
 			else {
-				$('#main_block_for_steps').css('height', '1300px');
+				$('#main_block_for_steps').css('height', '1350px');
 				$('.hide_country_r').removeClass('hide_country_r').addClass('show_country_r')
 				$('.show_country_e').removeClass('show_country_e').addClass('hide_country_e')
 				easyscroll(820);	
@@ -660,17 +681,27 @@ jQuery(document).ready(($)=>{
 			$('.bolgariya_tE').click(()=>{
 				if (tal.gp <= 2000 && tal.visota <= 12000) {
 					$('.hide_type_tal').removeClass('hide_type_tal').addClass('show_type_tal')
-					$('#main_block_for_steps').css('height', '1680px');
+					$('#main_block_for_steps').css('height', '1760px');
+					$('.kanat_t').siblings('.price_').text('От ' + String(Number(tal.priceAJAX.bolgariya_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+					$('.cep_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_cep_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 					easyscroll(1220);
 				} else {
 					$('.hide_type_tal').css('display', 'none')
 					$('.hide_s_visota_tal').removeClass('hide_s_visota_tal').addClass('show_s_visota_tal')
-					$('#main_block_for_steps').css('height', '1680px');
+					$('#main_block_for_steps').css('height', '1760px');
 					easyscroll(1220);
 					tal.type = 'Канатная';
+					if (cran._2.search(/Взрывобезопасное/i) == 0) {
+						$('.stdV_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_canatVBI_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						$('.umenV_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_canatUSVVBI_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+					}
+					else {
+						$('.stdV_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						$('.umenV_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_canatUSV_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+					}
 				  }
 				tal.country = 'Болгария';
-				tal.img = '17.5.png';
+				tal.img = '17.5.png';				
 			})
 				$('.stdV_t').click(()=>{
 					cran._2.search(/Взрывобезопасное/i) == 0 ? tal.type = 'Канатная ВБИ' : tal.type = 'Канатная';
@@ -770,8 +801,8 @@ jQuery(document).ready(($)=>{
 				tal.img = '17.7.png';
 				if ((tal.gp <= 500 && tal.visota <= 6000) || (tal.gp <= 10000 && tal.visota <= 9000)) {
 					$('.hide_type_tal').removeClass('hide_type_tal').addClass('show_type_tal')
-					easyscroll(920);
-					$('#main_block_for_steps').css('height', '1680px');
+					easyscroll(1220);
+					$('#main_block_for_steps').css('height', '1760px');
 				} else {
 					tal.type = 'Канатная';
 					hide($('#vibor_tali'));
@@ -789,6 +820,8 @@ jQuery(document).ready(($)=>{
 					$('#dop_block').css('display', 'block');
 					cran.calculate_tal();
 				  }
+				$('.kanat_t').siblings('.price_').text(String(Number(tal.priceAJAX.china_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+				$('.cep_t').siblings('.price_').text(String(Number(tal.priceAJAX.china_el_cep_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 			})
 
 				$('.kanat_t').click(()=>{
@@ -796,7 +829,9 @@ jQuery(document).ready(($)=>{
 						$('.hide_s_visota_tal').removeClass('hide_s_visota_tal').addClass('show_s_visota_tal')
 						easyscroll(1620);
 						tal.type = 'Канатная';
-						$('#main_block_for_steps').css('height', '2100px');
+						$('#main_block_for_steps').css('height', '2130px');
+						$('.stdV_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						$('.umenV_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_canatUSV_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 					} else {
 						tal.type = 'Канатная';
 						tal.img = '17.3.png';
@@ -1122,7 +1157,7 @@ cran.motor_price = function (model) {
 										<p> \
 											<span class="opisanie_parametra">Входит в стоимость крана</span> \
 												<br> \
-											<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i> \
+											<span class="stoimost_parametra">Без доплаты</span><i class="id_bro">b3</i> \
 										</p>';
 					return new_html;
 				})
@@ -1198,7 +1233,6 @@ cran.calculate_tal = function  (argument) {
 			<p><span class="opisanie_parametra">'+String(tal.upravlenie)+'<br>'+String(tal.type)+'</span><br> \
 				<span class="stoimost_parametra">'+ String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span> \
 			</p>');
-					//easyscroll(700)
 		$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
 		$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
 	});
@@ -1210,6 +1244,73 @@ $('.bolgariya_tE').hover(function() {
 }, function() {
 	$(this).siblings('p').css('display', 'none');
 });
+
+/*
+*
+* Установка цены на грузоподъемность
+*
+*/
+function gp_insert_price ()
+{
+	let upr_cr = cran._3 == 'Ручное' ? 'Ручное' : 'Электро';
+	let type_cr = cran._1 == 'Опорный' ? 'Опорный':'Подвесной';
+	let gp_data = { action: 'gp_insert', type_cran: type_cr, upr_cran: upr_cr }
+	$.post( calc_ajaxurl.url, gp_data, function(response) {
+		let gp_resp = JSON.parse(response);
+		$('.кг500 > span > .price_').text('От ' + String(Number(gp_resp._500).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
+		$('.кг1000 > span > .price_').text('От ' + String(Number(gp_resp._1000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
+		$('.кг2000 > span > .price_').text('От ' + String(Number(gp_resp._2000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
+		$('.кг3200 > span > .price_').text('От ' + String(Number(gp_resp._3200).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
+		$('.кг5000 > span > .price_').text('От ' + String(Number(gp_resp._5000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
+		$('.кг6300 > span > .price_').text('От ' + String(Number(gp_resp._6300).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
+		$('.кг8000 > span > .price_').text('От ' + String(Number(gp_resp._8000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
+		$('.кг10000 > span > .price_').text('От ' + String(Number(gp_resp._10000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
+		$('.кг12500 > span > .price_').text('От ' + String(Number(gp_resp._12500).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
+		$('.кг16000 > span > .price_').text('От ' + String(Number(gp_resp._16000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
+	});
+}
+
+function chastotnik_insert_price ()
+{
+	$.post( calc_ajaxurl.url, { action: 'chastotniki_insert', _gp:cran.gp }, function(response)
+	{
+		let chst_resp = JSON.parse(response);
+		$('.esq').siblings('.price_').text(String(Number(chst_resp._85).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		$('.hyundai').siblings('.price_').text(String(Number(chst_resp._86).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		$('.danfross').siblings('.price_').text(String(Number(chst_resp._87).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		$('.несколько_с').siblings('.price_').text('От ' + String(Number(chst_resp.dbls).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+	});
+}
+
+function motor_insert_price ()
+{
+	$.post( calc_ajaxurl.url, { action: 'motor_insert', _gp:cran.gp, _shir:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP }, function(response)
+	{
+		let motor_resp = JSON.parse(response);
+		$('.чнг').siblings('.price_').text(String(Number(motor_resp._92).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		$('.цбб').siblings('.price_').text(String(Number(motor_resp._93).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		$('.цнг').siblings('.price_').text(String(Number(motor_resp._94).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		$('.цер').siblings('.price_').text(String(Number(motor_resp._95).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+	});
+}
+
+
+
+
+function tali_insert_price ()
+{
+	$.post( calc_ajaxurl.url, { action: 'tal_insert', _gp:cran.gp, _upravlenie:tal.upravlenie, _visota:tal.visota, _ispolnenie:tal.ispolnnie }, function(response)
+	{
+		tal.priceAJAX = JSON.parse(response);
+		$('.russia_tR').siblings('.price_').text(String(Number(tal.priceAJAX.rt_r).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		$('.china_tR').siblings('.price_').text(String(Number(tal.priceAJAX.ct_r).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		$('.sheciya_tR').siblings('.price_').text(String(Number(tal.priceAJAX.st_r).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		$('.bolgariya_tE').siblings('.price_').text('От ' + String(Number(tal.priceAJAX.bolgariya_el_cep_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		$('.russia_tE').siblings('.price_').text(String(Number(tal.priceAJAX.russia_el_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		$('.china_tE').siblings('.price_').text('От ' + String(Number(tal.priceAJAX.china_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+	});
+}
+
 
 });
 

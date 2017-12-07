@@ -44,22 +44,20 @@
 			?>
 			</li>		
 			<li id="b11" class="change_li"><span><img src="<?=$url;?>images/11.png" alt="" style="width:140px"><p><b class="hz4">Электрический щит крана</b><br><span class="opisanie_parametra">с импортными компонентами</span></p></span><span class='hiddened'></span></li>
-			<li id="b12" class="change_li cat" name="sirena"><span><img src="<?=$url;?>images/12.png" alt="" style="width:140px"><p><b class="hz4">Световая | звуковая сирена</b></p></span><span class='hiddened'></span>
 			<?php
 				$variants = $wpdb->prefix . 'variants';
-				$name_result = $wpdb->get_results("SELECT id, code_option, price FROM $variants WHERE id > 31 AND id <= 33");
+				$name_result = $wpdb->get_results("SELECT id, code_option, price FROM $variants WHERE id = 32");
 				if ($name_result) {
-					$nimg =0;
-					foreach ($name_result as $option) {
-						$nimg++;
-						$id = $option->id;
-						$code_option = $option->code_option;
-						$price = $option->price;
-						echo "<div id='b12_{$id}' class='change_li' name='sirena'><span><img src='{$url}images/12.{$nimg}.png' style='width:140px'><p><b class='hz4'>{$code_option}</b></p></span><span class='hiddened'>{$price} руб</span></div>";
-					}
+					$svet_sirena = $name_result[0]->price;
+				}
+				$name_result = $wpdb->get_results("SELECT id, code_option, price FROM $variants WHERE id = 33");
+				if ($name_result) {
+					$zvuk_sirena = $name_result[0]->price;
 				}
 			?>
-			</li>
+			<li id="b12_1" class="change_li"><span><img src="<?=$url;?>images/12.1.png" alt="" style="width:140px"><p><b class="hz4">Световая сирена</b></span></p></span><span class='hiddened'><?=$svet_sirena;?> руб</span></li>
+			<li id="b12_2" class="change_li"><span><img src="<?=$url;?>images/12.2.png" alt="" style="width:140px"><p><b class="hz4">Звуковая сирена</b></span></p></span><span class='hiddened'><?=$zvuk_sirena;?> руб</span></li>
+
 			<li id="b13" class="change_li"><span><img src="<?=$url;?>images/13.png" alt="" style="width:140px"><p><b class="hz4">Аварийный стоп</b><br><span class="opisanie_parametra">с линейным выключателем</span></p></span><span class='hiddened'></span></li>
 			<li id="b14" class="change_li"><span><img src="<?=$url;?>images/14.png" alt="" style="width:140px"><p><b class="hz4">Тормоз на передвижение</b></p></span><span class='hiddened'></span></li>
 			<li id="b17" class="change_li cat tali_dop" name="tali"  style="position:relative"><span><img src="<?=$url;?>images/17.8.png" alt="" style="width:140px"><p>Таль</p></span><span class='hiddened'></span>
@@ -102,7 +100,7 @@
 			<li id="c2" class="change_li" name="shef_montazh"></li>
 			<!--<li id="c3" class="change_li" name="dostavka"></li>-->
 			<li id="c4" class="change_li" name="rels_montazh"></li>
-			<li id="c7" class="change_li" name="rels_montazh"><span><img src="wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Чертеж</b><br><span class="opisanie_parametra">Габаритный чертеж</span></p></span><span class="hiddened">Бесплатно</span></li>
+			<li id="c7" class="change_li" name="rels_montazh"><span><img src="wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Чертеж</b><br><span class="opisanie_parametra">Габаритный чертеж</span></p></span><span class="hiddened">Без доплаты</span></li>
 			
 		</ul>
 	</div>

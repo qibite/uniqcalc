@@ -147,7 +147,7 @@ jQuery(document).ready(($)=>{
 								<p> \
 									<span class="opisanie_parametra">Входит в стоимость крана</span> \
 										<br> \
-									<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i> \
+									<span class="stoimost_parametra">Без доплаты</span><i class="id_bro">b3</i> \
 								</p>';
 			return new_html;
 			});
@@ -163,7 +163,7 @@ jQuery(document).ready(($)=>{
 						<p> \
 						<span class="opisanie_parametra">Входит в стоимость крана</span> \
 						<br> \
-						<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b9</i> \
+						<span class="stoimost_parametra">Без доплаты</span><i class="id_bro">b9</i> \
 						</p>';
 				return new_html;
 			});
@@ -181,7 +181,7 @@ jQuery(document).ready(($)=>{
 						<p> \
 						<span class="opisanie_parametra">Релейно-контакторная одна скорость движения</span> \
 						<br> \
-						<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b8</i> \
+						<span class="stoimost_parametra">Без доплаты</span><i class="id_bro">b8</i> \
 						</p>';
 				return new_html;
 			});
@@ -443,7 +443,6 @@ jQuery(document).ready(($)=>{
 			calculate_stop(); // Установить цену для Аварийный стоп на передвижение
 			document.getElementById('b10').style.display = 'inline-block';
 			document.getElementById('b11').style.display = 'inline-block';
-			document.getElementById('b12').style.display = 'inline-block';
 			document.getElementById('b13').style.display = 'inline-block';
 			document.getElementById('b14').style.display = 'inline-block';
 			
@@ -451,7 +450,6 @@ jQuery(document).ready(($)=>{
 			//document.getElementById('b3').style.display = 'none';
 			document.getElementById('b10').style.display = 'none';
 			document.getElementById('b11').style.display = 'none';
-			document.getElementById('b12').style.display = 'none';
 			document.getElementById('b13').style.display = 'none';
 			document.getElementById('b14').style.display = 'none';
 		}
@@ -498,7 +496,7 @@ jQuery(document).ready(($)=>{
 				}
 				else {			
 					if (cran._3 != 'Ручное') {
-						if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
+						if ($('#option_2').children('.dop_parametr').length+1 >= 13) {
 							$('.add_dop_2').parent().css('display', 'none');
 						}
 						else {
@@ -547,7 +545,7 @@ jQuery(document).ready(($)=>{
 				else {			
 					if (cran._3 != 'Ручное') {
 						if ($('#option_3').children('.dop_parametr').length+1 >= 12) {
-							$('.add_dop_2').parent().css('display', 'none');
+							$('.add_dop_3').parent().css('display', 'none');
 						}
 						else {
 						$('.add_dop_2').parent().css('display', 'inline-block');
@@ -602,7 +600,6 @@ $('#revers').on('click', function() {
 			document.getElementById('a3').style.display = 'none';
 			document.getElementById('b10').style.display = 'none';
 			document.getElementById('b11').style.display = 'none';
-			document.getElementById('b12').style.display = 'none';
 			document.getElementById('b13').style.display = 'none';
 			document.getElementById('b14').style.display = 'none';
 		}
@@ -667,7 +664,6 @@ function hideThisChange (this_Change) {
 		{
 			document.getElementById('b10').style.display = 'none';
 			document.getElementById('b11').style.display = 'none';
-			document.getElementById('b12').style.display = 'none';
 			document.getElementById('b13').style.display = 'none';
 			document.getElementById('b14').style.display = 'none';
 		}	

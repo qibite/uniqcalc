@@ -28,14 +28,17 @@ echo <<<EOT
 				<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 					<img class="allimg russia_tR" src="{$url}images/17.8.png" style="height:240px" alt="">
 					<h4 class=" talbtn russia_tR">Россия</h4>
+					<span class="price_"></span>
 				</div>
 				<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 					<img class="allimg china_tR" src="{$url}images/17.9.png" style="height:240px" alt="">
 					<h4 class=" talbtn china_tR">Китай</h4>
+					<span class="price_"></span>
 				</div>
 				<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 					<img class="allimg sheciya_tR" src="{$url}images/17.10.png" style="height:240px" alt="">
 					<h4 class=" talbtn sheciya_tR">Швеция</h4>
+					<span class="price_"></span>
 				</div>				
 			</div>
 
@@ -43,15 +46,18 @@ echo <<<EOT
 				<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 					<img class="allimg bolgariya_tE" src="{$url}images/17.5.png" style="height:240px" alt="">
 					<h4 class=" talbtn bolgariya_tE">Болгария</h4>
-					<p style="display:none;font-size:.6em;position:absolute;left:12px">Внимание! Стоимость болгарских талей пересчитывается<br>в рубли с ЕВРО по курсу на сегодняшний день.</p>
+					<p style="display:none;font-size:.6em;position:absolute;left:12px;bottom:86px">Внимание! Стоимость болгарских талей пересчитывается<br>в рубли с ЕВРО по курсу на сегодняшний день.</p>
+					<span class="price_"></span>
 				</div>
 				<div class="block rus_e" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 					<img class="allimg russia_tE" src="{$url}images/17.6.png" style="height:240px" alt="">
 					<h4 class=" talbtn russia_tE">Россия</h4>
+					<span class="price_"></span>
 				</div>
 				<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 					<img class="allimg china_tE" src="{$url}images/17.7.png" style="height:240px" alt="">
 					<h4 class=" talbtn china_tE">Китай</h4>
+					<span class="price_"></span>
 				</div>
 			</div>
 
@@ -59,10 +65,12 @@ echo <<<EOT
 					<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 						<img class="allimg kanat_t" src="{$url}images/17.3.png" style="height:240px" alt="">
 						<h4 class=" talbtn kanat_t">Канатная</h4>
+						<span class="price_"></span>
 					</div>
 					<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 						<img class="allimg cep_t" src="{$url}images/17.4.png" style="height:240px" alt="">
 						<h4 class=" talbtn cep_t">Цепная</h4>
+						<span class="price_"></span>
 					</div>
 				</div>
 
@@ -70,10 +78,12 @@ echo <<<EOT
 						<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 							<img class="allimg stdV_t" src="{$url}images/17.5.1.png" style="height:240px" alt="">
 							<h4 class=" talbtn stdV_t">Стандартная высота</h4>
+							<span class="price_"></span>
 						</div>
 						<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 							<img class="allimg umenV_t" src="{$url}images/17.5.2.png" style="height:240px" alt="">
 							<h4 class=" talbtn umenV_t">Уменьшенная высота</h4>
+							<span class="price_"></span>
 						</div>
 					</div>
 </article>

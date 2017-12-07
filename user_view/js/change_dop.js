@@ -299,7 +299,7 @@ jQuery(document).ready(($)=>{
 					<p> \
 						<span class="opisanie_parametra">Входит в стоимость крана</span> \
 						<br> \
-						<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i> \
+						<span class="stoimost_parametra">Без доплаты</span><i class="id_bro">b3</i> \
 					</p>';
 					return new_html;
 			});
@@ -354,7 +354,7 @@ jQuery(document).ready(($)=>{
 					});
 			let motor_reductor_9_1_price = document.createElement('span');
 				motor_reductor_9_1_price.className = 'price_in_change';
-				motor_reductor_9_1_price.innerText ='Бесплатно';
+				motor_reductor_9_1_price.innerText ='Без доплаты';
 				motor_reductor_9_1.append(motor_reductor_9_1_price);
 
 			let motor_reductor_9_1_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
@@ -545,7 +545,7 @@ jQuery(document).ready(($)=>{
 					});
 			let preobrazovatel_8_3_price = document.createElement('span');
 				preobrazovatel_8_3_price.className = 'price_in_change';
-				preobrazovatel_8_3_price.innerText =  'Бесплатно';
+				preobrazovatel_8_3_price.innerText =  'Без доплаты';
 				preobrazovatel_8_3.append(preobrazovatel_8_3_price);
 
 			let preobrazovatel_8_3_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
@@ -703,12 +703,12 @@ jQuery(document).ready(($)=>{
 				<span class="change_this_option preobrazovatel_change">Изменить \
 					<i class="fa fa-pencil-square" aria-hidden="true"></i> \
 				</span> \
-				<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" class="preobrazovatel_change" style="width:200px"> \
+				<img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.3.png" alt="" class="preobrazovatel_change" style="width:200px"> \
 				<h4>Система управления</h4> \
 				<p> \
 					<span class="opisanie_parametra">Релейно-контакторная одна скорость движения</span> \
 						<br> \
-					<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b8</i> \
+					<span class="stoimost_parametra">Без доплаты</span><i class="id_bro">b8</i> \
 				</p>';
 			return new_html;
 		});
@@ -1048,7 +1048,7 @@ function get_preobrazovatel_id (model, img)
 									<p> \
 										<span class="opisanie_parametra">Входит в стоимость крана</span> \
 											<br> \
-										<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i> \
+										<span class="stoimost_parametra">Без доплаты</span><i class="id_bro">b3</i> \
 									</p>';
 				return new_html;
 			});
@@ -1065,7 +1065,7 @@ function get_preobrazovatel_id (model, img)
 					<p> \
 						<span class="opisanie_parametra">Входит в стоимость крана</span> \
 						<br> \
-						<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b3</i> \
+						<span class="stoimost_parametra">Без доплаты</span><i class="id_bro">b3</i> \
 					</p>';
 				return new_html;
 			});
@@ -1083,7 +1083,7 @@ function get_preobrazovatel_id (model, img)
 					<p> \
 						<span class="opisanie_parametra">Релейно-контакторная одна скорость движения</span> \
 						<br> \
-						<span class="stoimost_parametra">Бесплатно</span><i class="id_bro">b8</i> \
+						<span class="stoimost_parametra">Без доплаты</span><i class="id_bro">b8</i> \
 					</p>';
 				return new_html;
 			});
@@ -1123,7 +1123,7 @@ function get_preobrazovatel_id (model, img)
 			}
 			else {			
 				if (cran._3 != 'Ручное') {
-					if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
+					if ($('#option_2').children('.dop_parametr').length+1 >= 13) {
 						$('.add_dop_2').parent().css('display', 'none');
 					}
 					else {
@@ -1173,7 +1173,7 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 					}
 					else {			
 						if (cran._3 != 'Ручное') {
-							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
 								$('.add_dop_2').parent().css('display', 'none');
 							}
 							else {
@@ -1231,7 +1231,7 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 					}
 					else {			
 						if (cran._3 != 'Ручное') {
-							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
 								$('.add_dop_2').parent().css('display', 'none');
 							}
 							else {
@@ -1264,7 +1264,7 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 					}
 					else {			
 						if (cran._3 != 'Ручное') {
-							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
 								$('.add_dop_2').parent().css('display', 'none');
 							}
 							else {
@@ -1297,7 +1297,7 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 					}
 					else {			
 						if (cran._3 != 'Ручное') {
-							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
 								$('.add_dop_2').parent().css('display', 'none');
 							}
 							else {
@@ -1355,7 +1355,7 @@ $('.tal_e_BOLG').click(()=>{
 					}
 					else {			
 						if (cran._3 != 'Ручное') {
-							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
 								$('.add_dop_2').parent().css('display', 'none');
 							}
 							else {
@@ -1388,7 +1388,7 @@ $('.tal_e_BOLG').click(()=>{
 					}
 					else {			
 						if (cran._3 != 'Ручное') {
-							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
 								$('.add_dop_2').parent().css('display', 'none');
 							}
 							else {
@@ -1421,7 +1421,7 @@ $('.tal_e_BOLG').click(()=>{
 					}
 					else {			
 						if (cran._3 != 'Ручное') {
-							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
 								$('.add_dop_2').parent().css('display', 'none');
 							}
 							else {
@@ -1453,7 +1453,7 @@ $('.tal_e_BOLG').click(()=>{
 					}
 					else {			
 						if (cran._3 != 'Ручное') {
-							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
 								$('.add_dop_2').parent().css('display', 'none');
 							}
 							else {
@@ -1489,7 +1489,7 @@ $('.tal_e_RUS').click(()=>{
 					}
 					else {			
 						if (cran._3 != 'Ручное') {
-							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
 								$('.add_dop_2').parent().css('display', 'none');
 							}
 							else {
@@ -1531,7 +1531,7 @@ $('.tal_e_CHN').click(()=>{
 					}
 					else {			
 						if (cran._3 != 'Ручное') {
-							if ($('#option_2').children('.dop_parametr').length+1 >= 11) {
+							if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
 								$('.add_dop_2').parent().css('display', 'none');
 							}
 							else {

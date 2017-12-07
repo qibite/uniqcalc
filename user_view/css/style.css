@@ -220,9 +220,9 @@ h4>i{font-size: .7em;}
 {position: relative;}
 
 #список_моделей_рельс li, #список_моделей_путей li, #список_токоподводов li{display:inline-block}
-.block h3.вес{width:190px;font-size:2.3em;letter-spacing:0.007em;padding:0em 0.5em;border:1px solid #888;border-radius:4px;line-height:2em;color:#333;cursor:pointer}
+.block h3.вес{width:190px;font-size:2.3em;letter-spacing:0.007em;padding:.3em 0.5em;border:1px solid #888;border-radius:4px;line-height:.7em;color:#333;cursor:pointer}
 .block h3.вес:hover{border-color:#b5212e}
-#first li{margin-left: 0}
+#first li{margin-left:0;font-family:'Rubik Regular';line-height:1.25em}
 tr td{padding:7px;border:none}
 tr td:first-child{position:relative;text-align:right;width:30px;padding:0;border:none}
 tr td:last-child{text-align:left;padding-left:6px;border-bottom:1px solid #324A56;font-size:0.84em}
@@ -449,4 +449,10 @@ p + hr
 {
 	margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.price_ 
+{
+	font-weight:bold;
+	color:#b5212e
 }
