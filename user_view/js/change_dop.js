@@ -1149,7 +1149,7 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 
 	$('#second_opt').on('click', '#b17_1', function(event) {
 		tal.upravlenie = 'Ручное';
-		tal.type = 'Цепная';
+		tal.type = 'Цепная';		
 		if (cran._2.search(/Взрывобезопасное/i) == 0)
 		{
 			tal.country = 'Россия';
@@ -1182,14 +1182,25 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 						}
 					}
 				});
-			},200);
+			},200);		
 		}
 		else
 		{
 			$('#conteinert_talei_1').css('display', 'block');
 			$('.e_tal').css('display', 'none');
 			$('.r_tal').css('display', 'inline-block');	
-		}			
+		}
+		$.post( calc_ajaxurl.url, { action: 'tal_insert', _gp:cran.gp, _upravlenie:tal.upravlenie, _visota:tal.visota, _ispolnenie:tal.ispolnnie }, function(response)
+		{
+			tal.priceAJAX = JSON.parse(response);
+			$('#b17_8 .hiddened').text(String(Number(tal.priceAJAX.rt_r).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('#b17_9 > .hiddened').text(String(Number(tal.priceAJAX.ct_r).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('#b17_10 > .hiddened').text(String(Number(tal.priceAJAX.st_r).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');			
+		});
+		$('.tal_canat').css('display', 'none');
+		$('.tal_cep').css('display', 'none');
+		$('.tal_std_height').css('display', 'none');
+		$('.tal_mini_std_height').css('display', 'none');
 	});
 
 	$('#second_opt').on('click', '#b17_2', function(event) {
@@ -1208,6 +1219,13 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 			$('.r_tal').css('display', 'none');
 			$('.e_tal').css('display', 'inline-block');			
 		}
+		$.post( calc_ajaxurl.url, { action: 'tal_insert', _gp:cran.gp, _upravlenie:tal.upravlenie, _visota:tal.visota, _ispolnenie:tal.ispolnnie }, function(response)
+		{
+			$('#b17_5 .hiddened').text('От ' + String(Number(tal.priceAJAX.bolgariya_el_cep_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('#b17_6 > .hiddened').text(String(Number(tal.priceAJAX.russia_el_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('#b17_7 > .hiddened').text('От ' + String(Number(tal.priceAJAX.china_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			
+		});	
 	});
 // РУЧНЫЕ ТАЛИ
 		$('.tal_r_RUS').click(()=>{
@@ -1318,12 +1336,22 @@ $('.tal_e_BOLG').click(()=>{
 		$('#conteinert_talei_2').css('display', 'block');
 		$('.tal_canat').css('display', 'inline-block');
 		$('.tal_cep').css('display', 'inline-block');
+		$('#b17_3 .hiddened').text('От ' + String(Number(tal.priceAJAX.bolgariya_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		$('#b17_4 .hiddened').text(String(Number(tal.priceAJAX.bolgariya_el_cep_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 	} else {
 		$('#conteinert_talei_3').css('display', 'block');
 		$('.tal_std_height').css('display', 'inline-block');
 		$('.tal_mini_std_height').css('display', 'inline-block');
 		tal.type = 'Канатная';
-	  }
+		if (cran._2.search(/Взрывобезопасное/i) == 0) {
+				$('#b17_5_1 .hiddened').text(String(Number(tal.priceAJAX.bolgariya_el_canatVBI_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+				$('#b17_5_2 .hiddened').text(String(Number(tal.priceAJAX.bolgariya_el_canatUSVVBI_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			}
+			else {
+				$('#b17_5_1 .hiddened').text(String(Number(tal.priceAJAX.bolgariya_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+				$('#b17_5_2 .hiddened').text(String(Number(tal.priceAJAX.bolgariya_el_canatUSV_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			}
+	 	}
 	tal.country = 'Болгария';
 	tal.img = '17.5.png';
 });
@@ -1366,6 +1394,8 @@ $('.tal_e_BOLG').click(()=>{
 				});
 			},200);
 		}
+		$('#b17_5_1 .hiddened').text(String(Number(tal.priceAJAX.bolgariya_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		$('#b17_5_2 .hiddened').text(String(Number(tal.priceAJAX.bolgariya_el_canatUSV_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 	})
 	$('.tal_cep').click(()=>{
 		tal.type = 'Цепная';
@@ -1542,6 +1572,10 @@ $('.tal_e_CHN').click(()=>{
 				});
 		},200);
 	}
+	$('.tal_std_height').css('display', 'none');
+	$('.tal_mini_std_height').css('display', 'none');
+	$('#b17_3 .hiddened').text(String(Number(tal.priceAJAX.china_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+	$('#b17_4 .hiddened').text(String(Number(tal.priceAJAX.china_el_cep_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 })
 // ЭЛЕКТРО ТАЛИ КИТАЙ
 

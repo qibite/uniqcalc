@@ -444,6 +444,8 @@ jQuery(document).ready(($)=>{
 			document.getElementById('b10').style.display = 'inline-block';
 			document.getElementById('b11').style.display = 'inline-block';
 			document.getElementById('b13').style.display = 'inline-block';
+			document.getElementById('b12_1').style.display = 'inline-block';
+			document.getElementById('b12_2').style.display = 'inline-block';
 			document.getElementById('b14').style.display = 'inline-block';
 			
 		} else {
@@ -451,6 +453,8 @@ jQuery(document).ready(($)=>{
 			document.getElementById('b10').style.display = 'none';
 			document.getElementById('b11').style.display = 'none';
 			document.getElementById('b13').style.display = 'none';
+			document.getElementById('b12_1').style.display = 'none';
+			document.getElementById('b12_2').style.display = 'none';
 			document.getElementById('b14').style.display = 'none';
 		}
 		delete_doble('#option_2', $('#second_opt'));
@@ -601,6 +605,8 @@ $('#revers').on('click', function() {
 			document.getElementById('b10').style.display = 'none';
 			document.getElementById('b11').style.display = 'none';
 			document.getElementById('b13').style.display = 'none';
+			document.getElementById('b12_1').style.display = 'none';
+			document.getElementById('b12_2').style.display = 'none';
 			document.getElementById('b14').style.display = 'none';
 		}
 	delete_doble('#option_1', $('#first_opt'));
@@ -665,6 +671,8 @@ function hideThisChange (this_Change) {
 			document.getElementById('b10').style.display = 'none';
 			document.getElementById('b11').style.display = 'none';
 			document.getElementById('b13').style.display = 'none';
+			document.getElementById('b12_1').style.display = 'none';
+			document.getElementById('b12_2').style.display = 'none';
 			document.getElementById('b14').style.display = 'none';
 		}	
 	});
