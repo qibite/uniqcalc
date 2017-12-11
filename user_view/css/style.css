@@ -456,3 +456,35 @@ p + hr
 	font-weight:bold;
 	color:#b5212e
 }
+
+.opt_tal
+{
+	float: left;
+	display: inline-block;
+    width: 42%;
+    cursor: pointer;
+    font-family: 'Rubik Lite';
+    margin-bottom: .2em;
+        font-size: .9em;
+}
+
+.opt_tal input
+{
+	cursor: pointer;
+}
+
+.opt_tal:nth-child(odd)
+{
+    text-align: right;
+}
+
+.opt_tal:nth-child(even)
+{
+    text-align: left;
+	margin-left: 7.5%;
+}
+
+.bolg_kanat, .russia_kanat, .bolg_cep, #next_tal, #h2_tal
+{
+	display: none;
+}

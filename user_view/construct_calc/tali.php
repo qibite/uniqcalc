@@ -86,6 +86,30 @@ echo <<<EOT
 							<span class="price_"></span>
 						</div>
 					</div>
+
+					<div class="options_tali" style="width:90%;padding:1em;margin-left:4%;margin-top:3em">
+					<h2 id="h2_tal" style="margin-bottom:.3em">Предлагаем дополнительные опции для выбраной тали</h2>
+						<label class="opt_tal bolg_kanat" for="bolg_kanat_1"><input id="bolg_kanat_1" type="checkbox"> Химическая агрессивная среда +5%</label>
+						<label class="opt_tal bolg_kanat" for="bolg_kanat_2">Тропическое исполнение +10% <input id="bolg_kanat_2" type="checkbox"></label>
+						<label class="opt_tal bolg_kanat" for="bolg_kanat_3"><input id="bolg_kanat_3" type="checkbox"> Морское исполнение +10%</label>
+						<label class="opt_tal bolg_kanat" for="bolg_kanat_4">Защитный экран +490 EUR<input id="bolg_kanat_4" type="checkbox"></label>
+						<label class="opt_tal bolg_kanat" for="bolg_kanat_5"><input id="bolg_kanat_5" type="checkbox"> Концевой переключатель на передвижение +16 EUR</label>
+						<label class="opt_tal bolg_kanat" for="bolg_kanat_6">Сейсмичность 9 баллов +10% <input id="bolg_kanat_6" type="checkbox"></label>
+						<label class="opt_tal bolg_kanat" for="bolg_kanat_7"><input id="bolg_kanat_7" type="checkbox"> Второй тормоз на подъем +220EUR</label>
+						<label class="opt_tal bolg_kanat" for="bolg_kanat_8">Микроподъем +16% <input id="bolg_kanat_8" type="checkbox"></label>
+						<label class="opt_tal bolg_kanat" for="bolg_kanat_9"><input id="bolg_kanat_9" type="checkbox"> Скорость подъема V2 +5%</label>
+						<label class="opt_tal bolg_kanat" for="bolg_kanat_10">Скорость подъема V2 +7%<input id="bolg_kanat_10" type="checkbox"></label>
+						<label class="opt_tal bolg_kanat" for="bolg_kanat_11"><input id="bolg_kanat_11" type="checkbox"> Частотный привод на подъем</label>
+						<label class="opt_tal bolg_kanat" for="bolg_kanat_12">Частотный привод на передвижение +300EUR<input id="bolg_kanat_12" type="checkbox"></label>
+
+						<label class="opt_tal russia_kanat" for="russia_kanat_1"><input id="russia_kanat_1" type="checkbox"> Второй тормоз на подъем +27 000 руб</label>
+
+						<label class="opt_tal bolg_cep" for="bolg_cep_1"><input id="bolg_cep_1" type="checkbox"> Тележка передвижения с электо приводом +90EUR</label>
+						<label class="opt_tal bolg_cep" for="bolg_cep_2">Тележка передвижения с с ручным приводом +150EUR <input id="bolg_cep_2" type="checkbox"></label>
+
+						<div style="clear:both;margin-bottom:30px"></div>
+						<h4 id="next_tal" class="talbtn" style="width:200px;margin:0 auto">Далее</h4>
+					</div>
 </article>
 EOT;
 ?>

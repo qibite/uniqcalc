@@ -617,6 +617,9 @@ jQuery(document).ready(($)=>{
 	});
 
 		$('.ruchnaya_t').click(()=>{
+			$('.bolg_kanat,.bolg_cep,.russia_kanat, #next_tal, #h2_tal').css('display', 'none');
+			$('.show_type_tal').removeClass('show_type_tal').addClass('hide_type_tal')
+			$('.show_s_visota_tal').removeClass('show_s_visota_tal').addClass('hide_s_visota_tal')
 			tal.upravlenie = 'Ручное';
 			tal.type = 'Цепная';
 			if (cran._2.search(/Взрывобезопасное/i) == 0) {
@@ -679,6 +682,7 @@ jQuery(document).ready(($)=>{
 			})
 
 			$('.bolgariya_tE').click(()=>{
+				$('.bolg_kanat,.bolg_cep,.russia_kanat, #next_tal, #h2_tal').css('display', 'none');
 				if (tal.gp <= 2000 && tal.visota <= 12000) {
 					$('.hide_type_tal').removeClass('hide_type_tal').addClass('show_type_tal')
 					$('#main_block_for_steps').css('height', '1760px');
@@ -701,43 +705,31 @@ jQuery(document).ready(($)=>{
 					}
 				  }
 				tal.country = 'Болгария';
-				tal.img = '17.5.png';				
+				tal.img = '17.5.png';
+				$('h4.bolgariya_tE').css({'background-color':'#e60216', 'color':'#FFFFFF'});
+				$('h4.russia_tE').css({'background-color':'#cecece', 'color':'#242526'});
+				$('h4.china_tE').css({'background-color':'#cecece', 'color':'#242526'});
 			})
 				$('.stdV_t').click(()=>{
+					if(tal.country == 'Болгария'){easyscroll(1860)}
 					cran._2.search(/Взрывобезопасное/i) == 0 ? tal.type = 'Канатная ВБИ' : tal.type = 'Канатная';
 					tal.img = '17.5.1.png';
-					hide($('#vibor_tali'));
 					cran.step = 'end';
-						if (cran._1 == 'Опорный') {
-							resultatiO();
-							next_group($('#результат_опорного'), 0);
-							cran.calculate_oporniy_crane();
-						}
-						if (cran._1 == 'Подвесной') {
-							resultatiP();
-							next_group($('#результат_подвесного'), 0);
-						}
-						$('#main_block_for_steps').css('height', '390px');
-						$('#dop_block').css('display', 'block');
-						cran.calculate_tal();
+					$('.russia_kanat,.bolg_cep').css('display', 'none');
+					$('.bolg_kanat').css('display', 'inline-block');
+					$('#next_tal, #h2_tal').css('display', 'block');
+					$('h4.stdV_t').css({'background-color':'#e60216', 'color':'#FFFFFF'});
+					$('h4.umenV_t').css({'background-color':'#cecece', 'color':'#242526'});
 				})
 				$('.umenV_t').click(()=>{
+					if(tal.country == 'Болгария'){easyscroll(1860)}
 					cran._2.search(/Взрывобезопасное/i) == 0 ? tal.type = 'Канатная УСВ ВБИ' : tal.type = 'Канатная УСВ';
 					tal.img = '17.5.2.png';
-						hide($('#vibor_tali'));
-						cran.step = 'end';
-						if (cran._1 == 'Опорный') {
-							resultatiO();
-							next_group($('#результат_опорного'), 0);
-							cran.calculate_oporniy_crane();
-						}
-						if (cran._1 == 'Подвесной') {
-							resultatiP();
-							next_group($('#результат_подвесного'), 0);
-						}
-						$('#main_block_for_steps').css('height', '390px');
-						$('#dop_block').css('display', 'block');
-						cran.calculate_tal();
+					$('.russia_kanat,.bolg_cep').css('display', 'none');
+					$('.bolg_kanat').css('display', 'inline-block');
+					$('#next_tal, #h2_tal').css('display', 'block');
+					$('h4.stdV_t').css({'background-color':'#cecece', 'color':'#242526'});
+					$('h4.umenV_t').css({'background-color':'#e60216', 'color':'#FFFFFF'});
 				})
 
 			$('.russia_tR').click(()=>{
@@ -762,20 +754,15 @@ jQuery(document).ready(($)=>{
 				tal.type = 'Канатная';
 				tal.country = 'Россия';				
 				tal.img = '17.6.png';
-					hide($('#vibor_tali'));
-					cran.step = 'end';
-					if (cran._1 == 'Опорный') {
-						resultatiO();
-						next_group($('#результат_опорного'), 0);
-						cran.calculate_oporniy_crane();
-					}
-					if (cran._1 == 'Подвесной') {
-						resultatiP();
-						next_group($('#результат_подвесного'), 0);
-					}
-					$('#main_block_for_steps').css('height', '390px');
-					$('#dop_block').css('display', 'block');
-					cran.calculate_tal();
+				$('.bolg_kanat,.bolg_cep').css('display', 'none');
+				$('.russia_kanat').css('display', 'inline-block');
+				$('#next_tal, #h2_tal').css('display', 'block');
+				$('#main_block_for_steps').css('height', '1560px');
+				easyscroll(1220);
+				$('.show_type_tal').removeClass('show_type_tal').addClass('hide_type_tal')
+				$('h4.bolgariya_tE').css({'background-color':'#cecece', 'color':'#242526'});
+				$('h4.russia_tE').css({'background-color':'#e60216', 'color':'#FFFFFF'});
+				$('h4.china_tE').css({'background-color':'#cecece', 'color':'#242526'});
 			})
 
 			$('.china_tR').click(()=>{
@@ -822,6 +809,10 @@ jQuery(document).ready(($)=>{
 				  }
 				$('.kanat_t').siblings('.price_').text(String(Number(tal.priceAJAX.china_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 				$('.cep_t').siblings('.price_').text(String(Number(tal.priceAJAX.china_el_cep_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+				$('h4.bolgariya_tE').css({'background-color':'#cecece', 'color':'#242526'});
+				$('h4.russia_tE').css({'background-color':'#cecece', 'color':'#242526'});
+				$('h4.china_tE').css({'background-color':'#e60216', 'color':'#FFFFFF'});
+				$('.bolg_kanat,.bolg_cep,.russia_kanat, #next_tal, #h2_tal').css('display', 'none');
 			})
 
 				$('.kanat_t').click(()=>{
@@ -829,7 +820,7 @@ jQuery(document).ready(($)=>{
 						$('.hide_s_visota_tal').removeClass('hide_s_visota_tal').addClass('show_s_visota_tal')
 						easyscroll(1620);
 						tal.type = 'Канатная';
-						$('#main_block_for_steps').css('height', '2130px');
+						$('#main_block_for_steps').css('height', '2430px');
 						$('.stdV_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 						$('.umenV_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_canatUSV_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 					} else {
@@ -850,10 +841,16 @@ jQuery(document).ready(($)=>{
 							$('#dop_block').css('display', 'block');
 							cran.calculate_tal();
 					}
+					$('.russia_kanat,.bolg_kanat,.bolg_cep').css('display', 'none');
+					$('.bolg_cep').css('display', 'none');
+					$('#next_tal, #h2_tal').css('display', 'none');
+					$('h4.kanat_t').css({'background-color':'#e60216', 'color':'#FFFFFF'});
+					$('h4.cep_t').css({'background-color':'#cecece', 'color':'#242526'});
 				})
 				$('.cep_t').click(()=>{
 					tal.type = 'Цепная';
 					tal.img = '17.4.png';
+					if (tal.country != 'Болгария') {
 						hide($('#vibor_tali'));
 						cran.step = 'end';
 						if (cran._1 == 'Опорный') {
@@ -868,7 +865,35 @@ jQuery(document).ready(($)=>{
 						$('#main_block_for_steps').css('height', '390px');
 						$('#dop_block').css('display', 'block');
 						cran.calculate_tal();
+					} else {
+						easyscroll(1620);
+						$('.show_s_visota_tal').removeClass('show_s_visota_tal').addClass('hide_s_visota_tal')
+						$('.russia_kanat,.bolg_kanat').css('display', 'none');
+						$('#main_block_for_steps').css('height', '1900px');
+						$('.bolg_cep').css('display', 'inline-block');
+						$('#next_tal, #h2_tal').css('display', 'block');
+						$('h4.cep_t').css({'background-color':'#e60216', 'color':'#FFFFFF'});
+						$('h4.kanat_t').css({'background-color':'#cecece', 'color':'#242526'});
+					}						
 				})
+
+
+				$('#next_tal').click(()=>{
+					hide($('#vibor_tali'));
+					cran.step = 'end';
+					if (cran._1 == 'Опорный') {
+						resultatiO();
+						next_group($('#результат_опорного'), 0);
+						cran.calculate_oporniy_crane();
+					}
+					if (cran._1 == 'Подвесной') {
+						resultatiP();
+						next_group($('#результат_подвесного'), 0);
+					}
+					$('#main_block_for_steps').css('height', '390px');
+					$('#dop_block').css('display', 'block');
+					cran.calculate_tal();
+				});
 			
 
 	$('.tal_no').click(()=>{
