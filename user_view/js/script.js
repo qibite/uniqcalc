@@ -144,7 +144,7 @@ jQuery(document).ready(($)=>{
 	$('._36').click(function () {$('#main_block_for_steps').css('height', '1560px'); //Джостик
 			cran._3Type = 'Радиоуправление с джойстиком';
 			$('._37_j, ._38_j, ._39_j').parent().css('display', 'inline-block');
-			$('._37, ._38, ._39, ._37_vbi, ._38_vbi, ._39vbi').parent().css('display', 'none');
+			$('._37, ._38, ._39, ._37vbi, ._38vbi, ._39vbi').parent().css('display', 'none');
 			$('#proizvositeli_pult').animate({'bottom':'-324px'}, 800);easyscroll(1050);
 		})
 	$('._37, ._37_j, ._37vbi').click(function () {$('#main_block_for_steps').css('height', '800px');
@@ -715,8 +715,8 @@ jQuery(document).ready(($)=>{
 					cran._2.search(/Взрывобезопасное/i) == 0 ? tal.type = 'Канатная ВБИ' : tal.type = 'Канатная';
 					tal.img = '17.5.1.png';
 					cran.step = 'end';
-					$('.russia_kanat,.bolg_cep').css('display', 'none');
-					$('.bolg_kanat').css('display', 'inline-block');
+					$('.russia_kanat,.bolg_cep').removeClass('animated zoomInLeft').css('display', 'none');
+					$('.bolg_kanat').addClass('animated zoomInLeft').css('display', 'inline-block');
 					$('#next_tal, #h2_tal').css('display', 'block');
 					$('h4.stdV_t').css({'background-color':'#e60216', 'color':'#FFFFFF'});
 					$('h4.umenV_t').css({'background-color':'#cecece', 'color':'#242526'});
@@ -725,8 +725,8 @@ jQuery(document).ready(($)=>{
 					if(tal.country == 'Болгария'){easyscroll(1860)}
 					cran._2.search(/Взрывобезопасное/i) == 0 ? tal.type = 'Канатная УСВ ВБИ' : tal.type = 'Канатная УСВ';
 					tal.img = '17.5.2.png';
-					$('.russia_kanat,.bolg_cep').css('display', 'none');
-					$('.bolg_kanat').css('display', 'inline-block');
+					$('.russia_kanat,.bolg_cep').removeClass('animated zoomInLeft').css('display', 'none');
+					$('.bolg_kanat').addClass('animated zoomInLeft').css('display', 'inline-block');
 					$('#next_tal, #h2_tal').css('display', 'block');
 					$('h4.stdV_t').css({'background-color':'#cecece', 'color':'#242526'});
 					$('h4.umenV_t').css({'background-color':'#e60216', 'color':'#FFFFFF'});
@@ -751,11 +751,12 @@ jQuery(document).ready(($)=>{
 					cran.calculate_tal();
 			})
 			$('.russia_tE').click(()=>{
+				$('.show_s_visota_tal').removeClass('show_s_visota_tal').addClass('hide_s_visota_tal')
 				tal.type = 'Канатная';
 				tal.country = 'Россия';				
 				tal.img = '17.6.png';
-				$('.bolg_kanat,.bolg_cep').css('display', 'none');
-				$('.russia_kanat').css('display', 'inline-block');
+				$('.bolg_kanat,.bolg_cep').removeClass('animated zoomInLeft').css('display', 'none');
+				$('.russia_kanat').addClass('animated zoomInLeft').css('display', 'inline-block');
 				$('#next_tal, #h2_tal').css('display', 'block');
 				$('#main_block_for_steps').css('height', '1560px');
 				easyscroll(1220);
@@ -812,7 +813,7 @@ jQuery(document).ready(($)=>{
 				$('h4.bolgariya_tE').css({'background-color':'#cecece', 'color':'#242526'});
 				$('h4.russia_tE').css({'background-color':'#cecece', 'color':'#242526'});
 				$('h4.china_tE').css({'background-color':'#e60216', 'color':'#FFFFFF'});
-				$('.bolg_kanat,.bolg_cep,.russia_kanat, #next_tal, #h2_tal').css('display', 'none');
+				$('.bolg_kanat,.bolg_cep,.russia_kanat, #next_tal, #h2_tal').removeClass('animated zoomInLeft').css('display', 'none');
 			})
 
 				$('.kanat_t').click(()=>{
@@ -841,7 +842,7 @@ jQuery(document).ready(($)=>{
 							$('#dop_block').css('display', 'block');
 							cran.calculate_tal();
 					}
-					$('.russia_kanat,.bolg_kanat,.bolg_cep').css('display', 'none');
+					$('.russia_kanat,.bolg_kanat,.bolg_cep').removeClass('animated zoomInLeft').css('display', 'none');
 					$('.bolg_cep').css('display', 'none');
 					$('#next_tal, #h2_tal').css('display', 'none');
 					$('h4.kanat_t').css({'background-color':'#e60216', 'color':'#FFFFFF'});
@@ -868,9 +869,9 @@ jQuery(document).ready(($)=>{
 					} else {
 						easyscroll(1620);
 						$('.show_s_visota_tal').removeClass('show_s_visota_tal').addClass('hide_s_visota_tal')
-						$('.russia_kanat,.bolg_kanat').css('display', 'none');
+						$('.russia_kanat,.bolg_kanat').removeClass('animated zoomInLeft').css('display', 'none');
 						$('#main_block_for_steps').css('height', '1900px');
-						$('.bolg_cep').css('display', 'inline-block');
+						$('.bolg_cep').addClass('animated zoomInLeft').css('display', 'inline-block');
 						$('#next_tal, #h2_tal').css('display', 'block');
 						$('h4.cep_t').css({'background-color':'#e60216', 'color':'#FFFFFF'});
 						$('h4.kanat_t').css({'background-color':'#cecece', 'color':'#242526'});
