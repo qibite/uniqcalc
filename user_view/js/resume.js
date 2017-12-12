@@ -90,6 +90,11 @@ jQuery(document).ready(($)=>{
 			$('.dop_parametr:has("span.motor_reductor_change")').remove();
 			$('.dop_parametr:has("span.preobrazovatel_change")').remove();
 			$('#option_1 > .tokoprovod').remove();
+			$('#option_2 > .sirena').remove();
+			$('#option_2 > .stop').remove();
+			$('#option_2 > .tormoz').remove();
+			$('#option_2 > .shit_electro').remove();
+			$('#option_2 > .vikluchateli').remove();
 			$('#gpO > ul li:nth-child(9)').css('display','none');$('#gpO > ul li:nth-child(10)').css('display','none');
 			if (cran.gp > 10000) {cran.gp = 10000; alert('Грузоподъемность была уменьшена до 10000 кг для крана с ручным управлением!')}
 			cran.resetparam();

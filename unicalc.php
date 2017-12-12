@@ -791,7 +791,7 @@ function postavka_provod () {
 	$stoimost_provod = $wpdb->prefix . 'stoimost_provod';
 	$stoimost_provod_result = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = $name_provod ");
 	if ($stoimost_provod_result) {
-		echo '<div class="dop_parametr"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'.$url_img.'" alt="" style="width:200px"><h4>'.$stoimost_provod_result[0]->type.'</h4><p><span class="opisanie_parametra">Цена за 1 метр '.$stoimost_provod_result[0]->price.' руб</span><br><span class="stoimost_parametra">'.number_format($stoimost_provod_result[0]->price*($provod_dlinna/1000), 0, ',', ' ').' руб</span></p>';
+		echo '<div class="dop_parametr tokoprovod"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'.$url_img.'" alt="" style="width:200px"><h4>'.$stoimost_provod_result[0]->type.'</h4><p><span class="opisanie_parametra">Цена за 1 метр '.$stoimost_provod_result[0]->price.' руб</span><br><span class="stoimost_parametra">'.number_format($stoimost_provod_result[0]->price*($provod_dlinna/1000), 0, ',', ' ').' руб</span></p>';
 	}
 	wp_die();
 }
@@ -842,7 +842,7 @@ function calc_montazh_crana () {
  $table_montazha = $wpdb->prefix . 'montazh_ruchnih_cran';
  $table_montazha_res = $wpdb->get_results("SELECT id, gp, shirina_mezh_putami, price FROM $table_montazha WHERE gp = $gp AND shirina_mezh_putami >= $shirina ");
  if ($table_montazha_res) {
- 	echo '<span name="montazh"><img src="wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Монтаж кран-балок</b><br><span class="opisanie_parametra">С ручным управлением</span></p></span><span class="hiddened">'.$table_montazha_res[0]->price.' руб</span>';
+ 	echo '<span name="montazh"><img src="wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Монтаж кран-балок</b><br><span class="opisanie_parametra">Тут нужно приписку</span></p></span><span class="hiddened">'.$table_montazha_res[0]->price.' руб</span>';
  }
  wp_die();
 }
@@ -857,7 +857,7 @@ function calc_montazh_crana_el () {
  $table_montazha = $wpdb->prefix . 'montazh_electro_cran';
  $table_montazha_res = $wpdb->get_results("SELECT id, gp, shirina_mezh_putami, price FROM $table_montazha WHERE gp = $gp AND shirina_mezh_putami >= $shirina ");
  if ($table_montazha_res) {
- 	echo '<span><img src="wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Монтаж кран-балок</b><br><span class="opisanie_parametra">С ручным управлением</span></p></span><span class="hiddened">'.$table_montazha_res[0]->price.' руб</span>';
+ 	echo '<span><img src="wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Монтаж кран-балок</b><br><span class="opisanie_parametra">Тут нужно приписку</span></p></span><span class="hiddened">'.$table_montazha_res[0]->price.' руб</span>';
  }
  wp_die();
 }
