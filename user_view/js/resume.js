@@ -925,17 +925,24 @@ function shef_montazh_cranov () {
 }
 
 function montazh_rels () {
-	/////////////
-	let dlinna = cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP;
-	var data_montazh_rels = { action: 'rels_montazh', _gp:cran.gp, _upravl:cran._3, _dlinna:dlinna, _shir:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP }
-	$.post( calc_ajaxurl.url, data_montazh_rels, function(response)
-	{
-		$('#c4').html(response)
-	});
-	/////////////
+	if ($('#option_1').children('div.rels_crane').length > 0) {
+		/////////////
+		let dlinna = cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP;
+		var data_montazh_rels = { action: 'rels_montazh', _gp:cran.gp, _upravl:cran._3, _dlinna:dlinna, _shir:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP }
+		$.post( calc_ajaxurl.url, data_montazh_rels, function(response)
+		{
+			$('#c4').html(response)
+		});
+		/////////////
+	}
+	else {
+		$('#c4').css('display', 'none');
+		return;
+	}
+	
 }
 
-function montazh_tokopodvoda () {http://uniqcrane.ru/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png
+function montazh_tokopodvoda () {
 	/////////////
 	var data_all_tok = { action: 'tokopodvod_montazh',  _dlinna:cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP  };
 		$.post( calc_ajaxurl.url, data_all_tok, function (response) {
@@ -960,7 +967,7 @@ function montazh_tokopodvoda () {http://uniqcrane.ru/wp-content/plugins/uniqcalc
 				$('#c5 > span > p > .opisanie_parametra').text('Открытые троллеи')
 				$('#c5 > .hiddened').text(String(Number(result.tok4).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 			}
-			else if ($('#option_1 > div.tokoprovod > h4').text() = 'Закрытые троллеи') {
+			else if ($('#option_1 > div.tokoprovod > h4').text() == 'Закрытые троллеи') {
 				$('#c5 > span > img').attr('src', location.origin + '/wp-content/plugins/uniqcalc/user_view/construct_calc/images/6.7.png');
 				$('#c5 > span > p > .opisanie_parametra').text('Закрытые троллеи')
 				$('#c5 > .hiddened').text(String(Number(result.tok5).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
