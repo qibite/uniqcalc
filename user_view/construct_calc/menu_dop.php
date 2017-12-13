@@ -7,20 +7,11 @@
 			<li id="a1" class="change_li"><span><img src="<?=$url;?>images/puti1.png" alt="" style="width:140px"><p><b class="hz4">Разработка проектной документации</b><br><span class="opisanie_parametra">10 рабочих дней</span></p></span><span class='hiddened'>65 000 руб</span></li>
 			<li id="a2" class="change_li"></li>
 			<li id="a3" class="change_li cat" name='tokoprovod'><span><img src="<?=$url;?>images/6.1.jpg" alt="" style="width:140px"><p><b class="hz4">Токоподвод</b></p></span><span class='hiddened'></span>
-			<?php
-			$stoimost_provod = $wpdb->prefix . 'stoimost_provod';
-			$stoimost_provod_result = $wpdb->get_results("SELECT id, type, price FROM $stoimost_provod");
-				if ($stoimost_provod_result) {
-					$nimg =2;
-					foreach ($stoimost_provod_result as $provod) {
-						$nimg++;
-						$id = $provod->id;
-						$type = $provod->type;
-						$price = $provod->price;
-						echo "<div id='tokoprovod{$id}' class='change_li tokoprovod' name='tokoprovod'><span><img src='{$url}images/6.{$nimg}.png' style='width:140px'><p><b class='hz4'>{$type}</b><span class='opisanie_parametra'>цена за метр <span style='color:#e60216;font-size:1.4em'>{$price}</span></span></p></span><span class='hiddened'></span></div>";
-					}
-				}
-			?>
+				<div id='tokoprovod1' class='change_li tokoprovod' name='tokoprovod'><span><img src='wp-content/plugins/uniqcalc/user_view/construct_calc/images/6.3.png' style='width:140px'><p><b class='hz4'>Кабельный с кольцами</b><span class='opisanie_parametra'>Без учета монтажа</span></p></span><span class='hiddened'></span></div>
+				<div id='tokoprovod2' class='change_li tokoprovod' name='tokoprovod'><span><img src='wp-content/plugins/uniqcalc/user_view/construct_calc/images/6.4.png' style='width:140px'><p><b class='hz4'>Кабельный с тележками</b><span class='opisanie_parametra'>Без учета монтажа</span></p></span><span class='hiddened'></span></div>
+				<div id='tokoprovod3' class='change_li tokoprovod' name='tokoprovod'><span><img src='wp-content/plugins/uniqcalc/user_view/construct_calc/images/6.5.png' style='width:140px'><p><b class='hz4'>Фестонный (С профиль)</b><span class='opisanie_parametra'>Без учета монтажа</span></p></span><span class='hiddened'></span></div>
+				<div id='tokoprovod4' class='change_li tokoprovod' name='tokoprovod'><span><img src='wp-content/plugins/uniqcalc/user_view/construct_calc/images/6.6.png' style='width:140px'><p><b class='hz4'>Открытые троллеи</b><span class='opisanie_parametra'>Без учета монтажа</span></p></span><span class='hiddened'></span></div>
+				<div id='tokoprovod5' class='change_li tokoprovod' name='tokoprovod'><span><img src='wp-content/plugins/uniqcalc/user_view/construct_calc/images/6.7.png' style='width:140px'><p><b class='hz4'>Закрытые троллеи</b><span class='opisanie_parametra'>Без учета монтажа</span></p></span><span class='hiddened'></span></div>
 			</li>
 		</ul>
 	</div>
@@ -100,7 +91,8 @@
 			<li id="c2" class="change_li" name="shef_montazh"></li>
 			<!--<li id="c3" class="change_li" name="dostavka"></li>-->
 			<li id="c4" class="change_li" name="rels_montazh"></li>
-			<li id="c7" class="change_li" name="rels_montazh"><span><img src="wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Разработка габаритного чертежа крана</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened">Без доплаты</span></li>
+			<li id="c5" class="change_li" name="tok_montazh"><span><img src="<?=$url;?>images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Монтаж токоподвода</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened"></span></li>
+			<li id="c7" class="change_li" name="rels_montazh"><span><img src="<?=$url;?>images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Разработка габаритного чертежа крана</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened">Без доплаты</span></li>
 			
 		</ul>
 	</div>

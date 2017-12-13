@@ -1206,7 +1206,7 @@ cran.motor_price = function (model) {
 
 
 
-cran.calculate_oporniy_crane = function  (argument) {	
+cran.calculate_oporniy_crane = function  () {	
 			//////////////
 				var data_cran = { action: 'calc_cran', _gp:cran.gp, _shir:cran.paramsO.shpO, _upravl:cran._3 }
 				$.post( calc_ajaxurl.url, data_cran, function(response) {
@@ -1283,16 +1283,18 @@ function gp_insert_price ()
 	let gp_data = { action: 'gp_insert', type_cran: type_cr, upr_cran: upr_cr }
 	$.post( calc_ajaxurl.url, gp_data, function(response) {
 		let gp_resp = JSON.parse(response);
-		$('.кг500 > span > .price_').text('От ' + String(Number(gp_resp._500).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
-		$('.кг1000 > span > .price_').text('От ' + String(Number(gp_resp._1000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
-		$('.кг2000 > span > .price_').text('От ' + String(Number(gp_resp._2000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
-		$('.кг3200 > span > .price_').text('От ' + String(Number(gp_resp._3200).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
-		$('.кг5000 > span > .price_').text('От ' + String(Number(gp_resp._5000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
-		$('.кг6300 > span > .price_').text('От ' + String(Number(gp_resp._6300).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
-		$('.кг8000 > span > .price_').text('От ' + String(Number(gp_resp._8000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
-		$('.кг10000 > span > .price_').text('От ' + String(Number(gp_resp._10000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
-		$('.кг12500 > span > .price_').text('От ' + String(Number(gp_resp._12500).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
-		$('.кг16000 > span > .price_').text('От ' + String(Number(gp_resp._16000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб')
+		if (cran.step != 'end') {
+			$('.кг500 > span > .price_').text('От ' + String(Number(gp_resp._500).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('.кг1000 > span > .price_').text('От ' + String(Number(gp_resp._1000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('.кг2000 > span > .price_').text('От ' + String(Number(gp_resp._2000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('.кг3200 > span > .price_').text('От ' + String(Number(gp_resp._3200).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('.кг5000 > span > .price_').text('От ' + String(Number(gp_resp._5000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('.кг6300 > span > .price_').text('От ' + String(Number(gp_resp._6300).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('.кг8000 > span > .price_').text('От ' + String(Number(gp_resp._8000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('.кг10000 > span > .price_').text('От ' + String(Number(gp_resp._10000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('.кг12500 > span > .price_').text('От ' + String(Number(gp_resp._12500).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('.кг16000 > span > .price_').text('От ' + String(Number(gp_resp._16000).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		}		
 	});
 }
 

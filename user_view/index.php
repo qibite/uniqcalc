@@ -79,16 +79,16 @@ $wpdb->show_errors();
 <!-- Изменить грузоподъемность -->
 	<div id="gpO" class="modal_change modal_change_hide">
 		<ul class="ul_change">
-			<li class="change_li"><span>500 кг.</span></li>
-			<li class="change_li"><span>1000 кг.</span></li>
-			<li class="change_li"><span>2000 кг.</span></li>
-			<li class="change_li"><span>3200 кг.</span></li>
-			<li class="change_li"><span>5000 кг.</span></li>
-			<li class="change_li"><span>6300 кг.</span></li>
-			<li class="change_li"><span>8000 кг.</span></li>
-			<li class="change_li"><span>10000 кг.</span></li>
-			<li class="change_li"><span>12500 кг.</span></li>
-			<li class="change_li"><span>16000 кг.</span></li>
+			<li class="change_li кг500_resume_o"><span>500 кг.</span><strong class="price_" style="font-size:.9em">Расчитываем...</strong></li>
+			<li class="change_li кг1000_resume_o"><span>1000 кг.</span><strong class="price_" style="font-size:.9em">Расчитываем...</strong></li>
+			<li class="change_li кг2000_resume_o"><span>2000 кг.</span><strong class="price_" style="font-size:.9em">Расчитываем...</strong></li>
+			<li class="change_li кг3200_resume_o"><span>3200 кг.</span><strong class="price_" style="font-size:.9em">Расчитываем...</strong></li>
+			<li class="change_li кг5000_resume_o"><span>5000 кг.</span><strong class="price_" style="font-size:.9em">Расчитываем...</strong></li>
+			<li class="change_li кг6300_resume_o"><span>6300 кг.</span><strong class="price_" style="font-size:.9em">Расчитываем...</strong></li>
+			<li class="change_li кг8000_resume_o"><span>8000 кг.</span><strong class="price_" style="font-size:.9em">Расчитываем...</strong></li>
+			<li class="change_li кг10000_resume_o"><span>10000 кг.</span><strong class="price_" style="font-size:.9em">Расчитываем...</strong></li>
+			<li class="change_li кг12500_resume_o"><span>12500 кг.</span><strong class="price_" style="font-size:.9em">Расчитываем...</strong></li>
+			<li class="change_li кг16000_resume_o"><span>16000 кг.</span><strong class="price_" style="font-size:.9em">Расчитываем...</strong></li>
 		</ul>
 	</div>
 <!-- Изменить грузоподъемность -->
@@ -220,16 +220,16 @@ $wpdb->show_errors();
 <!-- Изменить грузоподъемность -->
 	<div id="gpP" class="modal_change modal_change_hide">
 		<ul class="ul_change">
-			<li class="change_li"><span>500 кг.</span></li>
-			<li class="change_li"><span>1000 кг.</span></li>
-			<li class="change_li"><span>2000 кг.</span></li>
-			<li class="change_li"><span>3200 кг.</span></li>
-			<li class="change_li"><span>5000 кг.</span></li>
-			<li class="change_li"><span>6300 кг.</span></li>
-			<li class="change_li"><span>8000 кг.</span></li>
-			<li class="change_li"><span>10000 кг.</span></li>
-			<li class="change_li"><span>12500 кг.</span></li>
-			<li class="change_li"><span>16000 кг.</span></li>
+			<li class="change_li кг500_resume_p"><span>500 кг.</span><strong class="price_" style="font-size:.7em"></strong></li>
+			<li class="change_li кг1000_resume_p"><span>1000 кг.</span><strong class="price_" style="font-size:.7em"></strong></li>
+			<li class="change_li кг2000_resume_p"><span>2000 кг.</span><strong class="price_" style="font-size:.7em"></strong></li>
+			<li class="change_li кг3200_resume_p"><span>3200 кг.</span><strong class="price_" style="font-size:.7em"></strong></li>
+			<li class="change_li кг5000_resume_p"><span>5000 кг.</span><strong class="price_" style="font-size:.7em"></strong></li>
+			<li class="change_li кг6300_resume_p"><span>6300 кг.</span><strong class="price_" style="font-size:.7em"></strong></li>
+			<li class="change_li кг8000_resume_p"><span>8000 кг.</span><strong class="price_" style="font-size:.7em"></strong></li>
+			<li class="change_li кг10000_resume_p"><span>10000 кг.</span><strong class="price_" style="font-size:.7em"></strong></li>
+			<li class="change_li кг12500_resume_p"><span>12500 кг.</span><strong class="price_" style="font-size:.7em"></strong></li>
+			<li class="change_li кг16000_resume_p"><span>16000 кг.</span><strong class="price_" style="font-size:.7em"></strong></li>
 		</ul>
 	</div>
 <!-- Изменить грузоподъемность -->

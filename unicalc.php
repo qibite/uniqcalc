@@ -906,6 +906,24 @@ function rels_montazh () {
 }
 // RELS MONTAZH
 
+// TOKOPODVOD MONTAZH
+add_action('wp_ajax_tokopodvod_montazh', 'tok_montazh');
+add_action('wp_ajax_nopriv_tokopodvod_montazh', 'tok_montazh');
+function tok_montazh () {
+	$dlinna = $_POST['_dlinna'];
+	global $wpdb;$wpdb->show_errors();
+	$stoimost_provod = $wpdb->prefix . 'montazh_provod';
+	$cabkol = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Кабельный с кольцами' ");
+	$cabtel = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Кабельный с тележками' ");
+	$feston = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Фестонный (С профиль)' ");
+	$opentrol = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Открытые троллеи' ");
+	$closetrol = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Закрытые троллеи' ");
+	$prices = array('tok1' => $cabkol[0]->price * ($dlinna/1000), 'tok2' => $cabtel[0]->price * ($dlinna/1000), 'tok3' => $feston[0]->price * ($dlinna/1000), 'tok4' => $opentrol[0]->price * ($dlinna/1000), 'tok5' => $closetrol[0]->price * ($dlinna/1000) );
+	echo json_encode($prices);
+	wp_die();
+}
+// TOKOPODVOD MONTAZH
+
 
 
 /*****************************************************************************************************************************************/

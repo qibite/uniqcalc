@@ -457,6 +457,11 @@ p + hr
 	color:#b5212e
 }
 
+.change_li > .price_
+{
+	color: #FFFFFF;
+}
+
 .opt_tal
 {
 	float: left;

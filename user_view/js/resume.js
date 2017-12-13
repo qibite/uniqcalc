@@ -1,5 +1,34 @@
 jQuery(document).ready(($)=>{
-	$('#cgpO').click(()=>{showChange($('#gpO'))})
+	$('#cgpO').click(()=>{
+		if (cran._1 == 'Опорный') {
+				$('.кг500_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг1000_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг2000_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг3200_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг5000_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг6300_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг8000_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг10000_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг12500_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг16000_resume_o > strong.price_').text('Расчитываем...');
+			}
+		else if (cran._1 == 'Опорный') {
+			$('.кг500_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг1000_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг2000_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг3200_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг5000_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг6300_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг8000_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг10000_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг12500_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг16000_resume_p > strong.price_').text('Расчитываем...');
+		}
+		showChange($('#gpO'));
+		setTimeout(()=>{
+			gp_insert_price();
+		}, 1800);		
+	})
 		$('#gpO > ul').on('click', 'li', function(event) {
 			let countLi = $(this).index() + 1;
 			let Ogp = $('#Ogp');
@@ -264,7 +293,36 @@ jQuery(document).ready(($)=>{
 
 
 	
-	$('#cgpP').click(()=>{showChange($('#gpP'))})
+	$('#cgpP').click(()=>{
+		if (cran._1 == 'Опорный') {
+				$('.кг500_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг1000_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг2000_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг3200_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг5000_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг6300_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг8000_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг10000_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг12500_resume_o > strong.price_').text('Расчитываем...');
+				$('.кг16000_resume_o > strong.price_').text('Расчитываем...');
+			}
+		else if (cran._1 == 'Опорный') {
+			$('.кг500_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг1000_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг2000_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг3200_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг5000_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг6300_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг8000_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг10000_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг12500_resume_p > strong.price_').text('Расчитываем...');
+			$('.кг16000_resume_p > strong.price_').text('Расчитываем...');
+		}
+		showChange($('#gpP'));
+		setTimeout(()=>{
+			gp_insert_price();
+		}, 1800);
+	})
 		$('#gpP > ul').on('click', 'li', function(event) {
 		let countLi = $(this).index() + 1;
 		let Ogp = $('#Pgp');
@@ -388,8 +446,9 @@ jQuery(document).ready(($)=>{
 
 	$('.add_dop_1 i').click(()=>{
 		if (cran._3 != 'Ручное')
-		{			
-			document.getElementById('a3').style.display = 'inline-block';	
+		{
+			postavka_tokopodvoda();
+			document.getElementById('a3').style.display = 'inline-block';
 		} else {
 			document.getElementById('a3').style.display = 'none';	
 		}
@@ -523,6 +582,7 @@ jQuery(document).ready(($)=>{
 		montazh_cranov(); // Вычисление цены монтажа крана
 		shef_montazh_cranov(); // ШЕФ монтаж крана
 		montazh_rels(); // Монтаж рельс
+		montazh_tokopodvoda(); // Монтаж токоподвода
 		delete_doble('#option_3', $('#third_opt'));
 		showOptions($('#third_opt'));
 	});
@@ -803,16 +863,29 @@ function postavka_rels () {
 	/////////////
 }
 
-$('#a3').on('click', '.tokoprovod', function(event) {
+function postavka_tokopodvoda () {
+	/////////////
+	var data_all_tok = { action: 'tokopodvod_all',  _dlinna:cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP  };
+		$.post( calc_ajaxurl.url, data_all_tok, function (response) {
+			let result = JSON.parse(response);
+			$('#tokoprovod1 > span.hiddened').text(String(Number(result.tok1).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('#tokoprovod2 > span.hiddened').text(String(Number(result.tok2).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('#tokoprovod3 > span.hiddened').text(String(Number(result.tok3).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('#tokoprovod4 > span.hiddened').text(String(Number(result.tok4).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('#tokoprovod5 > span.hiddened').text(String(Number(result.tok5).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		})
+	/////////////
+}
+
+/*$('#a3').on('click', '.tokoprovod', function(event) {
 	var stoim = $(this).children().children().children('.opisanie_parametra').text();
-	console.log(stoim);
 	stoim = stoim.match(/\d+/g);
 	stoim = stoim[0];
 	{
 		var summa = stoim * (cran.paramsO.dpO/1000);
 		$(this).children('.hiddened').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 	}
-});	
+});	*/
 
 /*******************************************************************************************************************************************************************************************************************************************************************
 *
@@ -862,6 +935,222 @@ function montazh_rels () {
 	/////////////
 }
 
+function montazh_tokopodvoda () {http://uniqcrane.ru/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png
+	/////////////
+	var data_all_tok = { action: 'tokopodvod_montazh',  _dlinna:cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP  };
+		$.post( calc_ajaxurl.url, data_all_tok, function (response) {
+			let result = JSON.parse(response);
+			if ($('#option_1 > div.tokoprovod > h4').text() == 'Кабельный с кольцами') {
+				$('#c5 > span > img').attr('src', location.origin + '/wp-content/plugins/uniqcalc/user_view/construct_calc/images/6.3.png');
+				$('#c5 > span > p > .opisanie_parametra').text('Кабельный с кольцами')
+				$('#c5 > .hiddened').text(String(Number(result.tok1).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			}
+			else if ($('#option_1 > div.tokoprovod > h4').text() == 'Кабельный с тележками') {
+				$('#c5 > span > img').attr('src', location.origin + '/wp-content/plugins/uniqcalc/user_view/construct_calc/images/6.4.png');
+				$('#c5 > span > p > .opisanie_parametra').text('Кабельный с тележками')
+				$('#c5 > .hiddened').text(String(Number(result.tok2).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			}
+			else if ($('#option_1 > div.tokoprovod > h4').text() == 'Фестонный (С профиль)') {
+				$('#c5 > span > img').attr('src', location.origin + '/wp-content/plugins/uniqcalc/user_view/construct_calc/images/6.5.png');
+				$('#c5 > span > p > .opisanie_parametra').text('Фестонный (С профиль)')
+				$('#c5 > .hiddened').text(String(Number(result.tok3).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			}
+			else if ($('#option_1 > div.tokoprovod > h4').text() == 'Открытые троллеи') {
+				$('#c5 > span > img').attr('src', location.origin + '/wp-content/plugins/uniqcalc/user_view/construct_calc/images/6.6.png');
+				$('#c5 > span > p > .opisanie_parametra').text('Открытые троллеи')
+				$('#c5 > .hiddened').text(String(Number(result.tok4).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			}
+			else if ($('#option_1 > div.tokoprovod > h4').text() = 'Закрытые троллеи') {
+				$('#c5 > span > img').attr('src', location.origin + '/wp-content/plugins/uniqcalc/user_view/construct_calc/images/6.7.png');
+				$('#c5 > span > p > .opisanie_parametra').text('Закрытые троллеи')
+				$('#c5 > .hiddened').text(String(Number(result.tok5).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			}
+			else {
+				$('#c5').css('display', 'none');
+			}
+			console.log($('#option_1 > div.tokoprovod > h4').text())
+			return;
+		})
+	/////////////
+}
+
+
+
+
+
+
+
+
+
+/*************************************************************************************************************************************************************************************************************************************
+*
+*
+*
+
+*
+*
+*
+*
+
+*
+*
+*
+*
+*
+
+*
+*
+*
+*
+**
+
+***********************************************************************************************************************************************************************************************************************************/
+
+function gp_insert_price ()
+{
+	let gp = 0;
+	let summa;
+	for (let i=1; i<=10; i++) {		
+		switch (i) {
+			case 1:
+				gp=500;
+				break;
+			case 2:
+				gp=1000;
+				break;
+			case 3:
+				gp=2000;
+				break;
+			case 4:
+				gp=3200;
+				break;
+			case 5:
+				gp=5000;
+				break;
+			case 6:
+				gp=6300;
+				break;
+			case 7:
+				gp=8000;
+				break;
+			case 8:
+				gp=10000;
+				break;
+			case 9:
+				gp=12500;
+				break;
+			case 10:
+				gp=16000;
+				break;
+			default:
+				gp=0;
+				break;
+		}
+		let data_cran = { action: 'calc_cran', _gp:gp, _shir:cran.paramsO.shpO, _upravl:cran._3 }
+		$.post( calc_ajaxurl.url, data_cran, function(response) {
+			let price_crane = response;
+			if (cran._2.search(/Пожаробезопасное/i) != -1) {
+				summa = (price_crane*10)/100 + Number(price_crane);
+			}
+			if (cran._2.search(/Взрывобезопасное/i) != -1) {
+				summa = (price_crane*35)/100 + Number(price_crane);
+			}
+			if (cran._2.search(/Общепромышленное/i) != -1) {
+				summa = price_crane;
+			}
+			if (cran.temper[0] == '-50') {
+				summa = (price_crane*25)/100 + Number(summa);
+			}
+			if (cran.temper[0] == '-40') {
+				summa = (price_crane*10)/100 + Number(summa);
+			}
+			if (cran.temper[1] == '+60') {
+				summa = (price_crane*10)/100 + Number(summa);
+			}
+			if (cran.ncuprav == '24В') {
+				summa = 5000 + Number(summa);
+			}
+			if (cran.visota == 'Увеличенная') {
+				summa = 70000 + Number(summa);
+			}
+			if (cran._1 == 'Опорный') {
+				switch (i) {
+					case 1:
+						$('.кг500_resume_o > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 2:
+						$('.кг1000_resume_o > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 3:
+						$('.кг2000_resume_o > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 4:
+						$('.кг3200_resume_o > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 5:
+						$('.кг5000_resume_o > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 6:
+						$('.кг6300_resume_o > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 7:
+						$('.кг8000_resume_o > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 8:
+						$('.кг10000_resume_o > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 9:
+						$('.кг12500_resume_o > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 10:
+						$('.кг16000_resume_o > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					default:
+						gp=false;
+						break;
+				}
+			}
+			else {
+				switch (i) {
+					case 1:
+						$('.кг500_resume_p > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 2:
+						$('.кг1000_resume_p > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 3:
+						$('.кг2000_resume_p > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 4:
+						$('.кг3200_resume_p > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 5:
+						$('.кг5000_resume_p > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 6:
+						$('.кг6300_resume_p > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 7:
+						$('.кг8000_resume_p > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 8:
+						$('.кг10000_resume_p > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 9:
+						$('.кг12500_resume_p > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					case 10:
+						$('.кг16000_resume_p > strong.price_').text(String(Number(summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+						break;
+					default:
+						gp=false;
+						break;
+				}
+			}			
+		});
+
+	}
+}
 
 
 
