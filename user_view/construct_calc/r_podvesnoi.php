@@ -52,10 +52,10 @@ echo <<<EOT
 				<td><i class="hover" id="CrazrezP">изменить</i></td>
 				<td class="">Разрезной тип конструкции - <span id="Ptk"></span></td>
 			</tr>
-			<tr>
+			<!--<tr>
 				<td><i class="hover">изменить</i></td>
 				<td class="">Тип подкранового рельса - <span id="Ptpr"></span></td>
-			</tr>
+			</tr>-->
 			<tr>
 				<td><i class="hover" id="CPvc">изменить</i></td>
 				<td class="">Строительная высота крана - <span id="Pvc"></span></td>

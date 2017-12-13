@@ -1008,7 +1008,7 @@ function resultatiO () {
 	$('#Otr').html(cran.temper[0]+'&deg; до '+cran.temper[1]+'&deg;');
 	$('#Ocu').text(cran.climat);
 	$('#Otc').text(cran._3);
-	$('#Otpr').text(cran.relsO?cran.relsO:'Не определён');
+	//$('#Otpr').text(cran.relsO?cran.relsO:'Не определён');
 	$('#Otk').text(cran.razrez);
 	$('#Ois').text(cran.speed);
 	$('#Ovc').text(cran.visota);
@@ -1033,7 +1033,7 @@ function resultatiP () {
 	$('#Ptr').html(cran.temper[0]+'&#176; до '+cran.temper[1]+'&#176;');
 	$('#Pcu').text(cran.climat);
 	$('#Ptc').text(cran._3);
-	$('#Ptpr').text(cran.relsP?cran.relsP:'Не определён');
+	//$('#Ptpr').text(cran.relsP?cran.relsP:'Не определён');
 	$('#Ptk').text(cran.razrez);
 	$('#Pis').text(cran.speed);
 	$('#Pvc').text(cran.visota);
