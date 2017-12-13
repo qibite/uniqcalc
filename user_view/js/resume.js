@@ -947,27 +947,27 @@ function montazh_tokopodvoda () {
 	var data_all_tok = { action: 'tokopodvod_montazh',  _dlinna:cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP  };
 		$.post( calc_ajaxurl.url, data_all_tok, function (response) {
 			let result = JSON.parse(response);
-			if ($('#option_1 > div.tokoprovod > h4').text() == 'Кабельный с кольцами') {
+			if ($('#option_1 div.tokoprovod > h4').text() == 'Кабельный с кольцами') {
 				$('#c5 > span > img').attr('src', location.origin + '/wp-content/plugins/uniqcalc/user_view/construct_calc/images/6.3.png');
 				$('#c5 > span > p > .opisanie_parametra').text('Кабельный с кольцами')
 				$('#c5 > .hiddened').text(String(Number(result.tok1).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 			}
-			else if ($('#option_1 > div.tokoprovod > h4').text() == 'Кабельный с тележками') {
+			else if ($('#option_1 div.tokoprovod > h4').text() == 'Кабельный с тележками') {
 				$('#c5 > span > img').attr('src', location.origin + '/wp-content/plugins/uniqcalc/user_view/construct_calc/images/6.4.png');
 				$('#c5 > span > p > .opisanie_parametra').text('Кабельный с тележками')
 				$('#c5 > .hiddened').text(String(Number(result.tok2).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 			}
-			else if ($('#option_1 > div.tokoprovod > h4').text() == 'Фестонный (С профиль)') {
+			else if ($('#option_1 div.tokoprovod > h4').text() == 'Фестонный (С профиль)') {
 				$('#c5 > span > img').attr('src', location.origin + '/wp-content/plugins/uniqcalc/user_view/construct_calc/images/6.5.png');
 				$('#c5 > span > p > .opisanie_parametra').text('Фестонный (С профиль)')
 				$('#c5 > .hiddened').text(String(Number(result.tok3).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 			}
-			else if ($('#option_1 > div.tokoprovod > h4').text() == 'Открытые троллеи') {
+			else if ($('#option_1 div.tokoprovod > h4').text() == 'Открытые троллеи') {
 				$('#c5 > span > img').attr('src', location.origin + '/wp-content/plugins/uniqcalc/user_view/construct_calc/images/6.6.png');
 				$('#c5 > span > p > .opisanie_parametra').text('Открытые троллеи')
 				$('#c5 > .hiddened').text(String(Number(result.tok4).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 			}
-			else if ($('#option_1 > div.tokoprovod > h4').text() == 'Закрытые троллеи') {
+			else if ($('#option_1 div.tokoprovod > h4').text() == 'Закрытые троллеи') {
 				$('#c5 > span > img').attr('src', location.origin + '/wp-content/plugins/uniqcalc/user_view/construct_calc/images/6.7.png');
 				$('#c5 > span > p > .opisanie_parametra').text('Закрытые троллеи')
 				$('#c5 > .hiddened').text(String(Number(result.tok5).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');

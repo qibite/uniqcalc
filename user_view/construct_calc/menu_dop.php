@@ -91,7 +91,7 @@
 			<li id="c2" class="change_li" name="shef_montazh"></li>
 			<!--<li id="c3" class="change_li" name="dostavka"></li>-->
 			<li id="c4" class="change_li" name="rels_montazh"></li>
-			<li id="c5" class="change_li" name="tok_montazh" style="display:none"><span><img src="<?=$url;?>images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Монтаж токоподвода</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened"></span></li>
+			<li id="c5" class="change_li" name="tok_montazh"><span><img src="<?=$url;?>images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Монтаж токоподвода</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened"></span></li>
 			<li id="c7" class="change_li" name="rels_montazh"><span><img src="<?=$url;?>images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Разработка габаритного чертежа крана</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened">Без доплаты</span></li>
 			
 		</ul>

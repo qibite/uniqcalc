@@ -1091,7 +1091,14 @@ function get_preobrazovatel_id (model, img)
 			cran.code_of_chastotnik = '8.3';
 			if ($('.return_pult_default')) {$('.return_pult_default').parent().detach();cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya(cran.code_of_chastotnik) : false;}
 		}
+		if ($(this).parent().hasClass('rels_crane')) {
+			$('.rels_montazh').detach();
+		}
+		if ($(this).parent().hasClass('tokoprovod')) {
+			$('.tok_montazh').detach();
+		}
 		$(this).parent().detach();
+		if ($(this)) {}
 		$('#first_opt .ul_change > li').each(function(index, el) {
 			if (cran._3 == 'Ручное') {
 				if ($('#option_1').children('.dop_parametr').length+1 > 3) {
