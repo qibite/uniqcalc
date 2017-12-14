@@ -924,7 +924,27 @@ function tok_montazh () {
 }
 // TOKOPODVOD MONTAZH
 
+// РАССЧЕТ РАССТОЯНИЯ ПАРСЕР ОТ МОСКВЫ ДО ГОРОДА ВВЕДЕННОГО В ПОЛЕ
+add_action('wp_ajax_myway', 'myway');
+add_action('wp_ajax_nopriv_myway', 'myway');
 
+function myway () {
+	$city = '\''. $_POST['_city'] .'\'';
+	
+
+	
+	$dom_html_ati = file_get_contents("http://ati.su/TRACE/default.aspx?EntityType=Trace&City1=3611&City5=288&Zimnik=false&FastWay=false");
+	$convert_UTF8_html_ati = iconv("windows-1251","utf-8", $dom_html_ati);
+	/*
+	$city = urldecode('%CC%EE%F1%EA%E2%E0');
+	$city_UTF8 = iconv("windows-1251","utf-8",$city);
+	//echo $city_UTF8;
+	$request = 'улан-удэ';
+	$request_WINDOWS1251 = iconv("utf-8","windows-1251",$request);
+	$request_URL = urlencode($request_WINDOWS1251);
+	//echo "<br>{$request_URL}<br>";
+	*/
+}
 
 /*****************************************************************************************************************************************/
 
