@@ -954,7 +954,7 @@ $('#dostavka_price_zakazat').on('click', function() {
 			$('.cat').children('div').css('display', 'none');
 			$('#revers').css('display', 'none');
 			$('#third_opt .ul_change > li').each(function(index, el) {
-				if (cran._3 == 'Ручное') {
+				/*if (cran._3 == 'Ручное') {
 					if ($('#option_3').children('.dop_parametr').length+1 > 3) {
 						$('.add_dop_2').parent().css('display', 'none');
 					}
@@ -971,11 +971,11 @@ $('#dostavka_price_zakazat').on('click', function() {
 						$('.add_dop_2').parent().css('display', 'inline-block');
 						}
 					}
-				}
-				$('#dostavka_price_zakazat').css('display', 'none');
-				$('#city').val('')
-				$('#dostavka_km').text('')
-				$('#dostavka_price').text('')
+				}*/
+			$('#dostavka_price_zakazat').css('display', 'none');
+			$('#city').val('')
+			$('#dostavka_km').text('')
+			$('#dostavka_price').text('')
 			});
 		},200);
 });
