@@ -586,7 +586,7 @@ jQuery(document).ready(($)=>{
 		delete_doble('#option_3', $('#third_opt'));
 		showOptions($('#third_opt'));
 	});
-	$('#third_opt').on('click', 'li:not(".cat"), .cat>div.change_li', function () {
+	$('#third_opt').on('click', 'li:not(".cat, #c3_1"), .cat>div.change_li', function () {
 		var that = $(this);
 		$('#option_3 .dop_parametr:last-child').before(()=>{
 			let new_html = '<div class="dop_parametr '+ that.attr('name') +'"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" style="width:200px"> \
@@ -603,7 +603,7 @@ jQuery(document).ready(($)=>{
 			$('.cat').children('div').css('display', 'none');
 			$('#revers').css('display', 'none');
 			$('#third_opt .ul_change > li').each(function(index, el) {
-				if (cran._3 == 'Ручное') {
+				/*if (cran._3 == 'Ручное') {
 					if ($('#option_3').children('.dop_parametr').length+1 > 3) {
 						$('.add_dop_2').parent().css('display', 'none');
 					}
@@ -620,7 +620,7 @@ jQuery(document).ready(($)=>{
 						$('.add_dop_2').parent().css('display', 'inline-block');
 						}
 					}
-				}
+				}*/
 			});
 		},200);
 		
@@ -628,7 +628,7 @@ jQuery(document).ready(($)=>{
 	});
 /************************************************************************************************************************************************************************************************************************************/
 //Удалить опцию или изменить
-$('#first_opt, #second_opt, #option_3').on('click', '.cat', function(event) {
+$('#first_opt, #second_opt, #third_opt').on('click', '.cat', function(event) {
 	$(this).siblings('li').css('display', 'none');
 	$(this).css('width', '100%');
 	if ($(this).hasClass('tali_dop')) {		
@@ -663,7 +663,10 @@ $('#revers').on('click', function() {
 	$('.cat').css('width', '20%');
 	$('.cat').siblings('li').css('display', 'inline-block');
 	$('.cat').children('div').css('display', 'none');
+	if ($('#option_1').children('div.rels_crane').length == 0) {$('#c4').css('display', 'none')}
+	if ($('#option_1').children('div.tokoprovod').length == 0) {$('#c5').css('display', 'none')}
 	$('#revers').css('display', 'none');
+	
 	if (cran._3 == 'Ручное')
 		{
 			document.getElementById('a3').style.display = 'none';
@@ -673,6 +676,7 @@ $('#revers').on('click', function() {
 			document.getElementById('b12_1').style.display = 'none';
 			document.getElementById('b12_2').style.display = 'none';
 			document.getElementById('b14').style.display = 'none';
+			document.getElementById('c5').style.display = 'none';
 		}
 	delete_doble('#option_1', $('#first_opt'));
 	delete_doble('#option_2', $('#second_opt'));
@@ -923,6 +927,58 @@ function shef_montazh_cranov () {
 	});
 	/////////////
 }
+
+$('#dostavka_price_rasschet').on('click', function(event) {
+	$('#dostavka_price_zakazat').css('display', 'inline-block');
+	var data_dostavka = { action: 'myway', cran_type: cran._1, _city: $('#city').val(), razrez:cran.razrez, _dlinna:cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP }
+		$.post( calc_ajaxurl.url, data_dostavka, function(response)
+		{
+			let resp_data = JSON.parse(response);
+			$('#dostavka_km').text('Путь доставки до города '+ $('#city').val() +' составляет - ' + String(Number(resp_data.km).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' км');
+			$('#dostavka_price').text(String(Number(resp_data.price).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		});
+});
+
+$('#dostavka_price_zakazat').on('click', function() {
+	$('#option_3 .dop_parametr:last-child').before(()=>{
+		let new_html = '<div class="dop_parametr dostavka"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:200px"> \
+			<h4>Доставка крана</h4> \
+			<p><span class="opisanie_parametra">'+ $('#dostavka_km').text() +'</span><br> \
+				<span class="stoimost_parametra">'+ $('#dostavka_price').text() +'</span><i class="id_bro">c3</i></p>';
+			return new_html;
+		});
+	setTimeout(()=>{
+			hideOptions();
+			$('.cat').css('width', '20%');
+			$('.cat').siblings('li').css('display', 'inline-block');
+			$('.cat').children('div').css('display', 'none');
+			$('#revers').css('display', 'none');
+			$('#third_opt .ul_change > li').each(function(index, el) {
+				if (cran._3 == 'Ручное') {
+					if ($('#option_3').children('.dop_parametr').length+1 > 3) {
+						$('.add_dop_2').parent().css('display', 'none');
+					}
+					else {
+						$('.add_dop_2').parent().css('display', 'inline-block');
+					}
+				}
+				else {			
+					if (cran._3 != 'Ручное') {
+						if ($('#option_3').children('.dop_parametr').length+1 >= 12) {
+							$('.add_dop_3').parent().css('display', 'none');
+						}
+						else {
+						$('.add_dop_2').parent().css('display', 'inline-block');
+						}
+					}
+				}
+				$('#dostavka_price_zakazat').css('display', 'none');
+				$('#city').val('')
+				$('#dostavka_km').text('')
+				$('#dostavka_price').text('')
+			});
+		},200);
+});
 
 function montazh_rels () {
 	if ($('#option_1').children('div.rels_crane').length > 0) {

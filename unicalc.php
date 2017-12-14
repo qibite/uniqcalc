@@ -929,21 +929,63 @@ add_action('wp_ajax_myway', 'myway');
 add_action('wp_ajax_nopriv_myway', 'myway');
 
 function myway () {
-	$city = '\''. $_POST['_city'] .'\'';
-	
+	$city = $_POST['_city'];
+	$cran_type = $_POST['cran_type'];
+	$dlinna = $_POST['_dlinna'];
+	$razrez = '\'' . $_POST['razrez'] . '\'';
 
-	
-	$dom_html_ati = file_get_contents("http://ati.su/TRACE/default.aspx?EntityType=Trace&City1=3611&City5=288&Zimnik=false&FastWay=false");
-	$convert_UTF8_html_ati = iconv("windows-1251","utf-8", $dom_html_ati);
-	/*
-	$city = urldecode('%CC%EE%F1%EA%E2%E0');
-	$city_UTF8 = iconv("windows-1251","utf-8",$city);
-	//echo $city_UTF8;
-	$request = 'улан-удэ';
-	$request_WINDOWS1251 = iconv("utf-8","windows-1251",$request);
+
+
+	$request_WINDOWS1251 = iconv("utf-8","windows-1251",$city);
 	$request_URL = urlencode($request_WINDOWS1251);
-	//echo "<br>{$request_URL}<br>";
-	*/
+	$dom_html_ati = file_get_contents("http://ati.su/TRACE/default.aspx?EntityType=Trace&City1=3611&City5={$request_URL}&Zimnik=false&FastWay=false");
+	$convert_UTF8_html_ati = iconv("windows-1251","utf-8", $dom_html_ati);
+	
+	//$city = urldecode('%CC%EE%F1%EA%E2%E0');
+	//$city_UTF8 = iconv("windows-1251","utf-8",$city);
+
+	$way = parse_way ($convert_UTF8_html_ati, '<span id="ctl00_ctl00_main_PlaceHolderMain_atiTrace_lblTotalDistance" class="total-value-lbl">', '</span>');
+
+
+	global $wpdb;$wpdb->show_errors();
+	$price_way = $wpdb->prefix . 'dostavka_cranbalok';
+
+	if ($way == 0) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 0 AND obshiyL >= $dlinna AND type = $razrez");
+		$responed_data = array (
+			'km' => $way,
+			'price' => $price_way_result[0]->price/100
+		);
+	}
+	else if ($way > 3000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 3000 AND obshiyL >= $dlinna AND type = $razrez");
+
+		$responed_data = array (
+			'km' => $way,
+			'price' => ($price_way_result[0]->price/100)*$way
+		);
+	}
+	else {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie >= $way AND obshiyL >= $dlinna AND type = $razrez");
+
+		$responed_data = array (
+			'km' => $way,
+			'price' => ($price_way_result[0]->price/100)*$way
+		);
+	}	
+	echo json_encode($responed_data);	
+	wp_die();
+}
+
+function parse_way($html_text, $start, $end)
+{
+	$first_concat = strpos($html_text, $start);
+	if ($first_concat === false) {
+		echo "Неверные данные, сообщите администратору!";
+	}
+	$second_concat = substr($html_text, $first_concat);
+	$km = strip_tags(substr($second_concat, 0, strpos($second_concat, $end)));
+	return $km;
 }
 
 /*****************************************************************************************************************************************/

@@ -493,3 +493,16 @@ p + hr
 {
 	display: none;
 }
+
+#city
+{
+	color: #323232;
+}
+
+.culc_dostavka
+{
+	background-color: #b5212e;
+    border: none;
+    padding: 10px;
+    margin-top: 1em;
+}

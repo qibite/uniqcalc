@@ -1372,7 +1372,7 @@ var cran = {
 	set setspeed (s) {this._3 == 'Ручное' ? this.speed =  'Не доступно при ручном управлении' : s ? this.speed = s : this.speed = this.speed },
 	speedmetr:'20 м/мин',
 	set setspeedmetr (s) {this._3 == 'Ручное' ? this.speedmetr =  'Не доступно при ручном управлении' : s ? this.speedmetr = s : this.speedmetr = this.speedmetr},
-	razrez:'Да',
+	razrez:'Разрезной',
 	visota:'Стандартная',
 	szo:'IP31',
 	set setszo (s) {this._3 == 'Ручное' ? this.szo =  'Не доступно при ручном управлении' : s ? this.szo = s : this.szo = this.szo},
