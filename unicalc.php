@@ -842,7 +842,7 @@ function calc_montazh_crana () {
  $table_montazha = $wpdb->prefix . 'montazh_ruchnih_cran';
  $table_montazha_res = $wpdb->get_results("SELECT id, gp, shirina_mezh_putami, price FROM $table_montazha WHERE gp = $gp AND shirina_mezh_putami >= $shirina ");
  if ($table_montazha_res) {
- 	echo '<span name="montazh"><img src="wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Монтаж кран-балок</b><br><span class="opisanie_parametra">Тут нужно приписку</span></p></span><span class="hiddened">'.$table_montazha_res[0]->price.' руб</span>';
+ 	echo '<span name="montazh"><img src="http://'.$_SERVER['SERVER_NAME'].'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Монтаж кран-балок</b><br><span class="opisanie_parametra">Тут нужно приписку</span></p></span><span class="hiddened">'.$table_montazha_res[0]->price.' руб</span>';
  }
  wp_die();
 }
@@ -857,7 +857,7 @@ function calc_montazh_crana_el () {
  $table_montazha = $wpdb->prefix . 'montazh_electro_cran';
  $table_montazha_res = $wpdb->get_results("SELECT id, gp, shirina_mezh_putami, price FROM $table_montazha WHERE gp = $gp AND shirina_mezh_putami >= $shirina ");
  if ($table_montazha_res) {
- 	echo '<span><img src="wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Монтаж кран-балок</b><br><span class="opisanie_parametra">Тут нужно приписку</span></p></span><span class="hiddened">'.$table_montazha_res[0]->price.' руб</span>';
+ 	echo '<span><img src="http://'.$_SERVER['SERVER_NAME'].'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Монтаж кран-балок</b><br><span class="opisanie_parametra">Тут нужно приписку</span></p></span><span class="hiddened">'.$table_montazha_res[0]->price.' руб</span>';
  }
  wp_die();
 }
@@ -873,7 +873,7 @@ function calc_shef_montazh_crana () {
  $table_montazha = $wpdb->prefix . 'shef_montazh';
  $table_montazha_res = $wpdb->get_results("SELECT id, gp, shirina_mezh_putami, price FROM $table_montazha WHERE gp = $gp AND shirina_mezh_putami >= $shirina ");
  if ($table_montazha_res) {
- 	echo '<span><img src="wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Шеф-монтаж</b><br><span class="opisanie_parametra">Гарант корректной установки</span></p></span><span class="hiddened">'.$table_montazha_res[0]->price.' руб</span>';
+ 	echo '<span><img src="http://'.$_SERVER['SERVER_NAME'].'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Шеф-монтаж</b><br><span class="opisanie_parametra">Гарант корректной установки</span></p></span><span class="hiddened">'.$table_montazha_res[0]->price.' руб</span>';
  }
  wp_die();
 }
@@ -900,7 +900,7 @@ function rels_montazh () {
 	$stoimost_rels = $wpdb->prefix . 'montazh_rels';
 	$stoimost_rels_result = $wpdb->get_results("SELECT id, type, price FROM $stoimost_rels WHERE type = $rels_type ");
 	if ($stoimost_rels_result) {
-		echo '<span><img src="wp-content/plugins/uniqcalc/user_view/construct_calc/images/_5.11.png" alt="" style="width:140px"><p><b class="hz4">Монтаж рельса</b><br><span class="opisanie_parametra">'.$stoimost_rels_result[0]->type.'</span></p></span><span class="hiddened">'.number_format($stoimost_rels_result[0]->price*($dlinna/1000), 0, ',', ' ').' руб</span>';
+		echo '<span><img src="http://'.$_SERVER['SERVER_NAME'].'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_5.11.png" alt="" style="width:140px"><p><b class="hz4">Монтаж рельса</b><br><span class="opisanie_parametra">'.$stoimost_rels_result[0]->type.'</span></p></span><span class="hiddened">'.number_format($stoimost_rels_result[0]->price*($dlinna/1000), 0, ',', ' ').' руб</span>';
 	}
 	wp_die();
 }
@@ -974,6 +974,68 @@ function myway () {
 		);
 	}	
 	echo json_encode($responed_data);	
+	wp_die();
+}
+
+add_action('wp_ajax_expertway', 'expertway');
+add_action('wp_ajax_nopriv_mywexpertway', 'expertway');
+
+function expertway () {
+	$city = $_POST['_city'];
+
+
+
+	$request_WINDOWS1251 = iconv("utf-8","windows-1251",$city);
+	$request_URL = urlencode($request_WINDOWS1251);
+	$dom_html_ati = file_get_contents("http://ati.su/TRACE/default.aspx?EntityType=Trace&City1=3611&City5={$request_URL}&Zimnik=false&FastWay=false");
+	$convert_UTF8_html_ati = iconv("windows-1251","utf-8", $dom_html_ati);
+
+	$way = parse_way ($convert_UTF8_html_ati, '<span id="ctl00_ctl00_main_PlaceHolderMain_atiTrace_lblTotalDistance" class="total-value-lbl">', '</span>');
+
+
+	global $wpdb;$wpdb->show_errors();
+	$price_way = $wpdb->prefix . 'km_viezd';
+	$fixed_prise = $wpdb->get_results("SELECT price FROM $price_way WHERE id = 2");
+	$fixed_taxa = $fixed_prise[0]->price;
+
+	if ($way == 0) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE id = 3");
+		$responed_data = array (
+			'km' => $way,
+			'price' => $price_way_result[0]->price + $fixed_taxa
+		);
+	}
+	else if ($way < 1000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE id = 4");
+
+		$responed_data = array (
+			'km' => $way,
+			'price' => ($price_way_result[0]->price*$way) + $fixed_taxa
+		);
+	}
+	else if ($way > 1000 && $way < 3000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE id = 5");
+
+		$responed_data = array (
+			'km' => $way,
+			'price' => ($price_way_result[0]->price*$way) + $fixed_taxa
+		);
+	}
+	else if ($way > 3000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE id = 6");
+
+		$responed_data = array (
+			'km' => $way,
+			'price' => ($price_way_result[0]->price*$way) + $fixed_taxa
+		);
+	}
+	else {
+		$responed_data = array (
+			'km' => $way,
+			'price' => 000000
+		);
+	}
+	echo json_encode($responed_data);
 	wp_die();
 }
 

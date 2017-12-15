@@ -494,15 +494,18 @@ p + hr
 	display: none;
 }
 
-#city
+label[for="city"], label[for="city2"]
 {
 	color: #323232;
 }
 
-.culc_dostavka
+
+.culc_dostavka, .culc_viezd
 {
 	background-color: #b5212e;
     border: none;
     padding: 10px;
     margin-top: 1em;
+    color: #FFFFFF;
+    cursor: pointer;
 }

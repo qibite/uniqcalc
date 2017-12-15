@@ -930,11 +930,11 @@ function shef_montazh_cranov () {
 
 $('#dostavka_price_rasschet').on('click', function(event) {
 	$('#dostavka_price_zakazat').css('display', 'inline-block');
-	var data_dostavka = { action: 'myway', cran_type: cran._1, _city: $('#city').val(), razrez:cran.razrez, _dlinna:cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP }
+	var data_dostavka = { action: 'myway', cran_type: cran._1, _city: $.trim($('#city').val()) , razrez:cran.razrez, _dlinna:cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP }
 		$.post( calc_ajaxurl.url, data_dostavka, function(response)
 		{
 			let resp_data = JSON.parse(response);
-			$('#dostavka_km').text('Путь доставки до города '+ $('#city').val() +' составляет - ' + String(Number(resp_data.km).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' км');
+			$('#dostavka_km').html('Расстояние до пункта '+ $('#city').val() +' <br> ' + String(Number(resp_data.km).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' км');
 			$('#dostavka_price').text(String(Number(resp_data.price).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 		});
 });
@@ -976,6 +976,58 @@ $('#dostavka_price_zakazat').on('click', function() {
 			$('#city').val('')
 			$('#dostavka_km').text('')
 			$('#dostavka_price').text('')
+			});
+		},200);
+});
+
+$('#viezd_price_rasschet').on('click', function(event) {
+	$('#viezd_price_zakazat').css('display', 'inline-block');
+	var data_viezd = { action: 'expertway', _city: $.trim($('#city2').val()) }
+		$.post( calc_ajaxurl.url, data_viezd, function(response)
+		{
+			let resp_data = JSON.parse(response);
+			$('#viezd_km').html('Проезд до пункта '+ $('#city2').val() +'<br> ' + String(Number(resp_data.km).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' км');
+			$('#viezd_price').text(String(Number(resp_data.price).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		});
+});
+
+$('#viezd_price_zakazat').on('click', function() {
+	$('#option_3 .dop_parametr:last-child').before(()=>{
+		let new_html = '<div class="dop_parametr viezd"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:200px"> \
+			<h4>Выезд эксперта</h4> \
+			<p><span class="opisanie_parametra">'+ $('#viezd_km').text() +'</span><br> \
+				<span class="stoimost_parametra">'+ $('#viezd_price').text() +'</span><i class="id_bro">c6</i></p>';
+			return new_html;
+		});
+	setTimeout(()=>{
+			hideOptions();
+			$('.cat').css('width', '20%');
+			$('.cat').siblings('li').css('display', 'inline-block');
+			$('.cat').children('div').css('display', 'none');
+			$('#revers').css('display', 'none');
+			$('#third_opt .ul_change > li').each(function(index, el) {
+				/*if (cran._3 == 'Ручное') {
+					if ($('#option_3').children('.dop_parametr').length+1 > 3) {
+						$('.add_dop_2').parent().css('display', 'none');
+					}
+					else {
+						$('.add_dop_2').parent().css('display', 'inline-block');
+					}
+				}
+				else {			
+					if (cran._3 != 'Ручное') {
+						if ($('#option_3').children('.dop_parametr').length+1 >= 12) {
+							$('.add_dop_3').parent().css('display', 'none');
+						}
+						else {
+						$('.add_dop_2').parent().css('display', 'inline-block');
+						}
+					}
+				}*/
+			$('#viezd_price_zakazat').css('display', 'none');
+			$('#city').val('')
+			$('#viezd_km').text('')
+			$('#viezd_price').text('')
 			});
 		},200);
 });
