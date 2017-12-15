@@ -978,7 +978,7 @@ function myway () {
 }
 
 add_action('wp_ajax_expertway', 'expertway');
-add_action('wp_ajax_nopriv_mywexpertway', 'expertway');
+add_action('wp_ajax_nopriv_expertway', 'expertway');
 
 function expertway () {
 	$city = $_POST['_city'];
