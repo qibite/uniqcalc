@@ -3,11 +3,11 @@ $url = plugin_dir_url( __FILE__ );
 global $wpdb;
 $podvesnie_crani = $wpdb->prefix . 'podvesnie_crani';
 $podvesnie_crani_result = $wpdb->get_results("SELECT price FROM $podvesnie_crani ORDER BY price ASC");
-$minimal_price_podvesnoi_cran = $podvesnie_crani_result[0]->price;
+$minimal_price_podvesnoi_cran = number_format($podvesnie_crani_result[0]->price, 0, ',', ' ');
 
 $opornie_crani = $wpdb->prefix . 'opornie_crani';
 $opornie_crani_result = $wpdb->get_results("SELECT price FROM $opornie_crani ORDER BY price ASC");
-$minimal_price_opornii_cran = $opornie_crani_result[0]->price;
+$minimal_price_opornii_cran = number_format($opornie_crani_result[0]->price, 0, ',', ' ');
 echo <<<EOT
 <article id="_1" style="position:relative;left:0">
 	<h2>Выберите тип крана</h2>

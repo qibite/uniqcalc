@@ -6,7 +6,7 @@ echo <<<EOT
 	<p>Тут типа какой нибудь продающий текст или что-то в этом роде.</p><p>Можно краткое приветствие и описание типов крана поверхностное.</p>
 	<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 		<img class="allimg чаи" src="{$url}images/9.1.png" alt="" style="width:260px"><br>
-		<h4 class="btns чаи">Червячная передача<br>ABLE (Италия) - стандартно</h4>
+		<h4 class="btns чаи">Червячная передача<br>ABLE (Италия)</h4>
 		<span class="price_">Без доплаты</span>
 	</div>
 	<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">

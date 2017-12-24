@@ -19,9 +19,11 @@ echo <<<EOT
 			</div>
 			<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 				<img class="" src="{$url}images/5б6.jpg" alt="" style="width:260px"><br>
-				<label>Длина консолей крана: <br><br><input id="vpP" type="number" name="" value="400" style="display:inline-block;max-width:100px"> мм</label>
+				<label>Длина консолей крана: <br><br><input id="vpP" type="number" name="" value="500" style="display:inline-block;max-width:100px"> мм<br><span id="error500mmP">Должно быть не мене 500 мм!</span></label>
 			</div>
-				<br><br><br>
+				<br><br>
+				<strong style="font-family:'Rubik Lite';color:red">Расстояние от стены до центра рельса не должно быть меньше 350 мм.</strong>
+				<br>
 			<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">				
 				<button type="button" class="параметры_помещения_для_подвесной">Далее</button>
 			</div>

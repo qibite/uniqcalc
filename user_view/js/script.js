@@ -253,6 +253,17 @@ jQuery(document).ready(($)=>{
 		cran._3 == 'Электро' ? cran.step = 'Шаг 6 из 11' : cran.step = 'Шаг 8 из 11';
 		cran._3 == 'Ручное' ? next_group( $('#razmeshenie'), 0 ) : next_group( $('#система_управления_краном'), 0 ); // СЛЕДУЮЩИМ БЫЛ ТОКОПОДВОД
 	});
+	$('#vpO').on('change', function(event) {
+		if ($(this).val() < 500) {
+			console.log('Error!!!');
+			$('#error500mmO').css('display', 'inline-block');
+			$('button.параметры_помещения_для_опорный').css('display', 'none');
+		}
+		else {
+			$('#error500mmO').css('display', 'none');
+			$('button.параметры_помещения_для_опорный').css('display', 'inline-block');
+		}
+	});
 /************************************************************************************************************************
 *																														*
 *									ВВОД РАЗМЕРОВ ПОМЕЩЕНИЯ ДЛЯ ПОДВЕСНОГО КРАНА  ШАГ-5	 								*
@@ -269,6 +280,17 @@ jQuery(document).ready(($)=>{
 		cran._3 == 'Электро' ? cran.step = 'Шаг 6 из 11' : cran.step = 'Шаг 8 из 11';
 		cran._3 == 'Ручное' ? next_group( $('#razmeshenie'), 0 ) : next_group( $('#система_управления_краном'), 0 ); // СЛЕДУЮЩИМ БЫЛ ТОКОПОДВОД
 		
+	});
+	$('#vpP').on('change', function(event) {
+		if ($(this).val() < 500) {
+			console.log('Error!!!')
+		$('#error500mmP').css('display', 'inline-block');
+		$('button.параметры_помещения_для_опорный').css('display', 'none');
+		}
+		else {
+			$('#error500mmP').css('display', 'none');
+			$('button.параметры_помещения_для_подвесной').css('display', 'inline-block');
+		}
 	});
 /************************************************************************************************************************
 *																														*
@@ -614,6 +636,7 @@ jQuery(document).ready(($)=>{
 		    }
 		
 		$('#main_block_for_steps').css('height', '920px');
+		easyscroll(600);
 	});
 
 		$('.ruchnaya_t').click(()=>{
@@ -720,6 +743,7 @@ jQuery(document).ready(($)=>{
 					$('#next_tal, #h2_tal').css('display', 'block');
 					$('h4.stdV_t').css({'background-color':'#e60216', 'color':'#FFFFFF'});
 					$('h4.umenV_t').css({'background-color':'#cecece', 'color':'#242526'});
+					if (cran._2.search(/Взрывобезопасное/i) != -1 && tal.country == 'Болгария') {$('#main_block_for_steps').css('height', '1610px');}
 				})
 				$('.umenV_t').click(()=>{
 					if(tal.country == 'Болгария'){easyscroll(1860)}
@@ -730,6 +754,7 @@ jQuery(document).ready(($)=>{
 					$('#next_tal, #h2_tal').css('display', 'block');
 					$('h4.stdV_t').css({'background-color':'#cecece', 'color':'#242526'});
 					$('h4.umenV_t').css({'background-color':'#e60216', 'color':'#FFFFFF'});
+					if (cran._2.search(/Взрывобезопасное/i) != -1 && tal.country == 'Болгария') {$('#main_block_for_steps').css('height', '1610px');}
 				})
 
 			$('.russia_tR').click(()=>{

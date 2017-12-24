@@ -419,7 +419,7 @@ div.pultslider>div>h4:hover, div.motor_reductor_slider>div>h4:hover, .preobrazov
 	width: 25%;
 	float: left;
 }
-.pultslider>.pult_upravleniya_PULTP, .pultslider>.pult_upravleniya_PULT, .pultslider>.pult_upravleniya_JOY{margin-left: 8.3%}
+.pultslider>.pult_upravleniya_PULTP, .pultslider>.pult_upravleniya_PULT, .pultslider>.pult_upravleniya_JOY{margin-left:6.3%}
 
 .pult_upravleniya_TELECRANE, .pult_upravleniya_IKUSI, .pult_upravleniya_HBRRadiomatic
 {
@@ -509,3 +509,16 @@ label[for="city"], label[for="city2"]
     color: #FFFFFF;
     cursor: pointer;
 }
+
+#error500mmO,
+#error500mmP
+{
+	display: none;
+    font-family: "Rubik Lite";
+    color: red;
+    font-size: 0.7em;
+    position: absolute;
+    bottom: -15px;
+    left: 44px;
+}
+

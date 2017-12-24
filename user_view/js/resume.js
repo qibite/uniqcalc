@@ -124,6 +124,7 @@ jQuery(document).ready(($)=>{
 			$('#option_2 > .tormoz').remove();
 			$('#option_2 > .shit_electro').remove();
 			$('#option_2 > .vikluchateli').remove();
+			$('#option_3 > .tok_montazh').remove();
 			$('#gpO > ul li:nth-child(9)').css('display','none');$('#gpO > ul li:nth-child(10)').css('display','none');
 			if (cran.gp > 10000) {cran.gp = 10000; alert('Грузоподъемность была уменьшена до 10000 кг для крана с ручным управлением!')}
 			cran.resetparam();
@@ -928,14 +929,15 @@ function shef_montazh_cranov () {
 	/////////////
 }
 
-$('#dostavka_price_rasschet').on('click', function(event) {
-	$('#dostavka_price_zakazat').css('display', 'inline-block');
+$('#dostavka_price_rasschet').on('click', function(event) {	
+	$('#dostavka_km').html('<br>Подождите пожалуйста...')
 	var data_dostavka = { action: 'myway', cran_type: cran._1, _city: $.trim($('#city').val()) , razrez:cran.razrez, _dlinna:cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP }
 		$.post( calc_ajaxurl.url, data_dostavka, function(response)
 		{
 			let resp_data = JSON.parse(response);
-			$('#dostavka_km').html('Расстояние до пункта '+ $('#city').val() +' <br> ' + String(Number(resp_data.km).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' км');
+			$('#dostavka_km').html('до пункта '+ $('#city').val() +' <br> ' + String(Number(resp_data.km).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' км');
 			$('#dostavka_price').text(String(Number(resp_data.price).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('#dostavka_price_zakazat').css('display', 'inline-block');
 		});
 });
 
@@ -981,13 +983,14 @@ $('#dostavka_price_zakazat').on('click', function() {
 });
 
 $('#viezd_price_rasschet').on('click', function(event) {
-	$('#viezd_price_zakazat').css('display', 'inline-block');
+	$('#viezd_km').html('<br>Подождите пожалуйста...')
 	var data_viezd = { action: 'expertway', _city: $.trim($('#city2').val()) }
 		$.post( calc_ajaxurl.url, data_viezd, function(response)
 		{
 			let resp_data = JSON.parse(response);
 			$('#viezd_km').html('Проезд до пункта '+ $('#city2').val() +'<br> ' + String(Number(resp_data.km).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' км');
 			$('#viezd_price').text(String(Number(resp_data.price).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('#viezd_price_zakazat').css('display', 'inline-block');
 		});
 });
 

@@ -5,17 +5,17 @@ $variants = $wpdb->prefix . 'variants';
 $variants_result = $wpdb->get_results("SELECT price FROM $variants WHERE id <= 15 ORDER BY price ASC");
 $minimal_price_electro_pult = $variants_result[0]->price;
 $variants_result = $wpdb->get_results("SELECT price FROM $variants WHERE id = 5 OR id = 10 OR id = 15 ORDER BY price ASC");
-$minimal_price_joy_pult_1 = $variants_result[0]->price;
-$minimal_price_joy_pult_2 = $variants_result[1]->price;
-$minimal_price_joy_pult_3 = $variants_result[2]->price;
+$minimal_price_joy_pult_1 = number_format($variants_result[0]->price, 0, ',', ' ');
+$minimal_price_joy_pult_2 = number_format($variants_result[1]->price, 0, ',', ' ');
+$minimal_price_joy_pult_3 = number_format($variants_result[2]->price, 0, ',', ' ');
 $variants_result2 = $wpdb->get_results("SELECT price FROM $variants WHERE id < 5 OR id > 5 AND id < 10 OR id > 10 AND id < 15 ORDER BY price ASC");
-$minimal_price_radio_pult_1 = $variants_result2[0]->price;
-$minimal_price_radio_pult_2 = $variants_result2[1]->price;
-$minimal_price_radio_pult_3 = $variants_result2[2]->price;
+$minimal_price_radio_pult_1 = number_format($variants_result2[0]->price, 0, ',', ' ');
+$minimal_price_radio_pult_2 = number_format($variants_result2[1]->price, 0, ',', ' ');
+$minimal_price_radio_pult_3 = number_format($variants_result2[2]->price, 0, ',', ' ');
 $variants_result2vbi = $wpdb->get_results("SELECT price FROM $variants WHERE id = 3 OR id = 8 OR id = 13 ORDER BY price ASC");
-$minimal_price_radio_pult_1vbi = $variants_result2vbi[0]->price;
-$minimal_price_radio_pult_2vbi = $variants_result2vbi[1]->price;
-$minimal_price_radio_pult_3vbi = $variants_result2vbi[2]->price;
+$minimal_price_radio_pult_1vbi = number_format($variants_result2vbi[0]->price, 0, ',', ' ');
+$minimal_price_radio_pult_2vbi = number_format($variants_result2vbi[1]->price, 0, ',', ' ');
+$minimal_price_radio_pult_3vbi = number_format($variants_result2vbi[2]->price, 0, ',', ' ');
 echo <<<EOT
 <article id="_3" style="left:-4999px">
 			<h2 id="upravlenieH2">Укажите тип управления краном</h2>

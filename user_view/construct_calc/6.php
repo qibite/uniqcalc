@@ -7,6 +7,12 @@ global $wpdb;$wpdb->show_errors();
 	$feston = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Фестонный (С профиль)' ");
 	$opentrol = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Открытые троллеи' ");
 	$closetrol = $wpdb->get_results("SELECT type, price FROM $stoimost_provod WHERE type = 'Закрытые троллеи' ");
+
+	$cabkol_p = number_format($cabkol[0]->price, 0, ',', ' ');	
+	$cabtel_p = number_format($cabtel[0]->price, 0, ',', ' ');
+	$feston_p = number_format($feston[0]->price, 0, ',', ' ');
+	$opentrol_p = number_format($opentrol[0]->price, 0, ',', ' ');
+	$closetrol_p = number_format($closetrol[0]->price, 0, ',', ' ');
 echo <<<EOT
 <article id="токоподвод" style="left:-4999px">
 			<h2>Токоподвод</h2>
@@ -15,7 +21,7 @@ echo <<<EOT
 				<img class="allimg ток_требуется" src="{$url}images/6.1.jpg" alt="" style="width:350px"><br>
 				<h3 class="btns">Требуется</h3>
 				<button type="button" class="ток_требуется">Выбрать</button>
-				<p>От {$cabkol[0]->price} руб.</p>	
+				<p>От {$cabkol_p} руб.</p>	
 			</div>
 			<div class="block" style="position:relative;display:inline-block;margin:1em 0 0 3em">
 				<img class="allimg ток_нетребуется" src="{$url}images/6.2.jpg" alt="" style="width:350px"><br>
@@ -27,11 +33,11 @@ echo <<<EOT
 				<h3>Тип токоподвода</h3>
 				<br>
 				<ul id="список_токоподводов">
-					<li><img class="allimg каб_с_кол" src="{$url}images/6.3.png" alt="" style="width:220px"><h4>Кабельный с кольцами<br><i>{$cabkol[0]->price} руб. метр</i></h4><span id="tok1" style="font-weight:bold;color:#b5212e"></span></li>
-					<li><img class="allimg каб_с_тел" src="{$url}images/6.4.png" alt="" style="width:220px"><h4>Кабельный с тележками<br><i>{$cabtel[0]->price} руб. метр</i></h4><span id="tok2" style="font-weight:bold;color:#b5212e"></span></li>
-					<li><img class="allimg фесто" src="{$url}images/6.5.png" alt="" style="width:220px"><h4>Фестонный (С профиль)<br><i>{$feston[0]->price} руб. метр</i></h4><span id="tok3" style="font-weight:bold;color:#b5212e"></span></li>
-					<li><img class="allimg откр_тролл" src="{$url}images/6.6.png" alt="" style="width:220px"><h4>Открытые троллеи<br><i>{$opentrol[0]->price} руб. метр</i></h4><span id="tok4" style="font-weight:bold;color:#b5212e"></span></li>					
-					<li><img class="allimg закр_тролл" src="{$url}images/6.7.png" alt="" style="width:220px"><h4>Закрытые троллеи<br><i>{$closetrol[0]->price} руб. метр</i></h4><span id="tok5" style="font-weight:bold;color:#b5212e"></span></li>
+					<li><img class="allimg каб_с_кол" src="{$url}images/6.3.png" alt="" style="width:220px"><h4>Кабельный с кольцами<br><i>{$cabkol_p} руб. метр</i></h4><span id="tok1" style="font-weight:bold;color:#b5212e"></span></li>
+					<li><img class="allimg каб_с_тел" src="{$url}images/6.4.png" alt="" style="width:220px"><h4>Кабельный с тележками<br><i>{$cabtel_p} руб. метр</i></h4><span id="tok2" style="font-weight:bold;color:#b5212e"></span></li>
+					<li><img class="allimg фесто" src="{$url}images/6.5.png" alt="" style="width:220px"><h4>Фестонный (С профиль)<br><i>{$feston_p} руб. метр</i></h4><span id="tok3" style="font-weight:bold;color:#b5212e"></span></li>
+					<li><img class="allimg откр_тролл" src="{$url}images/6.6.png" alt="" style="width:220px"><h4>Открытые троллеи<br><i>{$opentrol_p} руб. метр</i></h4><span id="tok4" style="font-weight:bold;color:#b5212e"></span></li>					
+					<li><img class="allimg закр_тролл" src="{$url}images/6.7.png" alt="" style="width:220px"><h4>Закрытые троллеи<br><i>{$closetrol_p} руб. метр</i></h4><span id="tok5" style="font-weight:bold;color:#b5212e"></span></li>
 				</ul>
 			</article>
 </article>

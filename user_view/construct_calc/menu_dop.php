@@ -25,11 +25,13 @@
 				if ($name_result) {
 					$nimg =0;
 					foreach ($name_result as $option) {
-						$nimg++;
-						$id = $option->id;
-						$code_option = $option->code_option;
-						$price = $option->price;
-						echo "<div id='b{$id}' class='change_li' name='vikluchateli'><span><img src='{$url}images/10.{$nimg}.png' style='width:140px'><p><b class='hz4'>{$code_option}</b></p></span><span class='hiddened'>{$price} руб</span></div>";
+						if ($option->id != 27) {
+							$nimg++;
+							$id = $option->id;
+							$code_option = $option->code_option;
+							$price = number_format($option->price, 0, ',', ' ');
+							echo "<div id='b{$id}' class='change_li' name='vikluchateli'><span><img src='{$url}images/10.{$nimg}.png' style='width:140px'><p><b class='hz4'>{$code_option}</b></p></span><span class='hiddened'>{$price} руб</span></div>";
+						}						
 					}
 				}
 			?>
@@ -39,15 +41,15 @@
 				$variants = $wpdb->prefix . 'variants';
 				$name_result = $wpdb->get_results("SELECT id, code_option, price FROM $variants WHERE id = 32");
 				if ($name_result) {
-					$svet_sirena = $name_result[0]->price;
+					$svet_sirena = number_format($name_result[0]->price, 0, ',', ' ');;
 				}
 				$name_result = $wpdb->get_results("SELECT id, code_option, price FROM $variants WHERE id = 33");
 				if ($name_result) {
-					$zvuk_sirena = $name_result[0]->price;
+					$zvuk_sirena = number_format($name_result[0]->price, 0, ',', ' ');;
 				}
 			?>
-			<li id="b12_1" class="change_li" name="sirena"><span><img src="<?=$url;?>images/12.1.png" alt="" style="width:140px"><p><b class="hz4">Световая сирена</b></span></p></span><span class='hiddened'><?=$svet_sirena;?> руб</span></li>
-			<li id="b12_2" class="change_li" name="sirena"><span><img src="<?=$url;?>images/12.2.png" alt="" style="width:140px"><p><b class="hz4">Звуковая сирена</b></span></p></span><span class='hiddened'><?=$zvuk_sirena;?> руб</span></li>
+			<li id="b12_1" class="change_li" name="sirena"><span><img src="<?=$url;?>images/12.1.png" alt="" style="width:140px"><p><b class="hz4">Световая сирена</b></span></p></span><span class='hiddened'><?=number_format($svet_sirena, 0, ',', ' ');?> руб</span></li>
+			<li id="b12_2" class="change_li" name="sirena"><span><img src="<?=$url;?>images/12.2.png" alt="" style="width:140px"><p><b class="hz4">Звуковая сирена</b></span></p></span><span class='hiddened'><?=number_format($zvuk_sirena, 0, ',', ' ');?> руб</span></li>
 
 			<li id="b13" class="change_li" name="stop"><span><img src="<?=$url;?>images/13.png" alt="" style="width:140px"><p><b class="hz4">Аварийный стоп</b><br><span class="opisanie_parametra">с линейным выключателем</span></p></span><span class='hiddened'></span></li>
 			<li id="b14" class="change_li" name="tormoz"><span><img src="<?=$url;?>images/14.png" alt="" style="width:140px"><p><b class="hz4">Тормоз на передвижение</b></p></span><span class='hiddened'></span></li>
@@ -59,8 +61,8 @@
 					$r_tal_table = $wpdb->prefix . 'ruchnie_tali';
 					$r_tal_result = $wpdb->get_results("SELECT price FROM $r_tal_table ORDER BY price ASC");
 				?>
-				<div id='b17_1' class='pod_cat_cat tal_r'><span><img src="<?=$url?>images/17.1.png" style='width:140px'><p><b class='hz4'>Ручная</b></p></span><span class='hiddened'>От <?php print_r($r_tal_result[0]->price)?> руб</span></div>
-				<div id='b17_2' class='pod_cat_cat tal_e'><span><img src="<?=$url?>images/17.2.png" style='width:140px'><p><b class='hz4'>Электрическая</b></p></span><span class='hiddened'>От <?php print_r($e_tal_result[0]->price)?> руб</span></div>
+				<div id='b17_1' class='pod_cat_cat tal_r'><span><img src="<?=$url?>images/17.1.png" style='width:140px'><p><b class='hz4'>Ручная</b></p></span><span class='hiddened'>От <?php print_r(number_format($r_tal_result[0]->price, 0, ',', ' '))?> руб</span></div>
+				<div id='b17_2' class='pod_cat_cat tal_e'><span><img src="<?=$url?>images/17.2.png" style='width:140px'><p><b class='hz4'>Электрическая</b></p></span><span class='hiddened'>От <?php print_r(number_format($e_tal_result[0]->price, 0, ',', ' '))?> руб</span></div>
 
 				<div id="conteinert_talei_1" style="display:block;width:100%;margin-top:16px">
 					<div id='b17_8' class='pod_cat_cat tal_r_RUS r_tal' style="display:none"><span><img src="<?=$url?>images/17.8.png" style='width:140px'><p><b class='hz4'>Россия</b></p></span><span class='hiddened'>Идет рассчет..</span></div>

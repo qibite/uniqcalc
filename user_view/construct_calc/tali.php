@@ -88,7 +88,7 @@ echo <<<EOT
 					</div>
 
 					<div class="options_tali" style="width:90%;padding:1em;margin-left:4%;margin-top:3em">
-					<h2 id="h2_tal" style="margin-bottom:.3em">Предлагаем дополнительные опции для выбраной тали</h2>
+					<h2 id="h2_tal" style="margin-bottom:.5em">Предлагаем дополнительные опции для выбраной тали</h2>
 						<label class="opt_tal bolg_kanat" for="bolg_kanat_1"><input id="bolg_kanat_1" type="checkbox"> Химическая агрессивная среда +5%</label>
 						<label class="opt_tal bolg_kanat" for="bolg_kanat_2">Тропическое исполнение +10% <input id="bolg_kanat_2" type="checkbox"></label>
 						<label class="opt_tal bolg_kanat" for="bolg_kanat_3"><input id="bolg_kanat_3" type="checkbox"> Морское исполнение +10%</label>

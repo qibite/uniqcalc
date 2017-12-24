@@ -26,7 +26,7 @@ jQuery(document).ready(($)=>{
 		pult_upravleniya.append(pult_upravleniya_close);
 
 		let pult_upravleniya_h2 = document.createElement('H2'); // Заголовок окна выбора пульта
-		pult_upravleniya_h2.innerText = 'Выберите пульт радиоуправления краном';
+		pult_upravleniya_h2.innerText = 'Выберите тип радиоуправления краном';
 		pult_upravleniya_h2.style.marginBottom = '50px';
 		pult_upravleniya.append(pult_upravleniya_h2);
 
@@ -43,7 +43,7 @@ jQuery(document).ready(($)=>{
 					});
 			let pult_upravleniya_PULTP_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
 				pult_upravleniya_PULTP_h4.className = 'change_on_PULTP';
-				pult_upravleniya_PULTP_h4.innerText = 'Подвесной - беспланто';
+				pult_upravleniya_PULTP_h4.innerText = 'Подвесной пульт - беспланто';
 				pult_upravleniya_PULTP.append(pult_upravleniya_PULTP_h4);
 					pult_upravleniya_PULTP_h4.addEventListener('click', function () {
 						cran._3Type = 'Подвесной пульт';						
@@ -64,7 +64,7 @@ jQuery(document).ready(($)=>{
 					});
 			let pult_upravleniya_PULT_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
 				pult_upravleniya_PULT_h4.className = 'change_on_PULT';
-				pult_upravleniya_PULT_h4.innerText = 'Пульт';
+				pult_upravleniya_PULT_h4.innerText = 'Радиоуправление с пульта';
 				pult_upravleniya_PULT.append(pult_upravleniya_PULT_h4);
 					pult_upravleniya_PULT_h4.addEventListener('click', function () {
 						creat_pult_model('Пульт');
@@ -88,7 +88,7 @@ jQuery(document).ready(($)=>{
 					});
 			let pult_upravleniya_JOY_h4 = document.createElement('h4'); // подпись под картнкой / КНОПКА
 				pult_upravleniya_JOY_h4.className = 'change_on_JOY';
-				pult_upravleniya_JOY_h4.innerText = 'Джойстик';
+				pult_upravleniya_JOY_h4.innerText = 'Радиоуправление с джойстика';
 				pult_upravleniya_JOY.append(pult_upravleniya_JOY_h4);
 					pult_upravleniya_JOY_h4.addEventListener('click', function () {
 						creat_pult_model();
@@ -525,7 +525,7 @@ jQuery(document).ready(($)=>{
 			preobrazovatel.append(preobrazovatel_close);
 
 			let preobrazovatel_h2 = document.createElement('H2'); // Заголовок окна выбора пульта
-			preobrazovatel_h2.innerText = 'Выберите преобразователь';
+			preobrazovatel_h2.innerText = 'Выберите тип движения крана';
 			preobrazovatel_h2.style.marginBottom = '50px';
 			preobrazovatel.append(preobrazovatel_h2);
 		/*********************************************************************************************************************************/
