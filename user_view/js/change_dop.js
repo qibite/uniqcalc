@@ -304,6 +304,7 @@ jQuery(document).ready(($)=>{
 					return new_html;
 			});
 		}
+
 	})
 
 /************************************************************************************************************************************************************************************************************************************
@@ -1139,6 +1140,7 @@ function get_preobrazovatel_id (model, img)
 				}
 			}
 		});
+		calc_all_dop();
 	});
 function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.body.scrollTop + scrollTo) + 'px' }, 700) }
 
@@ -1189,6 +1191,7 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 						}
 					}
 				});
+				
 			},200);		
 		}
 		else
@@ -1265,6 +1268,7 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 						}
 					}
 				});
+				
 			},200);
 		});
 
@@ -1298,6 +1302,7 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 						}
 					}
 				});
+				
 			},200);
 		});
 
@@ -1331,6 +1336,7 @@ function easyscroll(scrollTo) { $('html, body').animate({ scrollTop: (document.b
 						}
 					}
 				});
+				
 			},200);
 		});
 // РУЧНЫЕ ТАЛИ
@@ -1399,6 +1405,7 @@ $('.tal_e_BOLG').click(()=>{
 						}
 					}
 				});
+				
 			},200);
 		}
 		$('#b17_5_1 .hiddened').text(String(Number(tal.priceAJAX.bolgariya_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
@@ -1434,6 +1441,7 @@ $('.tal_e_BOLG').click(()=>{
 						}
 					}
 				});
+				
 		},200);
 	})
 
@@ -1467,6 +1475,7 @@ $('.tal_e_BOLG').click(()=>{
 						}
 					}
 				});
+				
 			},200);
 		})
 		$('.tal_mini_std_height').click(()=>{
@@ -1499,6 +1508,7 @@ $('.tal_e_BOLG').click(()=>{
 						}
 					}
 				});
+				
 			},200);
 		})
 // ЭЛЕКТРО ТАЛИ БОЛГАРИЯЫ
@@ -1515,26 +1525,27 @@ $('.tal_e_RUS').click(()=>{
 		$('.cat').siblings('li').css('display', 'inline-block');
 		$('.cat').children('div').css('display', 'none');
 		$('#revers').css('display', 'none');
-				$('#second_opt .ul_change > li').each(function(index, el) {
-					if (cran._3 == 'Ручное') {
-						if ($('#option_2').children('.dop_parametr').length+1 > 2) {
-							$('.add_dop_2').parent().css('display', 'none');
-						}
-						else {
-							$('.add_dop_2').parent().css('display', 'inline-block');
-						}
+		$('#second_opt .ul_change > li').each(function(index, el) {
+			if (cran._3 == 'Ручное') {
+				if ($('#option_2').children('.dop_parametr').length+1 > 2) {
+					$('.add_dop_2').parent().css('display', 'none');
+				}
+				else {
+					$('.add_dop_2').parent().css('display', 'inline-block');
+				}
+			}
+			else {			
+				if (cran._3 != 'Ручное') {
+					if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
+						$('.add_dop_2').parent().css('display', 'none');
 					}
-					else {			
-						if (cran._3 != 'Ручное') {
-							if ($('#option_2').children('.dop_parametr').length+1 >= 12) {
-								$('.add_dop_2').parent().css('display', 'none');
-							}
-							else {
-							$('.add_dop_2').parent().css('display', 'inline-block');
-							}
-						}
+					else {
+						$('.add_dop_2').parent().css('display', 'inline-block');
 					}
-				});
+				}
+			}
+		});
+		
 	},200);
 })
 // ЭЛЕКТРО ТАЛИ РОССИЯ
@@ -1577,6 +1588,7 @@ $('.tal_e_CHN').click(()=>{
 						}
 					}
 				});
+				
 		},200);
 	}
 	$('.tal_std_height').css('display', 'none');
@@ -1590,5 +1602,20 @@ function hideOptions () {
 	$('.hidden_options').removeClass('hidden_options_show').addClass('zzz hidden_options_hide');
 	$('.hidden_options div.modal_change_show').removeClass('modal_change_show').addClass('modal_change_hide');
 }
+
+
+function calc_all_dop () {
+	let conteiner = 0;
+	$('#option_2 > div.dop_parametr:not("#option_2 > .dop_parametr:last-child")').each((index, el) => {
+		if (el.children[1].classList.contains('return_motor_default') || el.children[1].classList.contains('return_preobrazovatel_default') || el.children[1].classList.contains('return_pult_default')) {
+			conteiner += parseInt(el.children[4].children[2].innerText.replace(/\s/g, ''));
+		}
+		else if (!isNaN(parseInt(el.children[3].children[2].innerText.replace(/\s/g, '')))) {
+			conteiner += parseInt(el.children[3].children[2].innerText.replace(/\s/g, ''));
+		}
+	});
+	$('#summa2').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+}
+
 
 });

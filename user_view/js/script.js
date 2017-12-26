@@ -1126,8 +1126,7 @@ cran.price_crane_electro_upravleniya = function (_8punkt) {
 						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.png" alt="" class="pult_change" style="width:200px"><h4>Управление краном</h4> \
 						<p><span class="opisanie_parametra">'+String(cran._3Type)+'</span><br> \
 						<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span><i class="id_bro">b3</i></p>');
-					$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
-					$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
+					calc_all_dop();
 				});
 			//////////////
 }
@@ -1170,8 +1169,7 @@ cran.chastotnik_price = function (model) {
 						'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ price.img +'.png" alt="" class="preobrazovatel_change" style="width:200px"><h4>Частотный преобразователь</h4> \
 						<p><span class="opisanie_parametra">'+String(cran.speed)+'</span><br> \
 						<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span></p>');
-					$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
-					$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
+					calc_all_dop();
 				});
 }
 
@@ -1184,8 +1182,7 @@ cran.double_speed = function (code_preobrazovatelya) {
 			'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.4.png" alt="" class="preobrazovatel_change" style="width:200px"><h4>Релейно-контакторный преобразователь</h4> \
 			<p><span class="opisanie_parametra">'+String(cran.speed)+'</span><br> \
 			<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span></p>');
-		$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
-		$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
+		calc_all_dop();
 	});
 }
 
@@ -1222,6 +1219,7 @@ cran.motor_price = function (model) {
 						<span class="stoimost_parametra">'+ String(Number(answer.base_price).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span></p>');
 						$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
 						$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
+					calc_all_dop();
 				})
 				break;
 		}
@@ -1267,6 +1265,7 @@ cran.calculate_oporniy_crane = function  () {
 					$('#sroki').text(response);
 				});
 			//////////////
+			calc_all_dop();
 }
 
 cran.calculate_tal = function  (argument) {
@@ -1284,11 +1283,12 @@ cran.calculate_tal = function  (argument) {
 			<p><span class="opisanie_parametra">'+String(tal.upravlenie)+'<br>'+String(tal.type)+'</span><br> \
 				<span class="stoimost_parametra">'+ String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span> \
 			</p>');
-		$('#option_click2').removeClass('head_dop_menu').addClass('head_dop_menu_open');
-		$('#option_2').removeClass('dop_menu').addClass('dop_menu_open');
+		calc_all_dop();
 	});
 	//////////////
+
 }
+
 
 $('.bolgariya_tE').hover(function() {
 	$(this).siblings('p').css('display', 'block');
@@ -1364,6 +1364,18 @@ function tali_insert_price ()
 	});
 }
 
+function calc_all_dop () {
+	let conteiner = 0;
+	$('#option_2 > div.dop_parametr:not("#option_2 > .dop_parametr:last-child")').each((index, el) => {
+		if (el.children[1].classList.contains('return_motor_default') || el.children[1].classList.contains('return_preobrazovatel_default') || el.children[1].classList.contains('return_pult_default')) {
+			conteiner += parseInt(el.children[4].children[2].innerText.replace(/\s/g, ''));
+		}
+		else if (!isNaN(parseInt(el.children[3].children[2].innerText.replace(/\s/g, '')))) {
+			conteiner += parseInt(el.children[3].children[2].innerText.replace(/\s/g, ''));
+		}
+	});
+	$('#summa2').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+}
 
 });
 

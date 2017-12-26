@@ -540,12 +540,10 @@ jQuery(document).ready(($)=>{
 		var that = $(this);		
 		$(this).css('display', 'none');
 		$('#option_2 .dop_parametr:last-child').before(()=>{
-			console.log(that.attr('id'))
 			var new_html = '<div class="dop_parametr '+ that.attr('name') +'"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" style="width:200px"> \
 								<h4>'+ that.children().children().children('b.hz4').text() +'</h4> \
 								<p><span class="opisanie_parametra">'+ that.children().children().children('.opisanie_parametra').text() +'</span><br> \
 								<span class="stoimost_parametra">'+ that.children('.hiddened').text() +'</span><i class="id_bro">'+that.attr('id')+'</i></p>';
-								console.log(that.attr('id'));
 			return new_html;
 		});
 		setTimeout(()=>{
@@ -574,6 +572,7 @@ jQuery(document).ready(($)=>{
 					}
 				}
 			});
+		calc_all_dop();
 		},200);
 		
 		
@@ -594,7 +593,6 @@ jQuery(document).ready(($)=>{
 								<h4>'+ that.children().children().children('b.hz4').text() +'</h4> \
 								<p><span class="opisanie_parametra">'+ that.children().children().children('.opisanie_parametra').text() +'</span><br> \
 								<span class="stoimost_parametra">'+ that.children('.hiddened').text() +'</span><i class="id_bro">'+that.attr('id')+'</i></p>';
-								console.log(that.children('.hiddened').text())
 			return new_html;
 		});
 		setTimeout(()=>{
@@ -834,7 +832,18 @@ function hideThisChange (this_Change) {
 	}
 
 
-	
+function calc_all_dop () {
+	let conteiner = 0;
+	$('#option_2 > div.dop_parametr:not("#option_2 > .dop_parametr:last-child")').each((index, el) => {
+		if (el.children[1].classList.contains('return_motor_default') || el.children[1].classList.contains('return_preobrazovatel_default') || el.children[1].classList.contains('return_pult_default')) {
+			conteiner += parseInt(el.children[4].children[2].innerText.replace(/\s/g, ''));
+		}
+		else if (!isNaN(parseInt(el.children[3].children[2].innerText.replace(/\s/g, '')))) {
+			conteiner += parseInt(el.children[3].children[2].innerText.replace(/\s/g, ''));
+		}
+	});
+	$('#summa2').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+}
 
 
 /*******************************************************************************************************************************************************************************************************************************************************************
@@ -1086,7 +1095,6 @@ function montazh_tokopodvoda () {
 			else {
 				$('#c5').css('display', 'none');
 			}
-			console.log($('#option_1 > div.tokoprovod > h4').text())
 			return;
 		})
 	/////////////
