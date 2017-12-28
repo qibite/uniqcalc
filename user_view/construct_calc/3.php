@@ -52,9 +52,9 @@ echo <<<EOT
 							<li style="display:inline-block"><img class="allimg _38" src="{$url}images/3.8.png" style="width:170px;margin:10px"><br> Ikusi<br>(Испания)<br><span class="price_">От {$minimal_price_radio_pult_2} руб.</span></li>
 							<li style="display:inline-block"><img class="allimg _39" src="{$url}images/3.9.png" style="width:170px;margin:10px"><br> HBC - Radiomatic<br>(Германия)<br><span class="price_">От {$minimal_price_radio_pult_3} руб.</span></li>
 
-							<li style="display:inline-block"><img class="allimg _37_j" src="{$url}images/3.7.png" style="width:170px;margin:10px"><br> Telecrane<br>(Тайвань)<br><span class="price_">{$minimal_price_joy_pult_1} руб.</span></li>
-							<li style="display:inline-block"><img class="allimg _38_j" src="{$url}images/3.8.png" style="width:170px;margin:10px"><br> Ikusi<br>(Испания)<br><span class="price_">{$minimal_price_joy_pult_2} руб.</span></li>
-							<li style="display:inline-block"><img class="allimg _39_j" src="{$url}images/3.9.png" style="width:170px;margin:10px"><br> HBC - Radiomatic<br>(Германия)<br><span class="price_">{$minimal_price_joy_pult_3} руб.</span></li>
+							<li style="display:inline-block"><img class="allimg _37_j" src="{$url}images/3.7a.png" style="width:170px;margin:10px"><br> Telecrane<br>(Тайвань)<br><span class="price_">{$minimal_price_joy_pult_1} руб.</span></li>
+							<li style="display:inline-block"><img class="allimg _38_j" src="{$url}images/3.8b.png" style="width:170px;margin:10px"><br> Ikusi<br>(Испания)<br><span class="price_">{$minimal_price_joy_pult_2} руб.</span></li>
+							<li style="display:inline-block"><img class="allimg _39_j" src="{$url}images/3.9c.png" style="width:170px;margin:10px"><br> HBC - Radiomatic<br>(Германия)<br><span class="price_">{$minimal_price_joy_pult_3} руб.</span></li>
 
 							<li style="display:inline-block"><img class="allimg _37vbi" src="{$url}images/3.7.png" style="width:170px;margin:10px"><br> Telecrane<br>(Тайвань)<br><span class="price_">{$minimal_price_radio_pult_1vbi} руб.</span></li>
 							<li style="display:inline-block"><img class="allimg _38vbi" src="{$url}images/3.8.png" style="width:170px;margin:10px"><br> Ikusi<br>(Испания)<br><span class="price_">{$minimal_price_radio_pult_2vbi} руб.</span></li>

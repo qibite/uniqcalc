@@ -202,7 +202,7 @@ jQuery(document).ready(($)=>{
 						pult_upravleniya_TELECRANE.className = 'joy_d pult_upravleniya_TELECRANE animated fadeInLeftBig'
 						pult_upravleniya.append(pult_upravleniya_TELECRANE);
 					let pult_upravleniya_TELECRANE_img = document.createElement('img'); //Картинка радио пульта
-						pult_upravleniya_TELECRANE_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.7.png';
+						pult_upravleniya_TELECRANE_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.7a.png';
 						pult_upravleniya_TELECRANE.style.marginLeft = '4%';
 						pult_upravleniya_TELECRANE_img.className = 'allimg change_on_TELECRANE';
 						pult_upravleniya_TELECRANE.append(pult_upravleniya_TELECRANE_img);
@@ -228,7 +228,7 @@ jQuery(document).ready(($)=>{
 						pult_upravleniya_IKUSI.className = 'pult_upravleniya_IKUSI animated zoomIn'
 						pult_upravleniya.append(pult_upravleniya_IKUSI);
 					let pult_upravleniya_IKUSI_img = document.createElement('img'); //Картинка радио пульта
-						pult_upravleniya_IKUSI_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.8.png';
+						pult_upravleniya_IKUSI_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.8b.png';
 						pult_upravleniya_IKUSI_img.className = 'allimg change_on_IKUSI';
 						pult_upravleniya_IKUSI.append(pult_upravleniya_IKUSI_img);
 							pult_upravleniya_IKUSI_img.addEventListener('click', function () {
@@ -253,7 +253,7 @@ jQuery(document).ready(($)=>{
 						pult_upravleniya_HBRRadiomatic.className = 'pult_upravleniya_HBRRadiomatic animated fadeInRightBig'
 						pult_upravleniya.append(pult_upravleniya_HBRRadiomatic);
 					let pult_upravleniya_HBRRadiomatic_img = document.createElement('img'); //Картинка радио пульта
-						pult_upravleniya_HBRRadiomatic_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.9.png';
+						pult_upravleniya_HBRRadiomatic_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/3.9c.png';
 						pult_upravleniya_HBRRadiomatic_img.className = 'allimg change_on_HBRRadiomatic';
 						pult_upravleniya_HBRRadiomatic.append(pult_upravleniya_HBRRadiomatic_img);
 							pult_upravleniya_HBRRadiomatic_img.addEventListener('click', function () {
@@ -878,7 +878,7 @@ function get_pult_id (pult_model, type /*option*/) {
 			break;
 		case 'Joy Telecrane':
 			pult_code =
-				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran.code_of_chastotnik == '8.3' || '8.2' || '8.4') ? {id:5, img:'3.7'}:false)
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran.code_of_chastotnik == '8.3' || '8.2' || '8.4') ? {id:5, img:'3.7a'}:false)
 				||
 				0;
 				switch (type) {
@@ -892,7 +892,7 @@ function get_pult_id (pult_model, type /*option*/) {
 			break;
 		case 'Joy Ikusi':
 			pult_code =
-				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran.code_of_chastotnik == '8.3' || '8.2' || '8.4') ? {id:10, img:'3.8'}:false)
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran.code_of_chastotnik == '8.3' || '8.2' || '8.4') ? {id:10, img:'3.8b'}:false)
 				||
 				0;
 				switch (type) {
@@ -906,7 +906,7 @@ function get_pult_id (pult_model, type /*option*/) {
 			break;
 		case 'Joy HBC':
 			pult_code =
-				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran.code_of_chastotnik == '8.3' || '8.2' || '8.4') ? {id:15, img:'3.9'}:false)
+				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran.code_of_chastotnik == '8.3' || '8.2' || '8.4') ? {id:15, img:'3.9c'}:false)
 				||
 				0;
 				switch (type) {

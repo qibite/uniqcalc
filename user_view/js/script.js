@@ -1085,7 +1085,7 @@ cran.price_crane_electro_upravleniya = function (_8punkt) {
 					_8punkt == '8.2' || '8.4') ? {id:4, img:'3.7'}:false)
 				||
 				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/джойстиком/i) != -1 && cran._3Type.search(/Telecrane/i) != -1) && (
-					_8punkt == '8.3' || '8.2' || '8.4') ? {id:5, img:'3.7'}:false)
+					_8punkt == '8.3' || '8.2' || '8.4') ? {id:5, img:'3.7a'}:false)
 				||
 				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/Ikusi/i) != -1) && (
 					_8punkt == '8.3') ? {id:6, img:'3.8'}:false)
@@ -1100,7 +1100,7 @@ cran.price_crane_electro_upravleniya = function (_8punkt) {
 					_8punkt == '8.2' || '8.4') ? {id:9, img:'3.8'}:false)
 				||
 				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/джойстиком/i) != -1 && cran._3Type.search(/Ikusi/i) != -1) && (
-					_8punkt == '8.3' || '8.2' || '8.4') ? {id:10, img:'3.8'}:false)
+					_8punkt == '8.3' || '8.2' || '8.4') ? {id:10, img:'3.8b'}:false)
 				||
 				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/пультом/i) != -1 && cran._3Type.search(/HBC/i) != -1) && (
 					_8punkt == '8.3') ? {id:11, img:'3.9'}:false)
@@ -1115,7 +1115,7 @@ cran.price_crane_electro_upravleniya = function (_8punkt) {
 					_8punkt == '8.2' || '8.4') ? {id:14, img:'3.9'}:false)
 				||
 				(( cran._2 == 'Общепромышленное' || cran._2.search(/Пожаробезопасное/i) != -1 && cran._2.search(/Взрывобезопасное/i) == -1 ) && (cran._3Type.search(/джойстиком/i) != -1 && cran._3Type.search(/HBC/i) != -1) && (
-					_8punkt == '8.3' || '8.2' || '8.4') ? {id:15, img:'3.9'}:false)
+					_8punkt == '8.3' || '8.2' || '8.4') ? {id:15, img:'3.9c'}:false)
 				||
 				0;
 			if (price.id == 0) return false;
