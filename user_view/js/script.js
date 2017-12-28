@@ -1262,10 +1262,12 @@ cran.calculate_oporniy_crane = function  () {
 				});
 				var data_sroki_cran = { action: 'calc_sroki', _gp:cran.gp, _shir:cran.paramsO.shpO, _upravl:cran._3 }
 				$.post( calc_ajaxurl.url, data_sroki_cran, function(response) {
-					$('#sroki').text(response);
+					$('#sroki').text(response);					
+					calc_all_tokopodvod_i_puti();
+					calc_all_dop();
+					calc_all_uslugi();
 				});
 			//////////////
-			calc_all_dop();
 }
 
 cran.calculate_tal = function  (argument) {
@@ -1283,7 +1285,9 @@ cran.calculate_tal = function  (argument) {
 			<p><span class="opisanie_parametra">'+String(tal.upravlenie)+'<br>'+String(tal.type)+'</span><br> \
 				<span class="stoimost_parametra">'+ String(Number(tal.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span> \
 			</p>');
+		calc_all_tokopodvod_i_puti();
 		calc_all_dop();
+		calc_all_uslugi();
 	});
 	//////////////
 
@@ -1364,6 +1368,20 @@ function tali_insert_price ()
 	});
 }
 
+function calc_all_tokopodvod_i_puti () {
+	let conteiner = 0;
+	$('#option_1 > div.dop_parametr:not("#option_1 > .dop_parametr:last-child")').each((index, el) => {
+		if (!isNaN(parseInt(el.children[3].children[2].innerText.replace(/\s/g, '')))) {
+			conteiner += parseInt(el.children[3].children[2].innerText.replace(/\s/g, ''));
+		}
+	});
+	$('#summa1').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+	$('#summa4').text('Подождите...')
+	setTimeout(() => {
+		calc_all_oporniy();
+	}, 1200)
+}
+
 function calc_all_dop () {
 	let conteiner = 0;
 	$('#option_2 > div.dop_parametr:not("#option_2 > .dop_parametr:last-child")').each((index, el) => {
@@ -1375,6 +1393,40 @@ function calc_all_dop () {
 		}
 	});
 	$('#summa2').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+	$('#summa4').text('Подождите...')
+	setTimeout(() => {
+		calc_all_oporniy();
+	}, 1200)
+}
+
+function calc_all_uslugi () {
+	let conteiner = 0;
+	$('#option_3 > div.dop_parametr:not("#option_3 > .dop_parametr:last-child")').each((index, el) => {
+		if (!isNaN(parseInt(el.children[3].children[2].innerText.replace(/\s/g, '')))) {
+			conteiner += parseInt(el.children[3].children[2].innerText.replace(/\s/g, ''));
+		}
+	});
+	$('#summa3').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+	$('#summa4').text('Подождите...')
+	setTimeout(() => {
+		calc_all_oporniy();
+	}, 1200)
+}
+
+function calc_all_oporniy () {
+	let conteiner = 0;
+	if (!isNaN($('#summa').text().replace(/\s/g, '')) && !isNaN($('#summa1').text().replace(/\s/g, '')) && !isNaN($('#summa2').text().replace(/\s/g, '')) && !isNaN($('#summa3').text().replace(/\s/g, ''))) {
+		let summa = parseInt($('#summa').text().replace(/\s/g, ''));
+		let summa1 = parseInt($('#summa1').text().replace(/\s/g, ''));
+		let summa2 = parseInt($('#summa2').text().replace(/\s/g, ''));
+		let summa3 = parseInt($('#summa3').text().replace(/\s/g, ''));
+		conteiner = summa + summa1 + summa2 + summa3;
+		console.log(summa)
+		console.log(summa1)
+		console.log(summa2)
+		console.log(summa3)
+	}
+	$('#summa4').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
 }
 
 });
