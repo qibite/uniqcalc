@@ -842,7 +842,7 @@ function calc_montazh_crana () {
  $table_montazha = $wpdb->prefix . 'montazh_ruchnih_cran';
  $table_montazha_res = $wpdb->get_results("SELECT id, gp, shirina_mezh_putami, price FROM $table_montazha WHERE gp = $gp AND shirina_mezh_putami >= $shirina ");
  if ($table_montazha_res) {
- 	echo '<span name="montazh"><img src="http://'.$_SERVER['SERVER_NAME'].'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Монтаж кран-балок</b><br><span class="opisanie_parametra">Тут нужно приписку</span></p></span><span class="hiddened">'.number_format($table_montazha_res[0]->price, 0, ',', ' ').' руб</span>';
+ 	echo '<span name="montazh"><img src="http://'.$_SERVER['SERVER_NAME'].'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/y1.png" alt="" style="width:140px"><p><b class="hz4">Монтаж кран-балок</b><br><span class="opisanie_parametra">Тут нужно приписку</span></p></span><span class="hiddened">'.number_format($table_montazha_res[0]->price, 0, ',', ' ').' руб</span>';
  }
  wp_die();
 }
@@ -857,7 +857,7 @@ function calc_montazh_crana_el () {
  $table_montazha = $wpdb->prefix . 'montazh_electro_cran';
  $table_montazha_res = $wpdb->get_results("SELECT id, gp, shirina_mezh_putami, price FROM $table_montazha WHERE gp = $gp AND shirina_mezh_putami >= $shirina ");
  if ($table_montazha_res) {
- 	echo '<span><img src="http://'.$_SERVER['SERVER_NAME'].'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Монтаж кран-балок</b><br><span class="opisanie_parametra">Тут нужно приписку</span></p></span><span class="hiddened">'.number_format($table_montazha_res[0]->price, 0, ',', ' ').' руб</span>';
+ 	echo '<span><img src="http://'.$_SERVER['SERVER_NAME'].'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/y1.png" alt="" style="width:140px"><p><b class="hz4">Монтаж кран-балок</b><br><span class="opisanie_parametra">Тут нужно приписку</span></p></span><span class="hiddened">'.number_format($table_montazha_res[0]->price, 0, ',', ' ').' руб</span>';
  }
  wp_die();
 }
@@ -873,7 +873,7 @@ function calc_shef_montazh_crana () {
  $table_montazha = $wpdb->prefix . 'shef_montazh';
  $table_montazha_res = $wpdb->get_results("SELECT id, gp, shirina_mezh_putami, price FROM $table_montazha WHERE gp = $gp AND shirina_mezh_putami >= $shirina ");
  if ($table_montazha_res) {
- 	echo '<span><img src="http://'.$_SERVER['SERVER_NAME'].'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Шеф-монтаж</b><br><span class="opisanie_parametra">Гарант корректной установки</span></p></span><span class="hiddened">'.number_format($table_montazha_res[0]->price, 0, ',', ' ').' руб</span>';
+ 	echo '<span><img src="http://'.$_SERVER['SERVER_NAME'].'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/y2.png" alt="" style="width:140px"><p><b class="hz4">Шеф-монтаж</b><br><span class="opisanie_parametra">Гарант корректной установки</span></p></span><span class="hiddened">'.number_format($table_montazha_res[0]->price, 0, ',', ' ').' руб</span>';
  }
  wp_die();
 }
