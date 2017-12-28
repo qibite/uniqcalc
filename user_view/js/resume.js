@@ -126,6 +126,13 @@ jQuery(document).ready(($)=>{
 			$('#option_2 > .vikluchateli').remove();
 			$('#option_3 > .tok_montazh').remove();
 			$('#gpO > ul li:nth-child(9)').css('display','none');$('#gpO > ul li:nth-child(10)').css('display','none');
+			$('#Oep').text('Отсутствует при ручном управлении');
+			cran.setncuprav = 'Отсутствует при ручном управлении';
+			$('#Ovolt').text(cran.ncuprav);
+			cran.setspeedmetr = 'Приведение крана в движение вручную';
+			$('#Ospeed').text(cran.speedmetr);
+			cran.setszo = 'Не доступно при ручном управлении';
+			$('#Oszo').text(cran.szo);
 			if (cran.gp > 10000) {cran.gp = 10000; alert('Грузоподъемность была уменьшена до 10000 кг для крана с ручным управлением!')}
 			cran.resetparam();
 			$('#first_opt .ul_change > li').each(function(index, el) {
@@ -172,6 +179,15 @@ jQuery(document).ready(($)=>{
 		$('#Электро').click(()=>{
 			cran._3 = 'Электро';
 			$('#Otc').text(cran._3);
+			$('#Oep').text('3-х фазная (380 В)');
+			cran.setncuprav = '42В';
+			$('#Ovolt').text(cran.ncuprav);
+			cran.setspeedmetr = '20 м/мин';
+			$('#Ospeed').text(cran.speedmetr);
+			cran.setszo = 'IP31';
+			$('#Oszo').text(cran.szo);
+
+
 			$('#option_2 .dop_parametr:last-child').before(()=>{
 			let new_html = '<div class="dop_parametr"> \
 								<span class="change_this_option pult_change">Изменить \

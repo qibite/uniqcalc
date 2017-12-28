@@ -12,7 +12,7 @@ echo <<<EOT
 		<p class="ended">Стоимость дополнительного оборудования: <span id="summa2"></span> руб</p>
 		<p class="ended">Стоимость услуг: <span id="summa3"></span> руб</p>
 		<hr>
-		<p class="ended">Общая стоимость: <span id="summa4"></span> руб</p>
+		<p class="ended">Общая стоимость: <span id="summa4" style="font-weight:900"></span> руб</p>
 	</div>
 	<table class="res" style="width:55%;;float:right;margin:-8px 0 0 0;background-color:transparent">
 		<tbody>
@@ -49,10 +49,6 @@ echo <<<EOT
 				<td class="">Разрезной тип конструкции - <span id="Otk"></span>
 				</td>
 			</tr>
-			<!--<tr>
-				<td><i class="hover">изменить</i></td>
-				<td class="">Тип подкранового рельса - <span id="Otpr"></span></td>
-			</tr>-->
 			<tr>
 				<td><i class="hover" id="COvc">изменить</i></td>
 				<td class="">Строительная высота крана - <span id="Ovc"></span></td>

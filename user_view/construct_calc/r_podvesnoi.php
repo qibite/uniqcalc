@@ -12,7 +12,7 @@ echo <<<EOT
 		<p class="ended">Стоимость дополнительного оборудования: <span id="summa2_p"></span> руб</p>
 		<p class="ended">Стоимость услуг: <span id="summa3_p"></span> руб</p>
 		<hr>
-		<p class="ended">Общая стоимость: <span id="summa4_p"></span> руб</p>
+		<p class="ended">Общая стоимость: <span id="summa4_p" style="font-weight:900"></span> руб</p>
 	</div>
 	<table class="res" style="width:55%;;float:right;margin:-8px 0 0 0;background-color:transparent">
 		<tbody>

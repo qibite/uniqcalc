@@ -1035,13 +1035,13 @@ function resultatiO () {
 	$('#Otc').text(cran._3);
 	//$('#Otpr').text(cran.relsO?cran.relsO:'Не определён');
 	$('#Otk').text(cran.razrez);
-	$('#Ois').text(cran.speed);
+	//$('#Ois').text(cran.speed);
 	$('#Ovc').text(cran.visota);
 	$('#Oszo').text(cran.szo);	
 	$('#Oep').text(cran.getep);
 	$('#Ovolt').text(cran.ncuprav);
 	$('#Ospeed').text(cran.speedmetr);
-	$('#Ottk').text(cran.ttk);
+	//$('#Ottk').text(cran.ttk);
 }
 /************************************************************************************************************************
 *																														*
@@ -1060,13 +1060,13 @@ function resultatiP () {
 	$('#Ptc').text(cran._3);
 	//$('#Ptpr').text(cran.relsP?cran.relsP:'Не определён');
 	$('#Ptk').text(cran.razrez);
-	$('#Pis').text(cran.speed);
+	//$('#Pis').text(cran.speed);
 	$('#Pvc').text(cran.visota);
 	$('#Pszo').text(cran.szo);
 	$('#Pep').text(cran.getep);
 	$('#Pvolt').text(cran.ncuprav);
 	$('#Pspeed').text(cran.speedmetr);
-	$('#Pttk').text(cran.ttk);
+	//$('#Pttk').text(cran.ttk);
 }
 
 cran.price_crane_electro_upravleniya = function (_8punkt) {
@@ -1457,10 +1457,10 @@ var cran = {
 	relsO:'',
 	relsP:'',
 	gp:0,
-	speed:'',
-	set setspeed (s) {this._3 == 'Ручное' ? this.speed =  'Не доступно при ручном управлении' : s ? this.speed = s : this.speed = this.speed },
+	//speed:'',
+	//set setspeed (s) {this._3 == 'Ручное' ? this.speed =  'Не доступно при ручном управлении' : s ? this.speed = s : this.speed = this.speed },
 	speedmetr:'20 м/мин',
-	set setspeedmetr (s) {this._3 == 'Ручное' ? this.speedmetr =  'Не доступно при ручном управлении' : s ? this.speedmetr = s : this.speedmetr = this.speedmetr},
+	set setspeedmetr (s) {this._3 == 'Ручное' ? this.speedmetr =  'Приведение крана в движение вручную' : s ? this.speedmetr = s : this.speedmetr = this.speedmetr},
 	razrez:'Разрезной',
 	visota:'Стандартная',
 	szo:'IP31',
@@ -1473,7 +1473,7 @@ var cran = {
 	code_of_chastotnik:'8.3',
 	code_of_motor:9.1,
 	set setmotor (s) {this._3 == 'Ручное' ? this.motor =  'Не доступно при ручном управлении' : s ? this.motor = s : this.motor = this.motor },
-	resetparam:function(){this.setspeed = this.setspeedmetr = this.setszo = this.setncuprav = this.setmotor = cran.setttk = false; },
+	resetparam:function(){/*this.setspeed = */this.setspeedmetr = this.setszo = this.setncuprav = this.setmotor = cran.setttk = false; },
 	get getep () {return this._3 == 'Ручное' ? 'Не доступно при ручном управлении' : '3-х фазная (380 В)'},
 	step:'Шаг 1 из 11',
 	summa:0
