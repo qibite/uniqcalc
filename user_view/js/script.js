@@ -635,7 +635,7 @@ jQuery(document).ready(($)=>{
 		  		$('.hide_type_upravleniya').removeClass('hide_type_upravleniya').addClass('show_type_upravleniya');
 		    }
 		
-		$('#main_block_for_steps').css('height', '920px');
+		$('#main_block_for_steps').css('height', '960px');
 		easyscroll(600);
 	});
 
@@ -716,7 +716,7 @@ jQuery(document).ready(($)=>{
 					$('.hide_type_tal').css('display', 'none')
 					$('.hide_s_visota_tal').removeClass('hide_s_visota_tal').addClass('show_s_visota_tal')
 					$('#main_block_for_steps').css('height', '2026px');
-					easyscroll(1220);
+					easyscroll(900);
 					tal.type = 'Канатная';
 					if (cran._2.search(/Взрывобезопасное/i) == 0) {
 						$('.stdV_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_canatVBI_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
@@ -734,7 +734,8 @@ jQuery(document).ready(($)=>{
 				$('h4.china_tE').css({'background-color':'#cecece', 'color':'#242526'});
 			})
 				$('.stdV_t').click(()=>{
-					if(tal.country == 'Болгария'){easyscroll(1860)}
+					if(tal.country == 'Болгария' && $('.hide_type_tal').css('display') == 'none'){easyscroll(1220)}
+						else if (tal.country == 'Болгария' && $('.hide_type_tal').css('display') != 'none') {easyscroll(1860)}
 					cran._2.search(/Взрывобезопасное/i) == 0 ? tal.type = 'Канатная ВБИ' : tal.type = 'Канатная';
 					tal.img = '17.5.1.png';
 					cran.step = 'end';
