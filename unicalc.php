@@ -900,7 +900,7 @@ function rels_montazh () {
 	$stoimost_rels = $wpdb->prefix . 'montazh_rels';
 	$stoimost_rels_result = $wpdb->get_results("SELECT id, type, price FROM $stoimost_rels WHERE type = $rels_type ");
 	if ($stoimost_rels_result) {
-		echo '<span><img src="http://'.$_SERVER['SERVER_NAME'].'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_5.11.png" alt="" style="width:140px"><p><b class="hz4">Монтаж рельса</b><br><span class="opisanie_parametra">'.$stoimost_rels_result[0]->type.'</span></p></span><span class="hiddened">'.number_format($stoimost_rels_result[0]->price*($dlinna/1000), 0, ',', ' ').' руб</span>';
+		echo '<span><img src="http://'.$_SERVER['SERVER_NAME'].'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_5.11.png" alt="" style="width:140px"><p><b class="hz4">Монтаж рельса</b><br><span class="opisanie_parametra">в виде '.$stoimost_rels_result[0]->type.'</span></p></span><span class="hiddened">'.number_format($stoimost_rels_result[0]->price*($dlinna/1000), 0, ',', ' ').' руб</span>';
 	}
 	wp_die();
 }

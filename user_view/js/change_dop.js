@@ -755,7 +755,7 @@ jQuery(document).ready(($)=>{
 			preobrazovatel_8_4.style.marginBottom = '50px';
 			preobrazovatel.append(preobrazovatel_8_4);
 			let preobrazovatel_8_4_img = document.createElement('img'); //Картинка радио пульта
-				preobrazovatel_8_4_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png';
+				preobrazovatel_8_4_img.src = location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/8.4.png';
 				preobrazovatel_8_4_img.className = 'allimg change_on_8_4';
 				preobrazovatel_8_4.append(preobrazovatel_8_4_img);
 					preobrazovatel_8_4_img.addEventListener('click', function () {

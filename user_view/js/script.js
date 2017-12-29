@@ -708,14 +708,14 @@ jQuery(document).ready(($)=>{
 				$('.bolg_kanat,.bolg_cep,.russia_kanat, #next_tal, #h2_tal').css('display', 'none');
 				if (tal.gp <= 2000 && tal.visota <= 12000) {
 					$('.hide_type_tal').removeClass('hide_type_tal').addClass('show_type_tal')
-					$('#main_block_for_steps').css('height', '1760px');
+					$('#main_block_for_steps').css('height', '2026px');
 					$('.kanat_t').siblings('.price_').text('От ' + String(Number(tal.priceAJAX.bolgariya_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 					$('.cep_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_cep_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 					easyscroll(1220);
 				} else {
 					$('.hide_type_tal').css('display', 'none')
 					$('.hide_s_visota_tal').removeClass('hide_s_visota_tal').addClass('show_s_visota_tal')
-					$('#main_block_for_steps').css('height', '1760px');
+					$('#main_block_for_steps').css('height', '2026px');
 					easyscroll(1220);
 					tal.type = 'Канатная';
 					if (cran._2.search(/Взрывобезопасное/i) == 0) {
@@ -1362,7 +1362,7 @@ function tali_insert_price ()
 		$('.russia_tR').siblings('.price_').text(String(Number(tal.priceAJAX.rt_r).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 		$('.china_tR').siblings('.price_').text(String(Number(tal.priceAJAX.ct_r).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 		$('.sheciya_tR').siblings('.price_').text(String(Number(tal.priceAJAX.st_r).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
-		$('.bolgariya_tE').siblings('.price_').text('От ' + String(Number(tal.priceAJAX.bolgariya_el_cep_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+		$('.bolgariya_tE').siblings('.price_').text('От ' + String(Number(tal.priceAJAX.bolgariya_el_cep_t == null? tal.priceAJAX.bolgariya_el_canat_t : tal.priceAJAX.bolgariya_el_cep_t < tal.priceAJAX.bolgariya_el_canat_t ? tal.priceAJAX.bolgariya_el_cep_t : tal.priceAJAX.bolgariya_el_canat_t ).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 		$('.russia_tE').siblings('.price_').text(String(Number(tal.priceAJAX.russia_el_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 		$('.china_tE').siblings('.price_').text('От ' + String(Number(tal.priceAJAX.china_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 	});
@@ -1460,7 +1460,7 @@ var cran = {
 	//speed:'',
 	//set setspeed (s) {this._3 == 'Ручное' ? this.speed =  'Не доступно при ручном управлении' : s ? this.speed = s : this.speed = this.speed },
 	speedmetr:'20 м/мин',
-	set setspeedmetr (s) {this._3 == 'Ручное' ? this.speedmetr =  'Приведение крана в движение вручную' : s ? this.speedmetr = s : this.speedmetr = this.speedmetr},
+	set setspeedmetr (s) {this._3 == 'Ручное' ? this.speedmetr =  'Ручное перемещение' : s ? this.speedmetr = s : this.speedmetr = this.speedmetr},
 	razrez:'Разрезной',
 	visota:'Стандартная',
 	szo:'IP31',

@@ -115,7 +115,7 @@
 					<span id="viezd_price" class="price_"></span>
 				</div>
 			</li>
-			<li id="c7" class="change_li" name="rels_montazh"><span><img src="<?=$url;?>images/y7.png" alt="" style="width:140px"><p><b class="hz4">Разработка габаритного чертежа крана</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened">Без доплаты</span></li>
+			<li id="c7" class="change_li" name="gabarit_chertej"><span><img src="<?=$url;?>images/y7.png" alt="" style="width:140px"><p><b class="hz4">Разработка габаритного чертежа крана</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened">Без доплаты</span></li>
 			
 		</ul>
 	</div>

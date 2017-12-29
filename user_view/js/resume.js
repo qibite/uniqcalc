@@ -129,7 +129,7 @@ jQuery(document).ready(($)=>{
 			$('#Oep').text('Отсутствует при ручном управлении');
 			cran.setncuprav = 'Отсутствует при ручном управлении';
 			$('#Ovolt').text(cran.ncuprav);
-			cran.setspeedmetr = 'Приведение крана в движение вручную';
+			cran.setspeedmetr = 'Ручное перемещение';
 			$('#Ospeed').text(cran.speedmetr);
 			cran.setszo = 'Не доступно при ручном управлении';
 			$('#Oszo').text(cran.szo);
@@ -955,7 +955,7 @@ $('#dostavka_price_rasschet').on('click', function(event) {
 
 $('#dostavka_price_zakazat').on('click', function() {
 	$('#option_3 .dop_parametr:last-child').before(()=>{
-		let new_html = '<div class="dop_parametr dostavka"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:200px"> \
+		let new_html = '<div class="dop_parametr dostavka"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/y3.png" alt="" style="width:200px"> \
 			<h4>Доставка крана</h4> \
 			<p><span class="opisanie_parametra">'+ $('#dostavka_km').text() +'</span><br> \
 				<span class="stoimost_parametra">'+ $('#dostavka_price').text() +'</span><i class="id_bro">c3</i></p>';
@@ -1009,7 +1009,7 @@ $('#viezd_price_rasschet').on('click', function(event) {
 
 $('#viezd_price_zakazat').on('click', function() {
 	$('#option_3 .dop_parametr:last-child').before(()=>{
-		let new_html = '<div class="dop_parametr viezd"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="/wp-content/plugins/uniqcalc/user_view/construct_calc/images/nophotos.png" alt="" style="width:200px"> \
+		let new_html = '<div class="dop_parametr viezd"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/y6.png" alt="" style="width:200px"> \
 			<h4>Выезд эксперта</h4> \
 			<p><span class="opisanie_parametra">'+ $('#viezd_km').text() +'</span><br> \
 				<span class="stoimost_parametra">'+ $('#viezd_price').text() +'</span><i class="id_bro">c6</i></p>';
