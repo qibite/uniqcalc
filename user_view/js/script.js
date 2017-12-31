@@ -1482,6 +1482,7 @@ var cran = {
 	resetparam:function(){this.setspeed = this.setspeedmetr = this.setszo = this.setncuprav = this.setmotor = cran.setttk = false; },
 	get getep () {return this._3 == 'Ручное' ? 'Не доступно при ручном управлении' : '3-х фазная (380 В)'},
 	step:'Шаг 1 из 11',
+	city:null,
 	summa:0
 };
 

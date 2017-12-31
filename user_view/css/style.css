@@ -523,3 +523,13 @@ label[for="city"], label[for="city2"]
     left: 44px;
 }
 
+#prompt_city
+{
+    position: absolute;
+    height: 380px;
+    width: 70%;
+    top: 0;
+    left: 15%;
+    background-color: #FFFFFF;
+    padding-top: 100px;
+}

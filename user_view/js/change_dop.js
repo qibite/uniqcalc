@@ -1140,6 +1140,26 @@ function get_preobrazovatel_id (model, img)
 				}
 			}
 		});
+		$('#third_opt .ul_change > li').each(function(index, el) {
+			if (cran._3 == 'Ручное') {
+				if ($('#option_3').children('.dop_parametr').length+1 > 8) {
+					$('.add_dop_3').parent().css('display', 'none');
+				}
+				else {
+					$('.add_dop_3').parent().css('display', 'inline-block');
+				}
+			}
+			else {			
+				if (cran._3 != 'Ручное') {
+					if ($('#option_3').children('.dop_parametr').length+1 >= 7) {
+						$('.add_dop_3').parent().css('display', 'none');
+					}
+					else {
+					$('.add_dop_3').parent().css('display', 'inline-block');
+					}
+				}
+			}
+		});
 		calc_all_tokopodvod_i_puti();
 		calc_all_dop();
 		calc_all_uslugi();

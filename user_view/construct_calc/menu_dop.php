@@ -89,31 +89,12 @@
 	</div>
 	<div id="third_opt" class="modal_change modal_change_hide">
 		<ul class="ul_change">
-			<li id="c1" class="change_li" name="montazh"></li>
-			<li id="c2" class="change_li" name="shef_montazh"></li>
-			<li id="c3" class="change_li cat dostavka" name="dostavka"><span><img src="<?=$url;?>images/y3.png" alt="" style="width:140px"><p>Доставка крана</p></span><span class='hiddened'></span>
-				<div id='c3_1' class='pod_cat_cat' style="width:90%">
-					<h4>Рассчет стоимости доставки крана от Москвы до вашего города</h4>
-					<label for="city">Введите город - <input id="city" style="width:45%;color:#323232;display:inline-block" type="text" name="city" placeholder="Тюмень"></label>
-					<button id="dostavka_price_rasschet" type="button" class="culc_dostavka">Рассчитать</button>
-					<button id="dostavka_price_zakazat" style="display:none" type="button" class="culc_dostavka">Заказать</button>
-					<br>
-					<span id="dostavka_km" style="color:#303030"></span>
-					<span id="dostavka_price" class="price_"></span>
-				</div>
-			</li>
+			<li id="c1" class="change_li" name="montazh"><span><img src="<?=$url;?>images/y1.png" alt="" style="width:140px"><p><b class="hz4">Монтаж кран-балок</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened"></span></li>
+			<li id="c2" class="change_li" name="shef_montazh"><span><img src="<?=$url;?>images/y2.png" alt="" style="width:140px"><p><b class="hz4">Шеф-монтаж</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened"></span></li>
+			<li id="c3" class="change_li dostavka" name="dostavka"><span><img src="<?=$url;?>images/y3.png" alt="" style="width:140px"><p><b class="hz4">Доставка крана</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened"></span></li>
 			<li id="c4" class="change_li" name="rels_montazh"></li>
 			<li id="c5" class="change_li" name="tok_montazh"><span><img src="<?=$url;?>images/nophotos.png" alt="" style="width:140px"><p><b class="hz4">Монтаж токоподвода</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened"></span></li>
-			<li id="c6" class="change_li cat viezd" name="viezd"><span><img src="<?=$url;?>images/y6.png" alt="" style="width:140px"><p>Выезд эксперта на Ваш объект</p></span><span class='hiddened'></span>
-				<div id='c3_1' class='pod_cat_cat' style="width:90%">
-					<h4>Рассчет стоимости выезда от Москвы до вашего города</h4>
-					<label for="city2">Введите город - <input id="city2" style="width:45%;color:#323232;display:inline-block" type="text" name="city2" placeholder="Тюмень"></label>
-					<button id="viezd_price_rasschet" type="button" class="culc_viezd">Рассчитать</button>
-					<button id="viezd_price_zakazat" style="display:none" type="button" class="culc_viezd">Заказать</button>
-					<br>
-					<span id="viezd_km" style="color:#303030"></span>
-					<span id="viezd_price" class="price_"></span>
-				</div>
+			<li id="c6" class="change_li viezd" name="viezd"><span><img src="<?=$url;?>images/y6.png" alt="" style="width:140px"><p><b class="hz4">Выезд эксперта</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened"></span>
 			</li>
 			<li id="c7" class="change_li" name="gabarit_chertej"><span><img src="<?=$url;?>images/y7.png" alt="" style="width:140px"><p><b class="hz4">Разработка габаритного чертежа крана</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened">Без доплаты</span></li>
 			

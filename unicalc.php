@@ -829,8 +829,56 @@ function tok_all () {
 *
 *
 *******************************************************************************************************************************************************************************************************************************************************************/
+// универсальная функция для доставки, монтажа, шеф монтажа и выезда
+add_action('wp_ajax_distance', 'distance');
+add_action('wp_ajax_nopriv_distance', 'distance');
+
+function distance () {
+	$city = $_POST['_city'];
+	$cran_type = $_POST['cran_type'];
+	$dlinna = $_POST['_dlinna'];
+	$razrez = '\'' . $_POST['razrez'] . '\'';
 
 
+
+	$request_WINDOWS1251 = iconv("utf-8","windows-1251",$city);
+	$request_URL = urlencode($request_WINDOWS1251);
+	$dom_html_ati = file_get_contents("http://ati.su/TRACE/default.aspx?EntityType=Trace&City1=3611&City5={$request_URL}&Zimnik=false&FastWay=false");
+	$convert_UTF8_html_ati = iconv("windows-1251","utf-8", $dom_html_ati);	
+	//$city = urldecode('%CC%EE%F1%EA%E2%E0');
+	//$city_UTF8 = iconv("windows-1251","utf-8",$city);
+	$way = parse_way ($convert_UTF8_html_ati, '<span id="ctl00_ctl00_main_PlaceHolderMain_atiTrace_lblTotalDistance" class="total-value-lbl">', '</span>');
+	global $wpdb;$wpdb->show_errors();
+	$price_way = $wpdb->prefix . 'dostavka_cranbalok';
+
+	if ($way <= 22) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 0 AND obshiyL >= $dlinna AND type = $razrez");
+		$responed_data = array (
+			'km' => $way,
+			'price' => $price_way_result[0]->price/100
+		);
+	}
+	else if ($way > 3000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 3000 AND obshiyL >= $dlinna AND type = $razrez");
+
+		$responed_data = array (
+			'km' => $way,
+			'price' => ($price_way_result[0]->price/100)*$way
+		);
+	}
+	else {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie >= $way AND obshiyL >= $dlinna AND type = $razrez");
+
+		$responed_data = array (
+			'km' => $way,
+			'price' => ($price_way_result[0]->price/100)*$way
+		);
+	}	
+	echo json_encode($responed_data);	
+	wp_die();
+}
+// универсальная функция для доставки, монтажа, шеф монтажа и выезда
+/*
 // МОНТАЖ КРАНА
 add_action('wp_ajax_montazh_crana_r', 'calc_montazh_crana');
 add_action('wp_ajax_nopriv_montazh_crana_r', 'calc_montazh_crana');
@@ -903,7 +951,7 @@ function rels_montazh () {
 		echo '<span><img src="http://'.$_SERVER['SERVER_NAME'].'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/_5.11.png" alt="" style="width:140px"><p><b class="hz4">Монтаж рельса</b><br><span class="opisanie_parametra">в виде '.$stoimost_rels_result[0]->type.'</span></p></span><span class="hiddened">'.number_format($stoimost_rels_result[0]->price*($dlinna/1000), 0, ',', ' ').' руб</span>';
 	}
 	wp_die();
-}
+}*/
 // RELS MONTAZH
 
 // TOKOPODVOD MONTAZH
@@ -923,7 +971,7 @@ function tok_montazh () {
 	wp_die();
 }
 // TOKOPODVOD MONTAZH
-
+/*
 // РАССЧЕТ РАССТОЯНИЯ ПАРСЕР ОТ МОСКВЫ ДО ГОРОДА ВВЕДЕННОГО В ПОЛЕ
 add_action('wp_ajax_myway', 'myway');
 add_action('wp_ajax_nopriv_myway', 'myway');
@@ -1033,7 +1081,7 @@ function expertway () {
 	}
 	echo json_encode($responed_data);
 	wp_die();
-}
+}*/
 
 function parse_way($html_text, $start, $end)
 {
