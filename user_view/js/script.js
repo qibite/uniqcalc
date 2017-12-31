@@ -37,7 +37,7 @@ jQuery(document).ready(($)=>{
 		next_group( $('#_3'), 7.5 );
 		cran._2 = tal.ispolnnie = 'Общепромышленное';		
 	});
-	$('.vzrivo').click(function () {easyscroll(200);
+	$('.vzrivo').click(function () {easyscroll(280);
 		$('.hide_dop_vzr').removeClass('hide_dop_vzr hide_dop_animate_vzr').addClass('back_dop_animate_vzr');
 		$('.hide_dop_animate_vzr').removeClass('hide_dop_animate_vzr').addClass('back_dop_animate_vzr');
 		$('.back_dop_animate_pozh').removeClass('back_dop_animate_pozh').addClass('hide_dop_animate_pozh');
@@ -59,7 +59,7 @@ jQuery(document).ready(($)=>{
 		});
 
 
-	$('.pozharo').click(function () {easyscroll(200)
+	$('.pozharo').click(function () {easyscroll(280)
 		$('.hide_dop_pozh').removeClass('hide_dop_pozh hide_dop_animate_pozh').addClass('back_dop_animate_pozh');
 		$('.hide_dop_animate_pozh').removeClass('hide_dop_animate_pozh').addClass('back_dop_animate_pozh');
 		$('.back_dop_animate_vzr').removeClass('back_dop_animate_vzr').addClass('hide_dop_animate_vzr');
@@ -99,8 +99,8 @@ jQuery(document).ready(($)=>{
 
 	$('._32').click(function () {
 		$('.hide_dop_el').removeClass('hide_dop_el hide_dop_animate_el').addClass('back_dop_animate_el');
-		easyscroll(380);
-		$('#main_block_for_steps').css('height', '910px');
+		easyscroll(480);
+		$('#main_block_for_steps').css('height', '960px');
 		cran._3 = 'Электро';
 	});
 	$('._33_next').click(function () {
@@ -126,11 +126,11 @@ jQuery(document).ready(($)=>{
 		//next_group( $('#razmeshenie'), 0 ); СТАРОЕ
 	});
 	$('._34').click(function () {
-		$('#main_block_for_steps').css('height', '1250px');
-		$('#vidipultov').css('display','block');easyscroll(720);
+		$('#main_block_for_steps').css('height', '1330px');
+		$('#vidipultov').css('display','block');easyscroll(920);
 	})
-	$('._35').click(function () {$('#main_block_for_steps').css('height', '1560px');// Пульт
-		$('#proizvositeli_pult').animate({'bottom':'-324px'}, 800);easyscroll(1050);
+	$('._35').click(function () {$('#main_block_for_steps').css('height', '1800px');// Пульт
+		$('#proizvositeli_pult').animate({'bottom':'-350px'}, 800);easyscroll(1200);
 		cran._3Type = 'Радиоуправление с пультом';
 		$('._37_j, ._38_j, ._39_j').parent().css('display', 'none');
 		if (cran._2.search(/Взрывобезопасное/i) != -1) {
@@ -141,11 +141,11 @@ jQuery(document).ready(($)=>{
 			$('._37, ._38, ._39').parent().css('display', 'inline-block');
 		}
 	});
-	$('._36').click(function () {$('#main_block_for_steps').css('height', '1560px'); //Джостик
+	$('._36').click(function () {$('#main_block_for_steps').css('height', '1800px'); //Джостик
 			cran._3Type = 'Радиоуправление с джойстиком';
 			$('._37_j, ._38_j, ._39_j').parent().css('display', 'inline-block');
 			$('._37, ._38, ._39, ._37vbi, ._38vbi, ._39vbi').parent().css('display', 'none');
-			$('#proizvositeli_pult').animate({'bottom':'-324px'}, 800);easyscroll(1050);
+			$('#proizvositeli_pult').animate({'bottom':'-350px'}, 800);easyscroll(1200);
 		})
 	$('._37, ._37_j, ._37vbi').click(function () {$('#main_block_for_steps').css('height', '800px');
 		gp_insert_price();
@@ -328,6 +328,7 @@ jQuery(document).ready(($)=>{
 				});
 				cran.code_of_chastotnik = '8.3';
 				motor_insert_price();
+				easyscroll(170);
 		});
 		$('.несколько_с').click(function () {//8.4
 			hide($('#система_управления_краном'));
@@ -338,6 +339,7 @@ jQuery(document).ready(($)=>{
 			$('#main_block_for_steps').css('height', '800px');
 			cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.4') : false;
 			motor_insert_price();
+			easyscroll(170);
 		});
 
 	$('.преобразователь').click(function () {//8.2
@@ -357,6 +359,7 @@ jQuery(document).ready(($)=>{
 			cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;
 			cran.chastotnik_price(8.5);
 			motor_insert_price();
+			easyscroll(170);
 		});
 		$('.hyundai').click(function () {
 			hide($('#система_управления_краном'));
@@ -368,6 +371,7 @@ jQuery(document).ready(($)=>{
 			cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;
 			cran.chastotnik_price(8.6);
 			motor_insert_price();
+			easyscroll(170);
 		});
 		$('.danfross').click(function () {
 			hide($('#система_управления_краном'));
@@ -379,6 +383,7 @@ jQuery(document).ready(($)=>{
 			cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya('8.2') : false;	
 			cran.chastotnik_price(8.7);
 			motor_insert_price();
+			easyscroll(170);
 		});
 /************************************************************************************************************************
 *																														*
@@ -583,7 +588,7 @@ jQuery(document).ready(($)=>{
 *																														*
 ************************************************************************************************************************/
 	$('.ток_требуется').click(()=>{
-		$('#main_block_for_steps').css('height', '860px');easyscroll(180);
+		$('#main_block_for_steps').css('height', '890px');easyscroll(350);
 		$('.скрыть_варианты_токоподвод').removeClass('скрыть_варианты_токоподвод скрыть_варианты_animate_токоподвод').addClass('показать_варианты_animate_токоподвод');
 		var data_all_tok = { action: 'tokopodvod_all',  _dlinna:cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP  };
 		$.post( calc_ajaxurl.url, data_all_tok, function (response) {
@@ -1459,7 +1464,7 @@ var cran = {
 	relsP:'',
 	gp:0,
 	//speed:'',
-	//set setspeed (s) {this._3 == 'Ручное' ? this.speed =  'Не доступно при ручном управлении' : s ? this.speed = s : this.speed = this.speed },
+	set setspeed (s) {this._3 == 'Ручное' ? this.speed =  'Не доступно при ручном управлении' : s ? this.speed = s : this.speed = this.speed },
 	speedmetr:'20 м/мин',
 	set setspeedmetr (s) {this._3 == 'Ручное' ? this.speedmetr =  'Ручное перемещение' : s ? this.speedmetr = s : this.speedmetr = this.speedmetr},
 	razrez:'Разрезной',
@@ -1474,7 +1479,7 @@ var cran = {
 	code_of_chastotnik:'8.3',
 	code_of_motor:9.1,
 	set setmotor (s) {this._3 == 'Ручное' ? this.motor =  'Не доступно при ручном управлении' : s ? this.motor = s : this.motor = this.motor },
-	resetparam:function(){/*this.setspeed = */this.setspeedmetr = this.setszo = this.setncuprav = this.setmotor = cran.setttk = false; },
+	resetparam:function(){this.setspeed = this.setspeedmetr = this.setszo = this.setncuprav = this.setmotor = cran.setttk = false; },
 	get getep () {return this._3 == 'Ручное' ? 'Не доступно при ручном управлении' : '3-х фазная (380 В)'},
 	step:'Шаг 1 из 11',
 	summa:0

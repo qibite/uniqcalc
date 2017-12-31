@@ -26,8 +26,7 @@ echo <<<EOT
 						<li class="dopvar"><label class="custom-check"><input type="radio" class="" name="ispbezop" value="B1a, IIB Т5 (B1а, IIА Т5)" placeholder="" checked="checked"> B1a, IIB Т5 (B1а, IIА Т5)</label></li>
 						<li class="dopvar"><label class="custom-check"><input type="radio" class="" name="ispbezop" value="B1a, IIС Т5" placeholder=""> B1a, IIС Т5</label></li>
 					</ul>
-					<hr>
-					<button type="button" class="vzrivo_next  buttons">Далее</button>
+					<button type="button" class="vzrivo_next  buttonslil">Далее</button>
 			</div>
 
 			<div class="block" style="position:relative;display:inline-block;margin:1em 0 0 1em">
@@ -38,13 +37,12 @@ echo <<<EOT
 			</div>
 			<div class="hide_dop_pozh" style="position:absolute;width:30%;left:36%;padding:1em;background-color:#eee">
 				<h4>Класс пожарной безопасности</h4>
-				<hr>
 				<ul style="text-align:left">
 					<li class="dopvar"><label class="custom-check"><input type="radio" class="" name="isppozh" value="П-I" placeholder="" checked="checked"> П-I</label></li>
 					<li class="dopvar"><label class="custom-check"><input type="radio" class="" name="isppozh" value="П-II / П-Iia / П-III" placeholder=""> П-II / П-Iia / П-III</label></li>
 				</ul>
 				<hr>
-				<button type="button" class="pozharo_next  buttons">Далее</button>
+				<button type="button" class="pozharo_next  buttonslil">Далее</button>
 			</div>
 		</article>
 EOT;
