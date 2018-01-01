@@ -7,11 +7,11 @@
 			<li id="a1" class="change_li"><span><img src="<?=$url;?>images/puti1.png" alt="" style="width:140px"><p><b class="hz4">Разработка проектной документации</b><br><span class="opisanie_parametra">10 рабочих дней</span></p></span><span class='hiddened'>65 000 руб</span></li>
 			<li id="a2" class="change_li" name="rels_crane"></li>
 			<li id="a3" class="change_li cat" name='tokoprovod'><span><img src="<?=$url;?>images/6.1.jpg" alt="" style="width:140px"><p><b class="hz4">Токоподвод</b></p></span><span class='hiddened'></span>
-				<div id='tokoprovod1' class='change_li tokoprovod' name='tokoprovod'><span><img src='<?=$url;?>images/6.3.png' style='width:140px'><p><b class='hz4'>Кабельный с кольцами</b><span class='opisanie_parametra'>Без учета монтажа</span></p></span><span class='hiddened'></span></div>
-				<div id='tokoprovod2' class='change_li tokoprovod' name='tokoprovod'><span><img src='<?=$url;?>images/6.4.png' style='width:140px'><p><b class='hz4'>Кабельный с тележками</b><span class='opisanie_parametra'>Без учета монтажа</span></p></span><span class='hiddened'></span></div>
-				<div id='tokoprovod3' class='change_li tokoprovod' name='tokoprovod'><span><img src='<?=$url;?>images/6.5.png' style='width:140px'><p><b class='hz4'>Фестонный (С профиль)</b><span class='opisanie_parametra'>Без учета монтажа</span></p></span><span class='hiddened'></span></div>
-				<div id='tokoprovod4' class='change_li tokoprovod' name='tokoprovod'><span><img src='<?=$url;?>images/6.6.png' style='width:140px'><p><b class='hz4'>Открытые троллеи</b><span class='opisanie_parametra'>Без учета монтажа</span></p></span><span class='hiddened'></span></div>
-				<div id='tokoprovod5' class='change_li tokoprovod' name='tokoprovod'><span><img src='<?=$url;?>images/6.7.png' style='width:140px'><p><b class='hz4'>Закрытые троллеи</b><span class='opisanie_parametra'>Без учета монтажа</span></p></span><span class='hiddened'></span></div>
+				<div id='tokoprovod1' class='change_li tokoprovod' name='tokoprovod'><span><img src='<?=$url;?>images/6.3.png' style='width:140px'><p><b class='hz4'>Кабельный с кольцами</b><span class='opisanie_parametra'></span></p></span><span class='hiddened'></span></div>
+				<div id='tokoprovod2' class='change_li tokoprovod' name='tokoprovod'><span><img src='<?=$url;?>images/6.4.png' style='width:140px'><p><b class='hz4'>Кабельный с тележками</b><span class='opisanie_parametra'></span></p></span><span class='hiddened'></span></div>
+				<div id='tokoprovod3' class='change_li tokoprovod' name='tokoprovod'><span><img src='<?=$url;?>images/6.5.png' style='width:140px'><p><b class='hz4'>Фестонный (С профиль)</b><span class='opisanie_parametra'></span></p></span><span class='hiddened'></span></div>
+				<div id='tokoprovod4' class='change_li tokoprovod' name='tokoprovod'><span><img src='<?=$url;?>images/6.6.png' style='width:140px'><p><b class='hz4'>Открытые троллеи</b><span class='opisanie_parametra'></span></p></span><span class='hiddened'></span></div>
+				<div id='tokoprovod5' class='change_li tokoprovod' name='tokoprovod'><span><img src='<?=$url;?>images/6.7.png' style='width:140px'><p><b class='hz4'>Закрытые троллеи</b><span class='opisanie_parametra'></span></p></span><span class='hiddened'></span></div>
 			</li>
 		</ul>
 	</div>
@@ -89,7 +89,7 @@
 	</div>
 	<div id="third_opt" class="modal_change modal_change_hide">
 		<ul class="ul_change">
-			<li id="c1" class="change_li" name="montazh"><span><img src="<?=$url;?>images/y1.png" alt="" style="width:140px"><p><b class="hz4">Монтаж кран-балок</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened"></span></li>
+			<li id="c1" class="change_li" name="montazh"><span><img src="<?=$url;?>images/y1.png" alt="" style="width:140px"><p><b class="hz4">Монтаж кран-балок</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened">Считаем..</span></li>
 			<li id="c2" class="change_li" name="shef_montazh"><span><img src="<?=$url;?>images/y2.png" alt="" style="width:140px"><p><b class="hz4">Шеф-монтаж</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened"></span></li>
 			<li id="c3" class="change_li dostavka" name="dostavka"><span><img src="<?=$url;?>images/y3.png" alt="" style="width:140px"><p><b class="hz4">Доставка крана</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened"></span></li>
 			<li id="c4" class="change_li" name="rels_montazh"></li>

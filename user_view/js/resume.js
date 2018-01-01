@@ -481,7 +481,7 @@ jQuery(document).ready(($)=>{
 		$('#option_1 .dop_parametr:last-child').before(()=>{
 			let new_html = '<div class="dop_parametr '+ that.attr('name') +'"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" style="width:200px"> \
 								<h4>'+ that.children().children().children('b.hz4').text() +'</h4> \
-								<p><span class="opisanie_parametra">'+ that.children().children().children('.opisanie_parametra').text() +'</span><br> \
+								<p><span class="opisanie_parametra">'+ that.children().children().children('.opisanie_parametra').html() +'</span><br> \
 								<span class="stoimost_parametra">'+ that.children('.hiddened').text() +'</span><i class="id_bro">'+that.attr('id')+'</i></p>';
 			return new_html;
 		});
@@ -559,7 +559,7 @@ jQuery(document).ready(($)=>{
 		$('#option_2 .dop_parametr:last-child').before(()=>{
 			var new_html = '<div class="dop_parametr '+ that.attr('name') +'"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" style="width:200px"> \
 								<h4>'+ that.children().children().children('b.hz4').text() +'</h4> \
-								<p><span class="opisanie_parametra">'+ that.children().children().children('.opisanie_parametra').text() +'</span><br> \
+								<p><span class="opisanie_parametra">'+ that.children().children().children('.opisanie_parametra').html() +'</span><br> \
 								<span class="stoimost_parametra">'+ that.children('.hiddened').text() +'</span><i class="id_bro">'+that.attr('id')+'</i></p>';
 			return new_html;
 		});
@@ -609,7 +609,7 @@ jQuery(document).ready(($)=>{
 		$('#option_3 .dop_parametr:last-child').before(()=>{
 			let new_html = '<div class="dop_parametr '+ that.attr('name') +'"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ that.children().children('img').attr('src') +'" alt="" style="width:200px"> \
 								<h4>'+ that.children().children().children('b.hz4').text() +'</h4> \
-								<p><span class="opisanie_parametra">'+ that.children().children().children('.opisanie_parametra').text() +'</span><br> \
+								<p><span class="opisanie_parametra">'+ that.children().children().children('.opisanie_parametra').html() +'</span><br> \
 								<span class="stoimost_parametra">'+ that.children('.hiddened').text() +'</span><i class="id_bro">'+that.attr('id')+'</i></p>';
 			return new_html;
 		});
@@ -748,7 +748,9 @@ function hideThisChange (this_Change) {
 
 
 	$('#close').click(()=>{hideChange()});
-	$('#close2').click(()=>{
+	$('#close2').click(()=>{		
+		//document.getElementById('savecity').removeEventListener('click', savci);		
+		prompt_city.remove();
 		hideOptions();		
 		$('.cat').css('width', '20%');
 		$('.ul_change > .change_li').css('display', 'inline-block');
@@ -881,6 +883,12 @@ function postavka_rels () {
 }
 
 function postavka_tokopodvoda () {
+	let m = cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP;
+	$('#tokoprovod1 .opisanie_parametra').html('Без учета монтажа<br>кол-во материала - '+ m/1000 +' м.');
+	$('#tokoprovod2 .opisanie_parametra').html('Без учета монтажа<br>кол-во материала - '+ m/1000 +' м.');
+	$('#tokoprovod3 .opisanie_parametra').html('Без учета монтажа<br>кол-во материала - '+ m/1000 +' м.');
+	$('#tokoprovod4 .opisanie_parametra').html('Без учета монтажа<br>кол-во материала - '+ m/1000 +' м.');
+	$('#tokoprovod5 .opisanie_parametra').html('Без учета монтажа<br>кол-во материала - '+ m/1000 +' м.');
 	/////////////
 	var data_all_tok = { action: 'tokopodvod_all',  _dlinna:cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP  };
 		$.post( calc_ajaxurl.url, data_all_tok, function (response) {
@@ -922,7 +930,14 @@ function postavka_tokopodvoda () {
 *******************************************************************************************************************************************************************************************************************************************************************/
 
 function price_from_distance (argument) {
+	let dlinna = cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP;
+	let shirina = cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP;
+	let uprav = cran._3 == 'Ручное' ? true:false;
 	if (cran.city == null) {
+		$('#c1 .hiddened').text('Считаем..');
+		$('#c2 .hiddened').text('Считаем..');
+		$('#c3 .hiddened').text('Считаем..');
+		$('#c6 .hiddened').text('Считаем..');
 		let prompt_city = document.createElement('div');
 			prompt_city.id = 'prompt_city';
 			prompt_city.innerHTML = '<h2>Введите Ваш город</h2>\
@@ -931,16 +946,42 @@ function price_from_distance (argument) {
 									<button type="button" id="savecity" class="buttons">Сохранить</button>';
 			third_opt.appendChild(prompt_city);
 			savecity.addEventListener('click', function savci () {
-				this.removeEventListener('click', savci);
+				//this.removeEventListener('click', savci);
 				cran.city = inpcity.value;
-				var data_distance = { action: 'distance', cran_type: cran._1, _city: cran.city , razrez:cran.razrez, _dlinna:cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP }
-
+				var data_distance = { action: 'distance', _cran_type: cran._1, _gp:cran.gp, _city: cran.city , _razrez:cran.razrez, _dlinna:dlinna, _shirina:shirina, _uprav:uprav }
+				$.post( calc_ajaxurl.url, data_distance, function(response)
+				{
+					let result = JSON.parse(response);
+					$('#c1 .opisanie_parametra').html('в пункте '+cran.city+'<br>включая проживание');					
+					$('#c1 .hiddened').text(String(Number(result.price_montazh).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+					$('#c2 .opisanie_parametra').html('в пункте '+cran.city+'<br>включая проживание');					
+					$('#c2 .hiddened').text(String(Number(result.price_shef_montazh).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+					$('#c3 .opisanie_parametra').html('до пункта '+cran.city+'<br>Расстояние - '+result.distance+' км');					
+					$('#c3 .hiddened').text(String(Number(result.dostavka_price).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+					$('#c6 .opisanie_parametra').html('до пункта '+cran.city+'<br>Расстояние - '+result.distance+' км');					
+					$('#c6 .hiddened').text(String(Number(result.price_expert).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+					console.log(response)
+				});
+				prompt_city.remove();
 			})
-
 	}
 	else
 	{
-		console.log(cran.city);
+		return
+		/*var data_distance = { action: 'distance', _cran_type: cran._1, _gp:cran.gp, _city: cran.city , _razrez:cran.razrez, _dlinna:dlinna, _shirina:shirina, _uprav:uprav }
+		$.post( calc_ajaxurl.url, data_distance, function(response)
+		{
+			let result = JSON.parse(response);
+			$('#c1 .opisanie_parametra').text('в пункте '+cran.city);					
+			$('#c1 .hiddened').text(String(Number(result.price_montazh).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('#c2 .opisanie_parametra').text('в пункте '+cran.city);					
+			$('#c2 .hiddened').text(String(Number(result.price_shef_montazh).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('#c3 .opisanie_parametra').text('до пункта '+cran.city);					
+			$('#c3 .hiddened').text(String(Number(result.dostavka_price).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			$('#c6 .opisanie_parametra').text('до пункта '+cran.city);					
+			$('#c6 .hiddened').text(String(Number(result.price_expert).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			console.log(response)
+		});*/
 	}
 	
 }
