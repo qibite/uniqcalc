@@ -1099,7 +1099,6 @@ function get_preobrazovatel_id (model, img)
 			$('.tok_montazh').detach();
 		}
 		$(this).parent().detach();
-		if ($(this)) {}
 		$('#first_opt .ul_change > li').each(function(index, el) {
 			if (cran._3 == 'Ручное') {
 				if ($('#option_1').children('.dop_parametr').length+1 > 3) {
@@ -1142,7 +1141,7 @@ function get_preobrazovatel_id (model, img)
 		});
 		$('#third_opt .ul_change > li').each(function(index, el) {
 			if (cran._3 == 'Ручное') {
-				if ($('#option_3').children('.dop_parametr').length+1 > 8) {
+				if ($('#option_3').children('.dop_parametr').length+1 > 9) {
 					$('.add_dop_3').parent().css('display', 'none');
 				}
 				else {
@@ -1151,7 +1150,7 @@ function get_preobrazovatel_id (model, img)
 			}
 			else {			
 				if (cran._3 != 'Ручное') {
-					if ($('#option_3').children('.dop_parametr').length+1 >= 7) {
+					if ($('#option_3').children('.dop_parametr').length+1 >= 11) {
 						$('.add_dop_3').parent().css('display', 'none');
 					}
 					else {

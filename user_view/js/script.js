@@ -1041,7 +1041,7 @@ function resultatiO () {
 	$('#Otc').text(cran._3);
 	//$('#Otpr').text(cran.relsO?cran.relsO:'Не определён');
 	$('#Otk').text(cran.razrez);
-	//$('#Ois').text(cran.speed);
+	$('#Ois').text(cran.speed);
 	$('#Ovc').text(cran.visota);
 	$('#Oszo').text(cran.szo);	
 	$('#Oep').text(cran.getep);
@@ -1066,7 +1066,7 @@ function resultatiP () {
 	$('#Ptc').text(cran._3);
 	//$('#Ptpr').text(cran.relsP?cran.relsP:'Не определён');
 	$('#Ptk').text(cran.razrez);
-	//$('#Pis').text(cran.speed);
+	$('#Pis').text(cran.speed);
 	$('#Pvc').text(cran.visota);
 	$('#Pszo').text(cran.szo);
 	$('#Pep').text(cran.getep);
@@ -1463,7 +1463,7 @@ var cran = {
 	relsO:'',
 	relsP:'',
 	gp:0,
-	//speed:'',
+	speed:'',
 	set setspeed (s) {this._3 == 'Ручное' ? this.speed =  'Не доступно при ручном управлении' : s ? this.speed = s : this.speed = this.speed },
 	speedmetr:'20 м/мин',
 	set setspeedmetr (s) {this._3 == 'Ручное' ? this.speedmetr =  'Ручное перемещение' : s ? this.speedmetr = s : this.speedmetr = this.speedmetr},

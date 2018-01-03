@@ -621,7 +621,7 @@ jQuery(document).ready(($)=>{
 			$('#revers').css('display', 'none');
 			$('#third_opt .ul_change > li').each(function(index, el) {
 				if (cran._3 == 'Ручное') {
-					if ($('#option_3').children('.dop_parametr').length+1 > 8) {
+					if ($('#option_3').children('.dop_parametr').length+1 > 9) {
 						$('.add_dop_3').parent().css('display', 'none');
 					}
 					else {
@@ -630,7 +630,7 @@ jQuery(document).ready(($)=>{
 				}
 				else {			
 					if (cran._3 != 'Ручное') {
-						if ($('#option_3').children('.dop_parametr').length+1 >= 7) {
+						if ($('#option_3').children('.dop_parametr').length+1 >= 11) {
 							$('.add_dop_3').parent().css('display', 'none');
 						}
 						else {
@@ -749,21 +749,28 @@ function hideThisChange (this_Change) {
 
 	$('#close').click(()=>{hideChange()});
 	$('#close2').click(()=>{		
-		//document.getElementById('savecity').removeEventListener('click', savci);		
-		prompt_city.remove();
-		hideOptions();		
-		$('.cat').css('width', '20%');
-		$('.ul_change > .change_li').css('display', 'inline-block');
-		$('.cat').children('div').css('display', 'none');
-		if (cran._3 == 'Ручное')
-		{
-			document.getElementById('b10').style.display = 'none';
-			document.getElementById('b11').style.display = 'none';
-			document.getElementById('b13').style.display = 'none';
-			document.getElementById('b12_1').style.display = 'none';
-			document.getElementById('b12_2').style.display = 'none';
-			document.getElementById('b14').style.display = 'none';
-		}	
+		//document.getElementById('savecity').removeEventListener('click', savci);
+		try {
+			prompt_city.remove();
+		}
+		catch (e) {
+			return;
+		}
+		finally {
+			hideOptions();
+			$('.cat').css('width', '20%');
+			$('.ul_change > .change_li').css('display', 'inline-block');
+			$('.cat').children('div').css('display', 'none');
+			if (cran._3 == 'Ручное')
+			{
+				document.getElementById('b10').style.display = 'none';
+				document.getElementById('b11').style.display = 'none';
+				document.getElementById('b13').style.display = 'none';
+				document.getElementById('b12_1').style.display = 'none';
+				document.getElementById('b12_2').style.display = 'none';
+				document.getElementById('b14').style.display = 'none';
+			}
+		}		
 	});
 /*******************************************************************************************************************************************************************************************************************************************************************
 *
