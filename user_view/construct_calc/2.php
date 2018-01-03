@@ -17,7 +17,7 @@ echo <<<EOT
 
 
 			<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 1em">
-				<img class="allimg vzrivo" src="{$url}images/2.2.png" alt="" style="width:265px">		
+				<img class="allimg- vzrivo" src="{$url}images/2.2.png" alt="" style="width:265px">		
 				<h3 class="btns">Взрывобезопасное</h3>
 				<div class="container_button">
 					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>

@@ -24,8 +24,11 @@ echo <<<EOT
 				<br><br>
 				<strong style="font-family:'Rubik Lite';color:red">Расстояние от стены до центра рельса не должно быть меньше 350 мм.</strong>
 				<br>
-			<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">				
-				<button type="button" class="параметры_помещения_для_опорный">Далее</button>
+			<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
+				<div class="container_button">
+					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+					<button type="button" class="параметры_помещения_для_опорный">Далее</button>
+				</div>
 			</div>
 </article>
 EOT;

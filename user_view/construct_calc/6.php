@@ -20,7 +20,10 @@ echo <<<EOT
 			<div class="block" style="position:relative;display:inline-block;margin:1em 3em 0 0">
 				<img class="allimg ток_требуется" src="{$url}images/6.1.jpg" alt="" style="width:350px"><br>
 				<h3 class="btns">Требуется</h3>
-				<button type="button" class="ток_требуется">Выбрать</button>
+				<div class="container_button">
+					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+					<button type="button" class="ток_требуется">Выбрать</button>
+				</div>
 				<p>От {$cabkol_p} руб.</p>	
 			</div>
 			<div class="block" style="position:relative;display:inline-block;margin:1em 0 0 3em">
@@ -35,32 +38,42 @@ echo <<<EOT
 				<ul id="список_токоподводов">
 					<li><img class="allimg каб_с_кол" src="{$url}images/6.3.png" alt="" style="width:220px">
 						<h4>Кабельный с кольцами<br><i>{$cabkol_p} руб. метр</i></h4>
-						<button type="button" class="buttons каб_с_кол">Выбрать</button>
-						<br>
+						<div class="container_button">
+							<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+							<button type="button" class="buttons каб_с_кол">Выбрать</button>
+						</div>
 						<span id="tok1" class="price_"></span>
 					</li>
 					<li><img class="allimg каб_с_тел" src="{$url}images/6.4.png" alt="" style="width:220px">
 						<h4>Кабельный с тележками<br><i>{$cabtel_p} руб. метр</i></h4>
-						<button type="button" class="buttons каб_с_тел">Выбрать</button>
-						<br>
+						<div class="container_button">
+							<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+							<button type="button" class="buttons каб_с_тел">Выбрать</button>
+						</div>
 						<span id="tok2" class="price_"></span>
 					</li>
 					<li><img class="allimg фесто" src="{$url}images/6.5.png" alt="" style="width:220px">
 						<h4>Фестонный (С профиль)<br><i>{$feston_p} руб. метр</i></h4>
-						<button type="button" class="buttons фесто">Выбрать</button>
-						<br>
+						<div class="container_button">
+							<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+							<button type="button" class="buttons фесто">Выбрать</button>
+						</div>
 						<span id="tok3" class="price_"></span>
 					</li>
 					<li><img class="allimg откр_тролл" src="{$url}images/6.6.png" alt="" style="width:220px">
 						<h4>Открытые троллеи<br><i>{$opentrol_p} руб. метр</i></h4>
-						<button type="button" class="buttons откр_тролл">Выбрать</button>
-						<br>
+						<div class="container_button">
+							<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+							<button type="button" class="buttons откр_тролл">Выбрать</button>
+						</div>
 						<span id="tok4" class="price_"></span>
 					</li>					
 					<li><img class="allimg закр_тролл" src="{$url}images/6.7.png" alt="" style="width:220px">
 						<h4>Закрытые троллеи<br><i>{$closetrol_p} руб. метр</i></h4>
-						<button type="button" class="buttons закр_тролл">Выбрать</button>
-						<br>
+						<div class="container_button">
+							<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+							<button type="button" class="buttons закр_тролл">Выбрать</button>
+						</div>
 						<span id="tok5" class="price_"></span>
 					</li>
 				</ul>
