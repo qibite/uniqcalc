@@ -1,6 +1,12 @@
 var calc_ajaxurl = {url:location.origin+'/wp-admin/admin-ajax.php'}
 var locate = location.origin;
 jQuery(document).ready(($)=>{
+	$('button[type="button"').on('mouseenter', function() {	$(this).siblings('.inform').css('visibility', 'visible').addClass('fadeInDown') });
+
+	$('.inform').on('mouseleave', function() {setTimeout(()=>{$(this).css('visibility', 'hidden').removeClass('fadeInDown')},700)});
+
+
+
 	let steps = document.createElement('span');
 		steps.className = 'animated zoomIn';
 		steps.id = 'steps';

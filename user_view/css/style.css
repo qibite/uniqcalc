@@ -107,13 +107,30 @@ h4>i{font-size: .7em;}
 #first>h1 {position:relative;font-family:'Rubik Regular';background-color:#6495ed;color:#fff;text-align:center;font-size:1.6em;line-height:2em;z-index:9999}
 
 #first>div>article{position:absolute;background-color:#fff}
-
+.container_button
+{
+	position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inform
+{
+	    margin-left: -30px;
+	    font-size: 2em;
+	    visibility: hidden;
+	    cursor: pointer;
+}
+.inform > i:hover
+{
+	color: #32557f;
+}
 .block button, .buttons, .buttonslil{background-color:#b5212e;border:none;color:#fff;padding:10px 34px;text-transform:uppercase;cursor:pointer}
 button.buttonslil{padding:6px 24px;font-size:.8em}
 .block button:hover, .buttons:hover, .buttonslil:hover{background-color:#e60216}
 .block{text-align:center}
 .block h3{margin-bottom:0.6em;font-size:1.5em}
-.block button, .buttons{margin:0.4em 0}
+.block button, .buttons{margin:0.4em 10px}
 .block p{font-family:'Rubik Lite'}
 .lh3 img{}
 /*h2{text-align:center}
