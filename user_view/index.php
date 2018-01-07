@@ -375,8 +375,8 @@ $wpdb->show_errors();
 			<p class="add_dop_option_paragraf">Добавить услугу<br>или оборудование</p>
 		</div>
 	</div>
-	<span id="option_click3" class="head_dop_menu">Услуги</span>
-	<div id="option_3" class="dop_menu">
+	<span id="option_click3" class="head_dop_menu_open">Услуги</span>
+	<div id="option_3" class="dop_menu_open">
 		<div class="dop_parametr"><i></i>
 			<span class="add_dop_3"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
 			<p class="add_dop_option_paragraf">Добавить услугу<br>или оборудование</p>
@@ -387,6 +387,11 @@ $wpdb->show_errors();
 <?php require_once("construct_calc/menu_dop.php"); ?>
 <!-- Опции для блоков ТОКОПОДВОД, ДОП. ОПЦИИ И УСЛУГИ -->
 <div style="clear:both"></div>
+<div id="spravka" class="animated" style="display:none">
+	<span id="close_spravka"><i class="fa fa-times" aria-hidden="true"></i></span>
+	<span id="spravka_html">Подсказка и</span>
+	<a href="http://uniqcrane.ru" target="blank" title="Перейти для справки">ссылка</a>
+</div>
 <link rel="stylesheet" href="<?=$url_this;?>css/animate.css">
 <script src="<?=$url_this;?>js/script.js" type="text/javascript" charset="utf-8"></script>
 <script src="<?=$url_this;?>js/resume.js" type="text/javascript" charset="utf-8"></script>

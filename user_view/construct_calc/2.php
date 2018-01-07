@@ -8,26 +8,27 @@ echo <<<EOT
 				<img class="allimg obsheprom" src="{$url}images/2.1.jpg" alt="" style="width:265px">
 				<h3 class="btns">Общепромышленное</h3>
 				<div class="container_button">
-					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+					<span class="inform animated">
+						<i class="fa fa-info-circle" aria-hidden="true"></i>
+					</span>
 					<button type="button" class="obsheprom">Выбрать</button>
 				</div>
 				<p>Без доплаты</p>
-			</div>	
-
-
+			</div>
 
 			<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 1em">
 				<img class="allimg- vzrivo" src="{$url}images/2.2.png" alt="" style="width:265px">		
 				<h3 class="btns">Взрывобезопасное</h3>
 				<div class="container_button">
-					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+					<span class="inform animated">
+						<i class="fa fa-info-circle" aria-hidden="true"></i>
+					</span>
 					<button type="button" class="vzrivo">Выбрать</button>
 				</div>
 				<p>Доплата 35%</p>
 			</div>
 			<div class="hide_dop_vzr" style="position:absolute;width:30%;left:36%;padding:1em;background-color:#eee">
 					<h4>Категория, группа и класс</h4>
-					<hr>
 					<ul style="text-align:left">
 						<li class="dopvar"><label class="custom-check"><input type="radio" class="" name="ispbezop" value="B1a, IIB Т5 (B1а, IIА Т5)" placeholder="" checked="checked"> B1a, IIB Т5 (B1а, IIА Т5)</label></li>
 						<li class="dopvar"><label class="custom-check"><input type="radio" class="" name="ispbezop" value="B1a, IIС Т5" placeholder=""> B1a, IIС Т5</label></li>
@@ -39,7 +40,9 @@ echo <<<EOT
 				<img class="allimg pozharo" src="{$url}images/2.3.jpg" alt="" style="width:265px">		
 				<h3 class="btns">Пожаробезопасное</h3>
 				<div class="container_button">
-					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+					<span class="inform animated">
+						<i class="fa fa-info-circle" aria-hidden="true"></i>
+					</span>
 					<button type="button" class="pozharo">Выбрать</button>
 				</div>
 				<p>Доплата 10%</p>

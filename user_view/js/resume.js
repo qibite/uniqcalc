@@ -881,7 +881,7 @@ function postavka_rels () {
 		var rels =	{ gp:cran.gp, shirinamp:cran.paramsO.dpO, upravlenie:cran._3 }
 	}
 	/////////////
-	var data_rels = { action: 'postavka_rels', _rels_gp:rels.gp, _rels_dlinna:rels.shirinamp, _rels_upravlenie:rels.upravlenie, rels_url_img:location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/' }
+	var data_rels = { action: 'postavka_rels', _justprice:0, _rels_gp:rels.gp, _rels_dlinna:rels.shirinamp, _rels_upravlenie:rels.upravlenie, rels_url_img:location.origin+'/wp-content/plugins/uniqcalc/user_view/construct_calc/' }
 	$.post( calc_ajaxurl.url, data_rels, function(response)
 	{
 		$('#a2').html(response);
@@ -939,7 +939,7 @@ function postavka_tokopodvoda () {
 function price_from_distance (argument) {
 	let dlinna = cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP;
 	let shirina = cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP;
-	let uprav = cran._3 == 'Ручное' ? true:false;
+	let uprav = cran._3 == 'Ручное' ? 1:0;
 	if (cran.city == null) {
 		$('#c1 .hiddened').text('Считаем..');
 		$('#c2 .hiddened').text('Считаем..');

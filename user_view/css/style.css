@@ -108,10 +108,10 @@ h4>i{font-size: .7em;}
 
 #first>div>article{position:absolute;background-color:#fff}
 .block button, .buttons, .buttonslil{background-color:#b5212e;border:none;color:#fff;padding:10px 34px;text-transform:uppercase;cursor:pointer}
-button.buttonslil{padding:6px 24px;font-size:.8em}
+button.buttonslil{padding:8px 24px;font-size:.8em}
 .block button:hover, .buttons:hover, .buttonslil:hover{background-color:#e60216}
 .block{text-align:center}
-.block h3{margin-bottom:0.6em;font-size:1.5em}
+.block h3{margin-bottom:0.1em;font-size:1.45em}
 .block button, .buttons{margin:0.4em 10px}
 .block p{font-family:'Rubik Lite'}
 .lh3 img{}
@@ -124,16 +124,46 @@ button.buttonslil{padding:6px 24px;font-size:.8em}
 }
 .inform
 {
+		float: left;
 	    margin-left: -30px;
 	    font-size: 2em;
-	    visibility: hidden;
+	    /*visibility: hidden;*/
 	    cursor: pointer;
 }
 .inform > i:hover
 {
 	color: #32557f;
 }
+#spravka > a:hover
+{
+	color: #b5212e;
+}
+#spravka
+{
+	position: fixed;
+    top: 12em;
+    left: 42%;
+    font-size: .9em;
+    font-family: 'Rubik Lite';
+    background-color: #333333;
+    color: #FFFFFF;
+    padding: .9em .3em;
+    width: 250px;
+    text-align: center;
+    z-index: 999999;
+}
+#spravka > a {color: #55c7ff;}
+#close_spravka
+{
+	position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
 
+.fa-info-circle {
+	color: #323232;
+}
 /*h2{text-align:center}
 .btns{display:inline-block;text-align:center;margin:10px;cursor:pointer}*/
 .allimg{margin:10px 0;animation: imgzoomno 0.7s ease;animation-fill-mode: forwards;cursor:pointer/*;box-shadow:0px 5px 13px -2px rgba(50,50,50,0.3)*/}
@@ -167,7 +197,7 @@ button.buttonslil{padding:6px 24px;font-size:.8em}
 .descript_temper
 {
 	position: absolute;
-    top: -35px;
+    top: -45px;
     left: -40px;
     width: 126px;
     font-size: 0.75em;
@@ -176,7 +206,7 @@ button.buttonslil{padding:6px 24px;font-size:.8em}
     font-family: 'Open Sans';
 }
 
-.dopvar input[type="radio"], .dopvar label{font-family:'Rubik Lite';cursor:pointer;margin-bottom:8px}
+.dopvar input[type="radio"], .dopvar label{font-family:'Rubik Lite';cursor:pointer}
 .dopvar input[type="radio"]{color:red}
 .dopvar hr{border-color:#ffc5c5}
 
@@ -241,7 +271,7 @@ button.buttonslil{padding:6px 24px;font-size:.8em}
 #список_моделей_рельс li, #список_моделей_путей li, #список_токоподводов li{display:inline-block}
 .block h3.вес{width:190px;font-size:2.3em;letter-spacing:0.007em;padding:.3em 0.5em;border:1px solid #888;border-radius:4px;line-height:.7em;color:#333;cursor:pointer}
 .block h3.вес:hover{border-color:#b5212e}
-#first li{margin-left:0;font-family:'Rubik Regular';line-height:1.25em}
+#first li{margin-left:0;font-family:'Rubik Regular'}
 tr td{padding:7px;border:none}
 tr td:first-child{position:relative;text-align:right;width:30px;padding:0;border:none}
 tr td:last-child{text-align:left;padding-left:6px;border-bottom:1px solid #324A56;font-size:0.84em}

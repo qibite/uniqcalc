@@ -48,8 +48,8 @@
 					$zvuk_sirena = number_format($name_result[0]->price, 0, ',', ' ');;
 				}
 			?>
-			<li id="b12_1" class="change_li" name="sirena"><span><img src="<?=$url;?>images/12.1.png" alt="" style="width:140px"><p><b class="hz4">Световая сирена</b></span></p></span><span class='hiddened'><?=number_format($svet_sirena, 0, ',', ' ');?> руб</span></li>
-			<li id="b12_2" class="change_li" name="sirena"><span><img src="<?=$url;?>images/12.2.png" alt="" style="width:140px"><p><b class="hz4">Звуковая сирена</b></span></p></span><span class='hiddened'><?=number_format($zvuk_sirena, 0, ',', ' ');?> руб</span></li>
+			<li id="b12_1" class="change_li" name="sirena"><span><img src="<?=$url;?>images/12.1.png" alt="" style="width:140px"><p><b class="hz4">Световая сирена</b></span></p></span><span class='hiddened'><?=$svet_sirena?> руб</span></li>
+			<li id="b12_2" class="change_li" name="sirena"><span><img src="<?=$url;?>images/12.2.png" alt="" style="width:140px"><p><b class="hz4">Звуковая сирена</b></span></p></span><span class='hiddened'><?=$zvuk_sirena?> руб</span></li>
 
 			<li id="b13" class="change_li" name="stop"><span><img src="<?=$url;?>images/13.png" alt="" style="width:140px"><p><b class="hz4">Аварийный стоп</b><br><span class="opisanie_parametra">с линейным выключателем</span></p></span><span class='hiddened'></span></li>
 			<li id="b14" class="change_li" name="tormoz"><span><img src="<?=$url;?>images/14.png" alt="" style="width:140px"><p><b class="hz4">Тормоз на передвижение</b></p></span><span class='hiddened'></span></li>

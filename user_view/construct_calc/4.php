@@ -24,16 +24,20 @@ echo <<<EOT
 				<img class="allimg ulica" src="{$url}images/4.1.png" alt="" style="width:320px">
 				<h3 class="btns">Улица</h3>
 				<div class="container_button">
-					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+					<span class="inform animated">
+						<i class="fa fa-info-circle" aria-hidden="true"></i>
+					</span>
 					<button type="button" class="ulica">Выбрать</button>
 				</div>
-				<p>Доплата от 9000 руб.</p>
+				<p>Доплата 9000 руб.</p>
 			</div>				
 			<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 1em">
 				<img class="allimg naves" src="{$url}images/4.2.png" alt="" style="width:320px">		
 				<h3 class="btns">Навес</h3>
 				<div class="container_button">
-					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+					<span class="inform animated">
+						<i class="fa fa-info-circle" aria-hidden="true"></i>
+					</span>
 					<button type="button" class="naves">Выбрать</button>
 				</div>
 				<p>Без доплаты</p>
@@ -42,7 +46,9 @@ echo <<<EOT
 				<img class="allimg pomeshenie" src="{$url}images/4.3.png" alt="" style="width:320px">		
 				<h3 class="btns">Помещение</h3>
 				<div class="container_button">
-					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+					<span class="inform animated">
+						<i class="fa fa-info-circle" aria-hidden="true"></i>
+					</span>
 					<button type="button" class="pomeshenie">Выбрать</button>
 				</div>
 				<p>Без доплаты</p>

@@ -24,7 +24,9 @@ echo <<<EOT
 				<img class="allimg _31" src="{$url}images/3.1.png" alt="" style="width:430px">
 				<h3 class="btns">Ручное</h3>
 				<div class="container_button">
-					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+					<span class="inform animated">
+						<i class="fa fa-info-circle" aria-hidden="true"></i>
+					</span>
 					<button type="button" class="_31">Выбрать</button>
 				</div>
 			</div>
@@ -34,31 +36,37 @@ echo <<<EOT
 				<img class="allimg _32" src="{$url}images/3.2.png" alt="" style="width:430px">		
 				<h3 class="btns">Электрическое</h3>
 				<div class="container_button">
-					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+					<span class="inform animated">
+						<i class="fa fa-info-circle" aria-hidden="true"></i>
+					</span>
 					<button type="button" class="_32">Выбрать</button>
 				</div>
 				<div class="hide_dop_el" style="position:absolute;width:120%;left:-74%;padding:1em">
 					<h2>Тип пульта управления</h2>
 					<hr>
 					<ul style="text-align:center">
-						<li class="dopvar _33_next" style="display:inline-block"><img class="allimg" src="{$url}images/3.3.png" style="width:190px;margin:16px">
+						<li class="dopvar _33_next" style="display:inline-block"><img class="allimg _33_next" src="{$url}images/3.3.png" style="width:190px;margin:16px">
 							<br>Подвесной пульт
 							<br>
 							<div class="container_button">
-								<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+								<span class="inform animated">
+									<i id="i1_1" class="fa fa-info-circle" aria-hidden="true"></i>
+								</span>
 								<button type="button" class="buttonslil _33_next">Выбрать</button>
 							</div>
-							<br>
+							<div style="clear:both"></div>
 							<span class="price_">Без доплаты</span>
 						</li>
 						<li class="dopvar _34" style="display:inline-block"><img class="allimg _34" src="{$url}images/3.4.png" style="width:190px;margin:16px">							
 							<br>Радиоуправление
 							<br>
 							<div class="container_button">
-								<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+								<span class="inform animated">
+									<i class="fa fa-info-circle" aria-hidden="true"></i>
+								</span>
 								<button type="button" class="buttonslil _34">Выбрать</button>
 							</div>
-							<br>
+							<div style="clear:both"></div>
 							<span class="price_">От {$minimal_price_electro_pult} руб.</span>
 						</li>
 					</ul>
@@ -70,19 +78,23 @@ echo <<<EOT
 							<li class="dopvar _35" style="display:inline-block"><img class="allimg _35" src="{$url}images/3.5.png" style="width:200px;margin:10px">
 								<br> С пульта<br>
 								<div class="container_button">
-									<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+									<span class="inform animated">
+										<i class="fa fa-info-circle" aria-hidden="true"></i>
+									</span>
 									<button type="button" class="buttonslil _35">Выбрать</button>
 								</div>
-								<br>
+								<div style="clear:both"></div>
 								<span class="price_">От {$minimal_price_radio_pult_1} руб.</span>
 							</li>
 							<li class="dopvar _36" style="display:inline-block"><img class="allimg _36" src="{$url}images/3.6.png" style="width:200px;margin:10px">
 								<br>С джойстика<br>
 								<div class="container_button">
-									<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+									<span class="inform animated">
+										<i class="fa fa-info-circle" aria-hidden="true"></i>
+									</span>
 									<button type="button" class="buttonslil _36">Выбрать</button>
 								</div>
-								<br>
+								<div style="clear:both"></div>
 								<span class="price_">От {$minimal_price_joy_pult_1} руб.</span>
 							</li>
 						</ul>
@@ -91,84 +103,102 @@ echo <<<EOT
 							<li style="display:inline-block"><img class="allimg _37" src="{$url}images/3.7.png" style="width:164px;margin:10px">
 								<br> Telecrane<br>(Тайвань)<br>
 								<div class="container_button">
-									<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+									<span class="inform animated">
+										<i class="fa fa-info-circle" aria-hidden="true"></i>
+									</span>
 									<button type="button" class="buttonslil _37">Выбрать</button>
 								</div>
-								<br>
+								<div style="clear:both"></div>
 								<span class="price_">От {$minimal_price_radio_pult_1} руб.</span>
 							</li>
 							<li style="display:inline-block"><img class="allimg _38" src="{$url}images/3.8.png" style="width:164px;margin:10px">
 								<br> Ikusi<br>(Испания)<br>
 								<div class="container_button">
-									<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+									<span class="inform animated">
+										<i class="fa fa-info-circle" aria-hidden="true"></i>
+									</span>
 									<button type="button" class="buttonslil _38">Выбрать</button>
 								</div>
-								<br>
+								<div style="clear:both"></div>
 								<span class="price_">От {$minimal_price_radio_pult_2} руб.</span>
 							</li>
 							<li style="display:inline-block"><img class="allimg _39" src="{$url}images/3.9.png" style="width:164px;margin:10px">
 								<br> HBC - Radiomatic<br>(Германия)<br>
 								<div class="container_button">
-									<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+									<span class="inform animated">
+										<i class="fa fa-info-circle" aria-hidden="true"></i>
+									</span>
 									<button type="button" class="buttonslil _39">Выбрать</button>
 								</div>
-								<br>
+								<div style="clear:both"></div>
 								<span class="price_">От {$minimal_price_radio_pult_3} руб.</span>
 							</li>
 
 							<li style="display:inline-block"><img class="allimg _37_j" src="{$url}images/3.7a.png" style="width:164px;margin:10px">
 								<br> Telecrane<br>(Тайвань)<br>
 								<div class="container_button">
-									<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+									<span class="inform animated">
+										<i class="fa fa-info-circle" aria-hidden="true"></i>
+									</span>
 									<button type="button" class="buttonslil _37_j">Выбрать</button>
 								</div>
-								<br>
+								<div style="clear:both"></div>
 								<span class="price_">{$minimal_price_joy_pult_1} руб.</span>
 							</li>
 							<li style="display:inline-block"><img class="allimg _38_j" src="{$url}images/3.8b.png" style="width:164px;margin:10px">
 								<br> Ikusi<br>(Испания)<br>
 								<div class="container_button">
-									<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+									<span class="inform animated">
+										<i class="fa fa-info-circle" aria-hidden="true"></i>
+									</span>
 									<button type="button" class="buttonslil _38_j">Выбрать</button>
 								</div>
-								<br>
+								<div style="clear:both"></div>
 								<span class="price_">{$minimal_price_joy_pult_2} руб.</span>
 							</li>
 							<li style="display:inline-block"><img class="allimg _39_j" src="{$url}images/3.9c.png" style="width:164px;margin:10px">
 								<br> HBC - Radiomatic<br>(Германия)<br>
 								<div class="container_button">
-									<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+									<span class="inform animated">
+										<i class="fa fa-info-circle" aria-hidden="true"></i>
+									</span>
 									<button type="button" class="buttonslil _39_j">Выбрать</button>
 								</div>
-								<br>
+								<div style="clear:both"></div>
 								<span class="price_">{$minimal_price_joy_pult_3} руб.</span>
 							</li>
 
 							<li style="display:inline-block"><img class="allimg _37vbi" src="{$url}images/3.7.png" style="width:164px;margin:10px">
 								<br> Telecrane<br>(Тайвань)<br>
 								<div class="container_button">
-									<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+									<span class="inform animated">
+										<i class="fa fa-info-circle" aria-hidden="true"></i>
+									</span>
 									<button type="button" class="buttonslil _37vbi">Выбрать</button>
 								</div>
-								<br>
+								<div style="clear:both"></div>
 								<span class="price_">{$minimal_price_radio_pult_1vbi} руб.</span>
 							</li>
 							<li style="display:inline-block"><img class="allimg _38vbi" src="{$url}images/3.8.png" style="width:164px;margin:10px">
 								<br> Ikusi<br>(Испания)<br>
 								<div class="container_button">
-									<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+									<span class="inform animated">
+										<i class="fa fa-info-circle" aria-hidden="true"></i>
+									</span>
 									<button type="button" class="buttonslil _38vbi">Выбрать</button>
 								</div>
-								<br>
+								<div style="clear:both"></div>
 								<span class="price_">{$minimal_price_radio_pult_2vbi} руб.</span>
 							</li>
 							<li style="display:inline-block"><img class="allimg _39vbi" src="{$url}images/3.9.png" style="width:164px;margin:10px">
 								<br> HBC - Radiomatic<br>(Германия)<br>
 								<div class="container_button">
-									<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+									<span class="inform animated">
+										<i class="fa fa-info-circle" aria-hidden="true"></i>
+									</span>
 									<button type="button" class="buttonslil _39vbi">Выбрать</button>
 								</div>
-								<br>
+								<div style="clear:both"></div>
 								<span class="price_">{$minimal_price_radio_pult_3vbi} руб.</span>
 							</li>
 						</ul>

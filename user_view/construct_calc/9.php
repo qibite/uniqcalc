@@ -8,7 +8,9 @@ echo <<<EOT
 		<img class="allimg чаи" src="{$url}images/9.1.png" alt="" style="width:260px"><br>
 		<h4 class="btns чаи">Червячная передача<br>ABLE (Италия)</h4>
 		<div class="container_button">
-					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+			<span class="inform animated">
+				<i class="fa fa-info-circle" aria-hidden="true"></i>
+			</span>
 			<button type="button" class="чаи">Выбрать</button>
 		</div>
 		<br>
@@ -18,7 +20,9 @@ echo <<<EOT
 		<img class="allimg чнг" src="{$url}images/9.2.png" alt="" style="width:260px"><br>
 		<h4 class="btns чнг">Червячная передача<br>NORD (Германия)</h4>
 		<div class="container_button">
-					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+			<span class="inform animated">
+				<i class="fa fa-info-circle" aria-hidden="true"></i>
+			</span>
 			<button type="button" class="чнг">Выбрать</button>
 		</div>
 		<br>
@@ -28,7 +32,9 @@ echo <<<EOT
 		<img class="allimg цбб" src="{$url}images/9.3.png" alt="" style="width:260px"><br>
 		<h4 class="btns цбб">Циллиндрическая передача<br>Балкан Эхо (Болгария)</h4>
 		<div class="container_button">
-					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+			<span class="inform animated">
+				<i class="fa fa-info-circle" aria-hidden="true"></i>
+			</span>
 			<button type="button" class="цбб">Выбрать</button>
 		</div>
 		<br>
@@ -39,7 +45,9 @@ echo <<<EOT
 		<img class="allimg цнг" src="{$url}images/9.4.png" alt="" style="width:260px"><br>
 		<h4 class="btns цнг">Циллиндрическая передача<br>NORD (Германия)</h4>
 		<div class="container_button">
-					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+			<span class="inform animated">
+				<i class="fa fa-info-circle" aria-hidden="true"></i>
+			</span>
 			<button type="button" class="цнг">Выбрать</button>
 		</div>
 		<br>
@@ -49,7 +57,9 @@ echo <<<EOT
 		<img class="allimg цер" src="{$url}images/9.5.png" alt="" style="width:260px"><br>
 		<h4 class="btns цер">Циллиндрическая передача<br>Европривод (Россия)</h4>
 		<div class="container_button">
-					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+			<span class="inform animated">
+				<i class="fa fa-info-circle" aria-hidden="true"></i>
+			</span>
 			<button type="button" class="цер">Выбрать</button>
 		</div>
 		<br>

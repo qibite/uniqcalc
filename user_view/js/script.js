@@ -1,9 +1,19 @@
 var calc_ajaxurl = {url:location.origin+'/wp-admin/admin-ajax.php'}
 var locate = location.origin;
 jQuery(document).ready(($)=>{
-	$('button[type="button"').on('mouseenter', function() {	$(this).siblings('.inform').css('visibility', 'visible').addClass('fadeInDown') });
+	/*$('button[type="button"').on('mouseenter', function() { $('.inform').css('visibility', 'hidden').removeClass('fadeInDown'); setTimeout(()=>{$(this).siblings('.inform').css('visibility', 'visible').addClass('fadeInDown')},300);console.log('info') });
 
-	$('.inform').on('mouseleave', function() {setTimeout(()=>{$(this).css('visibility', 'hidden').removeClass('fadeInDown')},700)});
+	$('img').on('mouseenter', function() { $('.inform').css('visibility', 'hidden').removeClass('fadeInDown'); setTimeout(()=>{$(this).siblings('.container_button').children('.inform').css('visibility', 'visible').addClass('fadeInDown')},300);console.log('info') });*/
+
+	$('.inform').on('click', function() {
+		$('#spravka').css('display', 'block').removeClass('slideOutDown').addClass('slideInDown');
+		//setTimeout(()=>{$(this).css('visibility', 'hidden').removeClass('fadeInDown')},700);
+	});
+
+	$('#spravka>a, #close_spravka').on('click', function(event) {
+		$(this).parent().removeClass('slideInDown').addClass('slideOutDown');
+		setTimeout(()=>{$(this).parent().css('display', 'none')}, 300)
+	});
 
 
 
@@ -90,7 +100,7 @@ jQuery(document).ready(($)=>{
 *		ВЫБОР СПОСОБА УПРАВЛЕНИЯ КРАНОМ - РУЧНОЕ ИЛИ ЭЛЕКТРО УПРАВЛЕНИЕ, ПОДВЕСНОЙ ПУЛЬТ ИЛИ РАДИОУПРАВЛЕНИЕ ШАГ-3 		*
 *																														*
 ************************************************************************************************************************/
-	$('._31').click(function () {
+	$('._31').on('click', function () {
 		hide($('#_3'));
 		cran.step = 'Шаг 4 из 11'
 		next_group( $('#грузоподъемность'), 0 );
@@ -109,7 +119,7 @@ jQuery(document).ready(($)=>{
 		$('#main_block_for_steps').css('height', '960px');
 		cran._3 = 'Электро';
 	});
-	$('._33_next').click(function () {
+	$('button._33_next, img._33_next').on('click', function () {
 		gp_insert_price();
 		hide($('#_3'));
 		cran.step = 'Шаг 4 из 11'
@@ -131,11 +141,11 @@ jQuery(document).ready(($)=>{
 		next_group( $('#грузоподъемность'), 0 ); // НОВОЕ
 		//next_group( $('#razmeshenie'), 0 ); СТАРОЕ
 	});
-	$('._34').click(function () {
+	$('button._34, img._34').click(function () {
 		$('#main_block_for_steps').css('height', '1330px');
 		$('#vidipultov').css('display','block');easyscroll(920);
 	})
-	$('._35').click(function () {$('#main_block_for_steps').css('height', '1800px');// Пульт
+	$('button._35, img._35').click(function () {$('#main_block_for_steps').css('height', '1800px');// Пульт
 		$('#proizvositeli_pult').animate({'bottom':'-350px'}, 800);easyscroll(1200);
 		cran._3Type = 'Радиоуправление с пультом';
 		$('._37_j, ._38_j, ._39_j').parent().css('display', 'none');
@@ -147,13 +157,13 @@ jQuery(document).ready(($)=>{
 			$('._37, ._38, ._39').parent().css('display', 'inline-block');
 		}
 	});
-	$('._36').click(function () {$('#main_block_for_steps').css('height', '1800px'); //Джостик
+	$('button._36, img._36').click(function () {$('#main_block_for_steps').css('height', '1800px'); //Джостик
 			cran._3Type = 'Радиоуправление с джойстиком';
 			$('._37_j, ._38_j, ._39_j').parent().css('display', 'inline-block');
 			$('._37, ._38, ._39, ._37vbi, ._38vbi, ._39vbi').parent().css('display', 'none');
 			$('#proizvositeli_pult').animate({'bottom':'-350px'}, 800);easyscroll(1200);
 		})
-	$('._37, ._37_j, ._37vbi').click(function () {$('#main_block_for_steps').css('height', '800px');
+	$('button._37, img._37, button._37_j, img._37_j, button._37vbi, img._37vbi').click(function () {$('#main_block_for_steps').css('height', '800px');
 		gp_insert_price();
 		hide($('#_3'));
 		cran.step = 'Шаг 4 из 11'
@@ -161,7 +171,7 @@ jQuery(document).ready(($)=>{
 		next_group( $('#грузоподъемность'), 0 ); // НОВОЕ
 		//next_group( $('#razmeshenie'), 0 ); СТАРОЕ
 	});
-	$('._38, ._38_j, ._38vbi').click(function () {$('#main_block_for_steps').css('height', '800px');
+	$('button._38, img._38, button._38_j, img._38_j, button._38vbi, img._38vbi').click(function () {$('#main_block_for_steps').css('height', '800px');
 		gp_insert_price();
 		hide($('#_3'));
 		cran.step = 'Шаг 4 из 11'
@@ -169,7 +179,7 @@ jQuery(document).ready(($)=>{
 		next_group( $('#грузоподъемность'), 0 ); // НОВОЕ
 		//next_group( $('#razmeshenie'), 0 ); СТАРОЕ
 	});
-	$('._39, ._39_j, ._39vbi').click(function () {$('#main_block_for_steps').css('height', '800px');
+	$('button._39, img._39, button._39_j, img._39_j, button._39vbi, img._39vbi').click(function () {$('#main_block_for_steps').css('height', '800px');
 		gp_insert_price();
 		hide($('#_3'));
 		cran.step = 'Шаг 4 из 11'
@@ -230,13 +240,13 @@ jQuery(document).ready(($)=>{
 	    				break
 	    		}
 		if (cran._1 == 'Опорный') {
-			document.getElementById('vO').value = cran._3 == 'Электро'? '6000' : '3000'
+			//document.getElementById('vO').value = cran._3 == 'Электро'? '6000' : '3000'
 			hide($('#грузоподъемность'));
 			cran.step = 'Шаг 5 из 11'
 			next_group( $('#размеры_помещения_опорный'), 0 );
 		}
 		if (cran._1 == 'Подвесной') {
-			document.getElementById('vP').value = cran._3 == 'Электро'? '6000' : '3000'
+			//document.getElementById('vP').value = cran._3 == 'Электро'? '6000' : '3000'
 			hide($('#грузоподъемность'));
 			cran.step = 'Шаг 5 из 11'
 			next_group( $('#размеры_помещения_подвесной'), 0 );
@@ -554,15 +564,38 @@ jQuery(document).ready(($)=>{
 			$('#список_моделей_рельс').css('display', 'none');
 			cran._3 == 'Ручное' ? next_group( $('#vibor_tali'), 0 ) : next_group( $('#токоподвод'), 0 ); 
 		});
-			$('#p24').click(function () {cran.relsO = 'Р24'});
-			$('#p43').click(function () {cran.relsO = 'Р43'});
-			$('#p50').click(function () {cran.relsO = 'Р50'});
-			$('#kp65').click(function () {cran.relsO = 'КР65'});
-			$('#kp70').click(function () {cran.relsO = 'КР70'});
-			$('#kp80').click(function () {cran.relsO = 'КР80'});
-			$('#kubik40').click(function () {cran.relsO = 'Квадрат 40х40'});
-			$('#kubik50').click(function () {cran.relsO = 'Квадрат 50х50'});
-			$('#kubik60').click(function () {cran.relsO = 'Квадрат  60х60'});
+			$('#p24').click(function () {cran.relsO = 'Р24'; add_rels('5.5')});
+			$('#p43').click(function () {cran.relsO = 'Р43'; add_rels('5.6')});
+			$('#p50').click(function () {cran.relsO = 'Р50'; add_rels('5.7')});
+			$('#kp65').click(function () {cran.relsO = 'КР65'; add_rels('5.8')});
+			$('#kp70').click(function () {cran.relsO = 'КР70'; add_rels('5.9')});
+			$('#kp80').click(function () {cran.relsO = 'КР80'; add_rels('5.10')});
+			$('#kubik40').click(function () {cran.relsO = 'Квадрат 40x40'; add_rels('5.11')});
+			$('#kubik50').click(function () {cran.relsO = 'Квадрат 50x50'; add_rels('5.12')});
+			$('#kubik60').click(function () {cran.relsO = 'Квадрат 60x60'; add_rels('5.13')});
+	function add_rels (img) {
+		if (cran.relsO != 'Квадрат 40x40' && cran.relsO != 'Квадрат 50x50' && cran.relsO != 'Квадрат 60x60') {
+			$('#option_1 .dop_parametr:last-child').before(()=>{
+				let new_html = '<div class="dop_parametr rels_crane"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ img +'.png" alt="" style="width:200px"> \
+						<h4>Рельс '+ cran.relsO + ' - ' + cran.paramsO.dpO/1000 +'м.</h4> \
+						<p><span class="opisanie_parametra">Выбран пользователем</span><br> \
+						<span class="stoimost_parametra">Неизвестно</span><i class="id_bro">a2</i></p>';
+				return new_html;
+			});
+		} else {
+		var data_rels = { action: 'postavka_rels', _justprice:1, _name_relsa:cran.relsO, _rels_dlinna:cran.paramsO.dpO }
+		$.post( calc_ajaxurl.url, data_rels, function(response)
+		{
+			$('#option_1 .dop_parametr:last-child').before(()=>{
+			let new_html = '<div class="dop_parametr rels_crane"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ img +'.png" alt="" style="width:200px"> \
+					<h4>Рельс '+ cran.relsO + ' - ' + cran.paramsO.dpO/1000 +'м.</h4> \
+					<p><span class="opisanie_parametra">подобран в соответствии с параметрами крана</span><br> \
+					<span class="stoimost_parametra">'+ String(Number(response).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') +' руб</span><i class="id_bro">a2</i></p>';
+			return new_html;
+			});
+		})}
+		
+	}
 /************************************************************************************************************************
 *																														*
 *	 								ВЫБОР КРАНОВЫХ ПУТЕЙ ДЛЯ ПОДВЕСНОГО КРАНА	ШАГ-9 									*

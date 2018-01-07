@@ -6,21 +6,37 @@ echo <<<EOT
 	<p>Тут типа какой нибудь продающий текст или что-то в этом роде.</p><p>Можно краткое приветствие и описание типов крана поверхностное.</p>
 	<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 		<img class="allimg tal_yes" src="{$url}images/t_yes.png" style="height:320px" alt="">
-		<h4 class="btns talbtn tal_yes">Нам требуется таль</h4>
+		<h3 class="btns">Нам требуется таль</h3>
+		<div class="container_button">
+			<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+			<button type="button" class="tal_yes">Выбрать</button>
+		</div>
 	</div>
 	<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 		<img class="allimg tal_no" src="{$url}images/t_no.png" style="height:320px" alt="">
-		<h4 class="btns talbtn tal_no">Нам не требуется таль</h4>
+		<h3 class="btns">Нам не требуется таль</h3>
+		<div class="container_button">
+			<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+			<button type="button" class="tal_no">Выбрать</button>
+		</div>
 	</div>
 
 		<div class="hide_type_upravleniya" style="width:100%;padding:1em">
 			<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 				<img class="allimg ruchnaya_t" src="{$url}images/17.1.png" style="height:240px" alt="">
-				<h4 class=" talbtn ruchnaya_t">Ручная</h4>
+				<h4 class="">Ручная</h4>
+				<div class="container_button">
+					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+					<button type="button" class="buttonslil ruchnaya_t">Выбрать</button>
+				</div>
 			</div>
 			<div class="block" style="position:relative;display:inline-block;margin:1em 0 0 1em">
 				<img class="allimg electro_t" src="{$url}images/17.2.png" style="height:240px" alt="">
-				<h4 class=" talbtn electro_t">Электрическая</h4>
+				<h4 class="">Электрическая</h4>
+				<div class="container_button">
+					<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+					<button type="button" class="buttonslil electro_t">Выбрать</button>
+				</div>
 			</div>
 		</div>
 

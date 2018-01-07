@@ -16,7 +16,9 @@ echo <<<EOT
 	<img class="allimg _11" src="{$url}images/1.1.png" alt="" style="width:530px">
 		<h3 class="btns">Опорный</h3>
 		<div class="container_button">
-			<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+			<span class="inform animated">
+				<i id="i1_1" class="fa fa-info-circle" aria-hidden="true"></i>				
+			</span>
 			<button type="button" class="_11">Выбрать</button>
 		</div>
 		<p>От {$minimal_price_opornii_cran} руб.</p>
@@ -25,7 +27,9 @@ echo <<<EOT
 		<img class="allimg _12" src="{$url}images/1.2.png" alt="" style="width:530px">		
 		<h3 class="btns">Подвесной</h3>
 		<div class="container_button">
-			<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+			<span class="inform animated">
+				<i id="i1_1" class="fa fa-info-circle" aria-hidden="true"></i>
+			</span>
 			<button type="button" class="_12">Выбрать</button>
 		</div>
 		<p>От {$minimal_price_podvesnoi_cran} руб.</p>

@@ -14,7 +14,9 @@ echo <<<EOT
 					<img class="allimg одна_с" src="{$url}images/8.3.png" alt="" style="width:220px"><br>
 					<h4 class="одна_с releinokontakt">Одна скорость движения крана</h4>
 					<div class="container_button">
-						<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+						<span class="inform animated">
+							<i class="fa fa-info-circle" aria-hidden="true"></i>
+						</span>
 						<button type="button" class="одна_с">Далее</button>
 					</div>
 					<br>
@@ -24,7 +26,9 @@ echo <<<EOT
 					<img class="allimg несколько_с" src="{$url}images/8.4.png" alt="" style="width:220px"><br>
 					<h4 class="несколько_с releinokontakt">Несколько скоростей движения</h4>
 					<div class="container_button">
-						<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+						<span class="inform animated">
+							<i class="fa fa-info-circle" aria-hidden="true"></i>
+						</span>
 						<button type="button" class="несколько_с">Далее</button>
 					</div>
 					<br>
@@ -42,7 +46,9 @@ echo <<<EOT
 					<img class="allimg esq" src="{$url}images/8.5.png" alt="" style="width:220px"><br>
 					<h4 class="esq">ESQ (Китай)</h4>
 					<div class="container_button">
-						<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+						<span class="inform animated">
+							<i class="fa fa-info-circle" aria-hidden="true"></i>
+						</span>
 						<button type="button" class="esq">Далее</button>
 					</div>
 					<br>
@@ -52,7 +58,9 @@ echo <<<EOT
 					<img class="allimg hyundai" src="{$url}images/8.6.png" alt="" style="width:220px"><br>
 					<h4 class="hyundai">Hyundai (Корея)</h4>
 					<div class="container_button">
-						<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+						<span class="inform animated">
+							<i class="fa fa-info-circle" aria-hidden="true"></i>
+						</span>
 						<button type="button" class="hyundai">Далее</button>
 					</div>
 					<br>
@@ -62,7 +70,9 @@ echo <<<EOT
 					<img class="allimg danfross" src="{$url}images/8.7.png" alt="" style="width:220px"><br>
 					<h4 class="danfross">Danfoss (Германия)</h4>
 					<div class="container_button">
-						<span class="inform animated"><a href="http://uniqcrane.ru" target="blank" title="Перейти для справки"><i class="fa fa-info-circle" aria-hidden="true"></i></a></span>
+						<span class="inform animated">
+							<i class="fa fa-info-circle" aria-hidden="true"></i>
+						</span>
 						<button type="button" class="danfross">Далее</button>
 					</div>
 					<br>
