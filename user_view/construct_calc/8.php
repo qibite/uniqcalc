@@ -19,7 +19,6 @@ echo <<<EOT
 						</span>
 						<button type="button" class="одна_с">Далее</button>
 					</div>
-					<br>
 					<span class="price_">Без доплаты</span>
 				</div>
 				<div class="block" style="position:relative;display:inline-block;margin:1em 0 0 1em">
@@ -31,7 +30,6 @@ echo <<<EOT
 						</span>
 						<button type="button" class="несколько_с">Далее</button>
 					</div>
-					<br>
 					<span class="price_"></span>
 				</div>
 			</div>
@@ -51,7 +49,6 @@ echo <<<EOT
 						</span>
 						<button type="button" class="esq">Далее</button>
 					</div>
-					<br>
 					<span class="price_"></span>
 				</div>
 				<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
@@ -63,7 +60,6 @@ echo <<<EOT
 						</span>
 						<button type="button" class="hyundai">Далее</button>
 					</div>
-					<br>
 					<span class="price_"></span>
 				</div>
 				<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
@@ -75,7 +71,6 @@ echo <<<EOT
 						</span>
 						<button type="button" class="danfross">Далее</button>
 					</div>
-					<br>
 					<span class="price_"></span>
 				</div>
 			</div>

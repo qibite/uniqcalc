@@ -12,7 +12,7 @@ echo <<<EOT
 			<div class="block" style="position:relative;display:inline-block;margin:1em 0 0 2em">			
 				<img class="allimg нужен_монтаж_пути" src="{$url}images/5а2.png" alt="" style="width:500px">		
 				<h3 class="btns">Необходима поставка <br>кранового пути</h3>
-				<button type="button" class="нужен_монтаж_пути">Выбрать</button>
+				<button type="button" class="нужен_монтаж_пути">Далее</button>
 			</div>
 
 			<article id="rels_oporniy" style="display:none;left:-18px;top:610px">
@@ -25,7 +25,7 @@ echo <<<EOT
 				<div class="block" style="position:relative;display:inline-block;margin:1em 0 0 1em">			
 					<img class="allimg нужен_монтаж_рельс" src="{$url}images/5а4.jpg" alt="" style="width:250px">		
 					<h4 class="btns">Необходим монтаж <br>кранового рельса</h4>
-					<button type="button" class="нужен_монтаж_рельс">Выбрать</button>
+					<button type="button" class="нужен_монтаж_рельс">Далее</button>
 				</div>
 				<br>
 				<br>

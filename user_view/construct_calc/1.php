@@ -19,7 +19,7 @@ echo <<<EOT
 			<span class="inform animated">
 				<i id="i1_1" class="fa fa-info-circle" aria-hidden="true"></i>				
 			</span>
-			<button type="button" class="_11">Выбрать</button>
+			<button type="button" class="_11">Далее</button>
 		</div>
 		<p>От {$minimal_price_opornii_cran} руб.</p>
 	</div>
@@ -30,7 +30,7 @@ echo <<<EOT
 			<span class="inform animated">
 				<i id="i1_1" class="fa fa-info-circle" aria-hidden="true"></i>
 			</span>
-			<button type="button" class="_12">Выбрать</button>
+			<button type="button" class="_12">Далее</button>
 		</div>
 		<p>От {$minimal_price_podvesnoi_cran} руб.</p>
 	</div>

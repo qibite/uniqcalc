@@ -509,10 +509,6 @@ jQuery(document).ready(($)=>{
 *
 ***********************************************************************************************************************************************************************************************************************************/
 	$('.dop_menu_open').on('click', '.preobrazovatel_change', function(event) {
-
-		console.log(get_preobrazovatel_id(8.5))
-		console.log(get_preobrazovatel_id(8.6))
-		console.log(get_preobrazovatel_id(8.7))
 		var data_preobrazovatel = { action: 'calc_preobrazovatel',  _preobrazovatel_id_8_5:get_preobrazovatel_id(8.5), _preobrazovatel_id_8_6:get_preobrazovatel_id(8.6), _preobrazovatel_id_8_7:get_preobrazovatel_id(8.7), _motor_code:cran.code_of_motor,  _motor_gp:cran.gp, _shirina:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP  }
 		$.post( calc_ajaxurl.url, data_preobrazovatel, function (response) {
 			let results = JSON.parse(response)
@@ -1680,10 +1676,6 @@ function calc_all_oporniy () {
 		let summa2 = parseInt($('#summa2').text().replace(/\s/g, ''));
 		let summa3 = parseInt($('#summa3').text().replace(/\s/g, ''));
 		conteiner = summa + summa1 + summa2 + summa3;
-		console.log(summa)
-		console.log(summa1)
-		console.log(summa2)
-		console.log(summa3)
 	}
 	$('#summa4').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
 }

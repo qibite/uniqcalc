@@ -27,7 +27,7 @@ echo <<<EOT
 					<span class="inform animated">
 						<i class="fa fa-info-circle" aria-hidden="true"></i>
 					</span>
-					<button type="button" class="ulica">Выбрать</button>
+					<button type="button" class="ulica">Далее</button>
 				</div>
 				<p>Доплата 9000 руб.</p>
 			</div>				
@@ -38,7 +38,7 @@ echo <<<EOT
 					<span class="inform animated">
 						<i class="fa fa-info-circle" aria-hidden="true"></i>
 					</span>
-					<button type="button" class="naves">Выбрать</button>
+					<button type="button" class="naves">Далее</button>
 				</div>
 				<p>Без доплаты</p>
 			</div>
@@ -49,7 +49,7 @@ echo <<<EOT
 					<span class="inform animated">
 						<i class="fa fa-info-circle" aria-hidden="true"></i>
 					</span>
-					<button type="button" class="pomeshenie">Выбрать</button>
+					<button type="button" class="pomeshenie">Далее</button>
 				</div>
 				<p>Без доплаты</p>
 			</div>

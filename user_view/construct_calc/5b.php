@@ -12,7 +12,7 @@ echo <<<EOT
 			<div class="block" style="position:relative;display:inline-block;margin:1em 0 0 1em">			
 				<img class="allimg нужен_монтаж_пути2" src="{$url}images/5б2.jpg" alt="" style="width:500px">		
 				<h3 class="btns">Необходима поставка<br>кранового пути</h3>
-				<button type="button" class="нужен_монтаж_пути2">Выбрать</button>
+				<button type="button" class="нужен_монтаж_пути2">Далее</button>
 			</div>
 			<article class="скрыть_варианты_подврельс" style="margin-top:80px">
 				<h3>Модель кранового пути</h3>

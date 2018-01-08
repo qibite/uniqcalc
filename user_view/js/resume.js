@@ -603,6 +603,12 @@ jQuery(document).ready(($)=>{
 		montazh_tokopodvoda(); // Монтаж токоподвода
 		delete_doble('#option_3', $('#third_opt'));
 		showOptions($('#third_opt'));
+		if ($('#option_3').children('.montazh').length > 0) {
+			document.getElementById('c2').style.display = 'none';
+		}
+		if ($('#option_3').children('.shef_montazh').length > 0) {
+			document.getElementById('c1').style.display = 'none';
+		}
 	});
 	$('#third_opt').on('click', '.change_li', function () {
 		var that = $(this);
@@ -717,8 +723,8 @@ $('#revers').on('click', function() {
 */
 
 function delete_doble (context /* string: #option_1, #option_2, #option_3 */, container /* [$(#first_opt), $(#second_opt), $(#third_opt)]*/) {
-	var hidden_elements;
-	$(context+' > .dop_parametr:not(:last-child) >p >i.id_bro').each(function(index, el) {
+	let hidden_elements;
+	$(context+' > .dop_parametr:not(:last-child) > p > i.id_bro').each(function(index, el) {
 		hidden_elements  = $(this).text();
 		container.children().children('#'+hidden_elements).css('display', 'none');
 		container.children().children('.cat').children('#'+hidden_elements).css('display', 'none');
@@ -967,7 +973,6 @@ function price_from_distance (argument) {
 					$('#c3 .hiddened').text(String(Number(result.dostavka_price).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 					$('#c6 .opisanie_parametra').html('до пункта '+cran.city+'<br>Расстояние - '+result.distance+' км');					
 					$('#c6 .hiddened').text(String(Number(result.price_expert).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
-					console.log(response)
 				});
 				prompt_city.remove();
 			})
@@ -992,7 +997,51 @@ function price_from_distance (argument) {
 	}
 	
 }
-
+$('#city_change').on('click', function(event) {
+	$('#option_3').children('.montazh').remove();
+	$('#option_3').children('.shef_montazh').remove();
+	$('#option_3').children('.dostavka').remove();
+	$('#option_3').children('.rels_montazh').remove();
+	$('#option_3').children('.tok_montazh').remove();
+	$('#option_3').children('.viezd').remove();
+	$('#option_3').children('.gabarit_chertej').remove();
+	cran.city = null;
+	let dlinna = cran._1 == 'Опорный' ? cran.paramsO.dpO : cran.paramsP.dpP;
+	let shirina = cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP;
+	let uprav = cran._3 == 'Ручное' ? 1:0;
+	$('#c1 .hiddened').text('Считаем..');
+	$('#c2 .hiddened').text('Считаем..');
+	$('#c3 .hiddened').text('Считаем..');
+	$('#c6 .hiddened').text('Считаем..');
+	let prompt_city = document.createElement('div');
+		prompt_city.id = 'prompt_city';
+		prompt_city.innerHTML = '<h2>Введите Ваш город</h2>\
+								<h4 style="line-height:1.3em;margin-top:.7em">Исходя из Вашего местоположения<br>будут произведены расчеты стоимости некоторых услуг</h4>\
+								<label for="inpcity" style="margin:1em 0;width:40%"><input type="text" id="inpcity" name="inpcity" placeholder="Москва"></label><br>\
+								<button type="button" id="savecity" class="buttons">Сохранить</button>';
+		third_opt.appendChild(prompt_city);
+		savecity.addEventListener('click', function savci () {
+			//this.removeEventListener('click', savci);
+			cran.city = inpcity.value;
+			var data_distance = { action: 'distance', _cran_type: cran._1, _gp:cran.gp, _city: cran.city , _razrez:cran.razrez, _dlinna:dlinna, _shirina:shirina, _uprav:uprav }
+				$.post( calc_ajaxurl.url, data_distance, function(response)
+			{
+				let result = JSON.parse(response);
+				$('#c1 .opisanie_parametra').html('в пункте '+cran.city+'<br>включая проживание');					
+				$('#c1 .hiddened').text(String(Number(result.price_montazh).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+				$('#c2 .opisanie_parametra').html('в пункте '+cran.city+'<br>включая проживание');					
+				$('#c2 .hiddened').text(String(Number(result.price_shef_montazh).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+				$('#c3 .opisanie_parametra').html('до пункта '+cran.city+'<br>Расстояние - '+result.distance+' км');					
+				$('#c3 .hiddened').text(String(Number(result.dostavka_price).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+				$('#c6 .opisanie_parametra').html('до пункта '+cran.city+'<br>Расстояние - '+result.distance+' км');					
+				$('#c6 .hiddened').text(String(Number(result.price_expert).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
+			});
+			prompt_city.remove();
+		});
+	setTimeout(()=>{
+		$('#c1,#c2,#c3,#c6,#c7').css('display', 'inline-block');
+	}, 300)	
+});
 
 
 /*$('#dostavka_price_rasschet').on('click', function(event) {	
@@ -1298,10 +1347,6 @@ function calc_all_oporniy () {
 		let summa2 = parseInt($('#summa2').text().replace(/\s/g, ''));
 		let summa3 = parseInt($('#summa3').text().replace(/\s/g, ''));
 		conteiner = summa + summa1 + summa2 + summa3;
-		console.log(summa)
-		console.log(summa1)
-		console.log(summa2)
-		console.log(summa3)
 	}
 	$('#summa4').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
 }

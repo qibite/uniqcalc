@@ -11,9 +11,8 @@ echo <<<EOT
 			<span class="inform animated">
 				<i class="fa fa-info-circle" aria-hidden="true"></i>
 			</span>
-			<button type="button" class="чаи">Выбрать</button>
+			<button type="button" class="чаи">Далее</button>
 		</div>
-		<br>
 		<span class="price_">Без доплаты</span>
 	</div>
 	<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
@@ -23,10 +22,9 @@ echo <<<EOT
 			<span class="inform animated">
 				<i class="fa fa-info-circle" aria-hidden="true"></i>
 			</span>
-			<button type="button" class="чнг">Выбрать</button>
+			<button type="button" class="чнг">Далее</button>
 		</div>
-		<br>
-		<span class="price_"></span>
+		<span class="price_">Считаем..</span>
 	</div>
 		<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 		<img class="allimg цбб" src="{$url}images/9.3.png" alt="" style="width:260px"><br>
@@ -35,10 +33,9 @@ echo <<<EOT
 			<span class="inform animated">
 				<i class="fa fa-info-circle" aria-hidden="true"></i>
 			</span>
-			<button type="button" class="цбб">Выбрать</button>
+			<button type="button" class="цбб">Далее</button>
 		</div>
-		<br>
-		<span class="price_"></span>
+		<span class="price_">Считаем..</span>
 	</div>
 		<br>
 	<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
@@ -48,10 +45,9 @@ echo <<<EOT
 			<span class="inform animated">
 				<i class="fa fa-info-circle" aria-hidden="true"></i>
 			</span>
-			<button type="button" class="цнг">Выбрать</button>
+			<button type="button" class="цнг">Далее</button>
 		</div>
-		<br>
-		<span class="price_"></span>
+		<span class="price_">Считаем..</span>
 	</div>
 	<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 		<img class="allimg цер" src="{$url}images/9.5.png" alt="" style="width:260px"><br>
@@ -60,10 +56,9 @@ echo <<<EOT
 			<span class="inform animated">
 				<i class="fa fa-info-circle" aria-hidden="true"></i>
 			</span>
-			<button type="button" class="цер">Выбрать</button>
+			<button type="button" class="цер">Далее</button>
 		</div>
-		<br>
-		<span class="price_"></span>
+		<span class="price_">Считаем..</span>
 	</div>
 </article>
 EOT;

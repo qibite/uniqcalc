@@ -579,7 +579,7 @@ jQuery(document).ready(($)=>{
 				let new_html = '<div class="dop_parametr rels_crane"><span class="del_this_option"><i class="fa fa-trash-o" aria-hidden="true"></i></span><img src="'+ location.origin +'/wp-content/plugins/uniqcalc/user_view/construct_calc/images/'+ img +'.png" alt="" style="width:200px"> \
 						<h4>Рельс '+ cran.relsO + ' - ' + cran.paramsO.dpO/1000 +'м.</h4> \
 						<p><span class="opisanie_parametra">Выбран пользователем</span><br> \
-						<span class="stoimost_parametra">Неизвестно</span><i class="id_bro">a2</i></p>';
+						<span class="stoimost_parametra">Без доплаты</span><i class="id_bro">a2</i></p>';
 				return new_html;
 			});
 		} else {
@@ -755,12 +755,11 @@ jQuery(document).ready(($)=>{
 					$('#main_block_for_steps').css('height', '2026px');
 					$('.kanat_t').siblings('.price_').text('От ' + String(Number(tal.priceAJAX.bolgariya_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 					$('.cep_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_cep_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
-					easyscroll(1220);
-				} else {
-					$('.hide_type_tal').css('display', 'none')
-					$('.hide_s_visota_tal').removeClass('hide_s_visota_tal').addClass('show_s_visota_tal')
+					easyscroll(1280);
+				} else {					
+					$('.hide_s_visota_tal').removeClass('hide_s_visota_tal').addClass('show_s_visota_tal');
 					$('#main_block_for_steps').css('height', '2026px');
-					easyscroll(900);
+					easyscroll(1280);
 					tal.type = 'Канатная';
 					if (cran._2.search(/Взрывобезопасное/i) == 0) {
 						$('.stdV_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_canatVBI_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
@@ -770,15 +769,16 @@ jQuery(document).ready(($)=>{
 						$('.stdV_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 						$('.umenV_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_canatUSV_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 					}
+					$('.show_type_tal').removeClass('show_type_tal').addClass('hide_type_tal');
 				  }
 				tal.country = 'Болгария';
 				tal.img = '17.5.png';
-				$('h4.bolgariya_tE').css({'background-color':'#e60216', 'color':'#FFFFFF'});
+				$('h4.bolgariya_tE').css({'background-color':'#b5212e', 'color':'#FFFFFF'});
 				$('h4.russia_tE').css({'background-color':'#cecece', 'color':'#242526'});
 				$('h4.china_tE').css({'background-color':'#cecece', 'color':'#242526'});
 			})
 				$('.stdV_t').click(()=>{
-					if(tal.country == 'Болгария' && $('.hide_type_tal').css('display') == 'none'){easyscroll(1220)}
+					if(tal.country == 'Болгария' && $('.hide_type_tal').css('display') == 'none'){easyscroll(1860)}
 						else if (tal.country == 'Болгария' && $('.hide_type_tal').css('display') != 'none') {easyscroll(1860)}
 					cran._2.search(/Взрывобезопасное/i) == 0 ? tal.type = 'Канатная ВБИ' : tal.type = 'Канатная';
 					tal.img = '17.5.1.png';
@@ -786,7 +786,7 @@ jQuery(document).ready(($)=>{
 					$('.russia_kanat,.bolg_cep').removeClass('animated zoomInLeft').css('display', 'none');
 					$('.bolg_kanat').addClass('animated zoomInLeft').css('display', 'inline-block');
 					$('#next_tal, #h2_tal').css('display', 'block');
-					$('h4.stdV_t').css({'background-color':'#e60216', 'color':'#FFFFFF'});
+					$('h4.stdV_t').css({'background-color':'#b5212e', 'color':'#FFFFFF'});
 					$('h4.umenV_t').css({'background-color':'#cecece', 'color':'#242526'});
 					if (cran._2.search(/Взрывобезопасное/i) != -1 && tal.country == 'Болгария') {$('#main_block_for_steps').css('height', '1610px');}
 				})
@@ -798,7 +798,7 @@ jQuery(document).ready(($)=>{
 					$('.bolg_kanat').addClass('animated zoomInLeft').css('display', 'inline-block');
 					$('#next_tal, #h2_tal').css('display', 'block');
 					$('h4.stdV_t').css({'background-color':'#cecece', 'color':'#242526'});
-					$('h4.umenV_t').css({'background-color':'#e60216', 'color':'#FFFFFF'});
+					$('h4.umenV_t').css({'background-color':'#b5212e', 'color':'#FFFFFF'});
 					if (cran._2.search(/Взрывобезопасное/i) != -1 && tal.country == 'Болгария') {$('#main_block_for_steps').css('height', '1610px');}
 				})
 
@@ -832,7 +832,7 @@ jQuery(document).ready(($)=>{
 				easyscroll(1220);
 				$('.show_type_tal').removeClass('show_type_tal').addClass('hide_type_tal')
 				$('h4.bolgariya_tE').css({'background-color':'#cecece', 'color':'#242526'});
-				$('h4.russia_tE').css({'background-color':'#e60216', 'color':'#FFFFFF'});
+				$('h4.russia_tE').css({'background-color':'#b5212e', 'color':'#FFFFFF'});
 				$('h4.china_tE').css({'background-color':'#cecece', 'color':'#242526'});
 			})
 
@@ -858,8 +858,9 @@ jQuery(document).ready(($)=>{
 				tal.country = 'Китай';
 				tal.img = '17.7.png';
 				if ((tal.gp <= 500 && tal.visota <= 6000) || (tal.gp <= 10000 && tal.visota <= 9000)) {
-					$('.hide_type_tal').removeClass('hide_type_tal').addClass('show_type_tal')
-					easyscroll(1220);
+					$('.hide_type_tal').removeClass('hide_type_tal').addClass('show_type_tal').css('display', 'block');
+					$('.show_s_visota_tal').removeClass('show_s_visota_tal').addClass('hide_s_visota_tal');
+					easyscroll(1280);
 					$('#main_block_for_steps').css('height', '1760px');
 				} else {
 					tal.type = 'Канатная';
@@ -882,7 +883,7 @@ jQuery(document).ready(($)=>{
 				$('.cep_t').siblings('.price_').text(String(Number(tal.priceAJAX.china_el_cep_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 				$('h4.bolgariya_tE').css({'background-color':'#cecece', 'color':'#242526'});
 				$('h4.russia_tE').css({'background-color':'#cecece', 'color':'#242526'});
-				$('h4.china_tE').css({'background-color':'#e60216', 'color':'#FFFFFF'});
+				$('h4.china_tE').css({'background-color':'#b5212e', 'color':'#FFFFFF'});
 				$('.bolg_kanat,.bolg_cep,.russia_kanat, #next_tal, #h2_tal').removeClass('animated zoomInLeft').css('display', 'none');
 			})
 
@@ -915,7 +916,7 @@ jQuery(document).ready(($)=>{
 					$('.russia_kanat,.bolg_kanat,.bolg_cep').removeClass('animated zoomInLeft').css('display', 'none');
 					$('.bolg_cep').css('display', 'none');
 					$('#next_tal, #h2_tal').css('display', 'none');
-					$('h4.kanat_t').css({'background-color':'#e60216', 'color':'#FFFFFF'});
+					$('h4.kanat_t').css({'background-color':'#b5212e', 'color':'#FFFFFF'});
 					$('h4.cep_t').css({'background-color':'#cecece', 'color':'#242526'});
 				})
 				$('.cep_t').click(()=>{
@@ -943,7 +944,7 @@ jQuery(document).ready(($)=>{
 						$('#main_block_for_steps').css('height', '1900px');
 						$('.bolg_cep').addClass('animated zoomInLeft').css('display', 'inline-block');
 						$('#next_tal, #h2_tal').css('display', 'block');
-						$('h4.cep_t').css({'background-color':'#e60216', 'color':'#FFFFFF'});
+						$('h4.cep_t').css({'background-color':'#b5212e', 'color':'#FFFFFF'});
 						$('h4.kanat_t').css({'background-color':'#cecece', 'color':'#242526'});
 					}						
 				})
@@ -1219,7 +1220,6 @@ cran.chastotnik_price = function (model) {
 }
 
 cran.double_speed = function (code_preobrazovatelya) {
-	console.log(code_preobrazovatelya)
 	if (code_preobrazovatelya != '8.4') {return}
 	let data_preobrazovatel = { action: 'calc_double_speed', _motor_code:cran.code_of_motor,  _motor_gp:cran.gp, _shirina:cran._1 == 'Опорный' ? cran.paramsO.shpO : cran.paramsP.shpP }
 	$.post( calc_ajaxurl.url, data_preobrazovatel, function (response) {
@@ -1340,9 +1340,9 @@ cran.calculate_tal = function  (argument) {
 
 
 $('.bolgariya_tE').hover(function() {
-	$(this).siblings('p').css('display', 'block');
+	$('#ception_TB').css('display', 'block');
 }, function() {
-	$(this).siblings('p').css('display', 'none');
+	$('#ception_TB').css('display', 'none');
 });
 
 /*
@@ -1466,10 +1466,6 @@ function calc_all_oporniy () {
 		let summa2 = parseInt($('#summa2').text().replace(/\s/g, ''));
 		let summa3 = parseInt($('#summa3').text().replace(/\s/g, ''));
 		conteiner = summa + summa1 + summa2 + summa3;
-		console.log(summa)
-		console.log(summa1)
-		console.log(summa2)
-		console.log(summa3)
 	}
 	$('#summa4').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
 }

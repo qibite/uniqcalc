@@ -88,6 +88,7 @@
 		</ul>
 	</div>
 	<div id="third_opt" class="modal_change modal_change_hide">
+		<button type="button" id="city_change" class="buttons">Изменить город</button>
 		<ul class="ul_change">
 			<li id="c1" class="change_li" name="montazh"><span><img src="<?=$url;?>images/y1.png" alt="" style="width:140px"><p><b class="hz4">Монтаж кран-балок</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened">Считаем..</span></li>
 			<li id="c2" class="change_li" name="shef_montazh"><span><img src="<?=$url;?>images/y2.png" alt="" style="width:140px"><p><b class="hz4">Шеф-монтаж</b><br><span class="opisanie_parametra"></span></p></span><span class="hiddened"></span></li>

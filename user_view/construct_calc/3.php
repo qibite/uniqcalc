@@ -25,9 +25,9 @@ echo <<<EOT
 				<h3 class="btns">Ручное</h3>
 				<div class="container_button">
 					<span class="inform animated">
-						<i class="fa fa-info-circle" aria-hidden="true"></i>
+						<i id="i1_1" class="fa fa-info-circle" aria-hidden="true"></i>
 					</span>
-					<button type="button" class="_31">Выбрать</button>
+					<button type="button" class="_31">Далее</button>
 				</div>
 			</div>
 
@@ -50,9 +50,9 @@ echo <<<EOT
 							<br>
 							<div class="container_button">
 								<span class="inform animated">
-									<i id="i1_1" class="fa fa-info-circle" aria-hidden="true"></i>
+									<i class="fa fa-info-circle" aria-hidden="true"></i>
 								</span>
-								<button type="button" class="buttonslil _33_next">Выбрать</button>
+								<button type="button" class="buttonslil _33_next">Далее</button>
 							</div>
 							<div style="clear:both"></div>
 							<span class="price_">Без доплаты</span>
@@ -106,7 +106,7 @@ echo <<<EOT
 									<span class="inform animated">
 										<i class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
-									<button type="button" class="buttonslil _37">Выбрать</button>
+									<button type="button" class="buttonslil _37">Далее</button>
 								</div>
 								<div style="clear:both"></div>
 								<span class="price_">От {$minimal_price_radio_pult_1} руб.</span>
@@ -117,7 +117,7 @@ echo <<<EOT
 									<span class="inform animated">
 										<i class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
-									<button type="button" class="buttonslil _38">Выбрать</button>
+									<button type="button" class="buttonslil _38">Далее</button>
 								</div>
 								<div style="clear:both"></div>
 								<span class="price_">От {$minimal_price_radio_pult_2} руб.</span>
@@ -128,7 +128,7 @@ echo <<<EOT
 									<span class="inform animated">
 										<i class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
-									<button type="button" class="buttonslil _39">Выбрать</button>
+									<button type="button" class="buttonslil _39">Далее</button>
 								</div>
 								<div style="clear:both"></div>
 								<span class="price_">От {$minimal_price_radio_pult_3} руб.</span>
@@ -140,7 +140,7 @@ echo <<<EOT
 									<span class="inform animated">
 										<i class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
-									<button type="button" class="buttonslil _37_j">Выбрать</button>
+									<button type="button" class="buttonslil _37_j">Далее</button>
 								</div>
 								<div style="clear:both"></div>
 								<span class="price_">{$minimal_price_joy_pult_1} руб.</span>
@@ -151,7 +151,7 @@ echo <<<EOT
 									<span class="inform animated">
 										<i class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
-									<button type="button" class="buttonslil _38_j">Выбрать</button>
+									<button type="button" class="buttonslil _38_j">Далее</button>
 								</div>
 								<div style="clear:both"></div>
 								<span class="price_">{$minimal_price_joy_pult_2} руб.</span>
@@ -162,7 +162,7 @@ echo <<<EOT
 									<span class="inform animated">
 										<i class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
-									<button type="button" class="buttonslil _39_j">Выбрать</button>
+									<button type="button" class="buttonslil _39_j">Далее</button>
 								</div>
 								<div style="clear:both"></div>
 								<span class="price_">{$minimal_price_joy_pult_3} руб.</span>
@@ -174,7 +174,7 @@ echo <<<EOT
 									<span class="inform animated">
 										<i class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
-									<button type="button" class="buttonslil _37vbi">Выбрать</button>
+									<button type="button" class="buttonslil _37vbi">Далее</button>
 								</div>
 								<div style="clear:both"></div>
 								<span class="price_">{$minimal_price_radio_pult_1vbi} руб.</span>
@@ -185,7 +185,7 @@ echo <<<EOT
 									<span class="inform animated">
 										<i class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
-									<button type="button" class="buttonslil _38vbi">Выбрать</button>
+									<button type="button" class="buttonslil _38vbi">Далее</button>
 								</div>
 								<div style="clear:both"></div>
 								<span class="price_">{$minimal_price_radio_pult_2vbi} руб.</span>
@@ -196,7 +196,7 @@ echo <<<EOT
 									<span class="inform animated">
 										<i class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
-									<button type="button" class="buttonslil _39vbi">Выбрать</button>
+									<button type="button" class="buttonslil _39vbi">Далее</button>
 								</div>
 								<div style="clear:both"></div>
 								<span class="price_">{$minimal_price_radio_pult_3vbi} руб.</span>

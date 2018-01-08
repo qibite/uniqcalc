@@ -31,7 +31,7 @@ echo <<<EOT
 			<div class="block" style="position:relative;display:inline-block;margin:1em 0 0 3em">
 				<img class="allimg ток_нетребуется" src="{$url}images/6.2.jpg" alt="" style="width:350px"><br>
 				<h3 class="btns">Не требуется</h3>
-				<button type="button" class="ток_нетребуется">Выбрать</button>
+				<button type="button" class="ток_нетребуется">Далее</button>
 				<p><span style="color:#FFF">/</span></p>	
 			</div>
 			<article class="скрыть_варианты_токоподвод" style="margin-top:10px">
@@ -44,7 +44,7 @@ echo <<<EOT
 							<span class="inform animated">
 								<i class="fa fa-info-circle" aria-hidden="true"></i>
 							</span>
-							<button type="button" class="buttons каб_с_кол">Выбрать</button>
+							<button type="button" class="buttons каб_с_кол">Далее</button>
 						</div>
 						<span id="tok1" class="price_"></span>
 					</li>
@@ -54,7 +54,7 @@ echo <<<EOT
 							<span class="inform animated">
 								<i class="fa fa-info-circle" aria-hidden="true"></i>
 							</span>
-							<button type="button" class="buttons каб_с_тел">Выбрать</button>
+							<button type="button" class="buttons каб_с_тел">Далее</button>
 						</div>
 						<span id="tok2" class="price_"></span>
 					</li>
@@ -64,7 +64,7 @@ echo <<<EOT
 							<span class="inform animated">
 								<i class="fa fa-info-circle" aria-hidden="true"></i>
 							</span>
-							<button type="button" class="buttons фесто">Выбрать</button>
+							<button type="button" class="buttons фесто">Далее</button>
 						</div>
 						<span id="tok3" class="price_"></span>
 					</li>
@@ -74,7 +74,7 @@ echo <<<EOT
 							<span class="inform animated">
 								<i class="fa fa-info-circle" aria-hidden="true"></i>
 							</span>
-							<button type="button" class="buttons откр_тролл">Выбрать</button>
+							<button type="button" class="buttons откр_тролл">Далее</button>
 						</div>
 						<span id="tok4" class="price_"></span>
 					</li>					
@@ -84,7 +84,7 @@ echo <<<EOT
 							<span class="inform animated">
 								<i class="fa fa-info-circle" aria-hidden="true"></i>
 							</span>
-							<button type="button" class="buttons закр_тролл">Выбрать</button>
+							<button type="button" class="buttons закр_тролл">Далее</button>
 						</div>
 						<span id="tok5" class="price_"></span>
 					</li>
