@@ -646,6 +646,7 @@ jQuery(document).ready(($)=>{
 				}
 			});
 			calc_all_uslugi();
+			$('.ul_change > .change_li').css('display', 'inline-block');
 		},200);
 		
 		

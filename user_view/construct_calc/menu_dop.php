@@ -52,7 +52,7 @@
 			<li id="b12_2" class="change_li" name="sirena"><span><img src="<?=$url;?>images/12.2.png" alt="" style="width:140px"><p><b class="hz4">Звуковая сирена</b></span></p></span><span class='hiddened'><?=$zvuk_sirena?> руб</span></li>
 
 			<li id="b13" class="change_li" name="stop"><span><img src="<?=$url;?>images/13.png" alt="" style="width:140px"><p><b class="hz4">Аварийный стоп</b><br><span class="opisanie_parametra">с линейным выключателем</span></p></span><span class='hiddened'></span></li>
-			<li id="b14" class="change_li" name="tormoz"><span><img src="<?=$url;?>images/14.png" alt="" style="width:140px"><p><b class="hz4">Тормоз на передвижение</b></p></span><span class='hiddened'></span></li>
+			<li id="b14" class="change_li" name="tormoz"><span><img src="<?=$url;?>images/14.png" alt="" style="width:140px"><p><b class="hz4">Тормоз на передвижение</b><br><span class="opisanie_parametra">позволяет останавливать кран</span></p></span><span class='hiddened'></span></li>
 			<li id="b17" class="change_li cat tali_dop" name="tali"  style="position:relative"><span><img src="<?=$url;?>images/17.8.png" alt="" style="width:140px"><p>Таль</p></span><span class='hiddened'></span>
 				<?php
 					global $wpdb; $wpdb->show_errors();

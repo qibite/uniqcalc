@@ -1159,18 +1159,32 @@ function distance () {
 	else if ($way < 1000) {
 		$price_way_expert_result = $wpdb->get_results("SELECT price FROM $price_way_expert WHERE id = 4");
 		$price_expert = ($price_way_expert_result[0]->price*$way) + $fixed_taxa;
+		$dostavka_price += ($price_way_expert_result[0]->price*$way);
+		$price_shef_montazh += ($price_way_expert_result[0]->price*$way);
+		$price_montazh += ($price_way_expert_result[0]->price*$way);
 	}
 	else if ($way > 1000 && $way < 3000) {
 		$price_way_expert_result = $wpdb->get_results("SELECT price FROM $price_way_expert WHERE id = 5");
 		$price_expert = ($price_way_expert_result[0]->price*$way) + $fixed_taxa;
+		$dostavka_price += ($price_way_expert_result[0]->price*$way);
+		$price_shef_montazh += ($price_way_expert_result[0]->price*$way);
+		$price_montazh += ($price_way_expert_result[0]->price*$way);
 	}
 	else if ($way > 3000) {
 		$price_way_expert_result = $wpdb->get_results("SELECT price FROM $price_way_expert WHERE id = 6");
 		$price_expert = ($price_way_expert_result[0]->price*$way) + $fixed_taxa;
+		$dostavka_price += ($price_way_expert_result[0]->price*$way);
+		$price_shef_montazh += ($price_way_expert_result[0]->price*$way);
+		$price_montazh += ($price_way_expert_result[0]->price*$way);
 	}
 	else {
 		$price_expert = -1;
+		$dostavka_price = -1;
+		$price_shef_montazh = -1;
+		$price_montazh = -1;
 	}
+
+
 
 
 	$retun_result = array (

@@ -271,7 +271,7 @@ button.buttonslil{padding:8px 24px;font-size:.8em}
 #список_моделей_рельс li, #список_моделей_путей li, #список_токоподводов li{display:inline-block}
 .block h3.вес{width:190px;font-size:2.3em;letter-spacing:0.007em;padding:.3em 0.5em;border:1px solid #888;border-radius:4px;line-height:.7em;color:#333;cursor:pointer}
 .block h3.вес:hover{border-color:#b5212e}
-#first li{margin-left:0;font-family:'Rubik Regular'}
+#first li{margin-left:0;font-family:'Rubik Regular';list-style: none;}
 tr td{padding:7px;border:none}
 tr td:first-child{position:relative;text-align:right;width:30px;padding:0;border:none}
 tr td:last-child{text-align:left;padding-left:6px;border-bottom:1px solid #324A56;font-size:0.84em}
@@ -581,4 +581,10 @@ label[for="city"], label[for="city2"]
     left: 15%;
     background-color: #FFFFFF;
     padding-top: 100px;
+}
+
+input#inpcity[type="text"]
+{
+	 width: 40%;
+    margin: 10px auto 0;
 }

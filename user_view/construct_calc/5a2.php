@@ -8,20 +8,20 @@ echo <<<EOT
 				<img class="" src="{$url}images/5а5.jpg" alt="" style="width:260px"><br>
 				<label>Длина путей: <br><br>
 				<div class="container_button">
-					<span class="inform animated" style="margin-right:.3em">
+					<span class="inform animated" style="margin-right:.3em;font-size:30px">
 						<i class="fa fa-info-circle" aria-hidden="true"></i>
 					</span>
-					<input id="dpO" type="number" name="" value="12000" style="display:inline-block;max-width:100px" step="100"> мм
+					<input id="dpO" type="number" name="" value="12000" style="display:inline-block;max-width:100px;margin-bottom:0" step="100"> мм
 				</div></label>
 			</div>
 			<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 0">
 				<img class="" src="{$url}images/5а6.jpg" alt="" style="width:260px"><br>
 				<label>Ширина между путями: <br><br>
 					<div class="container_button">
-						<span class="inform animated" style="margin-right:.3em">
+						<span class="inform animated" style="margin-right:.3em;font-size:30px">
 							<i class="fa fa-info-circle" aria-hidden="true"></i>
 						</span>
-						<input id="shpO" type="number" name="" value="6000" style="display:inline-block;max-width:100px" step="100"> мм</div>
+						<input id="shpO" type="number" name="" value="6000" style="display:inline-block;max-width:100px;margin-bottom:0" step="100"> мм</div>
 					</label>
 			</div>
 			
@@ -29,10 +29,10 @@ echo <<<EOT
 				<img class="" src="{$url}images/5а7.jpg" alt="" style="width:260px"><br>
 				<label>Высота путей: <br><br>
 					<div class="container_button">
-						<span class="inform animated" style="margin-right:.3em">
+						<span class="inform animated" style="margin-right:.3em;font-size:30px">
 							<i class="fa fa-info-circle" aria-hidden="true"></i>
 						</span>
-						<input id="vO" type="number" name="" value="6000" style="display:inline-block;max-width:100px" step="100"> мм
+						<input id="vO" type="number" name="" value="6000" style="display:inline-block;max-width:100px;margin-bottom:0" step="100"> мм
 					</div>
 				</label>
 			</div>
@@ -40,10 +40,10 @@ echo <<<EOT
 				<img class="" src="{$url}images/5а8.jpg" alt="" style="width:260px"><br>
 				<label>Высота до перекрытий (потолка): <br><br>
 					<div class="container_button">
-						<span class="inform animated" style="margin-right:.3em">
+						<span class="inform animated" style="margin-right:.3em;font-size:30px">
 							<i class="fa fa-info-circle" aria-hidden="true"></i>
 						</span>
-						<input id="vpO" type="number" name="" value="500" style="display:inline-block;max-width:100px" step="100"> мм<br><span id="error500mmO">Должно быть не мене 500 мм!</span>
+						<input id="vpO" type="number" name="" value="500" style="display:inline-block;max-width:100px;margin-bottom:0" step="100"> мм<br><span id="error500mmO">Должно быть не мене 500 мм!</span>
 					</div>
 				</label>
 			</div>
