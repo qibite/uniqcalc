@@ -9,7 +9,7 @@ echo <<<EOT
 				<h3 class="btns">Общепромышленное</h3>
 				<div class="container_button">
 					<span class="inform animated">
-						<i class="fa fa-info-circle" aria-hidden="true"></i>
+						<i data-info="i2_1" class="fa fa-info-circle" aria-hidden="true"></i>
 					</span>
 					<button type="button" class="obsheprom">Далее</button>
 				</div>
@@ -17,9 +17,14 @@ echo <<<EOT
 			</div>
 
 			<div class="block" style="position:relative;display:inline-block;margin:1em 1em 0 1em">
-				<img class="allimg- vzrivo" src="{$url}images/2.2.png" alt="" style="width:265px">		
-				<h3 class="btns">Взрывобезопасное</h3>
-				<button type="button" class="vzrivo">Выбрать</button>
+				<img class="allimg- vzrivo" src="{$url}images/2.2.png" alt="" style="width:265px;cursor:pointer">		
+				<h3 class="btns">Взрывобезопасное</h3>				
+				<div class="container_button">
+					<span class="inform animated">
+						<i data-info="i2_2" class="fa fa-info-circle" aria-hidden="true"></i>
+					</span>
+					<button type="button" class="vzrivo">Выбрать</button>
+				</div>
 				<p>Доплата 35%</p>
 			</div>
 			<div class="hide_dop_vzr" style="position:absolute;width:30%;left:36%;padding:1em;background-color:#eee">
@@ -30,16 +35,18 @@ echo <<<EOT
 					</ul>
 					<div class="container_button">
 						<button type="button" class="vzrivo_next  buttonslil">Далее</button>
-						<span class="inform animated" style="margin-left:12px">
-							<i class="fa fa-info-circle" aria-hidden="true"></i>
-						</span>
 					</div>
 			</div>
 
 			<div class="block" style="position:relative;display:inline-block;margin:1em 0 0 1em">
 				<img class="allimg pozharo" src="{$url}images/2.3.jpg" alt="" style="width:265px">		
 				<h3 class="btns">Пожаробезопасное</h3>
-				<button type="button" class="pozharo">Выбрать</button>
+				<div class="container_button">
+					<span class="inform animated">
+						<i data-info="i2_3" class="fa fa-info-circle" aria-hidden="true"></i>
+					</span>
+					<button type="button" class="pozharo">Выбрать</button>
+				</div>
 				<p>Доплата 10%</p>
 			</div>
 			<div class="hide_dop_pozh" style="position:absolute;width:30%;left:36%;padding:1em;background-color:#eee">
@@ -50,9 +57,6 @@ echo <<<EOT
 				</ul>
 				<div class="container_button">					
 					<button type="button" class="pozharo_next  buttonslil">Далее</button>
-					<span class="inform animated" style="margin-left:12px">
-						<i class="fa fa-info-circle" aria-hidden="true"></i>
-					</span>
 				</div>
 			</div>
 		</article>

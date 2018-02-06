@@ -6,16 +6,21 @@ echo <<<EOT
 			<p>Тут типа какой нибудь продающий текст или что-то в этом роде.</p><p>Можно краткое приветствие и описание типов крана поверхностное.</p>
 			<!-- Температурный режим -->
 			<div id="temperature">
-			<br>
-			<h3>Укажите температурный диапазон характерный для места работы с краном ОТ и ДО</h3>
-			<br>
-				<ul id="temp">
-					<li id="m50" class="celsM cels"></li>
-					<li id="m40" class="cels celsM"></li>
-					<li id="m20" class="cels celsM"></li>
-					<li id="p40" class="cels celsP"></li>
-					<li id="p60" class="celsP cels"></li>
-				</ul>
+				<br>
+				<h3>Укажите температурный диапазон характерный для места работы с краном ОТ и ДО</h3>
+				<br>
+				<div class="container_button">
+					<span class="inform animated" style="margin-left:-38px;margin-right:13px">
+						<i data-info="i8_0" class="fa fa-info-circle" aria-hidden="true"></i>						
+					</span>
+					<ul id="temp">
+						<li id="m50" class="celsM cels"></li>
+						<li id="m40" class="cels celsM"></li>
+						<li id="m20" class="cels celsM"></li>
+						<li id="p40" class="cels celsP"></li>
+						<li id="p60" class="celsP cels"></li>
+					</ul>
+				</div>	
 			</div>
 			<!-- Температурный режим -->
 			<br><br>
@@ -25,7 +30,7 @@ echo <<<EOT
 				<h3 class="btns">Улица</h3>
 				<div class="container_button">
 					<span class="inform animated">
-						<i class="fa fa-info-circle" aria-hidden="true"></i>
+						<i data-info="i8_1" class="fa fa-info-circle" aria-hidden="true"></i>
 					</span>
 					<button type="button" class="ulica">Далее</button>
 				</div>
@@ -36,7 +41,7 @@ echo <<<EOT
 				<h3 class="btns">Навес</h3>
 				<div class="container_button">
 					<span class="inform animated">
-						<i class="fa fa-info-circle" aria-hidden="true"></i>
+						<i data-info="i8_2" class="fa fa-info-circle" aria-hidden="true"></i>
 					</span>
 					<button type="button" class="naves">Далее</button>
 				</div>
@@ -47,7 +52,7 @@ echo <<<EOT
 				<h3 class="btns">Помещение</h3>
 				<div class="container_button">
 					<span class="inform animated">
-						<i class="fa fa-info-circle" aria-hidden="true"></i>
+						<i data-info="i8_3" class="fa fa-info-circle" aria-hidden="true"></i>
 					</span>
 					<button type="button" class="pomeshenie">Далее</button>
 				</div>

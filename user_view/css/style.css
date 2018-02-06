@@ -85,6 +85,10 @@ table {
 	from {transform:scale(1.1)}
 	to {transform:scale(1)}
 }
+button._0
+{
+	margin-top: 1em;
+}
 #steps
 {
 	position: absolute;
@@ -94,26 +98,25 @@ table {
     top: 0;
     font-size: .9em;
     text-transform: uppercase;
-    font-family: 'Rubik Medium';
     color: #b5212e;
 }
 #first{overflow:hidden;margin-bottom:30px}
 h1,h2,h3,h4,tr td,.ended{text-transform:uppercase}
-h2{display:block;font-size:1.3em;font-family:'Rubik Regular';/*background-color:#ffc65c;padding:10px 14px;color:#fff;*/margin:0 auto}
-h3,tr td,.ended{font-size:.8em;margin-top:10px;font-family:'Rubik Regular';text-align:center}
-h4{font-size:0.889em;margin:0px 10px;font-family:'Rubik Regular';text-align:center}
+h2{display:block;font-size:1.3em;/*background-color:#ffc65c;padding:10px 14px;color:#fff;*/margin:0 auto}
+h3,tr td,.ended{font-size:1em;margin-top:10px;text-align:center}
+h4{font-size:0.889em;margin:0px 10px;text-align:center}
 h4>i{font-size: .7em;}
-#first>div>article>p{margin:10px 0 0 0;font-family:'Rubik Lite';font-size:0.9em;text-align:center}
-#first>h1 {position:relative;font-family:'Rubik Regular';background-color:#6495ed;color:#fff;text-align:center;font-size:1.6em;line-height:2em;z-index:9999}
+#first>div>article>p{margin:10px 0 0 0;font-size:0.9em;text-align:center}
+#first>h1 {position:relative;background-color:#6495ed;color:#fff;text-align:center;font-size:1.6em;line-height:2em;z-index:9999}
 
 #first>div>article{position:absolute;background-color:#fff}
 .block button, .buttons, .buttonslil{background-color:#b5212e;border:none;color:#fff;padding:10px 34px;text-transform:uppercase;cursor:pointer}
 button.buttonslil{padding:8px 24px;font-size:.8em}
 .block button:hover, .buttons:hover, .buttonslil:hover{background-color:#e60216}
 .block{text-align:center}
-.block h3{margin-bottom:0.1em;font-size:1.45em}
+.block h3{margin-bottom:0.1em;font-size:1.35em}
 .block button, .buttons{margin:0.4em 10px}
-.block p{font-family:'Rubik Lite'}
+.block p{}
 .lh3 img{}
 .container_button
 {
@@ -130,9 +133,9 @@ button.buttonslil{padding:8px 24px;font-size:.8em}
 	    /*visibility: hidden;*/
 	    cursor: pointer;
 }
-.inform > i:hover
+.inform > i:hover, .container_button > i.dopinf:hover
 {
-	color: #32557f;
+	color: #b5212e;
 }
 #spravka > a:hover
 {
@@ -144,10 +147,9 @@ button.buttonslil{padding:8px 24px;font-size:.8em}
     top: 12em;
     left: 42%;
     font-size: .9em;
-    font-family: 'Rubik Lite';
     background-color: #333333;
     color: #FFFFFF;
-    padding: .9em .3em;
+    padding: 1.5em .8em;
     width: 250px;
     text-align: center;
     z-index: 999999;
@@ -177,7 +179,7 @@ button.buttonslil{padding:8px 24px;font-size:.8em}
 #temperature{position:relative;text-align:left}
 #temp{text-align:center}
 .cels{position:relative;display:inline-block;width:50px;height:50px;margin:0 40px}
-.cels::before{position:absolute;width:50px;height:50px;left:0;border-radius:50%;color:#fff;text-align:center;font-family:'Rubik Lite';font-size:1.1em;line-height:46px;cursor:pointer;z-index:9999}
+.cels::before{position:absolute;width:50px;height:50px;left:0;border-radius:50%;color:#fff;text-align:center;font-size:1.1em;line-height:46px;cursor:pointer;z-index:9999}
 .celsM::before{background-color:#5689d0 !important}
 .celsP::before{background-color:#b5212e !important}
 .cels:first-child::before{content:'-50\00B0'}
@@ -206,7 +208,7 @@ button.buttonslil{padding:8px 24px;font-size:.8em}
     font-family: 'Open Sans';
 }
 
-.dopvar input[type="radio"], .dopvar label{font-family:'Rubik Lite';cursor:pointer}
+.dopvar input[type="radio"], .dopvar label{cursor:pointer}
 .dopvar input[type="radio"]{color:red}
 .dopvar hr{border-color:#ffc5c5}
 
@@ -271,11 +273,11 @@ button.buttonslil{padding:8px 24px;font-size:.8em}
 #список_моделей_рельс li, #список_моделей_путей li, #список_токоподводов li{display:inline-block}
 .block h3.вес{width:190px;font-size:2.3em;letter-spacing:0.007em;padding:.3em 0.5em;border:1px solid #888;border-radius:4px;line-height:.7em;color:#333;cursor:pointer}
 .block h3.вес:hover{border-color:#b5212e}
-#first li{margin-left:0;font-family:'Rubik Regular';list-style: none;}
+#first li{margin-left:4px;list-style: none;}
 tr td{padding:7px;border:none}
 tr td:first-child{position:relative;text-align:right;width:30px;padding:0;border:none}
 tr td:last-child{text-align:left;padding-left:6px;border-bottom:1px solid #324A56;font-size:0.84em}
-td i{position:absolute;top:11px;right:13px;color:#6495ed;font-size:0.7em;cursor:pointer;text-transform:lowercase}
+td i{position:absolute;top:8px;right:13px;color:#6495ed;font-size:.8em;cursor:pointer;text-transform:lowercase}
 td i:hover {text-decoration:underline}
 .ended{text-align:left;padding-left:30px}
 .hover{}
@@ -333,7 +335,6 @@ td>span,img+br+p>span,img+br+p+p>span, #summa1, #summa2, #summa3, #summa4 {color
 	color: #FFF;
     text-transform: uppercase;
     text-align: center;
-    font-family: 'Rubik Regular';
     margin:9px;
     background-color:#6495ed;
     cursor: pointer;
@@ -359,7 +360,7 @@ option:hover{background-color:#b5212e;color:#fff;cursor: pointer;}
 #dop_block{display:none;width:100%;margin:0 auto}
 .dop_menu{position:relative;margin-bottom:10px;height:0;overflow:hidden}
 .dop_menu_open{display:flex;align-items:flex-start;flex-wrap:wrap;margin-bottom:52px;height:auto}
-.head_dop_menu, .head_dop_menu_open{position:relative;display:block;width:100%;text-transform:uppercase;background-color:#b5212e;padding:6px 40px 6px 20px;font-family:'Rubik Regular';color:#FFF;cursor:pointer;text-align:center;z-index:999}
+.head_dop_menu, .head_dop_menu_open{position:relative;display:block;width:100%;text-transform:uppercase;background-color:#b5212e;padding:6px 40px 6px 20px;color:#FFF;cursor:pointer;text-align:center;z-index:999}
 .head_dop_menu::before{transform:rotateZ(-90deg)}
 .head_dop_menu_open::before{transform:rotateZ(90deg)}
 .head_dop_menu::before,.head_dop_menu_open::before{content:'\2039';position:absolute;right:16px;top:-4px;font-size:2.4em}
@@ -380,7 +381,6 @@ span.hiddened{text-transform:lowercase}
 .opisanie_parametra,.srok_parametra,.add_dop_option_paragraf{
 	text-transform: uppercase;
     font-size: 0.72em;
-    font-family: "Rubik Regular";
 }
 .stoimost_parametra{display:inline-block;margin-top:5px;font-weight:bold;color:#b5212e}
 
@@ -500,7 +500,6 @@ p + hr
 
 .price_ 
 {
-	font-family:'Rubik Lite';
 	color:#727272;
 }
 
@@ -517,7 +516,6 @@ p + hr
 	display: inline-block;
     width: 42%;
     cursor: pointer;
-    font-family: 'Rubik Lite';
     margin-bottom: .2em;
         font-size: .9em;
 }
@@ -536,10 +534,10 @@ p + hr
 .opt_tal:nth-child(even)
 {
     text-align: left;
-	margin-left: 7.5%;
+	margin-left: 10px;
 }
 
-.bolg_kanat, .russia_kanat, .bolg_cep, #next_tal, #h2_tal
+.bolg_kanat, .russia_kanat, .bolg_cep, #next_tal, #h2_tal, .bolg_kanat_b, .russia_kanat_b, .bolg_cep_b
 {
 	display: none;
 }
@@ -564,7 +562,6 @@ label[for="city"], label[for="city2"]
 #error500mmP
 {
 	display: none;
-    font-family: "Rubik Lite";
     color: red;
     font-size: 0.7em;
     position: absolute;
@@ -587,4 +584,49 @@ input#inpcity[type="text"]
 {
 	 width: 40%;
     margin: 10px auto 0;
+}
+
+
+.taliopt > .inform
+{
+	margin-left: -262px;
+    font-size: 1.2em;
+    margin-top: -5px;
+}
+
+.taliopt_r > .inform
+{
+	margin-right: -262px;
+	margin-left: 10px;
+    font-size: 1.2em;
+    margin-top: -5px;
+}
+
+
+.table_info
+{
+	position: absolute;
+    top: -3px;
+    left: 3px;
+    font-size: 1.3em;
+}
+
+.table_info > i.fa:hover
+{
+	text-decoration: none;
+}
+
+.inforeateble
+{
+	margin-left: 0;
+	margin-top: 5px;	
+}
+
+.container_button > i.dopinf
+{
+	    font-size: 1.6em;
+}
+.dopinfmain
+{
+	margin-top: .3em;
 }

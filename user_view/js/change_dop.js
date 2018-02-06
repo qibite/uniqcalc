@@ -48,6 +48,10 @@ jQuery(document).ready(($)=>{
 					pult_upravleniya_PULTP_h4.addEventListener('click', function () {
 						cran._3Type = 'Подвесной пульт';						
 					});
+					let pult_upravleniya_PULTP_inf = document.createElement('div');
+						pult_upravleniya_PULTP_inf.classList = 'container_button';
+						pult_upravleniya_PULTP_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i3_3" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+						pult_upravleniya_PULTP.append(pult_upravleniya_PULTP_inf);
 
 		let pult_upravleniya_PULT = document.createElement('div'); // блок пульт
 		pult_upravleniya_PULT.className = 'pult_upravleniya_PULT animated zoomIn'
@@ -136,6 +140,19 @@ jQuery(document).ready(($)=>{
 							pult_upravleniya_TELECRANE_h4.addEventListener('click', function () {
 								cran._3Type = 'Радиоуправление с пультом Telecrane (Тайвань)';
 							});
+					if ( cran._2 == 'Общепромышленное' || cran._2 == 'Пожаробезопасное' ) {
+						let pult_upravleniya_TELECRANE_inf = document.createElement('div');
+						pult_upravleniya_TELECRANE_inf.classList = 'container_button';
+						pult_upravleniya_TELECRANE_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i3_7" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+						pult_upravleniya_TELECRANE.append(pult_upravleniya_TELECRANE_inf);
+					}
+					if ( cran._2 == 'Взрывобезопасное' ) {
+						let pult_upravleniya_TELECRANE_inf = document.createElement('div');
+						pult_upravleniya_TELECRANE_inf.classList = 'container_button';
+						pult_upravleniya_TELECRANE_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i3_7vbi" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+						pult_upravleniya_TELECRANE.append(pult_upravleniya_TELECRANE_inf);
+					}
+						
 
 
 					let pult_upravleniya_IKUSI = document.createElement('div'); // блок пульт
@@ -161,6 +178,18 @@ jQuery(document).ready(($)=>{
 							pult_upravleniya_IKUSI_h4.addEventListener('click', function () {
 								cran._3Type = 'Радиоуправление с пультом Ikusi (Испания)';
 							});
+					if ( cran._2 == 'Общепромышленное' || cran._2 == 'Пожаробезопасное' ) {
+						let pult_upravleniya_IKUSI_inf = document.createElement('div');
+						pult_upravleniya_IKUSI_inf.classList = 'container_button';
+						pult_upravleniya_IKUSI_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i3_8" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+						pult_upravleniya_IKUSI.append(pult_upravleniya_IKUSI_inf);
+					}
+					if ( cran._2 == 'Взрывобезопасное' ) {
+						let pult_upravleniya_IKUSI_inf = document.createElement('div');
+						pult_upravleniya_IKUSI_inf.classList = 'container_button';
+						pult_upravleniya_IKUSI_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i3_8vbi" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+						pult_upravleniya_IKUSI.append(pult_upravleniya_IKUSI_inf);
+					}
 
 
 					let pult_upravleniya_HBRRadiomatic = document.createElement('div'); // блок пульт
@@ -186,7 +215,18 @@ jQuery(document).ready(($)=>{
 							pult_upravleniya_HBRRadiomatic_h4.addEventListener('click', function () {
 								cran._3Type = 'Радиоуправление с пультом HBC-Radiomatic (Германия)';
 							});
-					
+					if ( cran._2 == 'Общепромышленное' || cran._2 == 'Пожаробезопасное' ) {
+						let pult_upravleniya_HBRRadiomatic_inf = document.createElement('div');
+						pult_upravleniya_HBRRadiomatic_inf.classList = 'container_button';
+						pult_upravleniya_HBRRadiomatic_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i3_9" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+						pult_upravleniya_HBRRadiomatic.append(pult_upravleniya_HBRRadiomatic_inf);
+					}
+					if ( cran._2 == 'Взрывобезопасное' ) {
+						let pult_upravleniya_HBRRadiomatic_inf = document.createElement('div');
+						pult_upravleniya_HBRRadiomatic_inf.classList = 'container_button';
+						pult_upravleniya_HBRRadiomatic_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i3_9vbi" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+						pult_upravleniya_HBRRadiomatic.append(pult_upravleniya_HBRRadiomatic_inf);
+					}					
 				});
 			}
 			else
@@ -222,6 +262,10 @@ jQuery(document).ready(($)=>{
 							pult_upravleniya_TELECRANE_h4.addEventListener('click', function () {
 								cran._3Type = 'Радиоуправление с джойстиком Telecrane (Тайвань)';
 							});
+							let pult_upravleniya_TELECRANE_inf = document.createElement('div');
+							pult_upravleniya_TELECRANE_inf.classList = 'container_button';
+							pult_upravleniya_TELECRANE_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i3_7j" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+							pult_upravleniya_TELECRANE.append(pult_upravleniya_TELECRANE_inf);
 
 
 					let pult_upravleniya_IKUSI = document.createElement('div'); // блок пульт
@@ -247,6 +291,10 @@ jQuery(document).ready(($)=>{
 							pult_upravleniya_IKUSI_h4.addEventListener('click', function () {
 								cran._3Type = 'Радиоуправление с джойстиком Ikusi (Испания)';
 							});
+							let pult_upravleniya_IKUSI_inf = document.createElement('div');
+							pult_upravleniya_IKUSI_inf.classList = 'container_button';
+							pult_upravleniya_IKUSI_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i3_8j" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+							pult_upravleniya_IKUSI.append(pult_upravleniya_IKUSI_inf);
 
 
 					let pult_upravleniya_HBRRadiomatic = document.createElement('div'); // блок пульт
@@ -272,7 +320,10 @@ jQuery(document).ready(($)=>{
 							pult_upravleniya_HBRRadiomatic_h4.addEventListener('click', function () {
 								cran._3Type = 'Радиоуправление с джойстиком HBC-Radiomatic (Германия)';
 							});
-					
+							let pult_upravleniya_HBRRadiomatic_inf = document.createElement('div');
+							pult_upravleniya_HBRRadiomatic_inf.classList = 'container_button';
+							pult_upravleniya_HBRRadiomatic_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i3_9j" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+							pult_upravleniya_HBRRadiomatic.append(pult_upravleniya_HBRRadiomatic_inf);
 				})
 			}
 		}
@@ -281,13 +332,15 @@ jQuery(document).ready(($)=>{
 
 	$('body').on('click', '#closePult', function(event) {
 		$(this).parent('.pultslider').detach();
-		$('html, body').animate({ 'scrollTop':'900px' }, 400)
+		$('html, body').animate({ 'scrollTop':'700px' }, 400)
 	})
 	$('body').on('click', '.change_on_PULTP, .change_on_TELECRANE, .change_on_IKUSI, .change_on_HBRRadiomatic', function(event) {
+		console.log(event)
 		$(this).parent().parent('.pultslider').detach();
 		$('.pult_change').parent('.dop_parametr').detach();
-		$('html, body').animate({ 'scrollTop':'900px' }, 400);
+		$('html, body').animate({ 'scrollTop':'700px' }, 400);
 		cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya(cran.code_of_chastotnik) : false;
+
 		if ($(this).parent('.pult_upravleniya_PULTP')) {
 			$('#option_2 .dop_parametr:last-child').before(()=>{
 				let new_html = '<div class="dop_parametr"> \
@@ -366,6 +419,10 @@ jQuery(document).ready(($)=>{
 						cran.code_of_motor = 9.1;
 						cran.setmotor = 'Червячная передача ABLE (Италия)';
 					});
+					let motor_reductor_9_1_inf = document.createElement('div');
+						motor_reductor_9_1_inf.classList = 'container_button';
+						motor_reductor_9_1_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i9_1" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+						motor_reductor_9_1.append(motor_reductor_9_1_inf);
 			/*********************************************************************************************************************************/
 			/*********************************************************************************************************************************/
 		
@@ -394,6 +451,10 @@ jQuery(document).ready(($)=>{
 						cran.code_of_motor = 9.2;
 						cran.setmotor = 'Червячная передача NORD (Германия)';
 					});
+					let motor_reductor_9_2_inf = document.createElement('div');
+						motor_reductor_9_2_inf.classList = 'container_button';
+						motor_reductor_9_2_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i9_2" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+						motor_reductor_9_2.append(motor_reductor_9_2_inf);
 			/*********************************************************************************************************************************/
 			let motor_reductor_9_3 = document.createElement('div'); // блок пульт
 			motor_reductor_9_3.className = 'motor_reductor_9_3 animated zoomInRight'
@@ -421,6 +482,10 @@ jQuery(document).ready(($)=>{
 							cran.code_of_motor = 9.3;
 							cran.setmotor = 'Циллиндрическая передача Балкан Эхо (Болгария)';
 						});
+					let motor_reductor_9_3_inf = document.createElement('div');
+						motor_reductor_9_3_inf.classList = 'container_button';
+						motor_reductor_9_3_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i9_3" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+						motor_reductor_9_3.append(motor_reductor_9_3_inf);
 		/*********************************************************************************************************************************/
 			let motor_reductor_9_4 = document.createElement('div'); // блок пульт
 			motor_reductor_9_4.className = 'motor_reductor_9_4 animated zoomInLeft'
@@ -448,6 +513,10 @@ jQuery(document).ready(($)=>{
 							cran.code_of_motor = 9.4;
 							cran.setmotor = 'Циллиндрическая передача NORD (Германия)';
 					});
+					let motor_reductor_9_4_inf = document.createElement('div');
+						motor_reductor_9_4_inf.classList = 'container_button';
+						motor_reductor_9_4_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i9_4" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+						motor_reductor_9_4.append(motor_reductor_9_4_inf);
 		/*********************************************************************************************************************************/
 			let motor_reductor_9_5 = document.createElement('div'); // блок пульт
 			motor_reductor_9_5.className = 'motor_reductor_9_5 animated zoomInRight'
@@ -476,6 +545,10 @@ jQuery(document).ready(($)=>{
 							cran.code_of_motor = 9.5;
 							cran.setmotor = 'Циллиндрическая передача Европривод (Россия)';
 					});
+					let motor_reductor_9_5_inf = document.createElement('div');
+						motor_reductor_9_5_inf.classList = 'container_button';
+						motor_reductor_9_5_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i9_5" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+						motor_reductor_9_5.append(motor_reductor_9_5_inf);
 		
 			
 				$('html, body').animate({ 'scrollTop':'170px' }, 350)
@@ -485,13 +558,13 @@ jQuery(document).ready(($)=>{
 
 	$('body').on('click', '#closeMotorReductor', function(event) {
 		$(this).parent('.motor_reductor_slider').detach();
-		$('html, body').animate({ 'scrollTop':'900px' }, 400)
+		$('html, body').animate({ 'scrollTop':'700px' }, 400)
 	})
 	$('body').on('click', '.change_on_9_1, .change_on_9_2, .change_on_9_3, .change_on_9_4, .change_on_9_5', function(event) {
 		$(this).parent().parent('.motor_reductor_slider').detach();
 		$('.motor_reductor_change').parent('.dop_parametr').detach();
 		cran.motor_price(cran.code_of_motor)
-		$('html, body').animate({ 'scrollTop':'900px' }, 400);
+		$('html, body').animate({ 'scrollTop':'700px' }, 400);
 	})
 /************************************************************************************************************************************************************************************************************************************
 *
@@ -552,8 +625,11 @@ jQuery(document).ready(($)=>{
 					preobrazovatel_8_3_h4.addEventListener('click', function () {
 						cran.code_of_chastotnik = '8.3';
 						cran.setspeed = 'Одна скорость движения';
-
 					});
+					let preobrazovatel_8_3_inf = document.createElement('div');
+						preobrazovatel_8_3_inf.classList = 'container_button';
+						preobrazovatel_8_3_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i8_3" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+						preobrazovatel_8_3.append(preobrazovatel_8_3_inf);
 		/*********************************************************************************************************************************/
 		
 		let preobrazovatel_8_4 = document.createElement('div'); // блок пульт
@@ -581,8 +657,11 @@ jQuery(document).ready(($)=>{
 					preobrazovatel_8_4_h4.addEventListener('click', function () {
 						cran.code_of_chastotnik = '8.4';
 						cran.setspeed = 'Несколько скоростей движения';
-
 					});
+					let preobrazovatel_8_4_inf = document.createElement('div');
+						preobrazovatel_8_4_inf.classList = 'container_button';
+						preobrazovatel_8_4_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i8_4" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+						preobrazovatel_8_4.append(preobrazovatel_8_4_inf);
 			let  clr_pr = document.createElement('div'); clr_pr.style.clear = 'both'; preobrazovatel.append(clr_pr);
 		/*********************************************************************************************************************************/
 		
@@ -610,8 +689,11 @@ jQuery(document).ready(($)=>{
 					preobrazovatel_8_5_h4.addEventListener('click', function () {
 						cran.code_of_chastotnik = '8.5';
 						cran.setspeed = 'Плавный пуск + 2 и более скорости ESQ (Китай)';
-
 					});
+					let preobrazovatel_8_5_inf = document.createElement('div');
+						preobrazovatel_8_5_inf.classList = 'container_button';
+						preobrazovatel_8_5_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i8_5" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+						preobrazovatel_8_5.append(preobrazovatel_8_5_inf);
 		/*********************************************************************************************************************************/
 		
 		let preobrazovatel_8_6 = document.createElement('div'); // блок пульт
@@ -638,8 +720,11 @@ jQuery(document).ready(($)=>{
 					preobrazovatel_8_6_h4.addEventListener('click', function () {
 						cran.code_of_chastotnik = '8.6';
 						cran.setspeed = 'Плавный пуск + 2 и более скорости Hyundai (Корея)';
-
 					});
+					let preobrazovatel_8_6_inf = document.createElement('div');
+						preobrazovatel_8_6_inf.classList = 'container_button';
+						preobrazovatel_8_6_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i8_6" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+						preobrazovatel_8_6.append(preobrazovatel_8_6_inf);
 		/*********************************************************************************************************************************/
 		
 		let preobrazovatel_8_7 = document.createElement('div'); // блок пульт
@@ -665,9 +750,12 @@ jQuery(document).ready(($)=>{
 				preobrazovatel_8_7.append(preobrazovatel_8_7_h4);
 					preobrazovatel_8_7_h4.addEventListener('click', function () {
 						cran.code_of_chastotnik = '8.7';
-						cran.setspeed = 'Плавный пуск + 2 и более скорости Danfoss (Германия)';	
-
+						cran.setspeed = 'Плавный пуск + 2 и более скорости Danfoss (Германия)';
 					});
+					let preobrazovatel_8_7_inf = document.createElement('div');
+						preobrazovatel_8_7_inf.classList = 'container_button';
+						preobrazovatel_8_7_inf.innerHTML = '<span class="inform inforeateble animated"><i data-info="i8_7" class="fa fa-info-circle" aria-hidden="true"></i></span>';
+						preobrazovatel_8_7.append(preobrazovatel_8_7_inf);
 			
 			$('html, body').animate({ 'scrollTop':'170px' }, 350)
 			$('.zzz').after(preobrazovatel);
@@ -676,20 +764,20 @@ jQuery(document).ready(($)=>{
 
 	$('body').on('click', '#closePreobrazovatel', function(event) {
 		$(this).parent('.preobrazovatel_slider').detach();
-		$('html, body').animate({ 'scrollTop':'900px' }, 400)
+		$('html, body').animate({ 'scrollTop':'700px' }, 400)
 	})
 	$('body').on('click', '.change_on_8_5, .change_on_8_6, .change_on_8_7', function(event) {
 		$(this).parent().parent('.preobrazovatel_slider').detach();
 		$('.preobrazovatel_change').parent('.dop_parametr').detach();
 		cran.chastotnik_price(cran.code_of_chastotnik)
-		$('html, body').animate({ 'scrollTop':'900px' }, 400);
+		$('html, body').animate({ 'scrollTop':'700px' }, 400);
 		if ($('.return_pult_default')) {$('.return_pult_default').parent().detach();cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya(cran.code_of_chastotnik) : false;}
 	})
 	$('body').on('click', '.change_on_8_4', function(event) {
 		$(this).parent().parent('.preobrazovatel_slider').detach();
 		$('.preobrazovatel_change').parent('.dop_parametr').detach();
 		cran.double_speed(cran.code_of_chastotnik)
-		$('html, body').animate({ 'scrollTop':'900px' }, 400);
+		$('html, body').animate({ 'scrollTop':'700px' }, 400);
 		if ($('.return_pult_default')) {$('.return_pult_default').parent().detach();cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya(cran.code_of_chastotnik) : false;}
 	})
 	$('body').on('click', '.change_on_8_3', function(event) {
@@ -709,7 +797,7 @@ jQuery(document).ready(($)=>{
 				</p>';
 			return new_html;
 		});
-		$('html, body').animate({ 'scrollTop':'900px' }, 400);
+		$('html, body').animate({ 'scrollTop':'700px' }, 400);
 		if ($('.return_pult_default')) {$('.return_pult_default').parent().detach();cran._3Type.search(/пультом/i) != -1 || cran._3Type.search(/джойстиком/i) != -1 ? cran.price_crane_electro_upravleniya(cran.code_of_chastotnik) : false;}
 	})
 /************************************************************************************************************************************************************************************************************************************
@@ -779,13 +867,13 @@ jQuery(document).ready(($)=>{
 
 	$('body').on('click', '#closePreobrazovatel', function(event) {
 		$(this).parent('.preobrazovatel_slider').detach();
-		$('html, body').animate({ 'scrollTop':'900px' }, 400)
+		$('html, body').animate({ 'scrollTop':'700px' }, 400)
 	})
 	$('body').on('click', '.change_on_8_4, .change_on_8_5, .change_on_8_6, .change_on_8_7', function(event) {
 		$(this).parent().parent('.preobrazovatel_slider').detach();
 		$('.preobrazovatel_change').parent('.dop_parametr').detach();
 		//cran.calculate_tal()
-		$('html, body').animate({ 'scrollTop':'900px' }, 400);
+		$('html, body').animate({ 'scrollTop':'700px' }, 400);
 	})
 
 

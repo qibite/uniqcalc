@@ -31,6 +31,20 @@ elseif ( $_POST['electro_tali_submit'] == true || $_POST['ruchnie_tali_submit'] 
 		);
 	echo '<div style="display:flex;height:700px;align-items:center;justify-content:center;text-transform:uppercase"><h1>Цена успешно изменена!</h1></div>';
 }
+elseif ($_POST['chdescript'] == true) {
+	$table = $_POST['db'];
+	$id = $_POST['edited_id'];
+	$descript = $_POST['descript'];
+	global $wpdb;
+	$res = $wpdb->update(
+			$table, 
+			array('descript' => $descript),
+			array('id' => $id),
+			array( '%d' ),
+			array( '%s' )
+		);
+	echo '<div style="display:flex;height:700px;align-items:center;justify-content:center;text-transform:uppercase"><h1>Цена успешно изменена!</h1></div>';
+}
 else {echo '<div style="display:flex;height:700px;align-items:center;justify-content:center;text-transform:uppercase"><h1 style="color:red">Произошла ошибка записи!!!</h1></div>';}
 
 

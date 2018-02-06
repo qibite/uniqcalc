@@ -5,10 +5,10 @@ jQuery(document).ready(($)=>{
 
 	$('img').on('mouseenter', function() { $('.inform').css('visibility', 'hidden').removeClass('fadeInDown'); setTimeout(()=>{$(this).siblings('.container_button').children('.inform').css('visibility', 'visible').addClass('fadeInDown')},300);console.log('info') });*/
 
-	$('.inform').on('click', function() {
+	/*$('.inform').on('click', function() {
 		$('#spravka').css('display', 'block').removeClass('slideOutDown').addClass('slideInDown');
 		//setTimeout(()=>{$(this).css('visibility', 'hidden').removeClass('fadeInDown')},700);
-	});
+	});*/
 
 	$('#spravka>a, #close_spravka').on('click', function(event) {
 		$(this).parent().removeClass('slideInDown').addClass('slideOutDown');
@@ -16,13 +16,20 @@ jQuery(document).ready(($)=>{
 	});
 
 
-
+	cran.step = '';
 	let steps = document.createElement('span');
 		steps.className = 'animated zoomIn';
 		steps.id = 'steps';
 		steps.innerText = cran.step;
 		document.querySelector('#main_block_for_steps').insertBefore(steps, document.querySelector('#main_block_for_steps').firstChild);
 	$('html, body').animate({ scrollTop: '0px' }, 700)
+	
+	$('._0').on('click', function () {		
+		$('#steps').css('display', 'block');
+		hide($('#_0'));
+		cran.step = 'Шаг 1 из 11'
+		next_group( $('#_1'), 0 );
+	});
 /************************************************************************************************************************
 *																														*
 *									ВЫБОР КРАНА ОПОРНЫЙ ИЛ Подвесной  ШАГ-1												*
@@ -260,6 +267,27 @@ jQuery(document).ready(($)=>{
 *																														*
 ************************************************************************************************************************/
 	$('.параметры_помещения_для_опорный').click(function () {
+	$('#dpO, #shpO, #vO, #vpO').css('border-color', '#e9e9e9');
+		if ($('#dpO').val() <= 0) {
+			alert('Укажите корректную длинну питей, больше ноля');
+			$('#dpO').css('border-color', '#b5212e');
+			return
+		}
+		if ($('#shpO').val() <= 0) {
+			alert('Укажите корректную ширину между путями, больше ноля');
+			$('#shpO').css('border-color', '#b5212e');
+			return
+		}
+		if ($('#vO').val() <= 0) {
+			alert('Укажите корректную высоту путей, больше ноля');
+			$('#vO').css('border-color', '#b5212e');
+			return
+		}
+		if ($('#vpO').val() < 500) {
+			alert('Введите высоту до перекрытий потолка не менее 500мм');
+			$('#vpO').css('border-color', '#b5212e');
+			return
+		}
 		cran.paramsO.dpO = document.getElementById('dpO').value;
 		cran.paramsO.shpO = document.getElementById('shpO').value;
 		document.getElementById('valdpO').value = cran.paramsO.shpO;
@@ -273,11 +301,11 @@ jQuery(document).ready(($)=>{
 		if ($(this).val() < 500) {
 			console.log('Error!!!');
 			$('#error500mmO').css('display', 'inline-block');
-			$('button.параметры_помещения_для_опорный').css('display', 'none');
+			//$('button.параметры_помещения_для_опорный').css('display', 'none');
 		}
 		else {
 			$('#error500mmO').css('display', 'none');
-			$('button.параметры_помещения_для_опорный').css('display', 'inline-block');
+			//$('button.параметры_помещения_для_опорный').css('display', 'inline-block');
 		}
 	});
 /************************************************************************************************************************
@@ -286,6 +314,27 @@ jQuery(document).ready(($)=>{
 *																														*
 ************************************************************************************************************************/
 	$('.параметры_помещения_для_подвесной').click(function () {
+		$('#dpP, #shpP, #vP, #vpP').css('border-color', '#e9e9e9');
+		if ($('#dpP').val() <= 0) {
+			alert('Укажите корректную длинну питей, больше ноля');
+			$('#dpP').css('border-color', '#b5212e');
+			return
+		}
+		if ($('#shpP').val() <= 0) {
+			alert('Укажите корректную ширину между путями, больше ноля');
+			$('#shpP').css('border-color', '#b5212e');
+			return
+		}
+		if ($('#vP').val() <= 0) {
+			alert('Укажите корректную высоту путей, больше ноля');
+			$('#vP').css('border-color', '#b5212e');
+			return
+		}
+		if ($('#vpP').val() < 500) {
+			alert('Введите высоту до перекрытий потолка не менее 500мм');
+			$('#vpP').css('border-color', '#b5212e');
+			return
+		}
 		cran.paramsP.dpP = document.getElementById('dpP').value;
 		cran.paramsP.shpP = document.getElementById('shpP').value;
 		document.getElementById('valdpPk').value = cran.paramsP.shpP;
@@ -301,11 +350,11 @@ jQuery(document).ready(($)=>{
 		if ($(this).val() < 500) {
 			console.log('Error!!!')
 		$('#error500mmP').css('display', 'inline-block');
-		$('button.параметры_помещения_для_опорный').css('display', 'none');
+		//$('button.параметры_помещения_для_опорный').css('display', 'none');
 		}
 		else {
 			$('#error500mmP').css('display', 'none');
-			$('button.параметры_помещения_для_подвесной').css('display', 'inline-block');
+			//$('button.параметры_помещения_для_подвесной').css('display', 'inline-block');
 		}
 	});
 /************************************************************************************************************************
@@ -684,7 +733,7 @@ jQuery(document).ready(($)=>{
 	});
 
 		$('.ruchnaya_t').click(()=>{
-			$('.bolg_kanat,.bolg_cep,.russia_kanat, #next_tal, #h2_tal').css('display', 'none');
+			$('.bolg_kanat, .bolg_kanat_b, .bolg_cep, .bolg_cep_b, .russia_kanat,.russia_kanat_b, #next_tal, #h2_tal').css('display', 'none');
 			$('.show_type_tal').removeClass('show_type_tal').addClass('hide_type_tal')
 			$('.show_s_visota_tal').removeClass('show_s_visota_tal').addClass('hide_s_visota_tal')
 			tal.upravlenie = 'Ручное';
@@ -701,10 +750,11 @@ jQuery(document).ready(($)=>{
 				if (cran._1 == 'Подвесной') {
 					resultatiP();
 					next_group($('#результат_подвесного'), 0);
+					cran.calculate_podvesnoy_crane();
 				}
 				$('#dop_block').css('display', 'block');
 				hide($('#vibor_tali'));
-				$('#main_block_for_steps').css('height', '390px');
+				$('#main_block_for_steps').css('height', '450px');
 				cran.step = 'end';
 			}
 			else {
@@ -742,23 +792,24 @@ jQuery(document).ready(($)=>{
 					if (cran._1 == 'Подвесной') {
 						resultatiP();
 						next_group($('#результат_подвесного'), 0);
+						cran.calculate_podvesnoy_crane();
 					}
-					$('#main_block_for_steps').css('height', '390px');
+					$('#main_block_for_steps').css('height', '450px');
 					$('#dop_block').css('display', 'block');
 					cran.calculate_tal();
 			})
 
 			$('.bolgariya_tE').click(()=>{
-				$('.bolg_kanat,.bolg_cep,.russia_kanat, #next_tal, #h2_tal').css('display', 'none');
+				$('.bolg_kanat, .bolg_kanat_b, .bolg_cep, .bolg_cep_b, .russia_kanat, .russia_kanat_b, #next_tal, #h2_tal').css('display', 'none');
 				if (tal.gp <= 2000 && tal.visota <= 12000) {
 					$('.hide_type_tal').removeClass('hide_type_tal').addClass('show_type_tal')
-					$('#main_block_for_steps').css('height', '2026px');
+					$('#main_block_for_steps').css('height', '2186px');
 					$('.kanat_t').siblings('.price_').text('От ' + String(Number(tal.priceAJAX.bolgariya_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 					$('.cep_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_cep_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 					easyscroll(1280);
 				} else {					
 					$('.hide_s_visota_tal').removeClass('hide_s_visota_tal').addClass('show_s_visota_tal');
-					$('#main_block_for_steps').css('height', '2026px');
+					$('#main_block_for_steps').css('height', '2186px');
 					easyscroll(1280);
 					tal.type = 'Канатная';
 					if (cran._2.search(/Взрывобезопасное/i) == 0) {
@@ -783,8 +834,9 @@ jQuery(document).ready(($)=>{
 					cran._2.search(/Взрывобезопасное/i) == 0 ? tal.type = 'Канатная ВБИ' : tal.type = 'Канатная';
 					tal.img = '17.5.1.png';
 					cran.step = 'end';
-					$('.russia_kanat,.bolg_cep').removeClass('animated zoomInLeft').css('display', 'none');
+					$('.russia_kanat, .russia_kanat_b, .bolg_cep, .bolg_cep_b').removeClass('animated zoomInLeft').css('display', 'none');
 					$('.bolg_kanat').addClass('animated zoomInLeft').css('display', 'inline-block');
+					$('.bolg_kanat_b').css('display', 'flex');
 					$('#next_tal, #h2_tal').css('display', 'block');
 					$('h4.stdV_t').css({'background-color':'#b5212e', 'color':'#FFFFFF'});
 					$('h4.umenV_t').css({'background-color':'#cecece', 'color':'#242526'});
@@ -794,8 +846,9 @@ jQuery(document).ready(($)=>{
 					if(tal.country == 'Болгария'){easyscroll(1860)}
 					cran._2.search(/Взрывобезопасное/i) == 0 ? tal.type = 'Канатная УСВ ВБИ' : tal.type = 'Канатная УСВ';
 					tal.img = '17.5.2.png';
-					$('.russia_kanat,.bolg_cep').removeClass('animated zoomInLeft').css('display', 'none');
+					$('.russia_kanat, .russia_kanat_b, .bolg_cep, .bolg_cep_b').removeClass('animated zoomInLeft').css('display', 'none');
 					$('.bolg_kanat').addClass('animated zoomInLeft').css('display', 'inline-block');
+					$('.bolg_kanat_b').css('display', 'flex');
 					$('#next_tal, #h2_tal').css('display', 'block');
 					$('h4.stdV_t').css({'background-color':'#cecece', 'color':'#242526'});
 					$('h4.umenV_t').css({'background-color':'#b5212e', 'color':'#FFFFFF'});
@@ -815,8 +868,9 @@ jQuery(document).ready(($)=>{
 					if (cran._1 == 'Подвесной') {
 						resultatiP();
 						next_group($('#результат_подвесного'), 0);
+						cran.calculate_podvesnoy_crane();
 					}
-					$('#main_block_for_steps').css('height', '390px');
+					$('#main_block_for_steps').css('height', '450px');
 					$('#dop_block').css('display', 'block');
 					cran.calculate_tal();
 			})
@@ -825,8 +879,9 @@ jQuery(document).ready(($)=>{
 				tal.type = 'Канатная';
 				tal.country = 'Россия';				
 				tal.img = '17.6.png';
-				$('.bolg_kanat,.bolg_cep').removeClass('animated zoomInLeft').css('display', 'none');
-				$('.russia_kanat').addClass('animated zoomInLeft').css('display', 'inline-block');
+				$('.bolg_kanat, .bolg_kanat_b, .bolg_cep, .bolg_cep_b').removeClass('animated zoomInLeft').css('display', 'none');
+				$('.russia_kanat').addClass('animated zoomInLeft').css('display', 'inline-block'); 
+				$('.russia_kanat_b').css('display', 'flex');
 				$('#next_tal, #h2_tal').css('display', 'block');
 				$('#main_block_for_steps').css('height', '1560px');
 				easyscroll(1220);
@@ -849,8 +904,9 @@ jQuery(document).ready(($)=>{
 					if (cran._1 == 'Подвесной') {
 						resultatiP();
 						next_group($('#результат_подвесного'), 0);
+						cran.calculate_podvesnoy_crane();
 					}
-					$('#main_block_for_steps').css('height', '390px');
+					$('#main_block_for_steps').css('height', '450px');
 					$('#dop_block').css('display', 'block');
 					cran.calculate_tal();	
 			})
@@ -874,8 +930,9 @@ jQuery(document).ready(($)=>{
 					if (cran._1 == 'Подвесной') {
 						resultatiP();
 						next_group($('#результат_подвесного'), 0);
+						cran.calculate_podvesnoy_crane();
 					}
-					$('#main_block_for_steps').css('height', '390px');
+					$('#main_block_for_steps').css('height', '450px');
 					$('#dop_block').css('display', 'block');
 					cran.calculate_tal();
 				  }
@@ -884,15 +941,15 @@ jQuery(document).ready(($)=>{
 				$('h4.bolgariya_tE').css({'background-color':'#cecece', 'color':'#242526'});
 				$('h4.russia_tE').css({'background-color':'#cecece', 'color':'#242526'});
 				$('h4.china_tE').css({'background-color':'#b5212e', 'color':'#FFFFFF'});
-				$('.bolg_kanat,.bolg_cep,.russia_kanat, #next_tal, #h2_tal').removeClass('animated zoomInLeft').css('display', 'none');
+				$('.bolg_kanat, .bolg_kanat_b, .bolg_cep,  .bolg_cep_b, .russia_kanat, .russia_kanat_b, #next_tal, #h2_tal').removeClass('animated zoomInLeft').css('display', 'none');
 			})
 
 				$('.kanat_t').click(()=>{
 					if (tal.country == 'Болгария') {						
 						$('.hide_s_visota_tal').removeClass('hide_s_visota_tal').addClass('show_s_visota_tal')
-						easyscroll(1620);
+						easyscroll(1780);
 						tal.type = 'Канатная';
-						$('#main_block_for_steps').css('height', '2430px');
+						$('#main_block_for_steps').css('height', '2560px');
 						$('.stdV_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_canat_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 						$('.umenV_t').siblings('.price_').text(String(Number(tal.priceAJAX.bolgariya_el_canatUSV_t).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' руб');
 					} else {
@@ -908,13 +965,13 @@ jQuery(document).ready(($)=>{
 							if (cran._1 == 'Подвесной') {
 								resultatiP();
 								next_group($('#результат_подвесного'), 0);
+								cran.calculate_podvesnoy_crane();
 							}
-							$('#main_block_for_steps').css('height', '390px');
+							$('#main_block_for_steps').css('height', '450px');
 							$('#dop_block').css('display', 'block');
 							cran.calculate_tal();
 					}
-					$('.russia_kanat,.bolg_kanat,.bolg_cep').removeClass('animated zoomInLeft').css('display', 'none');
-					$('.bolg_cep').css('display', 'none');
+					$('.russia_kanat, .russia_kanat_b, .bolg_kanat, .bolg_kanat_b, .bolg_cep, .bolg_cep_b').removeClass('animated zoomInLeft').css('display', 'none');
 					$('#next_tal, #h2_tal').css('display', 'none');
 					$('h4.kanat_t').css({'background-color':'#b5212e', 'color':'#FFFFFF'});
 					$('h4.cep_t').css({'background-color':'#cecece', 'color':'#242526'});
@@ -933,16 +990,18 @@ jQuery(document).ready(($)=>{
 						if (cran._1 == 'Подвесной') {
 							resultatiP();
 							next_group($('#результат_подвесного'), 0);
+							cran.calculate_podvesnoy_crane();
 						}
-						$('#main_block_for_steps').css('height', '390px');
+						$('#main_block_for_steps').css('height', '450px');
 						$('#dop_block').css('display', 'block');
 						cran.calculate_tal();
 					} else {
 						easyscroll(1620);
 						$('.show_s_visota_tal').removeClass('show_s_visota_tal').addClass('hide_s_visota_tal')
-						$('.russia_kanat,.bolg_kanat').removeClass('animated zoomInLeft').css('display', 'none');
+						$('.russia_kanat, .russia_kanat_b, .bolg_kanat, .bolg_kanat_b').removeClass('animated zoomInLeft').css('display', 'none');
 						$('#main_block_for_steps').css('height', '1900px');
 						$('.bolg_cep').addClass('animated zoomInLeft').css('display', 'inline-block');
+						$('.bolg_cep_b').css('display', 'flex');
 						$('#next_tal, #h2_tal').css('display', 'block');
 						$('h4.cep_t').css({'background-color':'#b5212e', 'color':'#FFFFFF'});
 						$('h4.kanat_t').css({'background-color':'#cecece', 'color':'#242526'});
@@ -961,8 +1020,9 @@ jQuery(document).ready(($)=>{
 					if (cran._1 == 'Подвесной') {
 						resultatiP();
 						next_group($('#результат_подвесного'), 0);
+						cran.calculate_podvesnoy_crane();
 					}
-					$('#main_block_for_steps').css('height', '390px');
+					$('#main_block_for_steps').css('height', '450px');
 					$('#dop_block').css('display', 'block');
 					cran.calculate_tal();
 				});
@@ -981,8 +1041,9 @@ jQuery(document).ready(($)=>{
 		if (cran._1 == 'Подвесной') {
 			resultatiP();
 			next_group($('#результат_подвесного'), 0);
+			cran.calculate_podvesnoy_crane();
 		}
-		$('#main_block_for_steps').css('height', '390px');
+		$('#main_block_for_steps').css('height', '450px');
 		$('#dop_block').css('display', 'block');
 	})
 //////////////////////////////////////////////////////////////
@@ -1303,11 +1364,58 @@ cran.calculate_oporniy_crane = function  () {
 					if (cran.visota == 'Увеличенная') {
 						cran.summa = 70000 + Number(cran.summa);
 					}
+					if (cran.climat == 'Расположение на открытой местности') {
+						cran.summa = 9000 + Number(cran.summa);
+					}
 					$('#summa').text(String(Number(cran.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '));
 				});
 				var data_sroki_cran = { action: 'calc_sroki', _gp:cran.gp, _shir:cran.paramsO.shpO, _upravl:cran._3 }
 				$.post( calc_ajaxurl.url, data_sroki_cran, function(response) {
 					$('#sroki').text(response);					
+					calc_all_tokopodvod_i_puti();
+					calc_all_dop();
+					calc_all_uslugi();
+				});
+			//////////////
+}
+
+cran.calculate_podvesnoy_crane = function  () {	
+			//////////////
+				var data_cran_p = { action: 'calc_cran_p', _gp:cran.gp, _shir:cran.paramsP.shpP, _upravl:cran._3 }
+				$.post( calc_ajaxurl.url, data_cran_p, function(response) {
+					let price_crane = response;
+					if (cran._2.search(/Пожаробезопасное/i) != -1) {
+						cran.summa = (price_crane*10)/100 + Number(price_crane);
+					}
+					if (cran._2.search(/Взрывобезопасное/i) != -1) {
+						cran.summa = (price_crane*35)/100 + Number(price_crane);
+					}
+					if (cran._2.search(/Общепромышленное/i) != -1) {
+						cran.summa = price_crane;
+					}
+					if (cran.temper[0] == '-50') {
+						cran.summa = (price_crane*25)/100 + Number(cran.summa);
+					}
+					if (cran.temper[0] == '-40') {
+						cran.summa = (price_crane*10)/100 + Number(cran.summa);
+					}
+					if (cran.temper[1] == '+60') {
+						cran.summa = (price_crane*10)/100 + Number(cran.summa);
+					}
+					if (cran.ncuprav == '24В') {
+						cran.summa = 5000 + Number(cran.summa);
+					}
+					if (cran.visota == 'Увеличенная') {
+						cran.summa = 70000 + Number(cran.summa);
+					}
+					if (cran.climat == 'Расположение на открытой местности') {
+						cran.summa = 9000 + Number(cran.summa);
+					}
+					$('#summa_p').text(String(Number(cran.summa).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '));
+				});
+				var data_sroki_cran_p = { action: 'calc_sroki_p', _gp:cran.gp, _shir:cran.paramsP.shpP, _upravl:cran._3 }
+				$.post( calc_ajaxurl.url, data_sroki_cran_p, function(response) {
+					$('#sroki_p').text(response);					
 					calc_all_tokopodvod_i_puti();
 					calc_all_dop();
 					calc_all_uslugi();
@@ -1420,10 +1528,21 @@ function calc_all_tokopodvod_i_puti () {
 			conteiner += parseInt(el.children[3].children[2].innerText.replace(/\s/g, ''));
 		}
 	});
-	$('#summa1').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
-	$('#summa4').text('Подождите...')
+	if (cran._1 == 'Опорный') {
+		$('#summa1').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4').text('Подождите...')
+	}
+	if (cran._1 == 'Подвесной') {
+		$('#summa1_p').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4_p').text('Подождите...')
+	}	
 	setTimeout(() => {
-		calc_all_oporniy();
+		if (cran._1 == 'Опорный') {
+			calc_all_oporniy();
+		}
+		if (cran._1 == 'Подвесной') {
+			calc_all_podvesnoy();
+		}
 	}, 1200)
 }
 
@@ -1437,10 +1556,22 @@ function calc_all_dop () {
 			conteiner += parseInt(el.children[3].children[2].innerText.replace(/\s/g, ''));
 		}
 	});
-	$('#summa2').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
-	$('#summa4').text('Подождите...')
+	
+	if (cran._1 == 'Опорный') {
+		$('#summa2').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4').text('Подождите...')
+	}
+	if (cran._1 == 'Подвесной') {
+		$('#summa2_p').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4_p').text('Подождите...')
+	}
 	setTimeout(() => {
-		calc_all_oporniy();
+		if (cran._1 == 'Опорный') {
+			calc_all_oporniy();
+		}
+		if (cran._1 == 'Подвесной') {
+			calc_all_podvesnoy();
+		}		
 	}, 1200)
 }
 
@@ -1451,10 +1582,21 @@ function calc_all_uslugi () {
 			conteiner += parseInt(el.children[3].children[2].innerText.replace(/\s/g, ''));
 		}
 	});
-	$('#summa3').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
-	$('#summa4').text('Подождите...')
+	if (cran._1 == 'Опорный') {
+		$('#summa3').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4').text('Подождите...')
+	}
+	if (cran._1 == 'Подвесной') {
+		$('#summa3_p').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4_p').text('Подождите...')
+	}
 	setTimeout(() => {
-		calc_all_oporniy();
+		if (cran._1 == 'Опорный') {
+			calc_all_oporniy();
+		}
+		if (cran._1 == 'Подвесной') {
+			calc_all_podvesnoy();
+		}	
 	}, 1200)
 }
 
@@ -1470,6 +1612,37 @@ function calc_all_oporniy () {
 	$('#summa4').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
 }
 
+
+function calc_all_podvesnoy () {
+	let conteiner = 0;
+	if (!isNaN($('#summa_p').text().replace(/\s/g, '')) && !isNaN($('#summa1_p').text().replace(/\s/g, '')) && !isNaN($('#summa2_p').text().replace(/\s/g, '')) && !isNaN($('#summa3_p').text().replace(/\s/g, ''))) {
+		let summa = parseInt($('#summa_p').text().replace(/\s/g, ''));
+		let summa1 = parseInt($('#summa1_p').text().replace(/\s/g, ''));
+		let summa2 = parseInt($('#summa2_p').text().replace(/\s/g, ''));
+		let summa3 = parseInt($('#summsumma3_pa3').text().replace(/\s/g, ''));
+		conteiner = summa + summa1 + summa2 + summa3;
+	}
+	$('#summa4').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+}
+
+
+
+
+
+$('body').on('click', '.fa-info-circle', function(event) {
+	//console.log(this.id)
+	$('#spravka').css('display', 'none').removeClass('slideInDown').addClass('slideOutDown');
+	$.post( calc_ajaxurl.url, { action: 'getinfo', _codeinfo:this.getAttribute('data-info') }, function(response)
+	{
+		let spravka_obj = JSON.parse(response);
+		$('#spravka > #spravka_html').text(spravka_obj.descript);
+		$('#spravka > #spravka_html').siblings('a').attr('href', location.origin + '/' + spravka_obj.link);
+		//console.log(spravka_obj.descript+' '+spravka_obj.link)		
+	});
+	setTimeout(()=>{$('#spravka').css('display', 'block').removeClass('slideOutDown').addClass('slideInDown');}, 300)
+});
+
+// END!!!!!!
 });
 
 

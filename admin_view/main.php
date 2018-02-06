@@ -48,7 +48,7 @@ $wpdb->show_errors();
 						<td class='price' style='position:relative'>
 							<span class='ipaniy_price'>{$price}</span> &#8381;
 							<div class='editing_price'>
-								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+								<form>
 									<input type='hidden' name='db' value='$podvesnie_crani'>
 									<input type='hidden' name='edited_id' value='$id'>
 									<input type='number' name='new_price' value='$price' placeholder=''>
@@ -102,7 +102,7 @@ $wpdb->show_errors();
 						<td class='price' style='position:relative'>
 							<span class='ipaniy_price'>{$price}</span> &#8381;
 							<div class='editing_price'>
-								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+								<form>
 									<input type='hidden' name='db' value='$opornie_crani'>
 									<input type='hidden' name='edited_id' value='$id'>
 									<input type='number' name='new_price' value='$price' placeholder=''>
@@ -154,7 +154,7 @@ $wpdb->show_errors();
 						<td class='price' style='position:relative'>
 							<span class='ipaniy_price'>{$price}</span> {$valuta}
 							<div class='editing_price'>
-								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+								<form>
 									<input type='hidden' name='db' value='$electro_tali'>
 									<input type='hidden' name='edited_id' value='$id'>
 									<input type='number' name='new_price' value='$price' placeholder=''>
@@ -206,7 +206,7 @@ $wpdb->show_errors();
 						<td class='price' style='position:relative'>
 							<span class='ipaniy_price'>{$price}</span> {$valuta}
 							<div class='editing_price'>
-								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+								<form>
 									<input type='hidden' name='db' value='$ruchnie_tali'>
 									<input type='hidden' name='edited_id' value='$id'>
 									<input type='number' name='new_price' value='$price' placeholder=''>
@@ -248,7 +248,7 @@ $wpdb->show_errors();
 						<td class='price' style='position:relative'>
 							<span class='ipaniy_price'>{$price}</span> &#8381;
 							<div class='editing_price'>
-								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+								<form>
 									<input type='hidden' name='db' value='$montazh_rels'>
 									<input type='hidden' name='edited_id' value='$id'>
 									<input type='number' name='new_price' value='$price' placeholder=''>
@@ -290,7 +290,7 @@ $wpdb->show_errors();
 						<td class='price' style='position:relative'>
 							<span class='ipaniy_price'>{$price}</span> &#8381;
 							<div class='editing_price'>
-								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+								<form>
 									<input type='hidden' name='db' value='$montazh_provod'>
 									<input type='hidden' name='edited_id' value='$id'>
 									<input type='number' name='new_price' value='$price' placeholder=''>
@@ -332,7 +332,7 @@ $wpdb->show_errors();
 						<td class='price' style='position:relative'>
 							<span class='ipaniy_price'>{$price}</span> &#8381;
 							<div class='editing_price'>
-								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+								<form>
 									<input type='hidden' name='db' value='$stoimost_rels'>
 									<input type='hidden' name='edited_id' value='$id'>
 									<input type='number' name='new_price' value='$price' placeholder=''>
@@ -377,7 +377,7 @@ $wpdb->show_errors();
 						<td class='price' style='position:relative'>
 							<span class='ipaniy_price'>{$price}</span> &#8381;
 							<div class='editing_price'>
-								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+								<form>
 									<input type='hidden' name='db' value='$stoimost_provod'>
 									<input type='hidden' name='edited_id' value='$id'>
 									<input type='number' name='new_price' value='$price' placeholder=''>
@@ -424,7 +424,7 @@ $wpdb->show_errors();
 						<td class='price' style='position:relative'>
 							<span class='ipaniy_price'>{$price}</span> &#8381;
 							<div class='editing_price'>
-								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+								<form>
 									<input type='hidden' name='db' value='$montazh_ruchnih_cran'>
 									<input type='hidden' name='edited_id' value='$id'>
 									<input type='number' name='new_price' value='$price' placeholder=''>
@@ -471,7 +471,7 @@ $wpdb->show_errors();
 						<td class='price' style='position:relative'>
 							<span class='ipaniy_price'>{$price}</span> &#8381;
 							<div class='editing_price'>
-								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+								<form>
 									<input type='hidden' name='db' value='$montazh_electro_cran'>
 									<input type='hidden' name='edited_id' value='$id'>
 									<input type='number' name='new_price' value='$price' placeholder=''>
@@ -512,7 +512,7 @@ $wpdb->show_errors();
 								$rasstoyanie = 'Москва';
 				} else $rasstoyanie = 'до '.$rasstoyanie.' км включительно';
 				$obshiyL = $dostavka->obshiyL;
-				if ($dostavka->obshiyL < 9001) {
+				if ($dostavka->obshiyL < 12001) {
 					$obshiyL = 'до '.$dostavka->obshiyL.' мм включительно';
 				} else $obshiyL = 'свыше '.($dostavka->obshiyL - 1) .' мм';
 				$type = $dostavka->type;
@@ -526,7 +526,7 @@ $wpdb->show_errors();
 						<td class='price' style='position:relative'>
 							<span class='ipaniy_price'>{$price}</span> &#8381;
 							<div class='editing_price'>
-								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+								<form>
 									<input type='hidden' name='db' value='$dostavka_cranbalok'>
 									<input type='hidden' name='edited_id' value='$id'>
 									<input type='number' name='new_price' step='0.1' value='$price' placeholder=''>
@@ -578,7 +578,7 @@ $wpdb->show_errors();
 						<td class='price' style='position:relative'>
 							<span class='ipaniy_price'>{$price}</span> &#8381;
 							<div class='editing_price'>
-								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+								<form>
 									<input type='hidden' name='db' value='$km_viezd'>
 									<input type='hidden' name='edited_id' value='$id'>
 									<input type='number' name='new_price' value='$price' placeholder=''>
@@ -625,7 +625,7 @@ $wpdb->show_errors();
 						<td class='price' style='position:relative'>
 							<span class='ipaniy_price'>{$price}</span> &#8381;
 							<div class='editing_price'>
-								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+								<form>
 									<input type='hidden' name='db' value='$shef_montazh'>
 									<input type='hidden' name='edited_id' value='$id'>
 									<input type='number' name='new_price' value='$price' placeholder=''>
@@ -725,7 +725,7 @@ $wpdb->show_errors();
 						<td class='price' style='position:relative'>
 							<span class='ipaniy_price'>{$base_price}</span> &#8381;
 							<div class='editing_price'>
-								<form method='post'>
+								<form>
 									<input type='hidden' name='db' value='$mr'>
 									<input type='hidden' name='edited_id' value='$id'>
 									<input type='number' name='new_price' value='$base_price' placeholder=''>
@@ -737,7 +737,7 @@ $wpdb->show_errors();
 						<td class='price' style='position:relative'>
 							<span class='ipaniy_price'>{$double_speed_price}</span> &#8381;
 							<div class='editing_price'>
-								<form method='post'>
+								<form>
 									<input type='hidden' name='db' value='$mr'>
 									<input type='hidden' name='edited_id' value='$id'>
 									<input type='number' name='new_price' value='$double_speed_price' placeholder=''>
@@ -749,7 +749,7 @@ $wpdb->show_errors();
 						<td class='price' style='position:relative'>
 							<span class='ipaniy_price'>{$brake_price}</span> &#8381;
 							<div class='editing_price'>
-								<form method='post'>
+								<form>
 									<input type='hidden' name='db' value='$mr'>
 									<input type='hidden' name='edited_id' value='$id'>
 									<input type='number' name='new_price' value='$brake_price' placeholder=''>
@@ -761,6 +761,63 @@ $wpdb->show_errors();
 					</tr>";
 			}
 		} else echo "<span style='font-size:1.3em;color:red'>База данных 'Мотор-редукторы' не существует </span><a href='https://kwork.ru/user/qibite' target='blank'>Сообщить разработчику</a>";
+	?>
+	</tbody>
+</table>
+
+<table class="tabla" style="width:99.5%;float:left">
+<caption class="close_table"><span class="close">Открыть</span>Справочник</caption>
+	<thead>
+		<tr>
+			<th style="width:30px">ID</th>
+			<th style="width:50px">Код справки</th>
+			<th style="width:400px">Текст</th>
+			<th class="ch_price" style="width:40px">Редактировать текст</th>
+			<th>Ссылка</th>
+			<th class="ch_price" style="width:40px">Редактировать ссылку</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php
+		$spravka = $wpdb->prefix . 'spravka';
+		$spravka_result = $wpdb->get_results(
+		"SELECT id, codeinfo, descript, link FROM $spravka");
+		if ($spravka_result) {
+			foreach ($spravka_result as $info) {
+				$id = $info->id;
+				$codeinfo = $info->codeinfo;
+				$descript = $info->descript;
+				$link = $info->link;
+				echo "<tr>
+						<td class='id'>{$id}</td>
+						<td>{$codeinfo}</td>
+						<td class='price' style='position:relative'>
+							<span class='ipaniy_price'>{$descript}</span>
+							<div class='editing_price'>
+								<form>
+									<input type='hidden' name='db' value='$spravka'>
+									<input type='hidden' name='edited_id' value='$id'>
+									<input type='text' name='new_price' value='$descript' placeholder='' style='width:610px;margin-left:40px'>
+									<input type='button' name='chdescript' value='Ок'>
+								</form>
+							</div>
+						</td>
+						<td><i class='edit_price'>Изменить</i></td>
+						<td class='price' style='position:relative'>
+							<span class='ipaniy_price'>{$link}</span>
+							<div class='editing_price'>
+								<form>
+									<input type='hidden' name='db' value='$spravka'>
+									<input type='hidden' name='edited_id' value='$id'>
+									<input type='text' name='new_price' value='$link' placeholder='' style='width:140px;margin-left:10px'>
+									<input type='button' name='chlink' value='Ок'>
+								</form>
+							</div>
+						</td>
+						<td><i class='edit_price'>Изменить</i></td>
+					</tr>";
+			}
+		} else echo "<span style='font-size:1.3em;color:red'>База данных 'Электрический щит' не существует </span><a href='https://kwork.ru/user/qibite' target='blank'>Сообщить разработчику</a>";
 	?>
 	</tbody>
 </table>
@@ -794,7 +851,7 @@ $wpdb->show_errors();
 						<td class='price' style='position:relative'>
 							<span class='ipaniy_price'>{$price}</span> &#8381;
 							<div class='editing_price'>
-								<form action='{$url}?page=unicalcplugin&view=editprice' method='post'>
+								<form>
 									<input type='hidden' name='db' value='$eshit'>
 									<input type='hidden' name='edited_id' value='$id'>
 									<input type='number' name='new_price' value='$price' placeholder=''>

@@ -9,7 +9,7 @@ echo <<<EOT
 		<h4 class="btns чаи">Червячная передача<br>ABLE (Италия)</h4>
 		<div class="container_button">
 			<span class="inform animated">
-				<i class="fa fa-info-circle" aria-hidden="true"></i>
+				<i data-info="i9_1" class="fa fa-info-circle" aria-hidden="true"></i>
 			</span>
 			<button type="button" class="чаи">Далее</button>
 		</div>
@@ -20,7 +20,7 @@ echo <<<EOT
 		<h4 class="btns чнг">Червячная передача<br>NORD (Германия)</h4>
 		<div class="container_button">
 			<span class="inform animated">
-				<i class="fa fa-info-circle" aria-hidden="true"></i>
+				<i data-info="i9_2" class="fa fa-info-circle" aria-hidden="true"></i>
 			</span>
 			<button type="button" class="чнг">Далее</button>
 		</div>
@@ -31,7 +31,7 @@ echo <<<EOT
 		<h4 class="btns цбб">Циллиндрическая передача<br>Балкан Эхо (Болгария)</h4>
 		<div class="container_button">
 			<span class="inform animated">
-				<i class="fa fa-info-circle" aria-hidden="true"></i>
+				<i data-info="i9_3" class="fa fa-info-circle" aria-hidden="true"></i>
 			</span>
 			<button type="button" class="цбб">Далее</button>
 		</div>
@@ -43,7 +43,7 @@ echo <<<EOT
 		<h4 class="btns цнг">Циллиндрическая передача<br>NORD (Германия)</h4>
 		<div class="container_button">
 			<span class="inform animated">
-				<i class="fa fa-info-circle" aria-hidden="true"></i>
+				<i data-info="i9_4" class="fa fa-info-circle" aria-hidden="true"></i>
 			</span>
 			<button type="button" class="цнг">Далее</button>
 		</div>
@@ -54,7 +54,7 @@ echo <<<EOT
 		<h4 class="btns цер">Циллиндрическая передача<br>Европривод (Россия)</h4>
 		<div class="container_button">
 			<span class="inform animated">
-				<i class="fa fa-info-circle" aria-hidden="true"></i>
+				<i data-info="i9_5" class="fa fa-info-circle" aria-hidden="true"></i>
 			</span>
 			<button type="button" class="цер">Далее</button>
 		</div>

@@ -25,7 +25,7 @@ echo <<<EOT
 				<h3 class="btns">Ручное</h3>
 				<div class="container_button">
 					<span class="inform animated">
-						<i id="i1_1" class="fa fa-info-circle" aria-hidden="true"></i>
+						<i data-info="i3_1" class="fa fa-info-circle" aria-hidden="true"></i>
 					</span>
 					<button type="button" class="_31">Далее</button>
 				</div>
@@ -37,7 +37,7 @@ echo <<<EOT
 				<h3 class="btns">Электрическое</h3>
 				<div class="container_button">
 					<span class="inform animated">
-						<i class="fa fa-info-circle" aria-hidden="true"></i>
+						<i data-info="i3_2" class="fa fa-info-circle" aria-hidden="true"></i>
 					</span>
 					<button type="button" class="_32">Выбрать</button>
 				</div>
@@ -50,7 +50,7 @@ echo <<<EOT
 							<br>
 							<div class="container_button">
 								<span class="inform animated">
-									<i class="fa fa-info-circle" aria-hidden="true"></i>
+									<i data-info="i3_3" class="fa fa-info-circle" aria-hidden="true"></i>
 								</span>
 								<button type="button" class="buttonslil _33_next">Далее</button>
 							</div>
@@ -62,7 +62,7 @@ echo <<<EOT
 							<br>
 							<div class="container_button">
 								<span class="inform animated">
-									<i class="fa fa-info-circle" aria-hidden="true"></i>
+									<i data-info="i3_4" class="fa fa-info-circle" aria-hidden="true"></i>
 								</span>
 								<button type="button" class="buttonslil _34">Выбрать</button>
 							</div>
@@ -79,7 +79,7 @@ echo <<<EOT
 								<br> С пульта<br>
 								<div class="container_button">
 									<span class="inform animated">
-										<i class="fa fa-info-circle" aria-hidden="true"></i>
+										<i data-info="i3_5" class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
 									<button type="button" class="buttonslil _35">Выбрать</button>
 								</div>
@@ -90,7 +90,7 @@ echo <<<EOT
 								<br>С джойстика<br>
 								<div class="container_button">
 									<span class="inform animated">
-										<i class="fa fa-info-circle" aria-hidden="true"></i>
+										<i data-info="i3_6" class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
 									<button type="button" class="buttonslil _36">Выбрать</button>
 								</div>
@@ -104,7 +104,7 @@ echo <<<EOT
 								<br> Telecrane<br>(Тайвань)<br>
 								<div class="container_button">
 									<span class="inform animated">
-										<i class="fa fa-info-circle" aria-hidden="true"></i>
+										<i data-info="i3_7" class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
 									<button type="button" class="buttonslil _37">Далее</button>
 								</div>
@@ -115,7 +115,7 @@ echo <<<EOT
 								<br> Ikusi<br>(Испания)<br>
 								<div class="container_button">
 									<span class="inform animated">
-										<i class="fa fa-info-circle" aria-hidden="true"></i>
+										<i data-info="i3_8" class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
 									<button type="button" class="buttonslil _38">Далее</button>
 								</div>
@@ -126,7 +126,7 @@ echo <<<EOT
 								<br> HBC - Radiomatic<br>(Германия)<br>
 								<div class="container_button">
 									<span class="inform animated">
-										<i class="fa fa-info-circle" aria-hidden="true"></i>
+										<i data-info="i3_9" class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
 									<button type="button" class="buttonslil _39">Далее</button>
 								</div>
@@ -138,7 +138,7 @@ echo <<<EOT
 								<br> Telecrane<br>(Тайвань)<br>
 								<div class="container_button">
 									<span class="inform animated">
-										<i class="fa fa-info-circle" aria-hidden="true"></i>
+										<i data-info="i3_7j" class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
 									<button type="button" class="buttonslil _37_j">Далее</button>
 								</div>
@@ -149,7 +149,7 @@ echo <<<EOT
 								<br> Ikusi<br>(Испания)<br>
 								<div class="container_button">
 									<span class="inform animated">
-										<i class="fa fa-info-circle" aria-hidden="true"></i>
+										<i data-info="i3_8j" class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
 									<button type="button" class="buttonslil _38_j">Далее</button>
 								</div>
@@ -160,7 +160,7 @@ echo <<<EOT
 								<br> HBC - Radiomatic<br>(Германия)<br>
 								<div class="container_button">
 									<span class="inform animated">
-										<i class="fa fa-info-circle" aria-hidden="true"></i>
+										<i data-info="i3_9j" class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
 									<button type="button" class="buttonslil _39_j">Далее</button>
 								</div>
@@ -172,7 +172,7 @@ echo <<<EOT
 								<br> Telecrane<br>(Тайвань)<br>
 								<div class="container_button">
 									<span class="inform animated">
-										<i class="fa fa-info-circle" aria-hidden="true"></i>
+										<i data-info="i3_7vbi" class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
 									<button type="button" class="buttonslil _37vbi">Далее</button>
 								</div>
@@ -183,7 +183,7 @@ echo <<<EOT
 								<br> Ikusi<br>(Испания)<br>
 								<div class="container_button">
 									<span class="inform animated">
-										<i class="fa fa-info-circle" aria-hidden="true"></i>
+										<i data-info="i3_8vbi" class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
 									<button type="button" class="buttonslil _38vbi">Далее</button>
 								</div>
@@ -194,7 +194,7 @@ echo <<<EOT
 								<br> HBC - Radiomatic<br>(Германия)<br>
 								<div class="container_button">
 									<span class="inform animated">
-										<i class="fa fa-info-circle" aria-hidden="true"></i>
+										<i data-info="i3_9vbi" class="fa fa-info-circle" aria-hidden="true"></i>
 									</span>
 									<button type="button" class="buttonslil _39vbi">Далее</button>
 								</div>

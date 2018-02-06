@@ -10,6 +10,7 @@ $wpdb->show_errors();
 <link rel="stylesheet" href="<?=$url_this;?>css/style.css">
 <section id="first">
 	<div id="main_block_for_steps" style="position: relative;width:100%;height:800px;margin:0 auto;/*min-width:1440px;*/text-align:center">		 
+		<?php require_once("construct_calc/0.php"); ?>
 		<!-- Выбор типа крана-->
 		<?php require_once("construct_calc/1.php"); ?>
 		<!-- Выбор типа крана-->
@@ -111,16 +112,16 @@ $wpdb->show_errors();
 </style>
 	<div id="icO2" class="modal_change modal_change_hide">
 		<ul class="ul_change">
-			<li class="change_li" style="width:285px"><span id="obshprm">Общепромышленное</span></li>
+			<li class="change_li" style="width:285px"><span id="obshprm">Общепромышленное</span><strong class="price_" style="font-size:.9em">Расчитываем...</strong></li>
 			<li class="change_li" style="width:355px">
-				<span id="vzrivoshow">Взрывобезопасное</span>
+				<span id="vzrivoshow">Взрывобезопасное</span><strong class="price_" style="font-size:.9em">Расчитываем...</strong>
 				<select name="vzriv" id="vzrivoselect" style="display:none;width: 70%;font-size:1.2em;margin:0 auto 17px auto" size="2" multiple="multiple">
 					<option value="B1a, IIB Т5 (B1а, IIА Т5)">B1a, IIB Т5 (B1а, IIА Т5)</option>
 					<option value="B1a, IIС Т5">B1a, IIС Т5</option>
 				</select>
 			</li>
 			<li class="change_li" style="width:285px">
-				<span id="pozharshow">Пожаробезопасное</span>
+				<span id="pozharshow">Пожаробезопасное</span><strong class="price_" style="font-size:.9em">Расчитываем...</strong>
 				<select name="pozhar" id="pozharselect" style="display:none;width: 70%;font-size:1.2em;margin:0 auto 17px auto" size="2" multiple="multiple">
 					<option value="П-I">П-I</option>
 					<option value="П-II / П-Iia / П-III">П-II / П-Iia / П-III</option>
@@ -390,7 +391,7 @@ $wpdb->show_errors();
 <div id="spravka" class="animated" style="display:none">
 	<span id="close_spravka"><i class="fa fa-times" aria-hidden="true"></i></span>
 	<span id="spravka_html">Подсказка и</span>
-	<a href="http://uniqcrane.ru" target="blank" title="Перейти для справки">ссылка</a>
+	<a href="http://uniqcrane.ru" target="blank" title="Перейти для справки">подробнее</a>
 </div>
 <link rel="stylesheet" href="<?=$url_this;?>css/animate.css">
 <script src="<?=$url_this;?>js/script.js" type="text/javascript" charset="utf-8"></script>

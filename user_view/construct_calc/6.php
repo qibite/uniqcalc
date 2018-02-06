@@ -22,7 +22,7 @@ echo <<<EOT
 				<h3 class="btns">Требуется</h3>
 				<div class="container_button">
 					<span class="inform animated">
-						<i class="fa fa-info-circle" aria-hidden="true"></i>
+						<i data-info="i10_1" class="fa fa-info-circle" aria-hidden="true"></i>
 					</span>
 					<button type="button" class="ток_требуется">Выбрать</button>
 				</div>
@@ -38,51 +38,51 @@ echo <<<EOT
 				<h3>Тип токоподвода</h3>
 				<br>
 				<ul id="список_токоподводов">
-					<li><img class="allimg каб_с_кол" src="{$url}images/6.3.png" alt="" style="width:220px">
+					<li><img class="allimg каб_с_кол" src="{$url}images/6.3.png" alt="" style="width:210px">
 						<h4>Кабельный с кольцами<br><i>{$cabkol_p} руб. метр</i></h4>
 						<div class="container_button">
 							<span class="inform animated">
-								<i class="fa fa-info-circle" aria-hidden="true"></i>
+								<i data-info="i10_2" class="fa fa-info-circle" aria-hidden="true"></i>
 							</span>
 							<button type="button" class="buttons каб_с_кол">Далее</button>
 						</div>
 						<span id="tok1" class="price_"></span>
 					</li>
-					<li><img class="allimg каб_с_тел" src="{$url}images/6.4.png" alt="" style="width:220px">
+					<li><img class="allimg каб_с_тел" src="{$url}images/6.4.png" alt="" style="width:210px">
 						<h4>Кабельный с тележками<br><i>{$cabtel_p} руб. метр</i></h4>
 						<div class="container_button">
 							<span class="inform animated">
-								<i class="fa fa-info-circle" aria-hidden="true"></i>
+								<i data-info="i10_3" class="fa fa-info-circle" aria-hidden="true"></i>
 							</span>
 							<button type="button" class="buttons каб_с_тел">Далее</button>
 						</div>
 						<span id="tok2" class="price_"></span>
 					</li>
-					<li><img class="allimg фесто" src="{$url}images/6.5.png" alt="" style="width:220px">
+					<li><img class="allimg фесто" src="{$url}images/6.5.png" alt="" style="width:210px">
 						<h4>Фестонный (С профиль)<br><i>{$feston_p} руб. метр</i></h4>
 						<div class="container_button">
 							<span class="inform animated">
-								<i class="fa fa-info-circle" aria-hidden="true"></i>
+								<i data-info="i10_4" class="fa fa-info-circle" aria-hidden="true"></i>
 							</span>
 							<button type="button" class="buttons фесто">Далее</button>
 						</div>
 						<span id="tok3" class="price_"></span>
 					</li>
-					<li><img class="allimg откр_тролл" src="{$url}images/6.6.png" alt="" style="width:220px">
+					<li><img class="allimg откр_тролл" src="{$url}images/6.6.png" alt="" style="width:210px">
 						<h4>Открытые троллеи<br><i>{$opentrol_p} руб. метр</i></h4>
 						<div class="container_button">
 							<span class="inform animated">
-								<i class="fa fa-info-circle" aria-hidden="true"></i>
+								<i data-info="i10_5" class="fa fa-info-circle" aria-hidden="true"></i>
 							</span>
 							<button type="button" class="buttons откр_тролл">Далее</button>
 						</div>
 						<span id="tok4" class="price_"></span>
 					</li>					
-					<li><img class="allimg закр_тролл" src="{$url}images/6.7.png" alt="" style="width:220px">
+					<li><img class="allimg закр_тролл" src="{$url}images/6.7.png" alt="" style="width:210px">
 						<h4>Закрытые троллеи<br><i>{$closetrol_p} руб. метр</i></h4>
 						<div class="container_button">
 							<span class="inform animated">
-								<i class="fa fa-info-circle" aria-hidden="true"></i>
+								<i data-info="i10_6" class="fa fa-info-circle" aria-hidden="true"></i>
 							</span>
 							<button type="button" class="buttons закр_тролл">Далее</button>
 						</div>

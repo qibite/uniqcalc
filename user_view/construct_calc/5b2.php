@@ -9,9 +9,9 @@ echo <<<EOT
 				<label>Длина путей: <br><br>
 					<div class="container_button">
 						<span class="inform animated" style="margin-right:.3em;font-size:30px">
-							<i class="fa fa-info-circle" aria-hidden="true"></i>
+							<i data-info="i5b2_1" class="fa fa-info-circle" aria-hidden="true"></i>
 						</span>
-						<input id="dpP" type="number" name="" value="12000" style="display:inline-block;max-width:100px;margin-bottom:0" step="100"> мм
+						<input id="dpP" type="number" name="" value="0" style="display:inline-block;max-width:100px;margin-bottom:0" step="100"> мм
 					</div>
 				</label>
 			</div>
@@ -20,9 +20,9 @@ echo <<<EOT
 				<label>Ширина между путями: <br><br>
 					<div class="container_button">
 						<span class="inform animated" style="margin-right:.3em;font-size:30px">
-							<i class="fa fa-info-circle" aria-hidden="true"></i>
+							<i data-info="i5b2_2" class="fa fa-info-circle" aria-hidden="true"></i>
 						</span>
-						<input id="shpP" type="number" name="" value="6000" style="display:inline-block;max-width:100px;margin-bottom:0" step="100"> мм
+						<input id="shpP" type="number" name="" value="0" style="display:inline-block;max-width:100px;margin-bottom:0" step="100"> мм
 					</div>
 				</label>
 			</div>
@@ -32,9 +32,9 @@ echo <<<EOT
 				<label>Высота до путей: <br><br>
 					<div class="container_button">
 						<span class="inform animated" style="margin-right:.3em;font-size:30px">
-							<i class="fa fa-info-circle" aria-hidden="true"></i>
+							<i data-info="i5b2_3" class="fa fa-info-circle" aria-hidden="true"></i>
 						</span>
-						<input id="vP" type="number" name="" value="6000" style="display:inline-block;max-width:100px;margin-bottom:0" step="100"> мм
+						<input id="vP" type="number" name="" value="0" style="display:inline-block;max-width:100px;margin-bottom:0" step="100"> мм
 					</div>
 				</label>
 			</div>
@@ -43,9 +43,9 @@ echo <<<EOT
 				<label>Длина консолей крана: <br><br>
 					<div class="container_button">
 						<span class="inform animated" style="margin-right:.3em;font-size:30px">
-							<i class="fa fa-info-circle" aria-hidden="true"></i>
+							<i data-info="i5b2_4" class="fa fa-info-circle" aria-hidden="true"></i>
 						</span>
-						<input id="vpP" type="number" name="" value="500" style="display:inline-block;max-width:100px;margin-bottom:0" step="100"> мм<br><span id="error500mmP">Должно быть не мене 500 мм!</span>
+						<input id="vpP" type="number" name="" value="0" style="display:inline-block;max-width:100px;margin-bottom:0" step="100"> мм<br><span id="error500mmP">Должно быть не мене 500 мм!</span>
 					</div>
 				</label>
 			</div>

@@ -277,6 +277,21 @@ function activate_unicalc()
 		$wpdb->query($sql);
 		include_once ("db_inserts/insert_shit.php");	
 	}
+
+	$spravka = $wpdb->prefix . 'spravka';
+	if ($wpdb->get_var("SHOW TABLES LIKE '$spravka'") != $spravka) {
+		$sql = "CREATE TABLE IF NOT EXISTS `$spravka` (
+		`id` int (30) NOT NULL AUTO_INCREMENT,
+		`codeinfo` varchar(255) NOT NULL,
+		`descript` varchar(255) NOT NULL,
+		`link` varchar(255) NOT NULL,
+		PRIMARY KEY(`id`)
+		)
+		COLLATE='utf8_general_ci'
+		ENGINE=InnoDB;";
+		$wpdb->query($sql);
+		include_once ("db_inserts/insert_spravka.php");	
+	}
 }
 
 function deactivate_unicalc()
@@ -326,12 +341,15 @@ add_action('wp_ajax_change_price_base', 'change_price');
 // Изменение цены в прайсах
 function change_price ($value='')
 {
-
+//echo $new_price = $_POST['name_price'];
 	global $wpdb;
-	$table = $_POST['db'];
+	$new_price = $_POST['db'];
 	$name_price = $_POST['name_price'];
 	$id = $_POST['edited_id'];
 	$new_price = $_POST['new_price'];
+
+	/*echo $name_price == 'chdescript'; wp_die();
+	return;*/
 	// Цена на доставку кранбалок в копейках пересчет!
 	if ( $table == ($wpdb->prefix.'dostavka_cranbalok')) {
 		$table = $_POST['db'];
@@ -348,7 +366,7 @@ function change_price ($value='')
 		echo $new_price/100;
 	}
 	// Цена на остальное 
-	elseif 	( $table == $wpdb->prefix.'electro_tali_submit' || $wpdb->prefix.'ruchnie_tali_submit' || $wpdb->prefix.'opornie_crani_submit' || $wpdb->prefix.'podvesnie_crani_submit' || $wpdb->prefix.'variants_submit' || $wpdb->prefix.'montazh_rels_submit' || $wpdb->prefix.'montazh_provod_submit' || $wpdb->prefix.'stoimost_rels_result_submit' || $wpdb->prefix.'montazh_ruchnih_cran_submit' || $wpdb->prefix.'montazh_electro_cran_submit' || $wpdb->prefix.'km_viezd_submit' || $wpdb->prefix.'shef_montazh_submit' || $wpdb->prefix.'mr' ) {
+	else if ( $table == $wpdb->prefix.'electro_tali_submit' || $table == $wpdb->prefix.'ruchnie_tali_submit' || $table == $wpdb->prefix.'opornie_crani_submit' || $table == $wpdb->prefix.'podvesnie_crani_submit' || $table == $wpdb->prefix.'variants_submit' || $table == $wpdb->prefix.'montazh_rels_submit' || $table == $wpdb->prefix.'montazh_provod_submit' || $table == $wpdb->prefix.'stoimost_rels_result_submit' || $table == $wpdb->prefix.'montazh_ruchnih_cran_submit' || $table == $wpdb->prefix.'montazh_electro_cran_submit' || $table == $wpdb->prefix.'km_viezd_submit' || $table == $wpdb->prefix.'shef_montazh_submit' || $table == $wpdb->prefix.'mr' ) {
 		$table = $_POST['db'];
 		$id = $_POST['edited_id'];
 		$new_price = $_POST['new_price'];
@@ -363,7 +381,35 @@ function change_price ($value='')
 			);
 	echo $new_price;
 	}
-	else echo "---";
+	else if ( $name_price == "chdescript" ) {
+		$table = $_POST['db'];
+		$id = $_POST['edited_id'];
+		$new_price = $_POST['new_price'];
+		global $wpdb;
+		$res = $wpdb->update(
+				$table, 
+				array('descript' => $new_price),
+				array('id' => $id),
+				array( '%s' ),
+				array( '%d' )
+			);
+		echo $new_price;
+	}
+	else if ( $name_price == 'chlink' ) {
+		$table = $_POST['db'];
+		$id = $_POST['edited_id'];
+		$new_price = $_POST['new_price'];
+		global $wpdb;
+		$res = $wpdb->update(
+				$table, 
+				array('link' => $new_price),
+				array('id' => $id),
+				array( '%s' ),
+				array( '%d' )
+			);
+		echo $new_price;
+	}
+	else {echo "---";}
 	wp_die();
 }
 
@@ -398,6 +444,41 @@ function sroki_crana() {
 	$opornie_crani_result = $wpdb->get_results("SELECT id, gp, shirina_mezh_putami, rels, upravlenie, sroki, price FROM $opornie_crani WHERE gp = $gp AND shirina_mezh_putami>=$shir AND upravlenie = $upravl");
 		if ($opornie_crani_result) {
 			print_r($opornie_crani_result[0]->sroki);
+		}
+
+	wp_die();
+}
+
+add_action('wp_ajax_calc_cran_p', 'stoimost_crana_p');
+add_action('wp_ajax_nopriv_calc_cran_p', 'stoimost_crana_p');
+function stoimost_crana_p() {
+	$gp = $_POST['_gp'];
+	$shir = $_POST['_shir'];
+	$upravl = '\''.$_POST['_upravl'].'\'';
+
+	global $wpdb;$wpdb->show_errors();
+	$podvesnie_crani = $wpdb->prefix . 'podvesnie_crani';
+	$podvesnie_crani_result = $wpdb->get_results("SELECT price FROM $podvesnie_crani WHERE gp = $gp AND shirina_mezh_putami>=$shir AND upravlenie = $upravl");
+		if ($podvesnie_crani_result) {
+			print_r($podvesnie_crani_result[0]->price);
+		}
+//		sleep(2);
+ //echo  $upravl;
+		wp_die();
+}
+	
+add_action('wp_ajax_calc_sroki_p', 'sroki_crana_p');
+add_action('wp_ajax_nopriv_calc_sroki_p', 'sroki_crana_p');
+function sroki_crana_p() {
+	$gp = $_POST['_gp'];
+	$shir = $_POST['_shir'];
+	$upravl = '\''.$_POST['_upravl'].'\'';
+
+	global $wpdb;$wpdb->show_errors();
+	$podvesnie_crani = $wpdb->prefix . 'podvesnie_crani';
+	$podvesnie_crani_result = $wpdb->get_results("SELECT id, gp, shirina_mezh_putami, rels, upravlenie, sroki, price FROM $podvesnie_crani WHERE gp = $gp AND shirina_mezh_putami>=$shir AND upravlenie = $upravl");
+		if ($podvesnie_crani_result) {
+			print_r($podvesnie_crani_result[0]->sroki);
 		}
 
 	wp_die();
@@ -787,7 +868,8 @@ function postavka_rels () {
 		$podborka_rels = $wpdb->prefix . 'stoimost_rels';
 		$podborka_rels_result = $wpdb->get_results("SELECT type, price FROM $podborka_rels WHERE type = $name_relsa");
 		if ($podborka_rels_result) {
-			echo '<span><img src="'.$url_img.'images/_5.11.png" alt="" style="width:140px"><p><b class="hz4">Рельс '.$podborka_rels_result[0]->type.' - '.($rels_shirinamp/1000).'м.</b><br><span class="opisanie_parametra">подобран в соответствии с параметрами крана</span></p></span><span class="hiddened">'.number_format($podborka_rels_result[0]->price*($rels_shirinamp/1000), 0, ',', ' ').' руб</span>';
+			echo '<span><img src="'.$url_img.'images/_5.11.png" alt="" style="width:140px"><p><b class="hz4">Рельс '.$podborka_rels_result[0]->type.' - '.($rels_shirinamp/1000).'м.</b><br><span class="opisanie_parametra">подобран в соответствии с параметрами крана</span></p></span><span class="hiddened">'.number_format($podborka_rels_result[0]->price*($rels_shirinamp/1000), 0, ',', ' ').' руб</span><div class="container_button dopinfmain"><i data-info="i5a_1" class="fa fa-info-circle dopinf" aria-hidden="true"></i>
+					</div>';
 		}
 		wp_die();
 	}
@@ -975,168 +1057,218 @@ function distance () {
 	// СТОИМОСТЬ ДОСТАВКИ КРАНБАЛОК
 	$price_way = $wpdb->prefix . 'dostavka_cranbalok';
 	if ($way <= 5 && $dlinna < 6000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 0 AND obshiyL = 6000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 0 AND obshiyL = 6000");
 		$dostavka_price = $price_way_result[0]->price/100;
 		$dostavka_price += $prozhivanie_price;
 	}
 	else if ($way <= 5 && $dlinna > 6000 && $dlinna < 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 0 AND obshiyL = 9000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 0 AND obshiyL = 9000");
 		$dostavka_price = $price_way_result[0]->price/100;
 		$dostavka_price += $prozhivanie_price;
 	}
-	else if ($way <= 5 && $dlinna > 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 0 AND obshiyL = 9001 AND type = $razrez");
+	else if ($way <= 5 && $dlinna > 9000 && $dlinna < 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 0 AND obshiyL = 12000");
+		$dostavka_price = $price_way_result[0]->price/100;
+		$dostavka_price += $prozhivanie_price;
+	}
+	else if ($way <= 5 && $dlinna > 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 0 AND obshiyL = 12001");
 		$dostavka_price = $price_way_result[0]->price/100;
 		$dostavka_price += $prozhivanie_price;
 	}
 
 	else if (($way > 5 && $way < 100) && $dlinna < 6000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 100 AND obshiyL = 6000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 100 AND obshiyL = 6000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
 	else if (($way > 5 && $way < 100) && $dlinna > 6000 && $dlinna < 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 100 AND obshiyL = 9000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 100 AND obshiyL = 9000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
-	else if (($way > 5 && $way < 100) && $dlinna > 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 100 AND obshiyL = 9001 AND type = $razrez");
+	else if (($way > 5 && $way < 100) && $dlinna > 9000 && $dlinna < 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 100 AND obshiyL = 12000");
+		$dostavka_price = ($price_way_result[0]->price/100) * $way;
+		$dostavka_price += $prozhivanie_price;
+	}
+	else if (($way > 5 && $way < 100) && $dlinna > 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 100 AND obshiyL = 12001");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
 
 	else if (($way > 100 && $way < 300) && $dlinna < 6000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 300 AND obshiyL = 6000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 300 AND obshiyL = 6000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
 	else if (($way > 100 && $way < 300) && $dlinna > 6000 && $dlinna < 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 300 AND obshiyL = 9000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 300 AND obshiyL = 9000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
-	else if (($way > 100 && $way < 300) && $dlinna > 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 300 AND obshiyL = 9001 AND type = $razrez");
+	else if (($way > 100 && $way < 300) && $dlinna > 9000 && $dlinna < 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 300 AND obshiyL = 12000");
+		$dostavka_price = ($price_way_result[0]->price/100) * $way;
+		$dostavka_price += $prozhivanie_price;
+	}
+	else if (($way > 100 && $way < 300) && $dlinna > 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 300 AND obshiyL = 12001");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
 
 
 	else if (($way > 300 && $way < 500) && $dlinna < 6000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 500 AND obshiyL = 6000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 500 AND obshiyL = 6000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
 	else if (($way > 300 && $way < 500) && $dlinna > 6000 && $dlinna < 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 500 AND obshiyL = 9000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 500 AND obshiyL = 9000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
-	else if (($way > 300 && $way < 500) && $dlinna > 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 500 AND obshiyL = 9001 AND type = $razrez");
+	else if (($way > 300 && $way < 500) && $dlinna > 9000 && $dlinna < 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 500 AND obshiyL = 12000");
+		$dostavka_price = ($price_way_result[0]->price/100) * $way;
+		$dostavka_price += $prozhivanie_price;
+	}
+	else if (($way > 300 && $way < 500) && $dlinna > 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 500 AND obshiyL = 12001");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
 
 
 	else if (($way > 500 && $way < 750) && $dlinna < 6000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 750 AND obshiyL = 6000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 750 AND obshiyL = 6000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
 	else if (($way > 500 && $way < 750) && $dlinna > 6000 && $dlinna < 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 750 AND obshiyL = 9000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 750 AND obshiyL = 9000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
-	else if (($way > 500 && $way < 750) && $dlinna > 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 750 AND obshiyL = 9001 AND type = $razrez");
+	else if (($way > 500 && $way < 750) && $dlinna > 9000 && $dlinna < 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 750 AND obshiyL = 12000");
+		$dostavka_price = ($price_way_result[0]->price/100) * $way;
+		$dostavka_price += $prozhivanie_price;
+	}
+	else if (($way > 500 && $way < 750) && $dlinna > 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 750 AND obshiyL = 12001");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
 
 
 	else if (($way > 750 && $way < 1000) && $dlinna < 6000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 1000 AND obshiyL = 6000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 1000 AND obshiyL = 6000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
 	else if (($way > 750 && $way < 1000) && $dlinna > 6000 && $dlinna < 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 1000 AND obshiyL = 9000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 1000 AND obshiyL = 9000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
-	else if (($way > 750 && $way < 1000) && $dlinna > 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 1000 AND obshiyL = 9001 AND type = $razrez");
+	else if (($way > 750 && $way < 1000) && $dlinna > 9000 && $dlinna < 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 1000 AND obshiyL = 12000");
+		$dostavka_price = ($price_way_result[0]->price/100) * $way;
+		$dostavka_price += $prozhivanie_price;
+	}
+	else if (($way > 750 && $way < 1000) && $dlinna > 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 1000 AND obshiyL = 12001");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
 
 
 	else if (($way > 1000 && $way < 1500) && $dlinna < 6000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 1500 AND obshiyL = 6000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 1500 AND obshiyL = 6000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
 	else if (($way > 1000 && $way < 1500) && $dlinna > 6000 && $dlinna < 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 1500 AND obshiyL = 9000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 1500 AND obshiyL = 9000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
-	else if (($way > 1000 && $way < 1500) && $dlinna > 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 1500 AND obshiyL = 9001 AND type = $razrez");
+	else if (($way > 1000 && $way < 1500) && $dlinna > 9000 && $dlinna < 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 1500 AND obshiyL = 12000");
+		$dostavka_price = ($price_way_result[0]->price/100) * $way;
+		$dostavka_price += $prozhivanie_price;
+	}
+	else if (($way > 1000 && $way < 1500) && $dlinna > 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 1500 AND obshiyL = 12001");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
 
 
 	else if (($way > 1500 && $way < 2000) && $dlinna < 6000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 2000 AND obshiyL = 6000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 2000 AND obshiyL = 6000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
 	else if (($way > 1500 && $way < 2000) && $dlinna > 6000 && $dlinna < 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 2000 AND obshiyL = 9000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 2000 AND obshiyL = 9000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
-	else if (($way > 1500 && $way < 2000) && $dlinna > 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 2000 AND obshiyL = 9001 AND type = $razrez");
+	else if (($way > 1500 && $way < 2000) && $dlinna > 9000 && $dlinna < 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 2000 AND obshiyL = 12000");
+		$dostavka_price = ($price_way_result[0]->price/100) * $way;
+		$dostavka_price += $prozhivanie_price;
+	}
+	else if (($way > 1500 && $way < 2000) && $dlinna > 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 2000 AND obshiyL = 12001");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
 
 
 	else if (($way > 2000 && $way < 2500) && $dlinna < 6000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 2500 AND obshiyL = 6000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 2500 AND obshiyL = 6000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
 	else if (($way > 2000 && $way < 2500) && $dlinna > 6000 && $dlinna < 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 2500 AND obshiyL = 9000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 2500 AND obshiyL = 9000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
-	else if (($way > 2000 && $way < 2500) && $dlinna > 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 2500 AND obshiyL = 9001 AND type = $razrez");
+	else if (($way > 2000 && $way < 2500) && $dlinna > 9000 && $dlinna < 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 2500 AND obshiyL = 12000");
+		$dostavka_price = ($price_way_result[0]->price/100) * $way;
+		$dostavka_price += $prozhivanie_price;
+	}
+	else if (($way > 2000 && $way < 2500) && $dlinna > 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 2500 AND obshiyL = 12001");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
 
 
 	else if ($way > 2500 && $dlinna < 6000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 3000 AND obshiyL = 6000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 3000 AND obshiyL = 6000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
 	else if ($way > 2500 && $dlinna > 6000 && $dlinna < 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 3000 AND obshiyL = 9000 AND type = $razrez");
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 3000 AND obshiyL = 9000");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
-	else if ($way > 2500 && $dlinna > 9000) {
-		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 3000 AND obshiyL = 9001 AND type = $razrez");
+	else if ($way > 2500 && $dlinna > 9000 && $dlinna < 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 3000 AND obshiyL = 12000");
+		$dostavka_price = ($price_way_result[0]->price/100) * $way;
+		$dostavka_price += $prozhivanie_price;
+	}
+	else if ($way > 2500 && $dlinna > 12000) {
+		$price_way_result = $wpdb->get_results("SELECT price FROM $price_way WHERE rasstoyanie = 3000 AND obshiyL = 12001");
 		$dostavka_price = ($price_way_result[0]->price/100) * $way;
 		$dostavka_price += $prozhivanie_price;
 	}
@@ -1159,21 +1291,21 @@ function distance () {
 	else if ($way < 1000) {
 		$price_way_expert_result = $wpdb->get_results("SELECT price FROM $price_way_expert WHERE id = 4");
 		$price_expert = ($price_way_expert_result[0]->price*$way) + $fixed_taxa;
-		$dostavka_price += ($price_way_expert_result[0]->price*$way);
+		//$dostavka_price += ($price_way_expert_result[0]->price*$way);
 		$price_shef_montazh += ($price_way_expert_result[0]->price*$way);
 		$price_montazh += ($price_way_expert_result[0]->price*$way);
 	}
 	else if ($way > 1000 && $way < 3000) {
 		$price_way_expert_result = $wpdb->get_results("SELECT price FROM $price_way_expert WHERE id = 5");
 		$price_expert = ($price_way_expert_result[0]->price*$way) + $fixed_taxa;
-		$dostavka_price += ($price_way_expert_result[0]->price*$way);
+		//$dostavka_price += ($price_way_expert_result[0]->price*$way);
 		$price_shef_montazh += ($price_way_expert_result[0]->price*$way);
 		$price_montazh += ($price_way_expert_result[0]->price*$way);
 	}
 	else if ($way > 3000) {
 		$price_way_expert_result = $wpdb->get_results("SELECT price FROM $price_way_expert WHERE id = 6");
 		$price_expert = ($price_way_expert_result[0]->price*$way) + $fixed_taxa;
-		$dostavka_price += ($price_way_expert_result[0]->price*$way);
+		//$dostavka_price += ($price_way_expert_result[0]->price*$way)*10;
 		$price_shef_montazh += ($price_way_expert_result[0]->price*$way);
 		$price_montazh += ($price_way_expert_result[0]->price*$way);
 	}
@@ -1509,5 +1641,34 @@ function tal_insert ()
 		'ct_r' => $china_r_t
 	);
 	echo json_encode($tali_res);
+	wp_die();
+}
+
+
+
+add_action('wp_ajax_getinfo', 'getinfo');
+add_action('wp_ajax_nopriv_getinfo', 'getinfo');
+function getinfo ()
+{
+	$codeinfo = '\'' . $_POST['_codeinfo'] . '\'';
+
+	global $wpdb; $wpdb->show_errors();	
+	$spravka = $wpdb->prefix . 'spravka';
+	$spravka_result = $wpdb->get_results("SELECT codeinfo, descript, link FROM $spravka WHERE codeinfo = $codeinfo");
+	if ($spravka_result) {
+		$information = array(
+			'descript' => $spravka_result[0]->descript/* . ' ' . $spravka_result[0]->codeinfo . ' ' */,
+			'link' => $spravka_result[0]->link 
+		);
+	}
+	else
+	{
+		$information = array(
+			'descript' => 'Для данного пункта отсутствует описание',
+			'link' => '/'
+		);
+	}
+	
+	echo json_encode( $information );
 	wp_die();
 }
