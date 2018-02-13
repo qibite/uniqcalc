@@ -25,7 +25,7 @@ echo <<<EOT
 						<i class="hover" id="cgpO">изменить</i>
 					</div>					
 				</td>
-				<td class="">Грузоподъёмность - <span id="Ogp"></span> <span>кг</span></td>
+				<td class="">Грузоподъёмность - <span id="Ogp"></span><span> кг</span></td>
 			</tr>
 			<tr>
 				<td>
@@ -45,7 +45,8 @@ echo <<<EOT
 							<i data-info="i2" class="fa fa-info-circle" aria-hidden="true"></i>
 						</span>
 					</div>
-					<i class="hover" id="cicO">изменить</i></td>
+					<i class="hover" id="cicO">изменить</i>
+				</td>
 				<td class="">Исполнение крана - <span id="Oic"></span></td>
 			</tr>
 			<tr>

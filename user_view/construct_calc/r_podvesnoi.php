@@ -32,9 +32,9 @@ echo <<<EOT
 					<div class="container_button">
 						<span class="inform animated table_info">
 							<i data-info="i5b2_2" class="fa fa-info-circle" aria-hidden="true"></i>
-						</span>
-						<i class="hover" id="cdpP">изменить</i>
-					</div>					
+						</span>						
+					</div>
+					<i class="hover" id="cdpP">изменить</i>
 				</td>
 				<td class="">Длинна пролёта - <span id="Pdp"></span><span> мм</span></td>
 			</tr>

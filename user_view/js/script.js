@@ -115,6 +115,8 @@ jQuery(document).ready(($)=>{
 		cran._3Type = 'Отсутствует при ручном управлении';
 		$('#gpO > ul li:nth-child(9)').css('display','none');
 		$('#gpO > ul li:nth-child(10)').css('display','none');
+		$('#gpP > ul li:nth-child(9)').css('display','none');
+		$('#gpP > ul li:nth-child(10)').css('display','none');
 		$('#грузоподъемность div:nth-child(12)').css('display','none');
 		$('#грузоподъемность div:nth-child(13)').css('display','none');		
 		gp_insert_price();
@@ -1260,6 +1262,7 @@ function postavka_provoda (img) {
 
 
 cran.chastotnik_price = function (model) {
+	$('.preobrazovatel_change').parent('.dop_parametr').remove();
 	let price =	
 			model == 8.5 && (cran.gp == 500 || cran.gp == 1000 || cran.gp == 2000 || cran.gp == 3200 || cran.gp == 5000) ? {id:16, img:'8.5'} : 
 				model == 8.5 && (cran.gp == 6300 || cran.gp == 8000 || cran.gp == 10000) ? {id:17, img:'8.5'} :

@@ -148,9 +148,18 @@ $wpdb->show_errors();
 <!-- Размещение -->
 	<div id="размещение" class="modal_change modal_change_hide">
 		<ul class="ul_change">
-			<li id="Улица" class="change_li"><span>Улица</span></li>
-			<li id="Навес" class="change_li"><span>Навес</span></li>
-			<li id="Помещение" class="change_li"><span>Помещение</span></li>
+			<li id="Улица" class="change_li">
+				<span>Улица</span>
+				<strong class="price_" style="font-size:.9em">Расчитываем...</strong>
+			</li>
+			<li id="Навес" class="change_li">
+				<span>Навес</span>
+				<strong class="price_" style="font-size:.9em">Без доплаты</strong>
+			</li>
+			<li id="Помещение" class="change_li">
+				<span>Помещение</span>
+				<strong class="price_" style="font-size:.9em">Без доплаты</strong>
+			</li>
 		</ul>
 	</div>
 <!-- Размещение -->
@@ -258,16 +267,16 @@ $wpdb->show_errors();
 <!-- Изменить исполнение крана -->
 	<div id="icP2" class="modal_change modal_change_hide">
 		<ul class="ul_change">
-			<li class="change_li" style="width:285px"><span id="obshprm2">Общепромышленное</span></li>
+			<li class="change_li" style="width:285px"><span id="obshprm2">Общепромышленное</span><strong class="price_" style="font-size:.9em">Расчитываем...</strong></li>
 			<li class="change_li" style="width:355px">
-				<span id="vzrivoshow2">Взрывобезопасное</span>
+				<span id="vzrivoshow2">Взрывобезопасное</span><strong class="price_" style="font-size:.9em">Расчитываем...</strong>
 				<select name="vzriv2" id="vzrivoselect2" style="display:none;width: 70%;font-size:1.2em;margin:0 auto 17px auto" size="2" multiple="multiple">
 					<option value="B1a, IIB Т5 (B1а, IIА Т5)">B1a, IIB Т5 (B1а, IIА Т5)</option>
 					<option value="B1a, IIС Т5">B1a, IIС Т5</option>
 				</select>
 			</li>
 			<li class="change_li" style="width:285px">
-				<span id="pozharshow2">Пожаробезопасное</span>
+				<span id="pozharshow2">Пожаробезопасное</span><strong class="price_" style="font-size:.9em">Расчитываем...</strong>
 				<select name="pozhar2" id="pozharselect2" style="display:none;width: 70%;font-size:1.2em;margin:0 auto 17px auto" size="2" multiple="multiple">
 					<option value="П-I">П-I</option>
 					<option value="П-II / П-Iia / П-III">П-II / П-Iia / П-III</option>
@@ -294,9 +303,18 @@ $wpdb->show_errors();
 <!-- Размещение -->
 	<div id="размещениеP" class="modal_change modal_change_hide">
 		<ul class="ul_change">
-			<li id="УлицаP" class="change_li"><span>Улица</span></li>
-			<li id="НавесP" class="change_li"><span>Навес</span></li>
-			<li id="ПомещениеP" class="change_li"><span>Помещение</span></li>
+			<li id="УлицаP" class="change_li">
+				<span>Улица</span>
+				<strong class="price_" style="font-size:.9em">Расчитываем...</strong>
+			</li>
+			<li id="НавесP" class="change_li">
+				<span>Навес</span>
+				<strong class="price_" style="font-size:.9em">Без доплаты</strong>
+			</li>
+			<li id="ПомещениеP" class="change_li">
+				<span>Помещение</span>
+				<strong class="price_" style="font-size:.9em">Без доплаты</strong>
+			</li>
 		</ul>
 	</div>
 <!-- Размещение -->
