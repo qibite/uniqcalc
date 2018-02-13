@@ -1,29 +1,5 @@
 jQuery(document).ready(($)=>{
 	$('#cgpO').click(()=>{
-		if (cran._1 == 'Опорный') {
-				$('.кг500_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг1000_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг2000_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг3200_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг5000_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг6300_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг8000_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг10000_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг12500_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг16000_resume_o > strong.price_').text('Расчитываем...');
-			}/*
-		else if (cran._1 == 'Опорный') {
-			$('.кг500_resume_p > strong.price_').text('Расчитываем...');
-			$('.кг1000_resume_p > strong.price_').text('Расчитываем...');
-			$('.кг2000_resume_p > strong.price_').text('Расчитываем...');
-			$('.кг3200_resume_p > strong.price_').text('Расчитываем...');
-			$('.кг5000_resume_p > strong.price_').text('Расчитываем...');
-			$('.кг6300_resume_p > strong.price_').text('Расчитываем...');
-			$('.кг8000_resume_p > strong.price_').text('Расчитываем...');
-			$('.кг10000_resume_p > strong.price_').text('Расчитываем...');
-			$('.кг12500_resume_p > strong.price_').text('Расчитываем...');
-			$('.кг16000_resume_p > strong.price_').text('Расчитываем...');
-		}*/
 		showChange($('#gpO'));
 		setTimeout(()=>{
 			gp_insert_price();
@@ -378,19 +354,6 @@ jQuery(document).ready(($)=>{
 
 	
 	$('#cgpP').click(()=>{
-		if (cran._1 == 'Опорный') {
-				$('.кг500_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг1000_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг2000_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг3200_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг5000_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг6300_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг8000_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг10000_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг12500_resume_o > strong.price_').text('Расчитываем...');
-				$('.кг16000_resume_o > strong.price_').text('Расчитываем...');
-			}
-		else if (cran._1 == 'Опорный') {
 			$('.кг500_resume_p > strong.price_').text('Расчитываем...');
 			$('.кг1000_resume_p > strong.price_').text('Расчитываем...');
 			$('.кг2000_resume_p > strong.price_').text('Расчитываем...');
@@ -401,7 +364,6 @@ jQuery(document).ready(($)=>{
 			$('.кг10000_resume_p > strong.price_').text('Расчитываем...');
 			$('.кг12500_resume_p > strong.price_').text('Расчитываем...');
 			$('.кг16000_resume_p > strong.price_').text('Расчитываем...');
-		}
 		showChange($('#gpP'));
 		setTimeout(()=>{
 			gp_insert_price();
@@ -459,24 +421,25 @@ jQuery(document).ready(($)=>{
 		}
 		$('#Pgp').text(cran.gp);
 		setTimeout(()=>{hideChange()},300);
+		cran.calculate_podvesnoy_crane();
 		if ($('.return_motor_default') && cran._3 != 'Ручное' && cran.code_of_motor != 9.1) {$('.return_motor_default').parent().detach();cran.motor_price(cran.code_of_motor)}
 	});
 	
 
 	$('#cdpP').click(()=>{showChange($('#dpP2'))})
-	$('.cPdp').click(()=>{cran.paramsP.shpP = document.getElementById('valdpO').value;cran.paramsP.shpP = document.getElementById('valdpPk').value;$('#Pdp').text(document.getElementById('valdpP').value);setTimeout(()=>{hideChange()},300)})
+	$('.cPdp').click(()=>{cran.paramsP.shpP = document.getElementById('valdpO').value;cran.paramsP.shpP = document.getElementById('valdpPk').value;$('#Pdp').text(document.getElementById('valdpP').value);setTimeout(()=>{hideChange()},300);cran.calculate_podvesnoy_crane()})
 
 
 	$('#cdkP').click(()=>{showChange($('#dkP2'))})
-	$('.cPdk').click(()=>{cran.paramsP.vpP = document.getElementById('valdpO').value;cran.paramsP.vpP = document.getElementById('valdpPk').value;$('#Pdk').text(document.getElementById('valdpPk').value);setTimeout(()=>{hideChange()},300)})
+	$('.cPdk').click(()=>{cran.paramsP.vpP = document.getElementById('valdpO').value;cran.paramsP.vpP = document.getElementById('valdpPk').value;$('#Pdk').text(document.getElementById('valdpPk').value);setTimeout(()=>{hideChange()},300);cran.calculate_podvesnoy_crane()})
 
 
 	$('#cicP').click(()=>{showChange($('#icP2'))})
-		$('#obshprm2').click(()=>{cran._2 = 'Общепромышленное';$('#Pic').text('Общепромышленное');$('#pozharselect2').css('display','none');$('#vzrivoselect2').css('display','none');setTimeout(()=>{hideChange()},300)})
+		$('#obshprm2').click(()=>{cran._2 = 'Общепромышленное';$('#Pic').text('Общепромышленное');$('#pozharselect2').css('display','none');$('#vzrivoselect2').css('display','none');setTimeout(()=>{hideChange()},300);cran.calculate_podvesnoy_crane()})
 		$('#vzrivoshow2').click(()=>{$('#vzrivoselect2').css('display','block');$('#pozharselect2').css('display','none')})
-			$('#vzrivoselect2').change(()=>{cran._2 = 'Взрывобезопасное класса '+document.getElementById('vzrivoselect2').value;$('#Pic').text('Взрывобезопасное класса '+document.getElementById('vzrivoselect2').value);setTimeout(()=>{hideChange()},300)})
+			$('#vzrivoselect2').change(()=>{cran._2 = 'Взрывобезопасное класса '+document.getElementById('vzrivoselect2').value;$('#Pic').text('Взрывобезопасное класса '+document.getElementById('vzrivoselect2').value);setTimeout(()=>{hideChange()},300);cran.calculate_podvesnoy_crane()})
 		$('#pozharshow2').click(()=>{$('#pozharselect2').css('display','block');$('#vzrivoselect2').css('display','none')})
-			$('#pozharselect2').change(()=>{cran._2 = 'Пожаробезопасное класса '+document.getElementById('pozharselect2').value;$('#Pic').text('Пожаробезопасное класса '+document.getElementById('pozharselect2').value);setTimeout(()=>{hideChange()},300)})
+			$('#pozharselect2').change(()=>{cran._2 = 'Пожаробезопасное класса '+document.getElementById('pozharselect2').value;$('#Pic').text('Пожаробезопасное класса '+document.getElementById('pozharselect2').value);setTimeout(()=>{hideChange()},300);cran.calculate_podvesnoy_crane()})
 
 	$('#ctemperP').click(()=>{showChange($('#temperP'))})
 		$('#m50_2P').click(()=>{cran.temper[0] = '-50'});
@@ -1241,7 +1204,7 @@ function gp_insert_price ()
 				gp=0;
 				break;
 		}
-		let data_cran = { action: 'calc_cran', _gp:gp, _shir:cran.paramsO.shpO, _upravl:cran._3 }
+		let data_cran = cran._1 == 'Опорный' ? { action: 'calc_cran', _gp:gp, _shir:cran.paramsO.shpO, _upravl:cran._3 } : { action: 'calc_cran_p', _gp:gp, _shir:cran.paramsP.shpP, _upravl:cran._3 };
 		$.post( calc_ajaxurl.url, data_cran, function(response) {
 			let price_crane = response;
 			if (cran._2.search(/Пожаробезопасное/i) != -1) {
@@ -1376,10 +1339,21 @@ function calc_all_tokopodvod_i_puti () {
 			conteiner += parseInt(el.children[3].children[2].innerText.replace(/\s/g, ''));
 		}
 	});
-	$('#summa1').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
-	$('#summa4').text('Подождите...')
+	if (cran._1 == 'Опорный') {
+		$('#summa1').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4').text('Подождите...')
+	}
+	if (cran._1 == 'Подвесной') {
+		$('#summa1_p').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4_p').text('Подождите...')
+	}
 	setTimeout(() => {
-		calc_all_oporniy();
+		if (cran._1 == 'Опорный') {
+			calc_all_oporniy();
+		}
+		if (cran._1 == 'Подвесной') {
+			calc_all_podvesnoy();
+		}
 	}, 1200)
 }
 
@@ -1394,10 +1368,21 @@ function calc_all_dop () {
 			conteiner += parseInt(el.children[3].children[2].innerText.replace(/\s/g, ''));
 		}
 	});
-	$('#summa2').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
-	$('#summa4').text('Подождите...')
+	if (cran._1 == 'Опорный') {
+		$('#summa2').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4').text('Подождите...')
+	}
+	if (cran._1 == 'Подвесной') {
+		$('#summa2_p').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4_p').text('Подождите...')
+	}	
 	setTimeout(() => {
-		calc_all_oporniy();
+		if (cran._1 == 'Опорный') {
+			calc_all_oporniy();
+		}
+		if (cran._1 == 'Подвесной') {
+			calc_all_podvesnoy();
+		}		
 	}, 1200)
 }
 
@@ -1408,10 +1393,21 @@ function calc_all_uslugi () {
 			conteiner += parseInt(el.children[3].children[2].innerText.replace(/\s/g, ''));
 		}
 	});
-	$('#summa3').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
-	$('#summa4').text('Подождите...')
+	if (cran._1 == 'Опорный') {
+		$('#summa3').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4').text('Подождите...')
+	}
+	if (cran._1 == 'Подвесной') {
+		$('#summa3_p').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4_p').text('Подождите...')
+	}
 	setTimeout(() => {
-		calc_all_oporniy();
+		if (cran._1 == 'Опорный') {
+			calc_all_oporniy();
+		}
+		if (cran._1 == 'Подвесной') {
+			calc_all_podvesnoy();
+		}
 	}, 1200)
 }
 
@@ -1427,6 +1423,17 @@ function calc_all_oporniy () {
 	$('#summa4').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
 }
 
+function calc_all_podvesnoy () {
+	let conteiner = 0;
+	if (!isNaN($('#summa_p').text().replace(/\s/g, '')) && !isNaN($('#summa1_p').text().replace(/\s/g, '')) && !isNaN($('#summa2_p').text().replace(/\s/g, '')) && !isNaN($('#summa3_p').text().replace(/\s/g, ''))) {
+		let summa = parseInt($('#summa_p').text().replace(/\s/g, ''));
+		let summa1 = parseInt($('#summa1_p').text().replace(/\s/g, ''));
+		let summa2 = parseInt($('#summa2_p').text().replace(/\s/g, ''));
+		let summa3 = parseInt($('#summa3_p').text().replace(/\s/g, ''));
+		conteiner = summa + summa1 + summa2 + summa3;
+	}
+	$('#summa4_p').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+}
 
 });
 

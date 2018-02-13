@@ -1619,10 +1619,10 @@ function calc_all_podvesnoy () {
 		let summa = parseInt($('#summa_p').text().replace(/\s/g, ''));
 		let summa1 = parseInt($('#summa1_p').text().replace(/\s/g, ''));
 		let summa2 = parseInt($('#summa2_p').text().replace(/\s/g, ''));
-		let summa3 = parseInt($('#summsumma3_pa3').text().replace(/\s/g, ''));
+		let summa3 = parseInt($('#summa3_p').text().replace(/\s/g, ''));
 		conteiner = summa + summa1 + summa2 + summa3;
 	}
-	$('#summa4').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+	$('#summa4_p').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
 }
 
 

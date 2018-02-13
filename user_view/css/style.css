@@ -288,7 +288,7 @@ td i:hover {text-decoration:underline}
 {background-color:#b5212e;color:#fff}
 
 
-td>span,img+br+p>span,img+br+p+p>span, #summa1, #summa2, #summa3, #summa4 {color:#b5212e}
+td>span,img+br+p>span,img+br+p+p>span, #summa1, #summa2, #summa3, #summa4, #summa1_p, #summa2_p, #summa3_p, #summa4_p {color:#b5212e}
 
 
 @keyframes showm {

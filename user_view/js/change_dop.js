@@ -1718,10 +1718,21 @@ function calc_all_tokopodvod_i_puti () {
 			conteiner += parseInt(el.children[3].children[2].innerText.replace(/\s/g, ''));
 		}
 	});
-	$('#summa1').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
-	$('#summa4').text('Подождите...')
+	if (cran._1 == 'Опорный') {
+		$('#summa1').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4').text('Подождите...')
+	}
+	if (cran._1 == 'Подвесной') {
+		$('#summa1_p').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4_p').text('Подождите...')
+	}	
 	setTimeout(() => {
-		calc_all_oporniy();
+		if (cran._1 == 'Опорный') {
+			calc_all_oporniy();
+		}
+		if (cran._1 == 'Подвесной') {
+			calc_all_podvesnoy();
+		}
 	}, 1200)
 }
 
@@ -1735,10 +1746,22 @@ function calc_all_dop () {
 			conteiner += parseInt(el.children[3].children[2].innerText.replace(/\s/g, ''));
 		}
 	});
-	$('#summa2').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
-	$('#summa4').text('Подождите...')
+	
+	if (cran._1 == 'Опорный') {
+		$('#summa2').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4').text('Подождите...')
+	}
+	if (cran._1 == 'Подвесной') {
+		$('#summa2_p').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4_p').text('Подождите...')
+	}
 	setTimeout(() => {
-		calc_all_oporniy();
+		if (cran._1 == 'Опорный') {
+			calc_all_oporniy();
+		}
+		if (cran._1 == 'Подвесной') {
+			calc_all_podvesnoy();
+		}		
 	}, 1200)
 }
 
@@ -1749,10 +1772,21 @@ function calc_all_uslugi () {
 			conteiner += parseInt(el.children[3].children[2].innerText.replace(/\s/g, ''));
 		}
 	});
-	$('#summa3').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
-	$('#summa4').text('Подождите...')
+	if (cran._1 == 'Опорный') {
+		$('#summa3').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4').text('Подождите...')
+	}
+	if (cran._1 == 'Подвесной') {
+		$('#summa3_p').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+		$('#summa4_p').text('Подождите...')
+	}
 	setTimeout(() => {
-		calc_all_oporniy();
+		if (cran._1 == 'Опорный') {
+			calc_all_oporniy();
+		}
+		if (cran._1 == 'Подвесной') {
+			calc_all_podvesnoy();
+		}	
 	}, 1200)
 }
 
@@ -1763,6 +1797,18 @@ function calc_all_oporniy () {
 		let summa1 = parseInt($('#summa1').text().replace(/\s/g, ''));
 		let summa2 = parseInt($('#summa2').text().replace(/\s/g, ''));
 		let summa3 = parseInt($('#summa3').text().replace(/\s/g, ''));
+		conteiner = summa + summa1 + summa2 + summa3;
+	}
+	$('#summa4').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
+}
+
+function calc_all_podvesnoy () {
+	let conteiner = 0;
+	if (!isNaN($('#summa_p').text().replace(/\s/g, '')) && !isNaN($('#summa1_p').text().replace(/\s/g, '')) && !isNaN($('#summa2_p').text().replace(/\s/g, '')) && !isNaN($('#summa3_p').text().replace(/\s/g, ''))) {
+		let summa = parseInt($('#summa_p').text().replace(/\s/g, ''));
+		let summa1 = parseInt($('#summa1_p').text().replace(/\s/g, ''));
+		let summa2 = parseInt($('#summa2_p').text().replace(/\s/g, ''));
+		let summa3 = parseInt($('#summa3_p').text().replace(/\s/g, ''));
 		conteiner = summa + summa1 + summa2 + summa3;
 	}
 	$('#summa4').text(String(Number(conteiner).toFixed(0)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 '))
